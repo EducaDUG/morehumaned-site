@@ -141,3 +141,29 @@ section.dark .card p { color: #D9DCD3; }
 .photo::before { content: ""; position: absolute; left: 0; bottom: 0; height: 5px; width: 0; background: var(--signal); z-index: 2; transition: width 600ms var(--ease); }
 .photo:hover::before { width: 100%; }
 @media (max-width: 820px) { .photo-band { grid-template-columns: 1fr 1fr; } .photo-band .photo, .photo-band .photo:nth-child(n) { grid-column: span 1; grid-row: auto; min-height: 0; aspect-ratio: 4/3; } .photo-band .photo:nth-child(1) { grid-column: span 2; } figcaption { opacity: 1; } }
+
+/* ---- Modern ticker: big sans words, alternating solid and outline, thin rules ---- */
+.ticker { background: transparent; color: var(--navy); border-block: 1px solid var(--line-strong); padding-block: 1.1rem; }
+.ticker__track { gap: 2.5rem; animation-duration: 55s; }
+.ticker span {
+  font-family: var(--font-ui); font-style: normal; font-weight: 800; text-transform: uppercase;
+  font-size: clamp(1.6rem, 1.2rem + 2.2vw, 3rem); letter-spacing: -.01em; line-height: 1; gap: 2.5rem;
+}
+.ticker span:nth-child(even) { color: transparent; -webkit-text-stroke: 1.5px var(--navy); }
+.ticker span::after {
+  content: ""; width: .5em; height: .5em; border-radius: 0; background: var(--signal);
+  clip-path: polygon(50% 0, 62% 38%, 100% 50%, 62% 62%, 50% 100%, 38% 62%, 0 50%, 38% 38%);
+  animation: spin 9s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes tick { to { transform: translateX(calc(-50% - 1.25rem)); } }
+
+/* ---- Single cinematic photo breaks, one at a time ---- */
+.photo-break { position: relative; width: min(100% - 2.5rem, 86rem); margin: clamp(2rem, 5vw, 4rem) auto; height: clamp(18rem, 42vw, 34rem); overflow: hidden; border-radius: var(--radius-lg); background: var(--navy); }
+.photo-break img { position: absolute; left: 0; top: -12%; width: 100%; height: 124%; object-fit: cover; will-change: transform; }
+.photo-break::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, #142B3Dd9 0%, #142B3D66 45%, transparent 80%); }
+.photo-break__text { position: absolute; z-index: 2; left: clamp(1.25rem, 5vw, 4rem); bottom: clamp(1.25rem, 4vw, 3rem); max-width: 30rem; color: #fff; }
+.photo-break__text p { font-family: var(--font-display); font-variation-settings: "opsz" 60, "wght" 600; font-size: var(--step-4); line-height: 1.05; margin-bottom: .8rem; }
+.photo-break__text p::before { content: ""; display: block; width: 72px; height: 3px; background: var(--signal); margin-bottom: 1rem; }
+.photo-break__text small { font-family: var(--font-data); font-size: .68rem; letter-spacing: .08em; opacity: .75; }
+@media (prefers-reduced-motion: reduce) { .ticker span::after { animation: none; } .photo-break img { top: 0; height: 100%; } }

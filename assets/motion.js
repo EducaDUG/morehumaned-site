@@ -61,3 +61,23 @@
   });
   window.addEventListener('pageshow', function (e) { if (e.persisted && veil) veil.classList.remove('on'); });
 })();
+
+// Gentle parallax inside the photo breaks
+(function () {
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var imgs = [].slice.call(document.querySelectorAll('[data-parallax]'));
+  if (!imgs.length) return;
+  var t = false;
+  function run() {
+    t = false;
+    var vh = window.innerHeight;
+    imgs.forEach(function (im) {
+      var r = im.parentNode.getBoundingClientRect();
+      if (r.bottom < 0 || r.top > vh) return;
+      var p = (r.top + r.height / 2 - vh / 2) / vh;
+      im.style.transform = 'translateY(' + (p * -8).toFixed(2) + '%)';
+    });
+  }
+  window.addEventListener('scroll', function () { if (!t) { t = true; requestAnimationFrame(run); } }, { passive: true });
+  run();
+})();

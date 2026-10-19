@@ -286,12 +286,15 @@ def home(lang):
           f_p="Una conversación relajada de 20 minutos. Sin compromiso.", f_b1="Hablar de un piloto", f_b2="Escríbeme",
           ids=dict(approach="enfoque", workshops="talleres", about="sobre"), files=dict(pilot="piloto.html", tut=None, priv="../en/privacy.html", about=None))
     I = X["ids"]; F = X["files"]
-    _ph = [("workshop-1","Quilia","A presenter speaking to a seated group beside a projector screen","from-left"),
-           ("workshop-3","Centre for Ageing Better","A facilitator leading a small-group workshop at a flipchart","drop"),
-           ("workshop-2","Juli Kosolapova","Participants watching a presentation in a training room","zoom"),
-           ("workshop-4","LexScope","A teacher explaining an idea to a class","from-right"),
-           ("workshop-5","Quilia","A teacher standing at the front of a busy classroom","zoom")]
-    PHOTOS = "".join(f'<figure class="photo reveal {c}" style="--d:{i*110}ms"><img src="../assets/img/photos/{n}.jpg" width="1000" height="750" alt="{alt}" loading="lazy"><figcaption>Photo: {who} / Unsplash</figcaption></figure>' for i,(n,who,alt,c) in enumerate(_ph))
+    _bt = {"en": ["Every room holds someone who needs to be noticed.", "Technology drafts. People decide.", "Time to listen is the real resource."],
+           "es": ["En cada sala hay alguien que necesita ser visto.", "La tecnología propone. Las personas deciden.", "El tiempo para escuchar es el verdadero recurso."]}[lang]
+    _bi = [("workshop-1","A presenter speaking to a seated group beside a projector screen" if lang=="en" else "Una persona presentando a un grupo sentado junto a una pantalla","Quilia"),
+           ("workshop-3","A facilitator leading a small-group workshop at a flipchart" if lang=="en" else "Una facilitadora dirigiendo un taller en grupo","Centre for Ageing Better"),
+           ("workshop-4","A teacher explaining an idea to a class" if lang=="en" else "Un docente explicando una idea a la clase","LexScope")]
+    def _pb(k):
+        n,alt,who=_bi[k]
+        return f'<div class="photo-break reveal"><img src="../assets/img/photos/{n}.jpg" width="1000" height="750" alt="{alt}" loading="lazy" data-parallax><div class="photo-break__text"><p>{_bt[k]}</p><small>Photo: {who} / Unsplash</small></div></div>'
+    BRK1, BRK2, BRK3 = _pb(0), _pb(1), _pb(2)
     _tw = ["Notice","Listen","Support","Every learner","Time to think","More human"] if lang == "en" else ["Observar","Escuchar","Acompañar","Cada persona","Tiempo para pensar","Más humano"]
     TICK = "".join(f"<span>{w}</span>" for w in _tw)
     ws = ""
@@ -326,9 +329,7 @@ def home(lang):
 <div class="section-head reveal"><span class="eyebrow">{X["who_eyebrow"]}</span><span class="rule"></span><h2>{X["who_h"]}</h2></div>
 <div class="grid-3">{who}</div></div></section>
 
-<section class="photos"><div class="shell">
-<div class="section-head reveal"><span class="eyebrow">{X["ph_eyebrow"]}</span><span class="rule"></span><h2>{X["ph_h"]}</h2></div>
-<div class="photo-band">{PHOTOS}</div></div></section>
+{BRK1}
 
 <section class="tint" id="problem"><div class="shell problem">
 <div class="problem__copy reveal from-left"><span class="eyebrow">{X["p_eyebrow"]}</span><span class="rule"></span><h2>{X["p_h"]}</h2><p>{X["p_1"]}</p><p>{X["p_2"]}</p></div>
@@ -349,6 +350,8 @@ def home(lang):
 <div class="section-head reveal"><span class="eyebrow">{X["pr_eyebrow"]}</span><span class="rule"></span><h2>{X["pr_h"]}</h2></div>
 <ol class="process">{steps}</ol></div></section>
 
+{BRK2}
+
 <section class="tint library" id="tutorials"><div class="shell">
 <div class="section-head reveal"><span class="eyebrow">{X["t_eyebrow"]}</span><span class="rule"></span><h2>{X["t_h"]}</h2><p>{X["t_p"]}</p></div>
 <div class="grid-3">{tut}</div>{t_all}</div></section>
@@ -367,8 +370,10 @@ def home(lang):
 <article {rv(2)}><div class="card ghost-card"><h3>{X["e_3"]}</h3><p>{X["e_3p"]}</p></div></article>
 </div></div></section>
 
+{BRK3}
+
 <section id="{I["about"]}"><div class="shell about-grid">
-<img class="portrait reveal clip" src="../assets/img/diego-portrait.jpg" width="340" height="340" alt="{X["ab_alt"]}" loading="lazy">
+<img class="portrait reveal from-left" src="../assets/img/diego-portrait.jpg" width="340" height="340" alt="{X["ab_alt"]}" loading="lazy">
 <div class="prose reveal from-right" style="--d:100ms"><span class="eyebrow">{X["ab_eyebrow"]}</span><span class="rule"></span><h2>{X["ab_h"]}</h2>{abp}{ab_a}</div>
 </div></section>
 
