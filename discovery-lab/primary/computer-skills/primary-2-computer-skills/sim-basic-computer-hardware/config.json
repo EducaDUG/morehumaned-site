@@ -1,0 +1,256 @@
+{
+  "activityId": "PRI-CS2-SIM02",
+  "version": "1.9",
+  "title": "Lesson 2: Basic Computer Hardware",
+  "subtitle": "Build a real computer from scratch, piece by piece, and watch it power up.",
+  "course": "Computer Skills",
+  "pathway": "Primary",
+  "module": "Primary 2 Computer Skills",
+  "theme": "computing",
+  "ageBand": "primary",
+  "estimatedMinutes": 20,
+
+  "learningFocus": {
+    "skills": ["Digital literacy", "Critical thinking", "Sequencing", "Communication"],
+    "summary": "In this Primary 2 Computer Skills activity, students open up a computer case and build a working machine from its five main components, practising the digital-literacy skill of recognising real hardware and matching each part to its job. Deciding where every part belongs before it snaps into place builds sequencing and critical-thinking skills, while the Explain and Apply questions ask students to reason about what happens when a part is missing or slow — connecting classroom knowledge of computer hardware to the real device they use at home or at school."
+  },
+
+  "orient": {
+    "objective": "I can name the main parts inside a computer and say what each one does.",
+    "courseLink": "This is Lesson 2 of Primary 2 Computer Skills. Lesson 1 showed you what computer hardware is — today you build it yourself, and later lessons will show you how software uses these same parts.",
+    "successCriteria": [
+      "I can name the case, motherboard, CPU, RAM and graphics card.",
+      "I can say what job each part does inside the computer.",
+      "I can explain why a computer needs all its parts working together."
+    ],
+    "mission": "This computer arrived in pieces. Tap to meet each part, then build it for real.",
+    "steps": [
+      "Tap the diagram to meet each part.",
+      "Predict the most important part.",
+      "Label it, then build it in the workshop.",
+      "Explain and apply what you found.",
+      "Knowledge Check, then Learning Evidence."
+    ],
+    "realLife": "Every laptop, tablet and games console you own has these same five parts hiding inside."
+  },
+
+  "predict": {
+    "type": "multi",
+    "prompt": "Before you build anything: which part do you think a computer could NOT work at all without?",
+    "hint": "Think about which part actually does the thinking.",
+    "options": [
+      { "id": "case", "label": "The case" },
+      { "id": "cpu", "label": "The CPU" },
+      { "id": "ram", "label": "The RAM" },
+      { "id": "gpu", "label": "The graphics card" }
+    ],
+    "revisable": true
+  },
+
+  "investigate": {
+    "title": "The Build Workshop",
+    "lede": "First, label the parts. Then answer a quick question for each one before you snap it into the case."
+  },
+
+  "record": {
+    "intro": "Every part you install is logged here automatically.",
+    "emptyText": "No parts installed yet. Head to the workshop and start building.",
+    "columns": [
+      { "key": "part", "label": "Part installed", "unit": "" },
+      { "key": "job", "label": "Its job", "unit": "" },
+      { "key": "attempts", "label": "Tries taken", "unit": "" }
+    ]
+  },
+
+  "explain": {
+    "prompt": "Imagine the CPU stopped working, but every other part was fine. Explain what would happen to the computer and why.",
+    "lede": "Use what you learned about each part's job while building your computer.",
+    "maxMarks": 3,
+    "minChars": 40,
+    "skillFocus": "Use what you learned about each part's job and explain your reasoning clearly."
+  },
+
+  "apply": {
+    "prompt": "A family's home computer takes ages to open programs, and games look blocky and slow. For each problem, name the part you would suggest upgrading, and explain why that part's job fixes it.",
+    "lede": "Think about which part's job matches each problem they are having.",
+    "maxMarks": 3,
+    "minChars": 40,
+    "skillFocus": "Apply what you found to a new situation and give clear, well-explained reasons."
+  },
+
+  "knowledgeCheck": [
+    {
+      "id": "kc1", "type": "mc", "marks": 1,
+      "prompt": "Which part is often called the 'brain' of the computer?",
+      "options": [
+        { "id": "a", "label": "The CPU" },
+        { "id": "b", "label": "The case" },
+        { "id": "c", "label": "The RAM" }
+      ],
+      "answer": "a",
+      "explain": "The CPU (Central Processing Unit) runs the apps and games and does billions of calculations every second — just like a brain thinking."
+    },
+    {
+      "id": "kc2", "type": "mc", "marks": 1,
+      "prompt": "What is the motherboard's job?",
+      "options": [
+        { "id": "a", "label": "It protects the parts from dust and bumps" },
+        { "id": "b", "label": "It connects every part together so they can talk to each other" },
+        { "id": "c", "label": "It draws the pictures you see on the screen" }
+      ],
+      "answer": "b",
+      "explain": "The motherboard is the 'body' of the computer — it connects the CPU, RAM and every other part so they can work as a team."
+    },
+    {
+      "id": "kc3", "type": "match", "marks": 3,
+      "prompt": "Match each part to its job.",
+      "pairs": [
+        { "left": "Case", "right": "Protects everything inside and keeps it cool with fans" },
+        { "left": "CPU", "right": "Thinks and calculates — the brain of the computer" },
+        { "left": "Graphics card", "right": "Draws what you see on the screen" }
+      ],
+      "explain": "Every part has its own job, and the computer only works well when they all do their job together."
+    }
+  ],
+
+  "rubric": {
+    "note": "You are graded out of the total marks, shown as a percentage.",
+    "criteria": [
+      { "key": "knowledge_accuracy", "label": "Knowledge & understanding", "descriptor": "Knowledge Check correct.", "max": 5, "auto": true },
+      {
+        "key": "use_of_evidence", "label": "Use of evidence", "max": 3,
+        "studentHint": "Explain clearly what would happen and why, using what you learned about each part's job."
+      },
+      {
+        "key": "reasoning", "label": "Reasoning", "max": 3,
+        "studentHint": "Name the part that matches each problem and explain why that part's job fixes it."
+      },
+      {
+        "key": "communication", "label": "Communication", "max": 2,
+        "studentHint": "Write clearly, in full sentences, using the correct part names."
+      }
+    ]
+  },
+
+  "es": {
+    "title": "Lección 2: Hardware básico del ordenador",
+    "subtitle": "Construye un ordenador real desde cero, pieza a pieza, y enciéndelo.",
+    "course": "Informática",
+    "pathway": "Primaria",
+    "module": "Informática de Primaria 2",
+
+    "learningFocus": {
+      "skills": ["Alfabetización digital", "Pensamiento crítico", "Secuenciación", "Comunicación"],
+      "summary": "En esta actividad de Informática de Primaria 2, los estudiantes abren la torre de un ordenador y construyen una máquina que funciona a partir de sus cinco componentes principales, practicando la destreza digital de reconocer hardware real y relacionar cada pieza con su función. Decidir dónde va cada pieza antes de encajarla desarrolla la secuenciación y el pensamiento crítico, mientras que las preguntas de Explicación y Aplicación piden razonar sobre qué ocurre cuando falta una pieza o funciona lento — conectando el conocimiento de clase sobre hardware con el dispositivo real que usan en casa o en el colegio."
+    },
+
+    "orient": {
+      "objective": "Puedo nombrar las principales piezas de dentro de un ordenador y decir qué hace cada una.",
+      "courseLink": "Esta es la Lección 2 de Informática de Primaria 2. La Lección 1 te mostró qué es el hardware — hoy lo construyes tú mismo, y las próximas lecciones te mostrarán cómo el software usa estas mismas piezas.",
+      "successCriteria": [
+        "Puedo nombrar la torre, la placa base, el CPU, la RAM y la tarjeta gráfica.",
+        "Puedo decir qué función cumple cada pieza dentro del ordenador.",
+        "Puedo explicar por qué un ordenador necesita todas sus piezas funcionando juntas."
+      ],
+      "mission": "Este ordenador llegó desmontado, pieza por pieza. Toca para conocer cada parte y luego constrúyelo de verdad.",
+      "steps": [
+        "Toca el diagrama para conocer cada pieza.",
+        "Predice cuál es la pieza más importante.",
+        "Etiquétala y luego constrúyela en el taller.",
+        "Explica y aplica lo que descubriste.",
+        "Comprobación de conocimientos y Evidencia de aprendizaje."
+      ],
+      "realLife": "Todos los portátiles, tablets y consolas que tienes escondes estas mismas cinco piezas por dentro."
+    },
+
+    "predict": {
+      "prompt": "Antes de construir nada: ¿sin qué pieza crees que un ordenador NO podría funcionar en absoluto?",
+      "hint": "Piensa en qué pieza es la que realmente piensa.",
+      "options": [
+        { "id": "case", "label": "La torre" },
+        { "id": "cpu", "label": "El CPU" },
+        { "id": "ram", "label": "La RAM" },
+        { "id": "gpu", "label": "La tarjeta gráfica" }
+      ]
+    },
+
+    "investigate": {
+      "title": "El taller de construcción",
+      "lede": "Primero, etiqueta las piezas. Luego responde una pregunta rápida sobre cada una antes de encajarla en la torre."
+    },
+
+    "record": {
+      "intro": "Cada pieza que instalas se registra aquí automáticamente.",
+      "emptyText": "Todavía no has instalado ninguna pieza. Ve al taller y empieza a construir.",
+      "columns": [
+        { "key": "part", "label": "Pieza instalada", "unit": "" },
+        { "key": "job", "label": "Su función", "unit": "" },
+        { "key": "attempts", "label": "Intentos", "unit": "" }
+      ]
+    },
+
+    "explain": {
+      "prompt": "Imagina que el CPU dejara de funcionar, pero todas las demás piezas estuvieran bien. Explica qué le pasaría al ordenador y por qué.",
+      "lede": "Usa lo que aprendiste sobre la función de cada pieza mientras construías tu ordenador.",
+      "skillFocus": "Usa lo que aprendiste sobre la función de cada pieza y explica tu razonamiento con claridad."
+    },
+
+    "apply": {
+      "prompt": "El ordenador de una familia tarda mucho en abrir programas, y los juegos se ven de baja calidad y lentos. Para cada problema, indica qué pieza recomendarías actualizar, y explica por qué la función de esa pieza soluciona el problema.",
+      "lede": "Piensa en qué función de qué pieza coincide con cada problema que tienen.",
+      "skillFocus": "Aplica lo que descubriste a una situación nueva y da razones claras y bien explicadas."
+    },
+
+    "knowledgeCheck": [
+      {
+        "id": "kc1",
+        "prompt": "¿Qué pieza se conoce a menudo como el «cerebro» del ordenador?",
+        "options": [
+          { "id": "a", "label": "El CPU" },
+          { "id": "b", "label": "La torre" },
+          { "id": "c", "label": "La RAM" }
+        ],
+        "explain": "El CPU (unidad central de procesamiento) ejecuta las aplicaciones y los juegos y hace miles de millones de cálculos cada segundo — igual que un cerebro pensando."
+      },
+      {
+        "id": "kc2",
+        "prompt": "¿Cuál es la función de la placa base?",
+        "options": [
+          { "id": "a", "label": "Protege las piezas del polvo y los golpes" },
+          { "id": "b", "label": "Conecta todas las piezas para que puedan comunicarse entre sí" },
+          { "id": "c", "label": "Dibuja las imágenes que ves en la pantalla" }
+        ],
+        "explain": "La placa base es el «cuerpo» del ordenador — conecta el CPU, la RAM y todas las demás piezas para que trabajen en equipo."
+      },
+      {
+        "id": "kc3",
+        "prompt": "Relaciona cada pieza con su función.",
+        "pairs": [
+          { "left": "Torre", "right": "Protege todo lo de dentro y lo mantiene fresco con ventiladores" },
+          { "left": "CPU", "right": "Piensa y calcula — el cerebro del ordenador" },
+          { "left": "Tarjeta gráfica", "right": "Dibuja lo que ves en la pantalla" }
+        ],
+        "explain": "Cada pieza tiene su propia función, y el ordenador solo funciona bien cuando todas cumplen su función juntas."
+      }
+    ],
+
+    "rubric": {
+      "note": "Tu nota son los puntos que obtienes del total, como porcentaje.",
+      "criteria": [
+        { "label": "Conocimiento y comprensión", "descriptor": "Comprobación de conocimientos correcta." },
+        {
+          "label": "Uso de la evidencia",
+          "studentHint": "Explica con claridad qué pasaría y por qué, usando lo que aprendiste sobre la función de cada pieza."
+        },
+        {
+          "label": "Razonamiento",
+          "studentHint": "Nombra la pieza que corresponde a cada problema y explica por qué su función lo soluciona."
+        },
+        {
+          "label": "Comunicación",
+          "studentHint": "Escribe con claridad, en oraciones completas, usando los nombres correctos de las piezas."
+        }
+      ]
+    }
+  }
+}

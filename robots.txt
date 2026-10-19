@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /discovery-lab/primary/primary-enrichment/admin/
 
 Sitemap: https://morehumaned.com/sitemap.xml
