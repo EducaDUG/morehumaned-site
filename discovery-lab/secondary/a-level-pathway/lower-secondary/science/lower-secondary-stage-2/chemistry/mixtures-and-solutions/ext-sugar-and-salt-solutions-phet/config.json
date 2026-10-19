@@ -1,0 +1,294 @@
+{
+  "activityId": "ALEV-LS2-CHM-EXT01",
+  "version": "1.0",
+  "title": "Sugar and Salt Solutions (PhET Simulation)",
+  "title_es": "Disoluciones de Azúcar y Sal (Simulación PhET)",
+  "subtitle": "Dissolve salt and sugar into water, then use a conductivity tester and an evaporation control to find out what really happens at the particle level.",
+  "subtitle_es": "Disuelve sal y azúcar en agua, y luego usa un probador de conductividad y un control de evaporación para descubrir qué ocurre realmente a nivel de partículas.",
+  "course": "Chemistry",
+  "course_es": "Química",
+  "module": "Mixtures and Solutions",
+  "module_es": "Mezclas y disoluciones",
+  "pathway": "A-Level Pathway · Lower Secondary Stage 2",
+  "pathway_es": "Ruta A-Level · Lower Secondary Etapa 2",
+  "ageBand": "lower-secondary",
+  "theme": "chemistry",
+  "estimatedMinutes": 20,
+
+  "source": "PhET Interactive Simulations · University of Colorado Boulder",
+  "externalUrl": "https://phet.colorado.edu/en/simulations/sugar-and-salt-solutions",
+
+  "description": "A real, playable lab bench with a shaker of solute, a water tap, a conductivity tester and an evaporation control. You choose whether the shaker holds Salt or Sugar, tip it into the tank, watch the Concentration panel update, then test whether your solution conducts electricity and what is left behind once the water evaporates.",
+  "description_es": "Un banco de laboratorio real y jugable con un agitador de soluto, un grifo de agua, un probador de conductividad y un control de evaporación. Eliges si el agitador contiene Sal o Azúcar, lo viertes en el tanque, observas cómo se actualiza el panel de Concentración, y después compruebas si tu disolución conduce electricidad y qué queda cuando el agua se evapora.",
+
+  "whatToDo": [
+    "Open the simulation on the Macro tab. Select \"Salt\" as the solute, then shake some into the water and watch the Concentration panel.",
+    "Tick \"Show values\" on the Concentration panel to see the exact numbers for salt and sugar.",
+    "Touch the conductivity tester's two probes into the salt solution and see whether the light bulb lights up.",
+    "Click \"Remove salt\", switch the solute to \"Sugar\", shake some in, and test the conductivity tester in the sugar solution instead — compare what happens.",
+    "Drag the Evaporation slider from \"none\" towards \"lots\" and watch what is left behind in the tank as the water disappears, then click \"Reset All\" and come back to answer the questions below."
+  ],
+  "whatToDo_es": [
+    "Abre la simulación en la pestaña \"Macro\". Selecciona \"Salt\" (Sal) como soluto, agítalo hacia el agua y observa el panel de Concentración.",
+    "Marca \"Show values\" (Mostrar valores) en el panel de Concentración para ver los números exactos de sal y azúcar.",
+    "Toca con las dos sondas del probador de conductividad la disolución de sal y observa si se enciende la bombilla.",
+    "Haz clic en \"Remove salt\" (Quitar sal), cambia el soluto a \"Sugar\" (Azúcar), agrega un poco y prueba el conductímetro en la disolución de azúcar — compara qué ocurre.",
+    "Arrastra el control de Evaporación de \"none\" (nada) hacia \"lots\" (mucho) y observa qué queda en el tanque a medida que el agua desaparece, luego pulsa \"Reset All\" (Reiniciar todo) y vuelve para responder las preguntas."
+  ],
+
+  "learningFocus": {
+    "skills": ["scientific enquiry", "critical thinking", "digital literacy", "observation"],
+    "summary": "This activity builds directly on this module's core ideas about mixtures and solutions — what a solute, a solvent and a solution actually are — using a real, research-based PhET simulation from the University of Colorado Boulder instead of a static diagram. By dissolving salt and sugar separately and comparing them with a conductivity tester, students discover for themselves that an ionic solute like salt splits into charged particles in water that can carry an electric current, while a covalent solute like sugar dissolves as whole, uncharged molecules that cannot — a concrete, testable difference that connects this module's separating-techniques content to the deeper particle-level chemistry students will meet again at IGCSE and A-Level. The evaporation control reinforces that dissolving is reversible: the solute is still there, just spread invisibly through the water, and can be recovered by removing the solvent — the same principle behind the evaporation technique already covered in this module."
+  },
+
+  "knowledgeCheck": [
+    {
+      "id": "q1", "type": "mc", "marks": 1,
+      "prompt": "In your investigation, you dissolved salt and sugar into water. Which statement correctly identifies the solute and the solvent?",
+      "options": [
+        { "id": "a", "label": "Water is the solvent; the salt or sugar being dissolved into it is the solute" },
+        { "id": "b", "label": "Salt and sugar are both solvents; water is the solute" },
+        { "id": "c", "label": "The solute and solvent swap depending on which one there is more of" },
+        { "id": "d", "label": "There is no solute or solvent once a solution has formed" }
+      ],
+      "answer": "a",
+      "explain": "The solvent is the substance that does the dissolving — here, the water. The solute is the substance being dissolved into it, whichever one you chose to add."
+    },
+    {
+      "id": "q2", "type": "mc", "marks": 1,
+      "prompt": "You tested a salt solution and a sugar solution with a conductivity tester. The salt solution conducted electricity but the sugar solution did not. What explains this difference at the particle level?",
+      "options": [
+        { "id": "a", "label": "Salt separates into charged particles (ions) in water that are free to carry a current; sugar dissolves as whole, uncharged molecules that can't" },
+        { "id": "b", "label": "Salt solutions always contain more water than sugar solutions" },
+        { "id": "c", "label": "Sugar is a solid and salt is a liquid, so only liquids can conduct electricity" },
+        { "id": "d", "label": "Sugar destroys electricity when it touches water" }
+      ],
+      "answer": "a",
+      "explain": "An electric current is a flow of charged particles. Salt (an ionic compound) splits into ions when it dissolves, which can carry that flow. Sugar (a covalent compound) dissolves as complete, uncharged molecules, so there is nothing free to carry a current."
+    },
+    {
+      "id": "q3", "type": "mc", "marks": 1,
+      "prompt": "When you evaporated the water from your salt solution, the salt was left behind as a solid. What does this show about what actually happens when a solid \"disappears\" into a solution?",
+      "options": [
+        { "id": "a", "label": "The solid hasn't been destroyed — its particles are still there, just spread out and mixed among the water particles" },
+        { "id": "b", "label": "The solid has been chemically changed into a completely new substance" },
+        { "id": "c", "label": "The solid has been permanently destroyed and cannot be recovered" },
+        { "id": "d", "label": "The water has turned into salt" }
+      ],
+      "answer": "a",
+      "explain": "Dissolving is a physical change, not a chemical one. The solute's particles don't disappear or change into something else — they spread out between the solvent's particles, which is exactly why evaporating the water leaves the original solid behind."
+    },
+    {
+      "id": "q4", "type": "multi", "marks": 1,
+      "prompt": "Based on your investigation, select ALL of the statements that correctly describe what dissolving does and does not do.",
+      "options": [
+        { "id": "a", "label": "Dissolving mixes a solute's particles evenly through a solvent, without creating a new substance" },
+        { "id": "b", "label": "A dissolved solute can usually be recovered by evaporating the solvent away" },
+        { "id": "c", "label": "Dissolving is a chemical reaction that permanently changes the solute into something else" },
+        { "id": "d", "label": "Whether a dissolved substance conducts electricity depends on whether its particles carry an electric charge" }
+      ],
+      "answer": ["a", "b", "d"],
+      "explain": "Dissolving is a physical change (a) that can be reversed by evaporation (b), and conductivity depends on whether the dissolved particles are charged (d). It is never a chemical reaction (c) — the substance itself doesn't change."
+    },
+    {
+      "id": "q5", "type": "mc", "marks": 1,
+      "prompt": "A doctor's rehydration drink and plain sugar water both taste sweet, but only the rehydration drink (which contains dissolved salts) can conduct a small electric current. Using what you found in your investigation, why?",
+      "options": [
+        { "id": "a", "label": "The rehydration drink contains dissolved ionic compounds that split into charged particles in water, unlike sugar" },
+        { "id": "b", "label": "Sweet-tasting liquids can never conduct electricity" },
+        { "id": "c", "label": "Only drinks that are cold enough can conduct electricity" },
+        { "id": "d", "label": "Conductivity has nothing to do with what is dissolved in a liquid" }
+      ],
+      "answer": "a",
+      "explain": "This is the same principle you tested directly: dissolved ionic substances (like the salts in a rehydration drink) release charged particles that carry a current, while dissolved sugar does not — which is also why your body's cells rely on dissolved ionic salts, not sugar, to carry electrical signals."
+    },
+    {
+      "id": "q6", "type": "mc", "marks": 1,
+      "prompt": "You are given an unlabelled white solid and told it is either table salt or table sugar. Based on what your investigation showed, what is the quickest reliable way to identify it using a conductivity tester?",
+      "options": [
+        { "id": "a", "label": "Dissolve it in water and test the solution — if it conducts electricity, it's most likely salt; if it doesn't, it's most likely sugar" },
+        { "id": "b", "label": "Taste it — sweetness always shows up on a conductivity tester" },
+        { "id": "c", "label": "Conductivity testers cannot tell salt and sugar apart" },
+        { "id": "d", "label": "Heat it until it melts, since melting point has nothing to do with dissolving" }
+      ],
+      "answer": "a",
+      "explain": "This applies the exact relationship you investigated: an ionic solute like salt conducts once dissolved because it forms ions, while a covalent solute like sugar does not — so the conductivity test is a genuine way to distinguish them."
+    },
+    {
+      "id": "q7", "type": "mc", "marks": 1,
+      "prompt": "In your investigation you could compare how much salt and how much sugar had been dissolved into the water. What does it mean to say one solution is \"more concentrated\" than another?",
+      "options": [
+        { "id": "a", "label": "It has a greater amount of solute dissolved in the same amount of solvent" },
+        { "id": "b", "label": "It has been left to sit for a longer time" },
+        { "id": "c", "label": "It conducts electricity, while a less concentrated solution never does" },
+        { "id": "d", "label": "It has more solvent in it than solute" }
+      ],
+      "answer": "a",
+      "explain": "Concentration describes how much solute is packed into a given amount of solvent — more dissolved solute in the same amount of water makes a more concentrated solution, regardless of what the solute is."
+    },
+    {
+      "id": "q8", "type": "multi", "marks": 1,
+      "prompt": "Select ALL of the real-life situations that depend on the same salt-vs-sugar dissolving principle you investigated (whether the dissolved particles are charged or not).",
+      "options": [
+        { "id": "a", "label": "Seawater conducting electricity because of its dissolved salts" },
+        { "id": "b", "label": "Nerve and muscle cells in your body using dissolved charged particles to carry electrical signals" },
+        { "id": "c", "label": "A sugar cube dissolving into a cup of tea to sweeten it" },
+        { "id": "d", "label": "A candle flame melting wax" }
+      ],
+      "answer": ["a", "b"],
+      "explain": "Seawater's conductivity and the body's nerve signals both rely on dissolved ionic (charged) particles moving freely — the same mechanism your salt solution demonstrated. Dissolving sugar in tea (c) and melting wax (d) don't involve charged particles carrying a current."
+    },
+    {
+      "id": "q9", "type": "mc", "marks": 1,
+      "prompt": "This module also covers filtration, evaporation and other physical separating techniques. Why can evaporation, specifically, separate a dissolved solute from its solvent, when filtration cannot?",
+      "options": [
+        { "id": "a", "label": "Because the solute's particles are mixed at the particle level with the solvent, too small and too evenly spread for a filter to trap — only removing the solvent itself (by evaporating it) leaves the solute behind" },
+        { "id": "b", "label": "Because evaporation turns the solute into a gas that a filter could not hold anyway" },
+        { "id": "c", "label": "Because filtration only works on solutions that conduct electricity" },
+        { "id": "d", "label": "Because dissolved solutes are always too large to pass through a filter, the same as an undissolved solid" }
+      ],
+      "answer": "a",
+      "explain": "In a true solution, the solute's particles are mixed at the particle level with the solvent — far too small and evenly spread for a filter's holes to trap, unlike an undissolved solid in a simple mixture. Evaporation instead removes the solvent itself, leaving the solute behind."
+    },
+    {
+      "id": "q10", "type": "mc", "marks": 1,
+      "prompt": "Suppose you dissolved a different ionic compound, such as Epsom salt (magnesium sulfate), into water instead of table salt. Based on the principle your investigation revealed, would you expect the solution to conduct electricity?",
+      "options": [
+        { "id": "a", "label": "Yes — like table salt, it is an ionic compound, so it should split into charged particles in water that can carry a current" },
+        { "id": "b", "label": "No — only table salt itself can ever conduct electricity when dissolved" },
+        { "id": "c", "label": "It depends only on how the water is heated, not on the compound dissolved" },
+        { "id": "d", "label": "No dissolved compound other than table salt can conduct electricity" }
+      ],
+      "answer": "a",
+      "explain": "The principle you found — that ionic compounds split into charged particles in solution, which is what makes a solution conduct — applies to any ionic compound, not just table salt. This is the kind of transfer of understanding the investigation is meant to build, beyond the one substance tested."
+    }
+  ],
+
+  "es": {
+    "title": "Disoluciones de Azúcar y Sal (Simulación PhET)",
+    "subtitle": "Disuelve sal y azúcar en agua, y luego usa un probador de conductividad y un control de evaporación para descubrir qué ocurre realmente a nivel de partículas.",
+    "description": "Un banco de laboratorio real y jugable con un agitador de soluto, un grifo de agua, un probador de conductividad y un control de evaporación. Eliges si el agitador contiene Sal o Azúcar, lo viertes en el tanque, observas cómo se actualiza el panel de Concentración, y después compruebas si tu disolución conduce electricidad y qué queda cuando el agua se evapora.",
+    "whatToDo": [
+      "Abre la simulación en la pestaña \"Macro\". Selecciona \"Salt\" (Sal) como soluto, agítalo hacia el agua y observa el panel de Concentración.",
+      "Marca \"Show values\" (Mostrar valores) en el panel de Concentración para ver los números exactos de sal y azúcar.",
+      "Toca con las dos sondas del probador de conductividad la disolución de sal y observa si se enciende la bombilla.",
+      "Haz clic en \"Remove salt\" (Quitar sal), cambia el soluto a \"Sugar\" (Azúcar), agrega un poco y prueba el conductímetro en la disolución de azúcar — compara qué ocurre.",
+      "Arrastra el control de Evaporación de \"none\" (nada) hacia \"lots\" (mucho) y observa qué queda en el tanque a medida que el agua desaparece, luego pulsa \"Reset All\" (Reiniciar todo) y vuelve para responder las preguntas."
+    ],
+    "learningFocus": {
+      "summary": "Esta actividad se basa directamente en las ideas centrales de este módulo sobre mezclas y disoluciones —qué son realmente un soluto, un disolvente y una disolución— usando una simulación real de PhET, basada en investigación, de la Universidad de Colorado Boulder en lugar de un diagrama estático. Al disolver sal y azúcar por separado y compararlas con un probador de conductividad, los estudiantes descubren por sí mismos que un soluto iónico como la sal se separa en partículas cargadas en el agua que pueden transportar una corriente eléctrica, mientras que un soluto covalente como el azúcar se disuelve como moléculas completas y sin carga que no pueden hacerlo — una diferencia concreta y comprobable que conecta el contenido de técnicas de separación de este módulo con la química a nivel de partículas que los estudiantes volverán a encontrar en IGCSE y A-Level. El control de evaporación refuerza que disolver es reversible: el soluto sigue estando ahí, solo que repartido de forma invisible por el agua, y puede recuperarse quitando el disolvente — el mismo principio detrás de la técnica de evaporación ya vista en este módulo."
+    },
+    "knowledgeCheck": [
+      {
+        "id": "q1",
+        "prompt": "En tu investigación, disolviste sal y azúcar en agua. ¿Qué afirmación identifica correctamente el soluto y el disolvente?",
+        "options": [
+          { "id": "a", "label": "El agua es el disolvente; la sal o el azúcar que se disuelve en ella es el soluto" },
+          { "id": "b", "label": "La sal y el azúcar son ambos disolventes; el agua es el soluto" },
+          { "id": "c", "label": "El soluto y el disolvente intercambian su papel según de cuál haya más cantidad" },
+          { "id": "d", "label": "Ya no hay soluto ni disolvente una vez que se forma una disolución" }
+        ],
+        "explain": "El disolvente es la sustancia que disuelve —aquí, el agua. El soluto es la sustancia que se disuelve en ella, sea cual sea la que hayas añadido."
+      },
+      {
+        "id": "q2",
+        "prompt": "Probaste una disolución de sal y una de azúcar con un probador de conductividad. La de sal conducía electricidad, pero la de azúcar no. ¿Qué explica esta diferencia a nivel de partículas?",
+        "options": [
+          { "id": "a", "label": "La sal se separa en partículas cargadas (iones) en el agua, libres para transportar una corriente; el azúcar se disuelve como moléculas completas y sin carga que no pueden hacerlo" },
+          { "id": "b", "label": "Las disoluciones de sal siempre contienen más agua que las de azúcar" },
+          { "id": "c", "label": "El azúcar es un sólido y la sal es un líquido, y solo los líquidos pueden conducir electricidad" },
+          { "id": "d", "label": "El azúcar destruye la electricidad al tocar el agua" }
+        ],
+        "explain": "Una corriente eléctrica es un flujo de partículas cargadas. La sal (un compuesto iónico) se separa en iones al disolverse, que pueden transportar ese flujo. El azúcar (un compuesto covalente) se disuelve como moléculas completas y sin carga, así que no queda nada libre para transportar una corriente."
+      },
+      {
+        "id": "q3",
+        "prompt": "Al evaporar el agua de tu disolución de sal, la sal quedó como un sólido. ¿Qué muestra esto sobre lo que realmente ocurre cuando un sólido \"desaparece\" en una disolución?",
+        "options": [
+          { "id": "a", "label": "El sólido no ha sido destruido —sus partículas siguen ahí, solo repartidas y mezcladas entre las partículas de agua" },
+          { "id": "b", "label": "El sólido se ha transformado químicamente en una sustancia completamente nueva" },
+          { "id": "c", "label": "El sólido ha sido destruido permanentemente y no se puede recuperar" },
+          { "id": "d", "label": "El agua se ha convertido en sal" }
+        ],
+        "explain": "Disolver es un cambio físico, no químico. Las partículas del soluto no desaparecen ni se convierten en otra cosa —se reparten entre las partículas del disolvente, y por eso evaporar el agua deja atrás el sólido original."
+      },
+      {
+        "id": "q4",
+        "prompt": "Según tu investigación, selecciona TODAS las afirmaciones que describen correctamente lo que hace y lo que no hace disolver.",
+        "options": [
+          { "id": "a", "label": "Disolver reparte de forma uniforme las partículas de un soluto entre un disolvente, sin crear una sustancia nueva" },
+          { "id": "b", "label": "Un soluto disuelto normalmente se puede recuperar evaporando el disolvente" },
+          { "id": "c", "label": "Disolver es una reacción química que transforma permanentemente el soluto en otra cosa" },
+          { "id": "d", "label": "Que una sustancia disuelta conduzca electricidad depende de si sus partículas tienen carga eléctrica" }
+        ],
+        "explain": "Disolver es un cambio físico (a) que puede revertirse evaporando (b), y la conductividad depende de si las partículas disueltas tienen carga (d). Nunca es una reacción química (c) —la sustancia en sí no cambia."
+      },
+      {
+        "id": "q5",
+        "prompt": "Una bebida de rehidratación y agua con azúcar saben ambas dulces, pero solo la bebida de rehidratación (que contiene sales disueltas) puede conducir una pequeña corriente eléctrica. Según lo que descubriste en tu investigación, ¿por qué?",
+        "options": [
+          { "id": "a", "label": "La bebida de rehidratación contiene compuestos iónicos disueltos que se separan en partículas cargadas en el agua, a diferencia del azúcar" },
+          { "id": "b", "label": "Los líquidos de sabor dulce nunca pueden conducir electricidad" },
+          { "id": "c", "label": "Solo las bebidas suficientemente frías pueden conducir electricidad" },
+          { "id": "d", "label": "La conductividad no tiene nada que ver con lo que está disuelto en un líquido" }
+        ],
+        "explain": "Es el mismo principio que probaste directamente: las sustancias iónicas disueltas (como las sales de una bebida de rehidratación) liberan partículas cargadas que transportan una corriente, mientras que el azúcar disuelto no —por eso las células de tu cuerpo también usan sales iónicas disueltas, no azúcar, para transportar señales eléctricas."
+      },
+      {
+        "id": "q6",
+        "prompt": "Te dan un sólido blanco sin etiquetar y te dicen que es sal de mesa o azúcar de mesa. Según lo que mostró tu investigación, ¿cuál es la forma más rápida y fiable de identificarlo usando un probador de conductividad?",
+        "options": [
+          { "id": "a", "label": "Disolverlo en agua y probar la disolución —si conduce electricidad, probablemente sea sal; si no, probablemente sea azúcar" },
+          { "id": "b", "label": "Probarlo al gusto —el sabor dulce siempre se detecta en un probador de conductividad" },
+          { "id": "c", "label": "Los probadores de conductividad no pueden distinguir entre sal y azúcar" },
+          { "id": "d", "label": "Calentarlo hasta que se funda, ya que el punto de fusión no tiene relación con disolverse" }
+        ],
+        "explain": "Esto aplica exactamente la relación que investigaste: un soluto iónico como la sal conduce una vez disuelto porque forma iones, mientras que un soluto covalente como el azúcar no —así que la prueba de conductividad es una forma real de distinguirlos."
+      },
+      {
+        "id": "q7",
+        "prompt": "En tu investigación pudiste comparar cuánta sal y cuánta azúcar se habían disuelto en el agua. ¿Qué significa decir que una disolución es \"más concentrada\" que otra?",
+        "options": [
+          { "id": "a", "label": "Tiene una mayor cantidad de soluto disuelto en la misma cantidad de disolvente" },
+          { "id": "b", "label": "Se ha dejado reposar durante más tiempo" },
+          { "id": "c", "label": "Conduce electricidad, mientras que una disolución menos concentrada nunca lo hace" },
+          { "id": "d", "label": "Tiene más disolvente que soluto" }
+        ],
+        "explain": "La concentración describe cuánto soluto hay en una cantidad dada de disolvente —más soluto disuelto en la misma cantidad de agua hace una disolución más concentrada, sin importar cuál sea el soluto."
+      },
+      {
+        "id": "q8",
+        "prompt": "Selecciona TODAS las situaciones de la vida real que dependen del mismo principio de sal frente a azúcar que investigaste (si las partículas disueltas tienen carga o no).",
+        "options": [
+          { "id": "a", "label": "El agua de mar conduce electricidad por sus sales disueltas" },
+          { "id": "b", "label": "Las células nerviosas y musculares de tu cuerpo usan partículas cargadas disueltas para transportar señales eléctricas" },
+          { "id": "c", "label": "Un terrón de azúcar se disuelve en una taza de té para endulzarlo" },
+          { "id": "d", "label": "La llama de una vela funde la cera" }
+        ],
+        "explain": "Tanto la conductividad del agua de mar como las señales nerviosas del cuerpo dependen de partículas iónicas (cargadas) disueltas que se mueven libremente —el mismo mecanismo que demostró tu disolución de sal. Disolver azúcar en té (c) y fundir cera (d) no implican partículas cargadas transportando una corriente."
+      },
+      {
+        "id": "q9",
+        "prompt": "Este módulo también cubre la filtración, la evaporación y otras técnicas físicas de separación. ¿Por qué la evaporación, en concreto, puede separar un soluto disuelto de su disolvente, cuando la filtración no puede?",
+        "options": [
+          { "id": "a", "label": "Porque las partículas del soluto están mezcladas a nivel de partículas con el disolvente, demasiado pequeñas y repartidas para que un filtro las atrape —solo eliminando el propio disolvente (evaporándolo) queda el soluto" },
+          { "id": "b", "label": "Porque la evaporación convierte el soluto en un gas que un filtro tampoco podría retener" },
+          { "id": "c", "label": "Porque la filtración solo funciona con disoluciones que conducen electricidad" },
+          { "id": "d", "label": "Porque los solutos disueltos siempre son demasiado grandes para pasar por un filtro, igual que un sólido sin disolver" }
+        ],
+        "explain": "En una disolución verdadera, las partículas del soluto están mezcladas a nivel de partículas con el disolvente —demasiado pequeñas y repartidas para que los poros de un filtro las atrapen, a diferencia de un sólido sin disolver en una mezcla simple. La evaporación, en cambio, elimina el propio disolvente, dejando atrás el soluto."
+      },
+      {
+        "id": "q10",
+        "prompt": "Supón que disolvieras otro compuesto iónico distinto, como la sal de Epsom (sulfato de magnesio), en agua en lugar de sal de mesa. Según el principio que reveló tu investigación, ¿esperarías que la disolución conduzca electricidad?",
+        "options": [
+          { "id": "a", "label": "Sí —al igual que la sal de mesa, es un compuesto iónico, así que debería separarse en partículas cargadas en el agua capaces de transportar una corriente" },
+          { "id": "b", "label": "No —solo la sal de mesa puede conducir electricidad al disolverse" },
+          { "id": "c", "label": "Depende únicamente de cómo se caliente el agua, no del compuesto disuelto" },
+          { "id": "d", "label": "Ningún compuesto disuelto aparte de la sal de mesa puede conducir electricidad" }
+        ],
+        "explain": "El principio que descubriste —que los compuestos iónicos se separan en partículas cargadas en disolución, lo que hace que una disolución conduzca— se aplica a cualquier compuesto iónico, no solo a la sal de mesa. Este es exactamente el tipo de transferencia de comprensión que busca esta investigación, más allá de la única sustancia probada."
+      }
+    ]
+  }
+}

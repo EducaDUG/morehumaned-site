@@ -1,0 +1,308 @@
+{
+  "activityId": "PRI2-SCI-PHY-M01-SIM01",
+  "version": "2.0",
+  "title": "Orbit Architects: Build Our Solar System",
+  "subtitle": "Compress a real nebula until a Sun ignites, discover what it's made of, then launch every planet into its true orbit around a glowing 3D Sun — and find out why far-away worlds take so much longer to go around.",
+  "course": "Physics",
+  "pathway": "Primary 2 Science",
+  "module": "Module 1: Our Solar System and Beyond",
+  "theme": "physics",
+  "ageBand": "primary",
+  "estimatedMinutes": 25,
+
+  "learningFocus": {
+    "skills": ["Scientific enquiry", "Mathematical reasoning", "Critical thinking", "Communication"],
+    "summary": "In this Module 1 Physics activity, students trace the solar system's story from birth to orbit: they compress a real Hubble photograph of a nebula until it collapses under gravity and a Sun ignites, explore what the Sun is actually made of, then test a real relationship between a planet's distance from the Sun and how long its orbit takes, using a hands-on 3D mission-control simulation. They practise scientific enquiry by observing real NASA imagery and forming a hypothesis before testing it, mathematical reasoning by comparing orbit distances and times across all eight planets, and critical thinking by sorting real NASA photographs of rocky and gas planets into the terrestrial and Jovian families. The Explain and Apply questions ask students to use their own recorded evidence to predict what would happen to an undiscovered world even farther out than Neptune — connecting classroom physics to genuine astronomy."
+  },
+
+  "orient": {
+    "objective": "I can explain how gravity keeps planets in orbit, and why planets farther from the Sun take longer to go around it.",
+    "courseLink": "This is Module 1 of Primary 2 Physics, Our Solar System and Beyond. It builds the foundation for everything you'll study in Physics this year — forces, motion and energy all start with the pull you're about to test here: gravity.",
+    "successCriteria": [
+      "I can say what a nebula is and how gravity collapses it to form a star.",
+      "I can say what gravity is and how it keeps planets orbiting the Sun.",
+      "I can sort planets into 'terrestrial' (rocky) and 'Jovian' (gas giant) using real photos as evidence.",
+      "I can explain, using my own results, why far-away planets take longer to orbit the Sun."
+    ],
+    "mission": "Mission Control needs an Astronomer-in-Training. Your job: study a real photo of a nebula and a planet, build a Sun of your own, then build our entire solar system in 3D — one correct orbit at a time.",
+    "steps": [
+      "Explore a real photo of a nebula, and a real photo of Mars.",
+      "Identify the real scientific question this investigation answers.",
+      "Make your hypothesis about distance and orbit time.",
+      "Compress a nebula into a Sun, explore what it's made of, then launch planets into orbit in Mission Control and log your results.",
+      "Sort every planet into its family — terrestrial or Jovian.",
+      "Explain and apply your evidence, then take the Knowledge Check.",
+      "Generate your Learning Evidence to hand in."
+    ],
+    "realLife": "Every sunrise, every season, and every year on your birthday calendar happens because Earth is locked into its own orbit around the Sun by exactly the same force you're about to test."
+  },
+
+  "observation": {
+    "title": "Look closely at a real nebula",
+    "lede": "Before you ask a question, notice something real about where stars and planets actually come from."
+  },
+
+  "question": {
+    "type": "mc",
+    "prompt": "Every investigation starts with a real question. Which question is this investigation actually designed to answer?",
+    "hint": "Pick the one real, testable question — not just a fact about one planet.",
+    "options": [
+      { "id": "a", "label": "What determines how long it takes a planet to complete one orbit around the Sun?" },
+      { "id": "b", "label": "What colour is the Sun?" },
+      { "id": "c", "label": "How many moons does Jupiter have?" },
+      { "id": "d", "label": "Why is Mars red?" }
+    ]
+  },
+
+  "predict": {
+    "type": "mc",
+    "prompt": "The Sun's gravity pulls on every planet. Do you think a planet very close to the Sun feels a STRONGER pull, or a WEAKER pull, than a planet far away?",
+    "hint": "Think about how a magnet feels stronger the closer you hold it to metal.",
+    "options": [
+      { "id": "stronger", "label": "A closer planet feels a stronger pull" },
+      { "id": "weaker", "label": "A closer planet feels a weaker pull" },
+      { "id": "same", "label": "Distance doesn't change the pull at all" }
+    ],
+    "revisable": true
+  },
+
+  "investigate": {
+    "title": "Build a Star System",
+    "lede": "Three hands-on jobs: compress a real nebula until a Sun ignites, explore what it's made of, then launch at least four planets into their true orbit in Mission Control."
+  },
+
+  "record": {
+    "intro": "Every planet you launch is logged here automatically.",
+    "emptyText": "No planets launched yet. Head into Mission Control and launch your first one.",
+    "columns": [
+      { "key": "planet", "label": "Planet", "unit": "" },
+      { "key": "type", "label": "Family", "unit": "" },
+      { "key": "distanceAU", "label": "Distance from Sun", "unit": "AU" },
+      { "key": "orbitDays", "label": "Orbit time", "unit": "Earth days" }
+    ]
+  },
+
+  "explain": {
+    "prompt": "Look at your Investigation Record. Explain the pattern between a planet's distance from the Sun and how long its orbit takes. Why does this happen?",
+    "lede": "Compare your closest planet's orbit time with your farthest planet's orbit time.",
+    "maxMarks": 3,
+    "minChars": 60,
+    "skillFocus": "Use evidence from your own investigation and explain your reasoning clearly."
+  },
+
+  "apply": {
+    "prompt": "Imagine astronomers discover a brand-new dwarf planet orbiting twice as far from the Sun as Neptune. Would you expect its year (one orbit) to be shorter or longer than Neptune's 165-Earth-year orbit? Explain your thinking using what you found in Mission Control.",
+    "lede": "Think about the pattern you just explained, then push it even farther out into space.",
+    "maxMarks": 3,
+    "minChars": 60,
+    "skillFocus": "Apply what you found to a new situation and give clear, well-explained reasons."
+  },
+
+  "knowledgeCheck": [
+    {
+      "id": "kc1", "type": "mc", "marks": 1,
+      "prompt": "What force keeps every planet orbiting the Sun instead of flying off into space?",
+      "options": [
+        { "id": "a", "label": "Gravity" },
+        { "id": "b", "label": "Wind" },
+        { "id": "c", "label": "Magnetism" }
+      ],
+      "answer": "a",
+      "explain": "Gravity is the pulling force between the Sun and every planet. It's strong enough to bend each planet's path into a curve — an orbit — instead of letting it fly off in a straight line."
+    },
+    {
+      "id": "kc2", "type": "mc", "marks": 1,
+      "prompt": "Which of these is a Jovian (gas giant) planet?",
+      "options": [
+        { "id": "a", "label": "Mercury" },
+        { "id": "b", "label": "Mars" },
+        { "id": "c", "label": "Jupiter" }
+      ],
+      "answer": "c",
+      "explain": "Jupiter is the largest of the four Jovian planets — Jupiter, Saturn, Uranus and Neptune — huge worlds made mostly of gas, with no solid surface to stand on."
+    },
+    {
+      "id": "kc3", "type": "numeric", "marks": 1,
+      "prompt": "About what percentage of the Sun's atoms are hydrogen?",
+      "answer": 91, "tolerance": 5, "unit": "%", "min": 0, "max": 100,
+      "explain": "About 91 out of every 100 atoms in the Sun are hydrogen — the fuel the Sun burns for energy. Almost all the rest is helium."
+    },
+    {
+      "id": "kc4", "type": "match", "marks": 4,
+      "prompt": "Match each planet to its family.",
+      "pairs": [
+        { "left": "Mercury", "right": "Terrestrial — small and rocky" },
+        { "left": "Saturn", "right": "Jovian — a huge gas giant with rings" },
+        { "left": "Mars", "right": "Terrestrial — a rocky, red desert world" },
+        { "left": "Neptune", "right": "Jovian — a huge, gassy, icy-blue world" }
+      ],
+      "explain": "The four planets closest to the Sun are small, rocky and dense (terrestrial). The four beyond them are huge worlds made mostly of gas (Jovian)."
+    }
+  ],
+
+  "rubric": {
+    "note": "You are graded out of the total marks, shown as a percentage.",
+    "criteria": [
+      { "key": "knowledge_accuracy", "label": "Knowledge & understanding", "descriptor": "Knowledge Check correct.", "max": 7, "auto": true },
+      {
+        "key": "use_of_evidence", "label": "Use of evidence", "max": 3,
+        "studentHint": "Use evidence clearly from your own investigation to support your answer."
+      },
+      {
+        "key": "reasoning", "label": "Reasoning", "max": 3,
+        "studentHint": "Explain the scientific reasoning behind your answer, applying it correctly to the situation asked about."
+      },
+      {
+        "key": "communication", "label": "Communication", "max": 2,
+        "studentHint": "Write clearly, in full sentences, using correct scientific vocabulary."
+      }
+    ]
+  },
+
+  "es": {
+    "title": "Arquitectos de Órbitas: construye nuestro sistema solar",
+    "subtitle": "Comprime una nebulosa real hasta que se encienda un Sol, descubre de qué está hecho y luego lanza cada planeta a su órbita real alrededor de un Sol 3D brillante — y descubre por qué los mundos lejanos tardan tanto más en darle la vuelta.",
+    "course": "Física",
+    "pathway": "Ciencias de Primaria 2",
+    "module": "Módulo 1: Nuestro sistema solar y más allá",
+
+    "learningFocus": {
+      "skills": ["Investigación científica", "Razonamiento matemático", "Pensamiento crítico", "Comunicación"],
+      "summary": "En esta actividad del Módulo 1 de Física, los estudiantes recorren la historia del sistema solar desde su nacimiento hasta la órbita: comprimen una fotografía real del Hubble de una nebulosa hasta que colapsa por la gravedad y se enciende un Sol, exploran de qué está hecho realmente el Sol, y luego comprueban una relación real entre la distancia de un planeta al Sol y cuánto tarda su órbita, usando una simulación práctica de control de misión en 3D. Practican la investigación científica observando imágenes reales de la NASA y formulando una hipótesis antes de comprobarla, el razonamiento matemático comparando distancias y tiempos orbitales de los ocho planetas, y el pensamiento crítico clasificando fotografías reales de la NASA de planetas rocosos y gaseosos en las familias terrestre y joviana. Las preguntas de Explicación y Aplicación piden usar su propia evidencia registrada para predecir qué le pasaría a un mundo aún no descubierto más allá de Neptuno — conectando la física de clase con la astronomía real."
+    },
+
+    "orient": {
+      "objective": "Puedo explicar cómo la gravedad mantiene a los planetas en órbita, y por qué los planetas más lejanos del Sol tardan más en darle la vuelta.",
+      "courseLink": "Este es el Módulo 1 de Física de Primaria 2, Nuestro sistema solar y más allá. Construye la base de todo lo que estudiarás en Física este año — las fuerzas, el movimiento y la energía empiezan todos con el tirón que vas a comprobar aquí: la gravedad.",
+      "successCriteria": [
+        "Puedo decir qué es una nebulosa y cómo la gravedad la colapsa para formar una estrella.",
+        "Puedo decir qué es la gravedad y cómo mantiene a los planetas orbitando el Sol.",
+        "Puedo clasificar los planetas en «terrestres» (rocosos) y «jovianos» (gigantes gaseosos) usando fotos reales como evidencia.",
+        "Puedo explicar, usando mis propios resultados, por qué los planetas lejanos tardan más en orbitar el Sol."
+      ],
+      "mission": "Control de Misión necesita un Astrónomo en Formación. Tu trabajo: estudia una foto real de una nebulosa y de un planeta, construye tu propio Sol y luego construye todo nuestro sistema solar en 3D — una órbita correcta a la vez.",
+      "steps": [
+        "Explora una foto real de una nebulosa, y una foto real de Marte.",
+        "Identifica la pregunta científica real que responde esta investigación.",
+        "Formula tu hipótesis sobre la distancia y el tiempo de órbita.",
+        "Comprime una nebulosa hasta formar un Sol, descubre de qué está hecho y luego lanza planetas a su órbita en Control de Misión y registra tus resultados.",
+        "Clasifica cada planeta en su familia — terrestre o joviano.",
+        "Explica y aplica tu evidencia, y luego haz la Comprobación de conocimientos.",
+        "Genera tu Evidencia de aprendizaje para entregar."
+      ],
+      "realLife": "Cada amanecer, cada estación del año y cada cumpleaños de tu calendario ocurren porque la Tierra está atrapada en su propia órbita alrededor del Sol por exactamente la misma fuerza que vas a comprobar ahora."
+    },
+
+    "observation": {
+      "title": "Observa de cerca una nebulosa real",
+      "lede": "Antes de hacer una pregunta, observa algo real sobre de dónde vienen realmente las estrellas y los planetas."
+    },
+
+    "question": {
+      "prompt": "Toda investigación comienza con una pregunta real. ¿Cuál es la pregunta que esta investigación está realmente diseñada para responder?",
+      "hint": "Elige la única pregunta real y comprobable — no solo un dato sobre un planeta.",
+      "options": [
+        { "id": "a", "label": "¿Qué determina cuánto tarda un planeta en completar una órbita alrededor del Sol?" },
+        { "id": "b", "label": "¿De qué color es el Sol?" },
+        { "id": "c", "label": "¿Cuántas lunas tiene Júpiter?" },
+        { "id": "d", "label": "¿Por qué Marte es rojo?" }
+      ]
+    },
+
+    "predict": {
+      "prompt": "La gravedad del Sol tira de cada planeta. ¿Crees que un planeta muy cerca del Sol siente un tirón MÁS FUERTE, o un tirón MÁS DÉBIL, que un planeta lejano?",
+      "hint": "Piensa en cómo un imán se siente más fuerte cuanto más cerca lo sostienes del metal.",
+      "options": [
+        { "id": "stronger", "label": "Un planeta más cercano siente un tirón más fuerte" },
+        { "id": "weaker", "label": "Un planeta más cercano siente un tirón más débil" },
+        { "id": "same", "label": "La distancia no cambia nada el tirón" }
+      ]
+    },
+
+    "investigate": {
+      "title": "Construye un Sistema Estelar",
+      "lede": "Tres tareas prácticas: comprime una nebulosa real hasta que se encienda un Sol, descubre de qué está hecho, y luego lanza al menos cuatro planetas a su órbita real en Control de Misión."
+    },
+
+    "record": {
+      "intro": "Cada planeta que lanzas se registra aquí automáticamente.",
+      "emptyText": "Todavía no has lanzado ningún planeta. Ve a Control de Misión y lanza el primero.",
+      "columns": [
+        { "key": "planet", "label": "Planeta", "unit": "" },
+        { "key": "type", "label": "Familia", "unit": "" },
+        { "key": "distanceAU", "label": "Distancia al Sol", "unit": "UA" },
+        { "key": "orbitDays", "label": "Tiempo de órbita", "unit": "días terrestres" }
+      ]
+    },
+
+    "explain": {
+      "prompt": "Mira tu Registro de investigación. Explica el patrón entre la distancia de un planeta al Sol y cuánto tarda su órbita. ¿Por qué ocurre esto?",
+      "lede": "Compara el tiempo de órbita de tu planeta más cercano con el de tu planeta más lejano.",
+      "skillFocus": "Usa evidencia de tu propia investigación y explica tu razonamiento con claridad."
+    },
+
+    "apply": {
+      "prompt": "Imagina que unos astrónomos descubren un nuevo planeta enano que orbita al doble de distancia del Sol que Neptuno. ¿Esperarías que su año (una órbita) fuera más corto o más largo que los 165 años terrestres de Neptuno? Explica tu razonamiento usando lo que descubriste en Control de Misión.",
+      "lede": "Piensa en el patrón que acabas de explicar, y llévalo aún más lejos en el espacio.",
+      "skillFocus": "Aplica lo que descubriste a una situación nueva y da razones claras y bien explicadas."
+    },
+
+    "knowledgeCheck": [
+      {
+        "id": "kc1",
+        "prompt": "¿Qué fuerza mantiene a cada planeta orbitando el Sol en lugar de salir volando al espacio?",
+        "options": [
+          { "id": "a", "label": "La gravedad" },
+          { "id": "b", "label": "El viento" },
+          { "id": "c", "label": "El magnetismo" }
+        ],
+        "explain": "La gravedad es la fuerza de atracción entre el Sol y cada planeta. Es lo bastante fuerte como para curvar el camino de cada planeta — una órbita — en vez de dejarlo salir en línea recta."
+      },
+      {
+        "id": "kc2",
+        "prompt": "¿Cuál de estos es un planeta joviano (gigante gaseoso)?",
+        "options": [
+          { "id": "a", "label": "Mercurio" },
+          { "id": "b", "label": "Marte" },
+          { "id": "c", "label": "Júpiter" }
+        ],
+        "explain": "Júpiter es el mayor de los cuatro planetas jovianos — Júpiter, Saturno, Urano y Neptuno — mundos enormes hechos sobre todo de gas, sin superficie sólida donde pisar."
+      },
+      {
+        "id": "kc3",
+        "prompt": "¿Aproximadamente qué porcentaje de los átomos del Sol es hidrógeno?",
+        "explain": "Unos 91 de cada 100 átomos del Sol son hidrógeno — el combustible que el Sol quema para producir energía. Casi todo el resto es helio."
+      },
+      {
+        "id": "kc4",
+        "prompt": "Relaciona cada planeta con su familia.",
+        "pairs": [
+          { "left": "Mercurio", "right": "Terrestre — pequeño y rocoso" },
+          { "left": "Saturno", "right": "Joviano — un gigante gaseoso enorme con anillos" },
+          { "left": "Marte", "right": "Terrestre — un mundo rocoso y desértico rojo" },
+          { "left": "Neptuno", "right": "Joviano — un mundo enorme, gaseoso y azul helado" }
+        ],
+        "explain": "Los cuatro planetas más cercanos al Sol son pequeños, rocosos y densos (terrestres). Los cuatro siguientes son mundos enormes hechos sobre todo de gas (jovianos)."
+      }
+    ],
+
+    "rubric": {
+      "note": "Tu nota son los puntos que obtienes del total, como porcentaje.",
+      "criteria": [
+        { "label": "Conocimiento y comprensión", "descriptor": "Comprobación de conocimientos correcta." },
+        {
+          "label": "Uso de la evidencia",
+          "studentHint": "Usa evidencia con claridad de tu propia investigación para respaldar tu respuesta."
+        },
+        {
+          "label": "Razonamiento",
+          "studentHint": "Explica el razonamiento científico detrás de tu respuesta, aplicándolo correctamente a la situación planteada."
+        },
+        {
+          "label": "Comunicación",
+          "studentHint": "Escribe con claridad, en oraciones completas, usando vocabulario científico correcto."
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="earth" data-age-band="secondary" data-tint="paper" data-text-size="m">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Spaceship Earth: Welcome Aboard — Discovery Lab</title>
+<meta name="description" content="Tour Spaceship Earth: sort real cargo into the four key areas of Environmental Science, scan the hull for real planet facts, and calculate your own environmental footprint.">
+<link rel="stylesheet" href="../../../../../../engine/style.css?v=12">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><circle cx='32' cy='32' r='27' fill='none' stroke='%233F8FA8' stroke-width='4'/><circle cx='32' cy='32' r='11' fill='%2377B255'/></svg>">
+<script>
+(function(){try{var p=JSON.parse(localStorage.getItem('dl-a11y-v1')||'{}');var r=document.documentElement;
+if(p.textSize)r.setAttribute('data-text-size',p.textSize);
+if(p.tint)r.setAttribute('data-tint',p.tint);
+if(p.dyslexia)r.setAttribute('data-dyslexia','on');
+if(p.motion==='on')r.setAttribute('data-reduced-motion','on');else if(p.motion==='off')r.setAttribute('data-reduced-motion','off');
+}catch(e){}})();
+</script>
+<style>
+.dl-burst{position:absolute;inset:0;z-index:3;pointer-events:none;overflow:hidden;}
+.dl-burst i{position:absolute;width:7px;height:7px;border-radius:2px;top:50%;left:50%;opacity:.95;}
+
+.ship-stations{display:flex;flex-wrap:wrap;gap:var(--sp-2);margin-bottom:var(--sp-4);}
+.ship-station-btn{flex:1 1 9rem;border:1px solid var(--line-strong);border-radius:var(--radius);background:var(--paper);
+  color:var(--ink-2);padding:.7em .5em;font:inherit;font-size:var(--step--1);cursor:pointer;text-align:center;
+  transition:all var(--dur-fast) var(--ease);}
+.ship-station-btn.is-active{background:var(--accent);color:var(--accent-ink);border-color:var(--accent);font-weight:700;}
+.ship-station-btn.is-done::after{content:" ✓";}
+
+/* Station 1: cargo sort */
+.cargo-hold{position:relative;border:1px solid var(--line);border-radius:var(--radius-lg);background:#0e1a12;
+  padding:var(--sp-4);overflow:hidden;}
+.cargo-rack{display:flex;gap:var(--sp-2);flex-wrap:wrap;justify-content:center;margin-bottom:var(--sp-4);min-height:5.5rem;}
+.cargo-item{width:4.6rem;height:4.6rem;border-radius:var(--radius);background:#182a1d;border:2px solid #2c4a34;
+  display:grid;place-items:center;cursor:pointer;padding:0;overflow:hidden;transition:all var(--dur-fast) var(--ease);touch-action:manipulation;}
+.cargo-item svg{width:100%;height:100%;}
+.cargo-item img{width:100%;height:100%;object-fit:cover;display:block;border-radius:calc(var(--radius) - 2px);}
+.cargo-credits{margin-top:var(--sp-3);font-size:var(--step--2);color:#9dc4a8;line-height:1.5;}
+.cargo-credits summary{cursor:pointer;color:#bfe6cf;font-weight:600;}
+.cargo-credits ul{margin:.5em 0 0;padding-left:1.2em;}
+.cargo-credits a{color:#8fd0ff;}
+.cargo-item.is-selected{border-color:var(--signal);box-shadow:0 0 0 4px color-mix(in srgb, var(--signal) 30%, transparent);transform:scale(1.06);}
+.cargo-item.is-placed{opacity:0;transform:scale(.3);pointer-events:none;}
+.cargo-buckets{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--sp-2);}
+@media(min-width:36rem){.cargo-buckets{grid-template-columns:repeat(4,1fr);}}
+.cargo-bucket{position:relative;border:2px dashed #3a5c43;border-radius:var(--radius);background:#12241a;color:#cfe9d6;
+  padding:var(--sp-3) var(--sp-2);text-align:center;font-size:var(--step--1);font-weight:700;cursor:pointer;
+  min-height:5rem;display:flex;flex-direction:column;justify-content:center;gap:.3em;transition:all var(--dur-fast) var(--ease);}
+.cargo-bucket small{font-weight:400;color:#9dc4a8;font-size:.68rem;}
+.cargo-bucket.is-shake{animation:cargoshake .3s ease;border-color:var(--negative);}
+.cargo-bucket.is-hit{border-color:var(--positive);background:#173322;}
+@keyframes cargoshake{0%,100%{transform:translateX(0);}30%{transform:translateX(-6px);}60%{transform:translateX(6px);}}
+[data-reduced-motion=on] .cargo-bucket.is-shake{animation:none;}
+.cargo-hint{color:#bfe6cf;font-size:var(--step--1);text-align:center;margin-bottom:var(--sp-3);}
+
+/* Station 2: hull scan */
+.hull-scan{display:flex;flex-direction:column;align-items:center;gap:var(--sp-4);}
+.hull-globe-wrap{position:relative;width:14rem;height:14rem;}
+.hull-globe{width:100%;height:100%;border-radius:50%;cursor:pointer;
+  background:radial-gradient(circle at 35% 30%, #6fbfe0, #2a6b8f 55%, #123449 100%);
+  border:3px solid #7bd3a8;box-shadow:0 0 0 8px color-mix(in srgb, var(--signal) 12%, transparent), inset -12px -12px 24px rgba(0,0,0,.35);
+  display:grid;place-items:center;color:#eafff5;font-family:var(--font-display);font-weight:800;
+  transition:transform .6s var(--ease-out-back);touch-action:manipulation;}
+.hull-globe.is-spinning{transform:rotate(360deg);}
+[data-reduced-motion=on] .hull-globe.is-spinning{transform:none;}
+.hull-globe span{font-size:var(--step-0);}
+.hull-fact-panel{border:1px solid var(--line-strong);border-radius:var(--radius);background:var(--surface);
+  padding:var(--sp-3);min-height:4rem;width:100%;max-width:28rem;text-align:center;font-size:var(--step--1);}
+.hull-fact-panel b{display:block;color:var(--accent);margin-bottom:.2em;}
+.hull-progress{display:flex;gap:.35em;}
+.hull-progress i{width:.6rem;height:.6rem;border-radius:50%;background:var(--line-strong);display:block;}
+.hull-progress i.is-seen{background:var(--signal);}
+
+/* Station 3: footprint calculator */
+.footprint-panel{display:grid;gap:var(--sp-4);}
+.footprint-slider{display:grid;gap:.3em;}
+.footprint-slider label{font-weight:700;font-size:var(--step--1);}
+.footprint-earths{display:flex;flex-wrap:wrap;gap:.35em;align-items:center;justify-content:center;
+  min-height:4.5rem;border:1px solid var(--line);border-radius:var(--radius);background:var(--paper);padding:var(--sp-3);}
+.footprint-earths svg{width:2.1rem;height:2.1rem;transition:transform .25s var(--ease-out-back), opacity .25s var(--ease);}
+.footprint-readout{text-align:center;font-family:var(--font-display);font-weight:800;font-size:var(--step-2);color:var(--accent);}
+.footprint-readout small{display:block;font-family:var(--font-ui);font-weight:600;font-size:var(--step--1);color:var(--ink-3);}
+
+/* Bonus round: Cargo Sprint — sorting conveyor */
+.conveyor{position:relative;border-radius:var(--radius-lg);overflow:hidden;background:#0e1a12;
+  border:1px solid #17301f;box-shadow:var(--shadow-2);}
+.conveyor__hud{display:flex;justify-content:space-between;gap:var(--sp-2);padding:var(--sp-3);
+  font-family:var(--font-data);color:#eafff2;font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;}
+.conveyor__hud b{display:block;font-size:1.1rem;letter-spacing:0;font-family:var(--font-ui);}
+.conveyor__stage{position:relative;height:9.5rem;overflow:hidden;
+  background:repeating-linear-gradient(100deg,#1d3524 0 2.4rem,#16281c 2.4rem 4.8rem);
+  background-size:200% 100%;animation:conveyorbelt 2.4s linear infinite;
+  border-top:2px solid #2c4a34;border-bottom:2px solid #2c4a34;}
+[data-reduced-motion=on] .conveyor__stage{animation:none;}
+@keyframes conveyorbelt{from{background-position:0 0;}to{background-position:-4.8rem 0;}}
+.conveyor__gate{position:absolute;top:0;bottom:0;left:88%;border-left:2px dashed #7bd3a8;opacity:.6;}
+.conveyor__item{position:absolute;left:-15%;top:50%;margin-top:-2.3rem;width:4.6rem;height:4.6rem;
+  border-radius:var(--radius);overflow:hidden;border:2px solid #2c4a34;background:#182a1d;
+  box-shadow:0 4px 10px rgba(0,0,0,.35);}
+.conveyor__item img{width:100%;height:100%;object-fit:cover;display:block;}
+.conveyor__bins{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--sp-2);padding:var(--sp-3);background:#0a1f18;}
+@media(min-width:36rem){.conveyor__bins{grid-template-columns:repeat(4,1fr);}}
+.conveyor__bin{position:relative;border:2px solid var(--bin-color,#3a5c43);border-radius:var(--radius);
+  background:#12241a;color:#cfe9d6;padding:var(--sp-3) var(--sp-2);text-align:center;font-size:var(--step--1);
+  font-weight:700;cursor:pointer;min-height:4.5rem;display:flex;flex-direction:column;justify-content:center;
+  gap:.3em;transition:all var(--dur-fast) var(--ease);touch-action:manipulation;}
+.conveyor__bin__key{position:absolute;top:3px;left:6px;font-family:var(--font-data);font-size:.62rem;opacity:.7;}
+.conveyor__bin.is-hit{background:#173322;box-shadow:0 0 0 4px color-mix(in srgb, var(--bin-color,#7bd3a8) 30%, transparent);}
+.conveyor__bin.is-wrong{animation:cargoshake .3s ease;border-color:var(--negative);}
+[data-reduced-motion=on] .conveyor__bin.is-wrong{animation:none;}
+.conveyor__foot{display:flex;justify-content:space-between;align-items:center;gap:var(--sp-3);padding:var(--sp-3);
+  background:#04120d;color:#8fc9a8;font-family:var(--font-data);font-size:.68rem;flex-wrap:wrap;}
+.conveyor__finish{position:absolute;inset:0;z-index:6;display:grid;place-items:center;background:rgba(4,18,13,.92);
+  color:#eafff2;text-align:center;padding:var(--sp-4);}
+.conveyor__finish h3{font-family:var(--font-display);font-size:var(--step-2);margin-bottom:.3em;}
+.conveyor__stats{display:flex;gap:var(--sp-5);justify-content:center;margin:var(--sp-4) 0;flex-wrap:wrap;}
+.conveyor__stat b{display:block;font-size:var(--step-2);font-family:var(--font-display);color:#7bffb0;}
+.conveyor__stat span{font-family:var(--font-data);font-size:.65rem;letter-spacing:.08em;text-transform:uppercase;color:#8fc9a8;}
+.conveyor__finish__actions{display:flex;gap:var(--sp-3);justify-content:center;flex-wrap:wrap;}
+.conveyor-launch{padding:var(--sp-5);border-radius:var(--radius-lg);border:2px dashed var(--line-strong);
+  background:var(--surface);text-align:center;}
+.conveyor-launch p{margin-bottom:var(--sp-3);}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main" data-lang="en">Skip to content</a>
+<a class="skip-link" href="#main" data-lang="es" hidden>Ir al contenido</a>
+<script>
+(function(){try{
+  var lang=(localStorage.getItem('dl-lang')||'en');
+  if(lang==='es'){
+    var m=document.querySelector('meta[name="description"]');
+    if(m)m.setAttribute('content','Recorre la Nave Tierra: clasifica carga real en las cuatro áreas clave de las Ciencias Ambientales, escanea el casco en busca de datos reales del planeta, y calcula tu propia huella ambiental.');
+  }
+}catch(e){}})();
+</script>
+
+<header class="site-head">
+  <div class="shell site-head__inner">
+    <a class="wordmark" href="../../../../../../">
+      <svg viewBox="0 0 64 64" aria-hidden="true">
+        <circle cx="32" cy="32" r="27" fill="none" stroke="currentColor" stroke-width="1.5" opacity=".28"/>
+        <circle cx="32" cy="32" r="19" fill="none" stroke="currentColor" stroke-width="1.5" opacity=".18"/>
+        <path d="M32 32 A27 27 0 0 1 53 21" fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round"/>
+        <circle cx="45" cy="22" r="5" fill="var(--signal)"/>
+        <circle cx="32" cy="32" r="2.5" fill="currentColor"/>
+      </svg>
+      <span class="wordmark__text">Discovery&nbsp;Lab</span>
+    </a>
+    <a class="eyebrow" href="../../../../../../about/" style="text-decoration:none" data-lang="en">About Mr&nbsp;Guevara</a>
+    <a class="eyebrow" href="../../../../../../about/" style="text-decoration:none" data-lang="es" hidden>Sobre el Sr.&nbsp;Guevara</a>
+  </div>
+</header>
+
+<main id="main" class="shell">
+  <nav class="crumbs" aria-label="Breadcrumb" data-lang="en">
+    <ol class="crumbs__list">
+      <li><a href="../../../../../../">Discovery Lab</a></li>
+      <li><a href="../../../../../">Secondary</a></li>
+      <li><a href="../../../../">US Pathway</a></li>
+      <li><a href="../../../">High School</a></li>
+      <li><a href="../../">Environmental Science</a></li>
+      <li><a href="../">Introduction to the course</a></li>
+      <li><span aria-current="page">Spaceship Earth: Welcome Aboard</span></li>
+    </ol>
+  </nav>
+  <nav class="crumbs" aria-label="Ruta de navegación" data-lang="es" hidden>
+    <ol class="crumbs__list">
+      <li><a href="../../../../../../">Discovery Lab</a></li>
+      <li><a href="../../../../../">Secundaria</a></li>
+      <li><a href="../../../../">Itinerario estadounidense</a></li>
+      <li><a href="../../../">High School</a></li>
+      <li><a href="../../">Ciencias Ambientales</a></li>
+      <li><a href="../">Introducción al curso</a></li>
+      <li><span aria-current="page">Nave Tierra: Bienvenido a bordo</span></li>
+    </ol>
+  </nav>
+  <div id="lab-root"></div>
+</main>
+
+<footer class="site-foot">
+  <div class="shell site-foot__inner">
+    <span data-lang="en">Discovery Lab — <a href="../../../../../../about/">Diego Urrutia Guevara</a></span>
+    <span data-lang="es" hidden>Discovery Lab — <a href="../../../../../../about/">Diego Urrutia Guevara</a></span>
+    <span data-lang="en">Your work stays in your browser. Nothing is uploaded or stored on a server.</span>
+    <span data-lang="es" hidden>Tu trabajo se queda en tu navegador. No se sube ni se guarda nada en ningún servidor.</span>
+  </div>
+</footer>
+
+<script type="module">
+import { mountActivity } from "../../../../../../engine/engine.js?v=19";
+import { getLang } from "../../../../../../engine/i18n.js?v=9";
+const L = (en, es) => getLang() === "es" ? es : en;
+
+/* ======================================================================
+   JUICE — small DOM particle burst, reused for every hands-on moment.
+   ====================================================================== */
+function burst(container, opts = {}){
+  const reduced = document.documentElement.getAttribute("data-reduced-motion") === "on";
+  const n = reduced ? 5 : (opts.count || 14);
+  const colors = opts.colors || ["#7bd3a8", "#eaffef", "#3F8FA8"];
+  const host = document.createElement("div"); host.className = "dl-burst";
+  container.appendChild(host);
+  for (let i = 0; i < n; i++) {
+    const p = document.createElement("i");
+    const ang = Math.random() * Math.PI * 2, dist = 26 + Math.random() * 64;
+    p.style.background = colors[i % colors.length];
+    host.appendChild(p);
+    p.animate([
+      { transform: "translate(-50%,-50%) scale(1)", opacity: 1 },
+      { transform: `translate(calc(-50% + ${Math.cos(ang) * dist}px), calc(-50% + ${Math.sin(ang) * dist}px)) scale(.25)`, opacity: 0 },
+    ], { duration: reduced ? 260 : 650 + Math.random() * 300, easing: "cubic-bezier(.2,.8,.3,1)" });
+  }
+  setTimeout(() => host.remove(), 1100);
+}
+
+/* ======================================================================
+   REAL PHOTOS — every cargo item is a real, recognisable vendored photo
+   of the real thing (solar panel, coal plant, coral reef...), never an
+   abstract icon/block/letter (CLAUDE.md's visual-manipulatives + real-
+   photo-over-SVG rules). Reused in the sort station AND the bonus-round
+   quest's collectible items. Sources/licenses: see PHOTO_CREDITS below
+   and the visible credit block under the cargo rack.
+   ====================================================================== */
+const PHOTOS = {
+  solar: "photos/solar-panel.jpg",
+  coal: "photos/coal-plant.jpg",
+  coral: "photos/coral-reef.jpg",
+  factory: "photos/factory.jpg",
+  bike: "photos/bicycle.jpg",
+  bottle: "photos/plastic-bottle.jpg",
+  forest: "photos/rainforest.jpg",
+  turbine: "photos/wind-turbine.jpg",
+};
+function iconDataURI(key){ return PHOTOS[key]; }
+const PHOTO_CREDITS = [
+  { en: "Solar panel", url: "https://commons.wikimedia.org/wiki/File:Ground_mounted_solar_panels.gk.jpg", author: "Grendelkhan", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0/" },
+  { en: "Coal power plant", url: "https://commons.wikimedia.org/wiki/File:Port_Qasim_Coal_Power_Plant,_08.06.2021.jpg", author: "VileGecko", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0/" },
+  { en: "Coral reef", url: "https://commons.wikimedia.org/wiki/File:Coral_(Acropora_hemprichii),_Ras_Katy,_Sharm_el-Sheij,_Egipto,_2022-03-26,_DD_108.jpg", author: "Diego Delso", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0/" },
+  { en: "Factory smokestack", url: "https://commons.wikimedia.org/wiki/File:Alfred_Palmer_Smokestacks.jpg", author: "Alfred T. Palmer / U.S. Library of Congress", license: "Public domain", licenseUrl: "https://en.wikipedia.org/wiki/Public_domain" },
+  { en: "Bicycle commute", url: "https://commons.wikimedia.org/wiki/File:Bicycle_in_The_Hague_36.JPG", author: "João Pimentel Ferreira", license: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0/" },
+  { en: "Plastic bottle in the ocean", url: "https://commons.wikimedia.org/wiki/File:Plastic_bottle_with_sea_turtle_bite_marks_on_Texas_shoreline.jpg", author: "NOAA", license: "Public domain", licenseUrl: "https://en.wikipedia.org/wiki/Public_domain" },
+  { en: "Rainforest", url: "https://commons.wikimedia.org/wiki/File:Rainforest_of_Ko_Pha-ngan.jpg", author: "Daniel Nikitin", license: "CC BY 4.0", licenseUrl: "https://creativecommons.org/licenses/by/4.0/" },
+  { en: "Wind turbine", url: "https://commons.wikimedia.org/wiki/File:Wind_turbine_field_-_US-54_-_Kansas.jpg", author: "Janusz Sobolewski", license: "CC BY 2.0", licenseUrl: "https://creativecommons.org/licenses/by/2.0/" },
+];
+function renderPhotoCredits(){
+  const details = document.createElement("details"); details.className = "cargo-credits";
+  const summary = document.createElement("summary");
+  summary.textContent = L("Photo credits", "Créditos de las fotos");
+  details.append(summary);
+  const ul = document.createElement("ul");
+  PHOTO_CREDITS.forEach(c=>{
+    const li = document.createElement("li");
+    li.innerHTML = `${L(c.en, c.en)} — Wikimedia Commons, ${c.author}, <a href="${c.licenseUrl}" target="_blank" rel="noopener noreferrer">${c.license}</a>`;
+    ul.append(li);
+  });
+  details.append(ul);
+  return details;
+}
+
+/* ======================================================================
+   THE FOUR SHIP SYSTEMS = the four Key Areas of Study.
+   ====================================================================== */
+const AREAS = [
+  { id: "eco", en: "Ecosystems & Biodiversity", es: "Ecosistemas y biodiversidad", color: "#3f8f5c" },
+  { id: "cli", en: "Climate & Weather", es: "Clima y tiempo", color: "#3f8fa8" },
+  { id: "energy", en: "Energy Resources", es: "Recursos energéticos", color: "#c9862b" },
+  { id: "human", en: "Human Impact", es: "Impacto humano", color: "#a13f5c" },
+];
+const CARGO = [
+  { id: "solar", area: "energy", en: "Solar panel", es: "Panel solar" },
+  { id: "coal", area: "energy", en: "Coal power plant", es: "Planta de carbón" },
+  { id: "coral", area: "eco", en: "Coral reef", es: "Arrecife de coral" },
+  { id: "factory", area: "human", en: "Factory smokestack", es: "Chimenea de fábrica" },
+  { id: "bike", area: "human", en: "Bicycle commute", es: "Bicicleta al trabajo" },
+  { id: "bottle", area: "human", en: "Plastic bottle in the ocean", es: "Botella de plástico en el océano" },
+  { id: "forest", area: "eco", en: "Rainforest", es: "Selva tropical" },
+  { id: "turbine", area: "cli", en: "Wind turbine", es: "Turbina eólica" },
+];
+const HULL_FACTS = [
+  { en: "Earth is about 4.5 billion years old — roughly 22,000 times longer than all of human history.", es: "La Tierra tiene unos 4.500 millones de años — unas 22.000 veces más que toda la historia humana." },
+  { en: "The Amazon Rainforest produces about 20% of Earth's oxygen.", es: "La selva amazónica produce alrededor del 20% del oxígeno de la Tierra." },
+  { en: "About 70% of Earth's surface is covered by oceans.", es: "Alrededor del 70% de la superficie de la Tierra está cubierta por océanos." },
+  { en: "Forests cover about 31% of Earth's land — but are disappearing through deforestation.", es: "Los bosques cubren alrededor del 31% de la tierra emergida — pero están desapareciendo por la deforestación." },
+  { en: "The average person uses 80-100 gallons of water every single day.", es: "La persona promedio usa entre 300 y 380 litros de agua cada día." },
+  { en: "If everyone on Earth lived like the average American, we would need about five Earths' worth of resources.", es: "Si todos en la Tierra vivieran como el estadounidense promedio, necesitaríamos los recursos de unas cinco Tierras." },
+];
+
+let sim = null;
+let cargoSortedCount = 0;
+
+function shuffleArr(arr){
+  const a = arr.slice();
+  for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; }
+  return a;
+}
+
+/* ======================================================================
+   BONUS ROUND — "Cargo Sprint": a bespoke sorting-conveyor mechanic.
+   Real cargo photos ride a moving belt toward the loading bay; the
+   student diverts each one into its correct ship-system bin (tap/click,
+   or press 1-4) before it reaches the end. This is a local, one-off
+   implementation of the "sorting conveyor" entry in CLAUDE.md §4's Bonus
+   Game Mechanic Library — deliberately NOT engine/arcade.js or
+   engine/quest3d.js, per CLAUDE.md §12.5: this activity's own prior bonus
+   round ("Planet Patrol") plus sim-fraction-multiplication-lab and
+   sim-vertebrate-sorting-lab had all defaulted to those two shared
+   modules (quest3d's drive-and-collect, twice), and no sorting-conveyor
+   round exists anywhere on the site yet. Purely a bonus (no marks, no
+   gating) — always skippable. Timing mirrors engine/arcade.js's own
+   ramp (flight time always gates the next spawn, never the student's
+   response speed) so a full round runs close to two minutes of real
+   play regardless of how fast the student answers.
+   ====================================================================== */
+function mountCargoSprint(host, { onExit }){
+  const ROUNDS = 24;
+  const START_FLIGHT = 6200, MIN_FLIGHT = 3200, RAMP = 110, SETTLE_PAD = 450;
+  const queue = []; while (queue.length < ROUNDS) queue.push(...shuffleArr(CARGO));
+  queue.length = ROUNDS;
+
+  const state = { index: -1, score: 0, streak: 0, bestStreak: 0, hits: 0, answered: true, disposed: false, flightMs: START_FLIGHT, spawnedAt: 0, current: null };
+  let itemEl = null, timeoutId = null;
+
+  host.innerHTML = "";
+  const wrap = document.createElement("div"); wrap.className = "conveyor";
+  const hud = document.createElement("div"); hud.className = "conveyor__hud";
+  hud.innerHTML = `<div>${L("Item","Objeto")}<b id="cv-progress">1 / ${ROUNDS}</b></div>
+    <div style="text-align:center">${L("Streak","Racha")}<b id="cv-streak">0</b></div>
+    <div style="text-align:right">${L("Score","Puntos")}<b id="cv-score">0</b></div>`;
+  const stage = document.createElement("div"); stage.className = "conveyor__stage";
+  const gate = document.createElement("div"); gate.className = "conveyor__gate";
+  stage.append(gate);
+  wrap.append(hud, stage);
+
+  const binsRow = document.createElement("div"); binsRow.className = "conveyor__bins"; binsRow.setAttribute("role","group");
+  binsRow.setAttribute("aria-label", L("Ship systems","Sistemas de la nave"));
+  const binEls = {};
+  AREAS.forEach((a,i)=>{
+    const b = document.createElement("button"); b.type = "button"; b.className = "conveyor__bin";
+    b.style.setProperty("--bin-color", a.color);
+    b.innerHTML = `<span class="conveyor__bin__key">${i+1}</span><span>${L(a.en,a.es)}</span>`;
+    b.addEventListener("click", ()=>answer(a.id, b));
+    binEls[a.id] = b;
+    binsRow.append(b);
+  });
+  wrap.append(binsRow);
+
+  const foot = document.createElement("div"); foot.className = "conveyor__foot";
+  foot.innerHTML = `<span>${L("Best streak","Mejor racha")}: <b id="cv-best">0</b></span>
+    <span>${L("Tap a bin — or press 1-4 — before the item reaches the loading bay.","Toca un contenedor — o pulsa 1-4 — antes de que el objeto llegue a la bahía de carga.")}</span>`;
+  wrap.append(foot);
+  host.append(wrap);
+
+  function onKey(e){
+    const n = Number(e.key);
+    if (n >= 1 && n <= AREAS.length) answer(AREAS[n-1].id, binEls[AREAS[n-1].id]);
+  }
+  document.addEventListener("keydown", onKey);
+
+  function paintHud(){
+    wrap.querySelector("#cv-progress").textContent = `${Math.min(state.index+1, ROUNDS)} / ${ROUNDS}`;
+    wrap.querySelector("#cv-streak").textContent = state.streak;
+    wrap.querySelector("#cv-score").textContent = state.score;
+    wrap.querySelector("#cv-best").textContent = state.bestStreak;
+  }
+  paintHud();
+
+  function spawnItem(){
+    if (itemEl) { itemEl.remove(); itemEl = null; }
+    const item = state.current;
+    itemEl = document.createElement("div"); itemEl.className = "conveyor__item";
+    itemEl.innerHTML = `<img src="${PHOTOS[item.id]}" alt="${L(item.en,item.es)}" loading="lazy">`;
+    stage.append(itemEl);
+    const reduced = document.documentElement.getAttribute("data-reduced-motion") === "on";
+    const dur = reduced ? Math.max(state.flightMs, 1) : state.flightMs;
+    requestAnimationFrame(()=>{
+      itemEl.style.transition = `left ${dur}ms linear`;
+      itemEl.style.left = "88%";
+    });
+  }
+
+  function clearBinFx(el){ setTimeout(()=>{ if (el) el.classList.remove("is-hit","is-wrong"); }, 500); }
+
+  function answer(areaId, btnEl){
+    if (state.disposed || state.answered || !state.current || !btnEl) return;
+    state.answered = true;
+    const item = state.current;
+    const correct = areaId === item.area;
+    if (correct){
+      state.score += 10 + state.streak*2; state.streak += 1;
+      state.bestStreak = Math.max(state.bestStreak, state.streak); state.hits += 1;
+      btnEl.classList.remove("is-wrong"); void btnEl.offsetWidth; btnEl.classList.add("is-hit");
+      burst(btnEl, { colors: [AREAS.find(a=>a.id===areaId).color, "#eaffef"] });
+      if (itemEl){ itemEl.style.transition = "left .25s ease-in, transform .25s ease-in, opacity .25s ease-in";
+        itemEl.style.left = "94%"; itemEl.style.transform = "scale(.25)"; itemEl.style.opacity = "0"; }
+    } else {
+      state.streak = 0;
+      btnEl.classList.remove("is-hit"); void btnEl.offsetWidth; btnEl.classList.add("is-wrong");
+      const correctBtn = binEls[item.area];
+      if (correctBtn) { correctBtn.classList.remove("is-wrong"); void correctBtn.offsetWidth; correctBtn.classList.add("is-hit"); clearBinFx(correctBtn); }
+      if (itemEl){ itemEl.style.transition = "top .35s ease-in, opacity .35s ease-in";
+        itemEl.style.top = "150%"; itemEl.style.opacity = "0"; }
+    }
+    clearBinFx(btnEl);
+    paintHud();
+    /* Wait out the rest of this item's scheduled belt time, same discipline
+       as engine/arcade.js — an instant tap feels just as satisfying, but
+       the round as a whole still takes its full ~2 minutes either way. */
+    const elapsed = performance.now() - state.spawnedAt;
+    timeoutId = setTimeout(nextItem, Math.max(SETTLE_PAD, state.flightMs - elapsed + SETTLE_PAD));
+  }
+
+  function timeUp(){
+    if (state.disposed || state.answered || !state.current) return;
+    state.answered = true;
+    state.streak = 0;
+    const cb = binEls[state.current.area];
+    if (cb) { cb.classList.remove("is-wrong"); void cb.offsetWidth; cb.classList.add("is-hit"); clearBinFx(cb); }
+    if (itemEl){ itemEl.style.transition = "top .35s ease-in, opacity .35s ease-in"; itemEl.style.top = "150%"; itemEl.style.opacity = "0"; }
+    paintHud();
+    timeoutId = setTimeout(nextItem, SETTLE_PAD);
+  }
+
+  function nextItem(){
+    if (state.disposed) return;
+    state.index += 1;
+    if (state.index >= ROUNDS) return finish();
+    state.current = queue[state.index];
+    state.answered = false;
+    state.flightMs = Math.max(MIN_FLIGHT, START_FLIGHT - state.index*RAMP);
+    state.spawnedAt = performance.now();
+    paintHud();
+    spawnItem();
+    timeoutId = setTimeout(timeUp, state.flightMs);
+  }
+
+  function finish(){
+    const accuracy = Math.round((state.hits/ROUNDS)*100);
+    const box = document.createElement("div"); box.className = "conveyor__finish";
+    box.innerHTML = `<div>
+      <h3>${L("Shift complete!","¡Turno completo!")}</h3>
+      <div class="conveyor__stats">
+        <div class="conveyor__stat"><b>${state.score}</b><span>${L("Score","Puntos")}</span></div>
+        <div class="conveyor__stat"><b>${accuracy}%</b><span>${L("Accuracy","Precisión")}</span></div>
+        <div class="conveyor__stat"><b>${state.bestStreak}</b><span>${L("Best streak","Mejor racha")}</span></div>
+      </div>
+      <div class="conveyor__finish__actions">
+        <button type="button" class="btn btn--ghost" id="cv-again">↺ ${L("Play again","Jugar de nuevo")}</button>
+        <button type="button" class="btn btn--signal" id="cv-continue">${L("Continue","Continuar")} →</button>
+      </div>
+    </div>`;
+    wrap.append(box);
+    box.querySelector("#cv-again").addEventListener("click", ()=>{ dispose(); mountCargoSprint(host, { onExit }); });
+    box.querySelector("#cv-continue").addEventListener("click", ()=>{ dispose(); onExit({ score: state.score, accuracy, bestStreak: state.bestStreak }); });
+  }
+
+  function dispose(){
+    state.disposed = true;
+    document.removeEventListener("keydown", onKey);
+    if (timeoutId) clearTimeout(timeoutId);
+  }
+
+  nextItem();
+}
+
+const simulation = {
+  orient(host){
+    host.innerHTML = "";
+    const p = document.createElement("p"); p.className = "q__hint";
+    p.textContent = L(
+      "Spaceship Earth has four life-support systems: Ecosystems & Biodiversity, Climate & Weather, Energy Resources, and Human Impact. Every topic in this course fits into one of them.",
+      "La Nave Tierra tiene cuatro sistemas de soporte vital: Ecosistemas y biodiversidad, Clima y tiempo, Recursos energéticos, e Impacto humano. Todos los temas de este curso encajan en uno de ellos.");
+    host.append(p);
+    const grid = document.createElement("div"); grid.className = "cargo-buckets"; grid.style.marginTop = "12px";
+    AREAS.forEach(a=>{
+      const c = document.createElement("div"); c.className = "cargo-bucket"; c.style.cursor = "default";
+      c.style.borderColor = a.color;
+      c.innerHTML = `<span>${L(a.en, a.es)}</span>`;
+      grid.append(c);
+    });
+    host.append(grid);
+  },
+
+  investigate(host, api){
+    sim = api; host.innerHTML = "";
+    const wrap = document.createElement("div"); wrap.className = "stack";
+
+    const stations = document.createElement("div"); stations.className = "ship-stations";
+    const stationHost = document.createElement("div");
+    wrap.append(stations, stationHost);
+    host.append(wrap);
+
+    const done = { cargo: false, hull: false, footprint: false };
+    const btns = {};
+    const STATIONS = [
+      { id: "cargo", en: "Station 1 — Sort the Cargo", es: "Estación 1 — Clasifica la carga" },
+      { id: "hull", en: "Station 2 — Scan the Hull", es: "Estación 2 — Escanea el casco" },
+      { id: "footprint", en: "Station 3 — Footprint Calculator", es: "Estación 3 — Calculadora de huella" },
+    ];
+    function paintStations(active){
+      STATIONS.forEach(s=>{
+        btns[s.id].classList.toggle("is-active", s.id === active);
+        btns[s.id].classList.toggle("is-done", !!done[s.id]);
+      });
+    }
+    STATIONS.forEach(s=>{
+      const b = document.createElement("button"); b.type = "button"; b.className = "ship-station-btn";
+      b.textContent = L(s.en, s.es);
+      b.addEventListener("click", ()=>{ paintStations(s.id); renderStation(s.id); });
+      btns[s.id] = b; stations.append(b);
+    });
+
+    /* -------------------- STATION 1: Sort the Cargo -------------------- */
+    function renderCargo(){
+      stationHost.innerHTML = "";
+      const box = document.createElement("div"); box.className = "cargo-hold";
+      const hint = document.createElement("p"); hint.className = "cargo-hint";
+      hint.textContent = L("Tap a cargo item, then tap the ship system it belongs to.",
+        "Toca un objeto de carga y luego toca el sistema de la nave al que pertenece.");
+      const rack = document.createElement("div"); rack.className = "cargo-rack";
+      const buckets = document.createElement("div"); buckets.className = "cargo-buckets";
+      box.append(hint, rack, buckets, renderPhotoCredits());
+      stationHost.append(box);
+
+      let selected = null;
+      const itemEls = {};
+      CARGO.forEach(c=>{
+        const el = document.createElement("button"); el.type = "button"; el.className = "cargo-item";
+        el.setAttribute("aria-label", L(c.en, c.es));
+        el.innerHTML = `<img src="${PHOTOS[c.id]}" alt="${L(c.en, c.es)}" loading="lazy">`;
+        el.addEventListener("click", ()=>{
+          if (el.classList.contains("is-placed")) return;
+          Object.values(itemEls).forEach(e=>e.classList.remove("is-selected"));
+          if (selected === c.id) { selected = null; return; }
+          selected = c.id; el.classList.add("is-selected");
+        });
+        itemEls[c.id] = el; rack.append(el);
+      });
+
+      const bucketEls = {};
+      AREAS.forEach(a=>{
+        const b = document.createElement("button"); b.type = "button"; b.className = "cargo-bucket";
+        b.style.borderColor = a.color;
+        b.innerHTML = `<span>${L(a.en, a.es)}</span><small>${L("tap to place","toca para colocar")}</small>`;
+        b.addEventListener("click", ()=>{
+          if (!selected) { sim.toast(L("Select a cargo item first.","Selecciona un objeto de carga primero."), "info"); return; }
+          const item = CARGO.find(c=>c.id === selected);
+          const correct = item.area === a.id;
+          if (correct){
+            itemEls[selected].classList.add("is-placed");
+            b.classList.remove("is-shake"); void b.offsetWidth; b.classList.add("is-hit");
+            burst(b, { colors: [a.color, "#eaffef"] });
+            sim.toast(L(`${item.en} correctly sorted into ${AREAS.find(x=>x.id===a.id)[getLang()==="es"?"es":"en"]}!`,
+              `¡${item.es} clasificado correctamente en ${AREAS.find(x=>x.id===a.id).es}!`), "correct");
+            sim.recordTrial({ item: L(item.en, item.es), area: L(a.en, a.es), result: L("Correct","Correcto") });
+            cargoSortedCount++;
+          } else {
+            b.classList.remove("is-hit"); void b.offsetWidth; b.classList.add("is-shake");
+            sim.toast(L("Not quite — try another system.","No es correcto — prueba otro sistema."), "incorrect");
+            sim.recordTrial({ item: L(item.en, item.es), area: L(a.en, a.es), result: L("Incorrect","Incorrecto") });
+          }
+          selected = null;
+          Object.values(itemEls).forEach(e=>e.classList.remove("is-selected"));
+          if (Object.values(itemEls).every(e=>e.classList.contains("is-placed"))){
+            done.cargo = true; paintStations("cargo");
+            sim.toast(L("All cargo sorted! Try Station 2.","¡Toda la carga clasificada! Prueba la Estación 2."), "info");
+          }
+        });
+        bucketEls[a.id] = b; buckets.append(b);
+      });
+    }
+
+    /* -------------------- STATION 2: Scan the Hull -------------------- */
+    function renderHull(){
+      stationHost.innerHTML = "";
+      const wrap2 = document.createElement("div"); wrap2.className = "hull-scan";
+      const hint = document.createElement("p"); hint.className = "cargo-hint";
+      hint.textContent = L("Tap the globe to scan the hull for a real fact about planet Earth.",
+        "Toca el globo para escanear el casco en busca de un dato real sobre el planeta Tierra.");
+      const globeWrap = document.createElement("div"); globeWrap.className = "hull-globe-wrap";
+      const globe = document.createElement("button"); globe.type = "button"; globe.className = "hull-globe";
+      globe.setAttribute("aria-label", L("Scan the hull","Escanea el casco"));
+      globe.innerHTML = `<span>${L("SCAN","ESCANEAR")}</span>`;
+      globeWrap.append(globe);
+      const panel = document.createElement("div"); panel.className = "hull-fact-panel";
+      panel.innerHTML = `<span class="reveal-panel__hint">${L("Tap the globe above ↑","Toca el globo de arriba ↑")}</span>`;
+      const progress = document.createElement("div"); progress.className = "hull-progress";
+      const dots = HULL_FACTS.map(()=>{ const i=document.createElement("i"); progress.append(i); return i; });
+      wrap2.append(globeWrap, panel, progress);
+      stationHost.append(wrap2);
+
+      let seen = new Set();
+      globe.addEventListener("click", ()=>{
+        globe.classList.remove("is-spinning"); void globe.offsetWidth; globe.classList.add("is-spinning");
+        const idx = seen.size < HULL_FACTS.length
+          ? [...HULL_FACTS.keys()].find(i=>!seen.has(i))
+          : Math.floor(Math.random()*HULL_FACTS.length);
+        seen.add(idx); dots[idx].classList.add("is-seen");
+        const fact = HULL_FACTS[idx];
+        panel.innerHTML = `<b>${L("Hull scan result","Resultado del escaneo")}</b>${L(fact.en, fact.es)}`;
+        burst(globeWrap, { colors: ["#7bd3a8", "#eaffef", "#3F8FA8"], count: 12 });
+        if (sim && sim.ttsEnabled && sim.ttsEnabled()) sim.speak(L(fact.en, fact.es));
+        if (seen.size >= HULL_FACTS.length && !done.hull){
+          done.hull = true; paintStations("hull");
+          sim.toast(L("Hull fully scanned! Try Station 3.","¡Casco escaneado por completo! Prueba la Estación 3."), "info");
+        }
+      });
+    }
+
+    /* -------------------- STATION 3: Footprint Calculator -------------------- */
+    function renderFootprint(){
+      stationHost.innerHTML = "";
+      const panel = document.createElement("div"); panel.className = "panel footprint-panel";
+      const hint = document.createElement("p"); hint.className = "cargo-hint";
+      hint.textContent = L("Move each slider to match your own daily habits, and watch how many Earths it would take if everyone lived like you.",
+        "Mueve cada control para reflejar tus hábitos diarios y observa cuántas Tierras harían falta si todos vivieran como tú.");
+      panel.append(hint);
+
+      const sliders = [
+        { id: "electricity", en: "Electricity use", es: "Uso de electricidad" },
+        { id: "transport", en: "Transport (car use)", es: "Transporte (uso de auto)" },
+        { id: "food", en: "Meat & food waste", es: "Carne y desperdicio de comida" },
+      ];
+      const values = { electricity: 50, transport: 50, food: 50 };
+      const readout = document.createElement("div"); readout.className = "footprint-readout";
+      const earthsRow = document.createElement("div"); earthsRow.className = "footprint-earths";
+
+      sliders.forEach(s=>{
+        const row = document.createElement("div"); row.className = "footprint-slider";
+        row.innerHTML = `<label for="fp-${s.id}">${L(s.en, s.es)}</label>
+          <input id="fp-${s.id}" class="input" type="range" min="0" max="100" value="50" style="accent-color:var(--accent)">`;
+        panel.append(row);
+        row.querySelector("input").addEventListener("input", (e)=>{
+          values[s.id] = Number(e.target.value);
+          updateFootprint();
+        });
+      });
+      panel.append(readout, earthsRow);
+
+      const logBtn = document.createElement("button"); logBtn.type = "button"; logBtn.className = "btn btn--signal";
+      logBtn.textContent = L("Log my footprint reading →","Registrar mi lectura de huella →");
+      panel.append(logBtn);
+      stationHost.append(panel);
+
+      let earthsNeeded = 1;
+      function updateFootprint(){
+        const avg = (values.electricity + values.transport + values.food) / 3;
+        earthsNeeded = Math.round((0.6 + (avg / 100) * 4.4) * 10) / 10;
+        readout.innerHTML = `${earthsNeeded}<small>${L("Earths needed if everyone lived like you","Tierras necesarias si todos vivieran como tú")}</small>`;
+        const whole = Math.floor(earthsNeeded), frac = earthsNeeded - whole;
+        earthsRow.innerHTML = "";
+        for (let i=0;i<Math.ceil(earthsNeeded);i++){
+          const s = document.createElement("span"); s.style.display="inline-block";
+          const opacity = i < whole ? 1 : Math.max(.25, frac);
+          s.innerHTML = `<svg viewBox="0 0 64 64" style="opacity:${opacity}"><circle cx="32" cy="32" r="28" fill="#3F8FA8"/><path d="M14 24c8-6 16 2 22-2s10-8 18-4c2 8-4 14-14 14s-20 0-26-8z" fill="#77B255"/></svg>`;
+          earthsRow.append(s);
+        }
+        burst(earthsRow, { colors: ["#3F8FA8", "#77B255"], count: 6 });
+      }
+      updateFootprint();
+
+      logBtn.addEventListener("click", ()=>{
+        sim.recordTrial({ item: L("Footprint reading","Lectura de huella"), area: L("Human Impact","Impacto humano"), result: `${earthsNeeded} ${L("Earths","Tierras")}` });
+        sim.toast(L(`Logged: ${earthsNeeded} Earths needed.`, `Registrado: ${earthsNeeded} Tierras necesarias.`), "correct");
+        burst(readout, { colors: ["#3F8FA8", "#77B255", "#eaffef"], count: 18 });
+        if (!done.footprint){ done.footprint = true; paintStations("footprint"); }
+      });
+    }
+
+    function renderStation(id){
+      if (id === "cargo") renderCargo();
+      else if (id === "hull") renderHull();
+      else if (id === "footprint") renderFootprint();
+      paintBonus();
+    }
+
+    /* ================================================================
+       BONUS ROUND — "Cargo Sprint": a sorting-conveyor mechanic.
+       Real cargo photos ride a moving belt toward the loading bay; the
+       student diverts each one into its matching ship-system bin. See
+       mountCargoSprint() above for the full implementation and the
+       reasoning for choosing this mechanic (CLAUDE.md §12.5 — this
+       activity's own prior bonus round, "Planet Patrol", plus two other
+       simulations, had all defaulted to engine/quest3d.js's drive-and-
+       collect; this activity's own cargo/ship theme is a natural fit
+       for the still-unused "sorting conveyor" entry in the mechanic
+       library instead). Purely a bonus (no marks, no gating) — always
+       available and always skippable.
+       ================================================================ */
+    const bonusSection = document.createElement("div"); bonusSection.style.marginTop = "var(--sp-5)";
+    wrap.append(bonusSection);
+    function paintBonus(){
+      if (bonusSection.dataset.rendered) return;
+      bonusSection.dataset.rendered = "1";
+      const launchWrap = document.createElement("div"); launchWrap.className = "conveyor-launch";
+      launchWrap.innerHTML = `<p class="eyebrow">${L("Bonus round — Cargo Sprint","Ronda bonus — Carga Express")}</p>
+        <p>${L("Real cargo rides the conveyor belt toward the loading bay. Tap the matching ship-system bin — or press 1-4 — before each item reaches the end.","La carga real avanza por la cinta transportadora hacia la bahía de carga. Toca el contenedor del sistema correcto — o pulsa 1-4 — antes de que cada objeto llegue al final.")}</p>`;
+      const row = document.createElement("div"); row.className = "cluster"; row.style.justifyContent = "center";
+      const playBtn = document.createElement("button"); playBtn.type = "button"; playBtn.className = "btn btn--signal";
+      playBtn.textContent = "🎮 " + L("Play Cargo Sprint","Jugar Carga Express");
+      const skipBtn = document.createElement("button"); skipBtn.type = "button"; skipBtn.className = "btn btn--ghost";
+      skipBtn.textContent = L("Skip bonus round","Omitir ronda bonus") + " →";
+      row.append(playBtn, skipBtn);
+      launchWrap.append(row);
+      bonusSection.append(launchWrap);
+
+      playBtn.addEventListener("click", ()=>{
+        launchWrap.remove();
+        const gameHost = document.createElement("div");
+        bonusSection.append(gameHost);
+        mountCargoSprint(gameHost, {
+          onExit(stats){
+            gameHost.innerHTML = ""; gameHost.remove();
+            bonusSection.dataset.rendered = "";
+            paintBonus();
+            sim.toast(L(`Bonus round complete — score ${stats.score}, ${stats.accuracy}% accuracy.`,`Ronda bonus completa — puntuación ${stats.score}, ${stats.accuracy}% de precisión.`), "info");
+          }
+        });
+      });
+      skipBtn.addEventListener("click", ()=>{
+        bonusSection.innerHTML = "";
+        bonusSection.dataset.rendered = "skipped";
+      });
+    }
+    paintStations("cargo"); renderStation("cargo");
+  }
+};
+
+mountActivity({ simulation }).catch(e=>{
+  console.error("Activity failed to start:", e);
+  const r = document.getElementById("lab-root");
+  if (r) r.innerHTML = '<p class="nav-empty">Something went wrong. Please refresh.</p>';
+});
+</script>
+</body>
+</html>

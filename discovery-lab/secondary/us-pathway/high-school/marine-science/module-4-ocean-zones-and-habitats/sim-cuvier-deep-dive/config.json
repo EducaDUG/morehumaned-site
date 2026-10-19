@@ -1,0 +1,157 @@
+{
+  "activityId": "USDP-MAR-M04-SIM01",
+  "version": "1.5",
+  "title": "Cuvier's Deep Dive: Ocean Zones",
+  "subtitle": "Pilot the deepest-diving mammal on Earth and map the ocean's living layers.",
+  "course": "Marine Science",
+  "pathway": "US Pathway",
+  "module": "High School — Module 4: Ocean Zones and Habitats",
+  "theme": "physics",
+  "ageBand": "secondary",
+  "estimatedMinutes": 25,
+
+  "learningFocus": {
+    "skills": ["Scientific enquiry", "Analytical skills", "Critical thinking", "Digital literacy", "Communication"],
+    "summary": "Students map the ocean's vertical zonation — sunlight, twilight and midnight — by piloting a Cuvier's beaked whale and reading how light, temperature, pressure, salinity and dissolved oxygen change with depth. They practise the core Marine Science skill of relating living things to their abiotic conditions: distinguishing pelagic from benthic habitats, explaining why photosynthesis is confined to surface waters, and reasoning about the adaptations that let deep-sea organisms survive darkness, cold and immense pressure. It develops scientific enquiry (predict, observe, record, explain), analytical reading of a real oceanographic profile, and clear written communication of a cause-and-effect argument, tied directly to Module 4: Ocean Zones and Habitats."
+  },
+
+  "orient": {
+    "objective": "Map how the ocean changes with depth — light, temperature and pressure — and explain how the life in each zone is adapted to the conditions there.",
+    "courseLink": "Marine Science, High School, Module 4: Ocean Zones and Habitats. It builds the zonation framework — pelagic and benthic, sunlight down to the hadal trenches — that later work on marine food webs, adaptation and human impact all rely on.",
+    "successCriteria": [
+      "Name the ocean's zones in order of depth and state what happens to light, temperature and pressure as you descend.",
+      "Use your own dive data to explain why photosynthesis is limited to the surface waters.",
+      "Predict how a deep-sea organism is adapted to darkness, cold and high pressure, and justify each adaptation."
+    ],
+    "mission": "You are a Cuvier's beaked whale — the deepest-diving mammal on Earth. Dive from the sunlit surface toward the crushing dark near 3,000 m and record how the ocean changes beneath you. Your mission: map the living layers of the sea and work out how anything survives down there.",
+    "steps": [
+      "Read the ocean-zones diagram, then predict what happens as you dive.",
+      "Pilot the whale down through the Sunlight, Twilight and Midnight zones.",
+      "Each new zone you reach logs its real conditions into your Investigation Record.",
+      "Explain the pattern, apply it to a new species, then take the Knowledge Check.",
+      "Generate your Learning Evidence to hand in."
+    ],
+    "realLife": "The ocean runs your life-support: its sunlit surface layer produces a large share of the oxygen you breathe, while the cold, dark deep stores carbon and feeds fisheries that hundreds of millions of people depend on."
+  },
+
+  "predict": {
+    "type": "mc",
+    "prompt": "Scientific question: how do temperature and light change as you dive from the surface to 3,000 m? Write your hypothesis by choosing the one statement below whose reasoning you think is correct.",
+    "hint": "A hypothesis needs a reason, not just a guess. Think about how far sunlight can reach into water, and where the sun's warmth is added.",
+    "options": [
+      { "id": "a", "label": "If I dive to 3,000 m, then both temperature and light will fall, because sunlight cannot reach far into water and the sun's warmth only heats the surface layer." },
+      { "id": "b", "label": "If I dive to 3,000 m, then it will get warmer and brighter, because pressure itself generates heat and light as it builds up." },
+      { "id": "c", "label": "If I dive to 3,000 m, then temperature will rise but light will fall, because geothermal heat from the seabed warms the deep water." },
+      { "id": "d", "label": "If I dive to 3,000 m, then temperature and light will stay about the same, because water spreads heat and light evenly through its depth." }
+    ],
+    "revisable": true
+  },
+
+  "investigate": {
+    "title": "Dive the Water Column",
+    "lede": "W/S dive and rise, A/D steer, Shift to boost. Surface to breathe. Reach each new zone at least once — the moment you enter the Sunlight, Twilight, Midnight and seabed zones, its real temperature, pressure and light are logged to your Record below."
+  },
+
+  "record": {
+    "intro": "This is your evidence. Each ocean zone you reach logs its real conditions here automatically — you never retype data the simulation already produced. You will use these numbers, not a guess, to answer the scientific question.",
+    "emptyText": "No zones logged yet. Dive in the simulation to reach the Sunlight, Twilight and Midnight zones.",
+    "columns": [
+      { "key": "zone", "label": "Zone", "unit": "" },
+      { "key": "depth", "label": "Depth", "unit": "" },
+      { "key": "temp", "label": "Temperature", "unit": "" },
+      { "key": "pressure", "label": "Pressure", "unit": "" },
+      { "key": "light", "label": "Light", "unit": "" }
+    ]
+  },
+
+  "explain": {
+    "prompt": "Analysis and conclusion: look at your Investigation Record (your evidence). Describe how temperature and light changed as you dived from the Sunlight Zone to the Midnight Zone, quoting your own readings, and say whether this evidence supported or refuted your hypothesis. Then answer the scientific question: explain why photosynthesis is limited to the sunlit surface layer, and name one way deep-sea life instead gets its energy.",
+    "lede": "Use the actual numbers from your dive, and refer back to the hypothesis you chose before you dived.",
+    "maxMarks": 3,
+    "minChars": 100,
+    "skillFocus": "Use evidence from your own dive investigation and explain your reasoning clearly."
+  },
+
+  "apply": {
+    "prompt": "A newly discovered fish is caught at 2,500 m in the Midnight Zone. Using what you observed about the conditions there, predict TWO adaptations it is likely to have, and explain why each one helps it survive at that depth. Finish with one sentence of evaluation: how confident are you in your conclusion, and name one specific way you could make your dive investigation more reliable (for example, more repeat dives, or logging more points within a zone)?",
+    "lede": "Base each adaptation on a specific condition you recorded — darkness, cold, or pressure.",
+    "maxMarks": 3,
+    "minChars": 110,
+    "skillFocus": "Apply what you found to a new situation and give clear, well-explained reasons."
+  },
+
+  "knowledgeCheck": [
+    {
+      "id": "kc1", "type": "mc", "marks": 1,
+      "prompt": "Which ocean zone receives no sunlight at all?",
+      "options": [
+        { "id": "a", "label": "The Midnight Zone (Bathypelagic)" },
+        { "id": "b", "label": "The Sunlight Zone (Epipelagic)" },
+        { "id": "c", "label": "The Twilight Zone (Mesopelagic)" },
+        { "id": "d", "label": "The Intertidal Zone" }
+      ],
+      "answer": "a",
+      "explain": "Below about 1,000 m no sunlight penetrates — the Midnight (Bathypelagic) Zone is in permanent darkness."
+    },
+    {
+      "id": "kc2", "type": "mc", "marks": 1,
+      "prompt": "Roughly how much does water pressure increase for every 10 m you descend?",
+      "options": [
+        { "id": "a", "label": "About 1 atmosphere" },
+        { "id": "b", "label": "About 10 atmospheres" },
+        { "id": "c", "label": "It does not change with depth" },
+        { "id": "d", "label": "About 0.1 of an atmosphere" }
+      ],
+      "answer": "a",
+      "explain": "Every 10 m of water adds about 1 atmosphere, so at 3,000 m the pressure is around 300 atmospheres."
+    },
+    {
+      "id": "kc3", "type": "match", "marks": 2,
+      "prompt": "Match each ocean zone to what is found there.",
+      "pairs": [
+        { "left": "Sunlight Zone", "right": "Photosynthesis and coral reefs" },
+        { "left": "Twilight Zone", "right": "Faint light; animals feed on marine snow" },
+        { "left": "Midnight Zone", "right": "Total darkness lit only by bioluminescence" },
+        { "left": "Benthic seabed", "right": "Hydrothermal vents and chemosynthesis" }
+      ],
+      "explain": "Light and food supply set what lives where: photosynthesis at the top, marine snow in the twilight, made-light in the dark, and chemical energy at the vents."
+    },
+    {
+      "id": "kc4", "type": "mc", "marks": 1,
+      "prompt": "In marine science, 'pelagic' describes life that lives…",
+      "options": [
+        { "id": "a", "label": "in the open water, away from the seabed" },
+        { "id": "b", "label": "on or buried in the seabed" },
+        { "id": "c", "label": "only right at the surface" },
+        { "id": "d", "label": "only inside coral reefs" }
+      ],
+      "answer": "a",
+      "explain": "Pelagic = the open water column; benthic = the seabed. A Cuvier's whale hunts in both."
+    },
+    {
+      "id": "kc5", "type": "slider", "marks": 0,
+      "prompt": "Reflection — not scored: how confident are you in your Explain conclusion about why photosynthesis is limited to the surface?",
+      "hint": "Slide honestly. This does not affect your mark — it helps you and your teacher see how sure you feel about your own reasoning.",
+      "min": 1, "max": 5, "step": 1, "default": 3, "unit": "/5 confident"
+    }
+  ],
+
+  "rubric": {
+    "note": "You are graded out of the total marks, shown as a percentage.",
+    "criteria": [
+      { "key": "knowledge_accuracy", "label": "Knowledge & understanding", "descriptor": "Knowledge Check answers correct.", "max": 5, "auto": true },
+      {
+        "key": "use_of_evidence", "label": "Use of evidence", "max": 3,
+        "studentHint": "Use evidence clearly from your own dive investigation to support your answer."
+      },
+      {
+        "key": "reasoning", "label": "Scientific reasoning", "max": 3,
+        "studentHint": "Explain the scientific reasoning behind your answer, applying it correctly to the situation asked about."
+      },
+      {
+        "key": "communication", "label": "Communication", "max": 2,
+        "studentHint": "Write clearly, in full sentences, using correct scientific vocabulary."
+      }
+    ]
+  }
+}

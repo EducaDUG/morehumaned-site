@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="biology" data-age-band="primary" data-tint="paper" data-text-size="m">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nutrition and Health — Discovery Lab</title>
+<link rel="stylesheet" href="../../../../../../engine/style.css?v=12">
+<script>
+(function(){try{var p=JSON.parse(localStorage.getItem('dl-a11y-v1')||'{}');var r=document.documentElement;
+if(p.textSize)r.setAttribute('data-text-size',p.textSize);
+if(p.tint)r.setAttribute('data-tint',p.tint);
+if(p.dyslexia)r.setAttribute('data-dyslexia','on');
+if(p.motion==='on')r.setAttribute('data-reduced-motion','on');else if(p.motion==='off')r.setAttribute('data-reduced-motion','off');
+}catch(e){}})();
+</script>
+<style>
+.nh-card{padding:var(--sp-4);border-radius:var(--radius-lg);border:1px solid var(--line);background:var(--surface);}
+.nh-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(7.5rem,1fr));gap:var(--sp-3);margin-top:var(--sp-3);}
+.nh-chip{border:2px solid var(--line);background:var(--paper);border-radius:var(--radius);padding:.7em .6em;
+  font-weight:700;font-size:var(--step--1);cursor:pointer;touch-action:manipulation;text-align:center;
+  transition:transform var(--dur-fast) var(--ease),box-shadow var(--dur-fast) var(--ease);}
+.nh-chip:hover{transform:translateY(-2px);}
+.nh-chip.is-selected{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-wash);}
+.nh-chip.is-correct{animation:nhPop .5s var(--ease-out-back);border-color:var(--signal);background:var(--accent-wash);}
+.nh-chip.is-wrong{animation:nhShake .35s ease;border-color:#c0392b;}
+.nh-chip.nh-photo-card{padding:0;overflow:hidden;display:block;width:100%;}
+.nh-chip.nh-photo-card .nh-photo{border-radius:0;}
+.nh-chip.nh-photo-card .nh-photo-cap{display:block;padding:.5em .5em;font-size:var(--step--2);}
+@keyframes nhPop{0%{transform:scale(1)}40%{transform:scale(1.14)}100%{transform:scale(1)}}
+@keyframes nhShake{0%,100%{transform:translateX(0)}25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+[data-reduced-motion=on] .nh-chip.is-correct,[data-reduced-motion=on] .nh-chip.is-wrong{animation:none}
+.nh-pillars{display:grid;grid-template-columns:repeat(auto-fill,minmax(6.5rem,1fr));gap:var(--sp-2);margin-top:var(--sp-3);}
+.nh-pillar{border-radius:var(--radius);padding:.8em .5em;text-align:center;font-weight:800;font-size:var(--step--2);
+  color:#fff;cursor:pointer;touch-action:manipulation;border:3px solid transparent;
+  transition:transform var(--dur-fast) var(--ease);}
+.nh-pillar:hover{transform:translateY(-2px);}
+.nh-pillar.is-target{animation:nhPulse 1s ease infinite;}
+@keyframes nhPulse{0%,100%{box-shadow:0 0 0 0 rgba(0,0,0,.25)}50%{box-shadow:0 0 0 8px rgba(0,0,0,0)}}
+[data-reduced-motion=on] .nh-pillar.is-target{animation:none;outline:3px dashed var(--ink);}
+.nh-photo{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:var(--radius);display:block;background:var(--line);}
+.nh-photo-card{border:2px solid var(--line);border-radius:var(--radius);overflow:hidden;background:var(--paper);cursor:pointer;
+  touch-action:manipulation;transition:transform var(--dur-fast) var(--ease);}
+.nh-photo-card:hover{transform:translateY(-2px);}
+.nh-photo-card.is-selected{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-wash);}
+.nh-photo-cap{padding:.5em .6em;font-weight:700;font-size:var(--step--1);text-align:center;}
+.nh-credit{font-size:.68rem;color:var(--ink-3);margin-top:var(--sp-2);}
+.nh-credit a{color:inherit;}
+.nh-glass{position:relative;width:7rem;height:9rem;margin:var(--sp-3) auto;border:3px solid var(--ink);
+  border-radius:0 0 14px 14px;overflow:hidden;background:var(--paper);}
+.nh-glass__fill{position:absolute;left:0;right:0;bottom:0;height:0%;background:linear-gradient(180deg,#8fd3f4,#4a90d9);
+  transition:height .5s var(--ease-out-back);}
+.nh-drop{position:absolute;left:50%;top:-6px;width:10px;height:10px;border-radius:50% 50% 50% 0;background:#4a90d9;
+  transform:translateX(-50%) rotate(45deg);animation:nhFall .6s ease forwards;}
+@keyframes nhFall{0%{top:-10px;opacity:1}100%{top:92%;opacity:.3}}
+[data-reduced-motion=on] .nh-drop{animation:none;display:none;}
+.nh-obs-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(9rem,1fr));gap:var(--sp-3);}
+.nh-obs-card{border:2px solid var(--line);border-radius:var(--radius-lg);background:var(--paper);overflow:hidden;
+  cursor:pointer;touch-action:manipulation;}
+.nh-obs-reveal{padding:.6em .7em;font-size:var(--step--1);background:var(--accent-wash);color:var(--ink);font-weight:600;display:none;}
+.nh-obs-card.is-open .nh-obs-reveal{display:block;}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main" data-lang="en">Skip to content</a>
+<a class="skip-link" href="#main" data-lang="es" hidden>Ir al contenido</a>
+
+<header class="site-head">
+  <div class="shell site-head__inner">
+    <a class="wordmark" href="../../../../../../">
+      <svg viewBox="0 0 64 64" aria-hidden="true">
+        <circle cx="32" cy="32" r="27" fill="none" stroke="currentColor" stroke-width="1.5" opacity=".28"/>
+        <circle cx="32" cy="32" r="19" fill="none" stroke="currentColor" stroke-width="1.5" opacity=".18"/>
+        <path d="M32 32 A27 27 0 0 1 53 21" fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round"/>
+        <circle cx="45" cy="22" r="5" fill="var(--signal)"/>
+        <circle cx="32" cy="32" r="2.5" fill="currentColor"/>
+      </svg>
+      <span class="wordmark__text">Discovery&nbsp;Lab</span>
+    </a>
+    <a class="eyebrow" href="../../../../../../about/" style="text-decoration:none" data-lang="en">About Mr&nbsp;Guevara</a>
+    <a class="eyebrow" href="../../../../../../about/" style="text-decoration:none" data-lang="es" hidden>Sobre el Sr.&nbsp;Guevara</a>
+  </div>
+</header>
+
+<main id="main" class="shell">
+  <div id="lab-root"></div>
+</main>
+
+<footer class="site-foot">
+  <div class="shell site-foot__inner">
+    <span data-lang="en">Discovery Lab — <a href="../../../../../../about/">Diego Urrutia Guevara</a></span>
+    <span data-lang="es" hidden>Discovery Lab — <a href="../../../../../../about/">Diego Urrutia Guevara</a></span>
+    <span data-lang="en">Your work stays in your browser. Nothing is uploaded or stored on a server.</span>
+    <span data-lang="es" hidden>Tu trabajo se queda en tu navegador. No se sube ni se guarda nada en ningún servidor.</span>
+  </div>
+</footer>
+
+<script type="module">
+import { mountActivity } from "../../../../../../engine/engine.js?v=19";
+import { getLang } from "../../../../../../engine/i18n.js?v=9";
+import { mountArcadeRush, renderArcadeLaunch } from "../../../../../../engine/arcade.js?v=5";
+
+const THREE_URL = "../../../../../../engine/vendor/three.min.js";
+const L = (en, es) => (getLang() === "es" ? es : en);
+
+/* ============================================================
+   Shared data: the five Pentagon of Health pillars, habit cards,
+   and the real, licensed food photos.
+   ============================================================ */
+const PILLARS = [
+  { id: "nutrition", en: "Nutrition", es: "Nutrición", color: "#3f8f4c" },
+  { id: "sleep", en: "Sleep", es: "Sueño", color: "#5a5ac9" },
+  { id: "exercise", en: "Exercise", es: "Ejercicio", color: "#d98a2b" },
+  { id: "stress", en: "Calm Mind", es: "Mente tranquila", color: "#3f9fb0" },
+  { id: "community", en: "Kindness & Friends", es: "Amabilidad y amigos", color: "#c0507a" },
+];
+
+const HABITS = [
+  { id: "h1", pillar: "nutrition", icon: "🥕", en: "Ate vegetables", es: "Comió verduras",
+    photo: "habit-h1.jpg",
+    credit: "HaJunkiyada, CC BY-SA 4.0, via Wikimedia Commons",
+    creditUrl: "https://commons.wikimedia.org/wiki/File:Liat_Portal_for_Foodie_Disorder_-_Mixed_vegetable_salad_with_fresh_herbs.jpg" },
+  { id: "h2", pillar: "sleep", icon: "🌙", en: "Went to bed on time", es: "Se acostó a tiempo",
+    photo: "habit-h2.jpg",
+    credit: "Paul Goyette, CC BY-SA 2.0, via Wikimedia Commons",
+    creditUrl: "https://commons.wikimedia.org/wiki/File:Sleeping_baby_in_crib.jpg" },
+  { id: "h3", pillar: "exercise", icon: "⚽", en: "Played outside", es: "Jugó afuera",
+    photo: "habit-h3.jpg",
+    credit: "terri_bateman, CC BY 2.0, via Wikimedia Commons",
+    creditUrl: "https://commons.wikimedia.org/wiki/File:-365_monkeyBars_(21665576909).jpg" },
+  { id: "h4", pillar: "community", icon: "🤗", en: "Hugged a friend", es: "Abrazó a un amigo",
+    photo: "habit-h4.jpg",
+    credit: "Kengee8, CC BY-SA 4.0, via Wikimedia Commons",
+    creditUrl: "https://commons.wikimedia.org/wiki/File:Children_hug.jpg" },
+  { id: "h5", pillar: "stress", icon: "🧘", en: "Took deep, slow breaths", es: "Respiró lento y profundo" },
+  { id: "h6", pillar: "nutrition", icon: "💧", en: "Drank water instead of soda", es: "Bebió agua en vez de refresco",
+    photo: "habit-h6.jpg",
+    credit: "Shixart1985, CC BY 2.0, via Wikimedia Commons",
+    creditUrl: "https://commons.wikimedia.org/wiki/File:Young_child_drinks_from_a_glass_while_standing_in_a_kitchen.jpg" },
+  { id: "h7", pillar: "sleep", icon: "📴", en: "Turned off the screen before bed", es: "Apagó la pantalla antes de dormir" },
+  { id: "h8", pillar: "exercise", icon: "🚴", en: "Rode a bike", es: "Montó en bicicleta",
+    photo: "habit-h8.jpg",
+    credit: "Matt Robertson/DFAT, CC BY 2.0, via Wikimedia Commons",
+    creditUrl: "https://commons.wikimedia.org/wiki/File:A_child_riding_his_bike_outside_Nauru_College.jpg" },
+  { id: "h9", pillar: "community", icon: "🙏", en: "Said thank you and shared", es: "Dio las gracias y compartió",
+    photo: "habit-h9.jpg",
+    credit: "Shixart1985, CC BY 2.0, via Wikimedia Commons",
+    creditUrl: "https://commons.wikimedia.org/wiki/File:Two_children_happily_run_down_a_pathway_in_a_backyard,_holding_colorful_light_toys.jpg" },
+  { id: "h10", pillar: "stress", icon: "☀️", en: "Rested quietly in the sun", es: "Descansó tranquilo al sol",
+    photo: "habit-h10.jpg",
+    credit: "Shixart1985, CC BY 2.0, via Wikimedia Commons",
+    creditUrl: "https://commons.wikimedia.org/wiki/File:Woman_enjoying_a_peaceful_afternoon_in_a_sunny_garden.jpg" },
+];
+
+/* A tiny emoji-on-colour SVG data URI, used as a fallback texture (and fallback
+   card art) for the two habits (h5, h7) without a licensed real photo — see
+   RUSH_ITEMS below and paintHabits()'s photo-card markup. */
+function habitIconDataUri(icon, color) {
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256">
+    <rect width="256" height="256" rx="28" fill="${color}"/>
+    <text x="128" y="150" font-size="130" text-anchor="middle" dominant-baseline="middle">${icon}</text>
+  </svg>`;
+  return "data:image/svg+xml;utf8," + encodeURIComponent(svg);
+}
+
+const FOODS = [
+  { id: "bread", nutrient: "carb", en: "Bread", es: "Pan", file: "bread.jpg",
+    credit: "Veganbaking.net, CC BY-SA 2.0, via Wikimedia Commons",
+    creditUrl: "https://commons.wikimedia.org/wiki/File:Vegan_no-knead_whole_wheat_bread_loaf,_sliced,_September_2010.jpg" },
+  { id: "beans", nutrient: "protein", en: "Beans", es: "Frijoles", file: "beans.jpg",
+    credit: "Sanjay Acharya, CC BY-SA 4.0, via Wikimedia Commons",
+    creditUrl: "https://commons.wikimedia.org/wiki/File:Pinto_Beans_Seeds.jpg" },
+  { id: "avocado", nutrient: "fat", en: "Avocado", es: "Aguacate", file: "avocado.jpg",
+    credit: "Ivar Leidus, CC BY-SA 4.0, via Wikimedia Commons",
+    creditUrl: "https://commons.wikimedia.org/wiki/File:Avocado_Hass_-_single_and_halved.jpg" },
+  { id: "orange", nutrient: "vitamin", en: "Orange", es: "Naranja", file: "orange.jpg",
+    credit: "Ivar Leidus, CC BY-SA 4.0, via Wikimedia Commons",
+    creditUrl: "https://commons.wikimedia.org/wiki/File:Oranges_-_whole-halved-segment.jpg" },
+  { id: "milk", nutrient: "mineral", en: "Milk", es: "Leche", file: "milk.jpg",
+    credit: "NIAID, CC BY 2.0, via Wikimedia Commons",
+    creditUrl: "https://commons.wikimedia.org/wiki/File:Glass_of_Milk_(33657535532).jpg" },
+];
+const NUTRIENTS = [
+  { id: "carb", en: "Carbohydrates (energy)", es: "Carbohidratos (energía)", color: "#d9a02b" },
+  { id: "protein", en: "Proteins (build & repair)", es: "Proteínas (construir y reparar)", color: "#8a4fc0" },
+  { id: "fat", en: "Fats (long-term energy)", es: "Grasas (energía a largo plazo)", color: "#4f8ac0" },
+  { id: "vitamin", en: "Vitamins", es: "Vitaminas", color: "#c05050" },
+  { id: "mineral", en: "Minerals", es: "Minerales", color: "#4fc08a" },
+];
+
+function burst(host, x, y, color) {
+  const n = document.documentElement.getAttribute("data-reduced-motion") === "on" ? 0 : 8;
+  for (let i = 0; i < n; i++) {
+    const p = document.createElement("span");
+    const ang = (Math.PI * 2 * i) / n, dist = 34 + Math.random() * 18;
+    p.style.cssText = `position:absolute;left:${x}px;top:${y}px;width:7px;height:7px;border-radius:50%;
+      background:${color};pointer-events:none;z-index:9;transition:transform .55s var(--ease-out-back),opacity .55s;`;
+    host.appendChild(p);
+    requestAnimationFrame(() => {
+      p.style.transform = `translate(${Math.cos(ang) * dist}px, ${Math.sin(ang) * dist}px)`;
+      p.style.opacity = "0";
+    });
+    setTimeout(() => p.remove(), 600);
+  }
+}
+
+/* ============================================================
+   OBSERVATION — tap-to-reveal notices about Pip's real day,
+   using two of the real food photos so the observation stage
+   is already grounded in something real, not text alone.
+   ============================================================ */
+function drawObservation(host, sim) {
+  host.innerHTML = "";
+  const grid = document.createElement("div");
+  grid.className = "nh-obs-grid";
+  const notices = [
+    { icon: "🥗", en: "Pip ate an orange for a snack.", es: "Pip comió una naranja de merienda.",
+      reveal: { en: "Oranges are full of Vitamin C!", es: "¡Las naranjas tienen mucha vitamina C!" } },
+    { icon: "🌙", en: "Pip went to bed at the same time every night.", es: "Pip se acostó a la misma hora cada noche.",
+      reveal: { en: "A steady bedtime helps your body rest well.", es: "Una hora fija para dormir ayuda a tu cuerpo a descansar bien." } },
+    { icon: "🚴", en: "Pip rode a bike after school.", es: "Pip montó en bicicleta después de la escuela.",
+      reveal: { en: "Moving your body every day makes your heart strong.", es: "Mover tu cuerpo cada día fortalece tu corazón." } },
+    { icon: "🤗", en: "Pip shared toys with a friend.", es: "Pip compartió juguetes con un amigo.",
+      reveal: { en: "Kindness and friendship are part of being healthy too!", es: "¡La amabilidad y la amistad también son parte de estar sano!" } },
+  ];
+  notices.forEach((n, i) => {
+    const card = document.createElement("div");
+    card.className = "nh-obs-card";
+    card.innerHTML = `<div style="padding:1em;text-align:center;font-size:2.2rem">${n.icon}</div>
+      <p style="padding:0 .7em .6em;text-align:center;font-weight:700;font-size:var(--step--1)">${L(n.en, n.es)}</p>
+      <p class="nh-obs-reveal">${L(n.reveal.en, n.reveal.es)}</p>`;
+    card.addEventListener("click", () => {
+      const wasOpen = card.classList.contains("is-open");
+      card.classList.toggle("is-open");
+      if (!wasOpen) sim.toast(L("Nice noticing!", "¡Buena observación!"), "success");
+    });
+    grid.append(card);
+  });
+  host.append(grid);
+  const hint = document.createElement("p");
+  hint.className = "q__hint";
+  hint.style.marginTop = "var(--sp-3)";
+  hint.textContent = L("Tap each card to reveal what it tells us.", "Toca cada tarjeta para revelar lo que nos dice.");
+  host.append(hint);
+}
+
+/* ============================================================
+   INVESTIGATE — three hands-on moments:
+   1) Pentagon Balance — sort habit cards into pillars (tap-tap).
+   2) Real-photo food sort — sort foods into nutrient groups.
+   3) Fill Pip's water glass — tap to add falling drops.
+   Then the arcade bonus round.
+   ============================================================ */
+function drawInvestigate(host, sim) {
+  host.innerHTML = "";
+  const wrap = document.createElement("div");
+  wrap.className = "stack";
+  wrap.style.gap = "var(--sp-5)";
+
+  /* ---- Job 1: Pentagon Balance ---- */
+  const pillarPanel = document.createElement("div");
+  pillarPanel.className = "nh-card stack";
+  pillarPanel.innerHTML = `
+    <p class="eyebrow">${L("Job 1 — Pentagon Balance", "Trabajo 1 — Equilibrio del Pentágono")}</p>
+    <p class="q__hint">${L("Tap a habit card, then tap the Pentagon of Health group it belongs to.", "Toca una tarjeta de hábito y luego toca el grupo del Pentágono de la Salud al que pertenece.")}</p>
+    <div class="nh-grid" id="habit-grid"></div>
+    <div class="nh-pillars" id="pillar-row"></div>
+    <p class="readout" id="pillar-readout" aria-live="polite">${L("Tap a habit card to begin.", "Toca una tarjeta de hábito para empezar.")}</p>
+    <p class="nh-credit" id="habit-credit"></p>
+  `;
+  wrap.append(pillarPanel);
+  const habitGrid = pillarPanel.querySelector("#habit-grid");
+  const pillarRow = pillarPanel.querySelector("#pillar-row");
+  const pillarReadout = pillarPanel.querySelector("#pillar-readout");
+  const habitCredit = pillarPanel.querySelector("#habit-credit");
+  let selectedHabit = null;
+  let sortedCount = 0;
+
+  function paintHabits() {
+    habitGrid.innerHTML = "";
+    HABITS.forEach(h => {
+      if (h.done) return;
+      const c = document.createElement("button");
+      c.type = "button"; c.className = "nh-chip nh-photo-card";
+      const imgSrc = h.photo ? `photos/${h.photo}` : habitIconDataUri(h.icon, PILLARS.find(p => p.id === h.pillar).color);
+      c.innerHTML = `<img class="nh-photo" src="${imgSrc}" alt="${L(h.en, h.es)}" style="aspect-ratio:4/3">
+        <span class="nh-photo-cap">${L(h.en, h.es)}</span>`;
+      c.addEventListener("click", () => {
+        habitGrid.querySelectorAll(".nh-chip").forEach(x => x.classList.remove("is-selected"));
+        c.classList.add("is-selected");
+        selectedHabit = h;
+        pillarReadout.textContent = L(`Now tap the group for "${h.en}".`, `Ahora toca el grupo para "${h.es}".`);
+        pillarRow.querySelectorAll(".nh-pillar").forEach(p => p.classList.toggle("is-target", p.dataset.id === h.pillar ? false : false));
+        habitCredit.innerHTML = h.credit
+          ? `${L("Photo", "Foto")}: <a href="${h.creditUrl}" target="_blank" rel="noopener">${h.credit}</a>`
+          : "";
+      });
+      habitGrid.append(c);
+    });
+  }
+  PILLARS.forEach(p => {
+    const b = document.createElement("button");
+    b.type = "button"; b.className = "nh-pillar"; b.dataset.id = p.id;
+    b.style.background = p.color;
+    b.textContent = L(p.en, p.es);
+    b.addEventListener("click", (ev) => {
+      if (!selectedHabit) {
+        pillarReadout.textContent = L("Tap a habit card first!", "¡Toca primero una tarjeta de hábito!");
+        b.classList.add("is-target");
+        setTimeout(() => b.classList.remove("is-target"), 500);
+        return;
+      }
+      const rect = b.getBoundingClientRect();
+      const hostRect = pillarPanel.getBoundingClientRect();
+      const x = rect.left - hostRect.left + rect.width / 2, y = rect.top - hostRect.top + rect.height / 2;
+      if (p.id === selectedHabit.pillar) {
+        burst(pillarPanel, x, y, p.color);
+        sim.recordTrial({ task: L("Pentagon Balance", "Equilibrio del Pentágono"), input: L(selectedHabit.en, selectedHabit.es), result: L(p.en, p.es) + " ✓" });
+        sim.toast(L(`Correct! That's ${p.en}.`, `¡Correcto! Eso es ${p.es}.`), "success");
+        selectedHabit.done = true;
+        sortedCount++;
+        paintHabits();
+      } else {
+        b.classList.add("is-wrong");
+        setTimeout(() => b.classList.remove("is-wrong"), 400);
+        sim.toast(L("Not that group — try again!", "Ese grupo no — ¡inténtalo de nuevo!"), "warn");
+      }
+      selectedHabit = null;
+      habitGrid.querySelectorAll(".nh-chip").forEach(x => x.classList.remove("is-selected"));
+      pillarReadout.textContent = sortedCount >= HABITS.length
+        ? L("All habits sorted! Great job.", "¡Todos los hábitos clasificados! Gran trabajo.")
+        : L("Tap another habit card.", "Toca otra tarjeta de hábito.");
+    });
+    pillarRow.append(b);
+  });
+  paintHabits();
+
+  /* ---- Job 2: Real-photo food sort ---- */
+  const foodPanel = document.createElement("div");
+  foodPanel.className = "nh-card stack";
+  foodPanel.innerHTML = `
+    <p class="eyebrow">${L("Job 2 — Sort the Real Foods", "Trabajo 2 — Clasifica los alimentos reales")}</p>
+    <p class="q__hint">${L("Tap a food photo, then tap the nutrient group it belongs to.", "Toca una foto de alimento y luego toca el grupo de nutrientes al que pertenece.")}</p>
+    <div class="nh-grid" id="food-grid" style="grid-template-columns:repeat(auto-fill,minmax(8rem,1fr))"></div>
+    <div class="nh-grid" id="nutrient-row"></div>
+    <p class="readout" id="food-readout" aria-live="polite">${L("Tap a food to begin.", "Toca un alimento para empezar.")}</p>
+    <p class="nh-credit" id="food-credit"></p>
+  `;
+  wrap.append(foodPanel);
+  const foodGrid = foodPanel.querySelector("#food-grid");
+  const nutrientRow = foodPanel.querySelector("#nutrient-row");
+  const foodReadout = foodPanel.querySelector("#food-readout");
+  const foodCredit = foodPanel.querySelector("#food-credit");
+  let selectedFood = null;
+  let foodSortedCount = 0;
+
+  function paintFoods() {
+    foodGrid.innerHTML = "";
+    FOODS.forEach(f => {
+      if (f.done) return;
+      const card = document.createElement("div");
+      card.className = "nh-photo-card";
+      card.innerHTML = `<img class="nh-photo" src="photos/${f.file}" alt="${L(f.en, f.es)}">
+        <p class="nh-photo-cap">${L(f.en, f.es)}</p>`;
+      card.addEventListener("click", () => {
+        foodGrid.querySelectorAll(".nh-photo-card").forEach(x => x.classList.remove("is-selected"));
+        card.classList.add("is-selected");
+        selectedFood = f;
+        foodReadout.textContent = L(`Now tap the nutrient group for "${f.en}".`, `Ahora toca el grupo de nutrientes para "${f.es}".`);
+        foodCredit.innerHTML = `${L("Photo","Foto")}: <a href="${f.creditUrl}" target="_blank" rel="noopener">${f.credit}</a>`;
+      });
+      foodGrid.append(card);
+    });
+  }
+  NUTRIENTS.forEach(n => {
+    const b = document.createElement("button");
+    b.type = "button"; b.className = "nh-pillar"; b.style.background = n.color;
+    b.textContent = L(n.en, n.es);
+    b.addEventListener("click", () => {
+      if (!selectedFood) {
+        foodReadout.textContent = L("Tap a food photo first!", "¡Toca primero una foto de alimento!");
+        b.classList.add("is-target"); setTimeout(() => b.classList.remove("is-target"), 500);
+        return;
+      }
+      const rect = b.getBoundingClientRect(), hostRect = foodPanel.getBoundingClientRect();
+      const x = rect.left - hostRect.left + rect.width / 2, y = rect.top - hostRect.top + rect.height / 2;
+      if (n.id === selectedFood.nutrient) {
+        burst(foodPanel, x, y, n.color);
+        sim.recordTrial({ task: L("Food sort", "Clasificación de alimentos"), input: L(selectedFood.en, selectedFood.es), result: L(n.en, n.es) + " ✓" });
+        sim.toast(L(`Correct! ${selectedFood.en} is a great source of ${n.en}.`, `¡Correcto! ${selectedFood.es} es una gran fuente de ${n.es}.`), "success");
+        selectedFood.done = true; foodSortedCount++;
+        paintFoods();
+      } else {
+        b.classList.add("is-wrong"); setTimeout(() => b.classList.remove("is-wrong"), 400);
+        sim.toast(L("Not that nutrient — try again!", "Ese nutriente no — ¡inténtalo de nuevo!"), "warn");
+      }
+      selectedFood = null;
+      foodGrid.querySelectorAll(".nh-photo-card").forEach(x => x.classList.remove("is-selected"));
+      foodReadout.textContent = foodSortedCount >= FOODS.length
+        ? L("All foods sorted! Amazing work.", "¡Todos los alimentos clasificados! Trabajo increíble.")
+        : L("Tap another food.", "Toca otro alimento.");
+    });
+    nutrientRow.append(b);
+  });
+  paintFoods();
+
+  /* ---- Job 3: Fill Pip's water glass ---- */
+  const waterPanel = document.createElement("div");
+  waterPanel.className = "nh-card stack";
+  waterPanel.style.textAlign = "center";
+  waterPanel.innerHTML = `
+    <p class="eyebrow">${L("Job 3 — Fill Pip's Water Glass", "Trabajo 3 — Llena el vaso de agua de Pip")}</p>
+    <p class="q__hint">${L("Water makes up about 60% of your body! Tap the tap to add drops until the glass is full.", "¡El agua forma cerca del 60% de tu cuerpo! Toca el grifo para añadir gotas hasta llenar el vaso.")}</p>
+    <div class="nh-glass" id="glass"><div class="nh-glass__fill" id="glass-fill"></div></div>
+    <p class="readout" id="glass-readout">0%</p>
+    <button id="tap-btn" class="btn btn--signal" type="button">💧 ${L("Add a drop", "Añadir una gota")}</button>
+  `;
+  wrap.append(waterPanel);
+  const glass = waterPanel.querySelector("#glass");
+  const glassFill = waterPanel.querySelector("#glass-fill");
+  const glassReadout = waterPanel.querySelector("#glass-readout");
+  const tapBtn = waterPanel.querySelector("#tap-btn");
+  let drops = 0;
+  const MAX_DROPS = 10;
+  let waterLogged = false;
+  tapBtn.addEventListener("click", () => {
+    if (drops >= MAX_DROPS) return;
+    drops++;
+    const pct = Math.round((drops / MAX_DROPS) * 100);
+    glassFill.style.height = pct + "%";
+    glassReadout.textContent = pct + "%";
+    const drop = document.createElement("div");
+    drop.className = "nh-drop";
+    glass.append(drop);
+    setTimeout(() => drop.remove(), 650);
+    if (drops === MAX_DROPS) {
+      burst(waterPanel, glass.offsetLeft + glass.offsetWidth / 2, glass.offsetTop, "#4a90d9");
+      tapBtn.textContent = L("Glass full! 🎉", "¡Vaso lleno! 🎉");
+      tapBtn.disabled = true;
+      if (!waterLogged) {
+        waterLogged = true;
+        sim.recordTrial({ task: L("Hydration", "Hidratación"), input: L(`${drops} drops`, `${drops} gotas`), result: L("Glass 100% full", "Vaso 100% lleno") });
+        sim.toast(L("Pip's glass is full — great hydration!", "¡El vaso de Pip está lleno — buena hidratación!"), "success");
+      }
+    }
+  });
+
+  host.append(wrap);
+
+  /* ---- Bonus round: Pentagon Rush (arcade) ---- */
+  const arcadeSection = document.createElement("div");
+  arcadeSection.id = "arcade-section";
+  arcadeSection.style.marginTop = "var(--sp-5)";
+  host.append(arcadeSection);
+
+  const RUSH_ITEMS = HABITS.map(h => ({
+    id: h.id, label: L(h.en, h.es), laneId: h.pillar,
+    img: h.photo ? `photos/${h.photo}` : habitIconDataUri(h.icon, PILLARS.find(p => p.id === h.pillar).color),
+  }));
+  const RUSH_LANES = PILLARS.map(p => ({ id: p.id, label: L(p.en, p.es), color: p.color }));
+
+  function paintArcade() {
+    arcadeSection.innerHTML = "";
+    renderArcadeLaunch(arcadeSection, {
+      strings: {
+        title: L("Bonus round — Pentagon Rush", "Ronda bonus — Carrera del Pentágono"),
+        instructions: L("Habits fly at you — tap the Pentagon group it belongs to before it reaches the ring!", "¡Los hábitos vuelan hacia ti — toca el grupo del Pentágono al que pertenecen antes de que lleguen al aro!"),
+        play: L("Play Pentagon Rush", "Jugar Carrera del Pentágono"),
+        skip: L("Skip bonus round", "Saltar ronda bonus"),
+      },
+      onPlay() {
+        arcadeSection.innerHTML = "";
+        const gameHost = document.createElement("div");
+        arcadeSection.append(gameHost);
+        mountArcadeRush(gameHost, {
+          threeUrl: THREE_URL,
+          rounds: 24,
+          lanes: RUSH_LANES,
+          items: RUSH_ITEMS,
+          strings: {
+            title: L("Pentagon Rush", "Carrera del Pentágono"),
+            instructions: L("Tap the group that matches the flying habit. A late or wrong answer just resets your streak — never a fail!", "Toca el grupo que corresponde al hábito que vuela. Una respuesta tardía o incorrecta solo reinicia tu racha — ¡nunca es un fallo!"),
+            score: L("Score", "Puntos"), streak: L("Streak", "Racha"), best: L("Best streak", "Mejor racha"),
+            progress: L("Habit", "Hábito"), correct: L("Correct!", "¡Correcto!"), wrong: L("Not quite.", "No exactamente."),
+            missed: L("Missed it.", "Se te escapó."), finishTitle: L("Round complete!", "¡Ronda completa!"),
+            accuracy: L("Accuracy", "Precisión"), playAgain: L("Play again", "Jugar de nuevo"), continueLabel: L("Continue", "Continuar"),
+          },
+          onExit(stats) {
+            gameHost.innerHTML = "";
+            arcadeSection.innerHTML = "";
+            sim.toast(L(`Bonus round complete — score ${stats.score}, ${stats.accuracy}% accuracy.`, `Ronda bonus completa — puntuación ${stats.score}, ${stats.accuracy}% de precisión.`), "info");
+            paintArcade();
+          }
+        });
+      },
+      onSkip() { arcadeSection.innerHTML = ""; }
+    });
+  }
+  paintArcade();
+}
+
+function drawOrient(host) {
+  const PTS = [
+    { x: 160, y: 42 },   // top — nutrition
+    { x: 262.7, y: 116.6 }, // upper-right — sleep
+    { x: 223.5, y: 237.4 }, // lower-right — exercise
+    { x: 96.5, y: 237.4 },  // lower-left — stress
+    { x: 57.3, y: 116.6 },  // upper-left — community
+  ];
+  const ICONS = ["🥦", "😴", "🏃", "🧘", "🤝"];
+  const poly = PTS.map(p => `${p.x},${p.y}`).join(" ");
+  const spokes = PTS.map(p => `<line x1="160" y1="150" x2="${p.x}" y2="${p.y}" stroke="var(--line)" stroke-width="2"/>`).join("");
+  const nodes = PTS.map((p, i) => {
+    const pl = PILLARS[i];
+    return `
+      <g>
+        <circle cx="${p.x}" cy="${p.y}" r="34" fill="${pl.color}"/>
+        <text x="${p.x}" y="${p.y - 2}" text-anchor="middle" font-size="22">${ICONS[i]}</text>
+        <text x="${p.x}" y="${p.y + 52}" text-anchor="middle" font-family="var(--font-body)" font-weight="800"
+              font-size="12" fill="var(--ink)">${(L(pl.en, pl.es)).replace("&", "&amp;")}</text>
+      </g>`;
+  }).join("");
+  host.innerHTML =
+    `<p class="q__hint">${L(
+      "This is the Pentagon of Health — five habits that work together to keep you happy and well. You will sort real habits and foods into these five groups.",
+      "Este es el Pentágono de la Salud — cinco hábitos que trabajan juntos para mantenerte feliz y sano. Vas a clasificar hábitos y alimentos reales en estos cinco grupos."
+    )}</p>
+    <svg viewBox="0 0 320 300" style="width:100%;height:auto;margin-top:8px" role="img"
+         aria-label="${L('A pentagon diagram with five habits: nutrition, sleep, exercise, calm mind, and kindness and friends, all connected to a heart in the middle', 'Un diagrama pentagonal con cinco hábitos: nutrición, sueño, ejercicio, mente tranquila, y amabilidad y amigos, todos conectados a un corazón en el centro')}">
+      <polygon points="${poly}" fill="var(--accent-wash)" stroke="var(--line)" stroke-width="1.5"/>
+      ${spokes}
+      <circle cx="160" cy="150" r="30" fill="var(--paper)" stroke="var(--accent)" stroke-width="3"/>
+      <text x="160" y="158" text-anchor="middle" font-size="26">❤️</text>
+      ${nodes}
+    </svg>`;
+}
+
+const simulation = { orient: drawOrient, observation: drawObservation, investigate: drawInvestigate };
+
+mountActivity({ simulation }).catch(e => {
+  console.error("Activity failed to start:", e);
+  const r = document.getElementById("lab-root");
+  if (r) r.innerHTML = '<p class="nav-empty">Something went wrong. Please refresh.</p>';
+});
+</script>
+</body>
+</html>
