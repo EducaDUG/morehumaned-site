@@ -36,7 +36,8 @@ def hero_visual(labels):
 <circle cx="200" cy="200" r="122" fill="none" stroke="currentColor" stroke-width="1.5" opacity=".18"/>
 <circle cx="200" cy="200" r="80" fill="none" stroke="currentColor" stroke-width="1.5" opacity=".12"/>
 <g stroke="currentColor" stroke-width="1.5" opacity=".45" fill="none"><path d="M200 18v26M200 356v26M18 200h26M356 200h26"/></g>
-{students}
+<g class="ring-spin">{students}</g>
+<circle class="orbit2" cx="200" cy="200" r="190" fill="none" stroke="var(--signal)" stroke-width="2" stroke-dasharray="2 14" stroke-linecap="round" opacity=".7"/>
 <g class="orbit"><path d="M256.4 44.9 A165 165 0 0 1 335 105" fill="none" stroke="var(--accent)" stroke-width="3" stroke-linecap="round"/>
 <path d="M200 200 L335 105" stroke="var(--accent)" stroke-width="1.5" opacity=".55"/>
 <circle class="pulse" cx="335" cy="105" r="9" fill="var(--signal)"/></g>
@@ -152,6 +153,7 @@ def head_and_shell(lang, fname, title, desc, body, bodyclass=""):
 <link rel="preload" href="../assets/fonts/public-sans-latin-3.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="../assets/tokens.css">
 <link rel="stylesheet" href="../assets/site.css">
+<link rel="stylesheet" href="../assets/motion.css">
 <script>document.documentElement.classList.add('js')</script>
 {ld}
 </head>
@@ -172,6 +174,7 @@ def head_and_shell(lang, fname, title, desc, body, bodyclass=""):
 </div></footer>
 <div class="float-cta"><a class="btn" href="{CAL}">{c["cta"]} <span class="arrow" aria-hidden="true">&rarr;</span></a></div>
 <script src="../assets/site.js" defer></script>
+<script src="../assets/motion.js" defer></script>
 </body>
 </html>
 '''
@@ -281,6 +284,8 @@ def home(lang):
           f_p="Una conversación relajada de 20 minutos. Sin compromiso.", f_b1="Hablar de un piloto", f_b2="Escríbeme",
           ids=dict(approach="enfoque", workshops="talleres", about="sobre"), files=dict(pilot="piloto.html", tut=None, priv="../en/privacy.html", about=None))
     I = X["ids"]; F = X["files"]
+    _tw = ["Notice","Listen","Support","Every learner","Time to think","More human"] if lang == "en" else ["Observar","Escuchar","Acompañar","Cada persona","Tiempo para pensar","Más humano"]
+    TICK = "".join(f"<span>{w}</span>" for w in _tw)
     ws = ""
     for i, (ttl, dur, who, prob, out, btn, href) in enumerate(X["w_cards"]):
         ws += f'''<article {rv(i)}><div class="card workshop"><span class="pill">{dur}</span><h3 style="margin-top:1rem">{ttl}</h3>
@@ -298,14 +303,16 @@ def home(lang):
     tiles = '<i></i>' * 15
     abp = "".join(f"<p>{p}</p>" for p in X["ab_p"])
     return f'''
-<section class="hero"><div class="shell hero__grid">
+<section class="hero"><span class="hero__blob b1" aria-hidden="true"></span><span class="hero__blob b2" aria-hidden="true"></span><div class="shell hero__grid">
 <div><span class="eyebrow">{X["h_eyebrow"]}</span>
 <h1>{X["h1"]}</h1>
 <p class="hero__lede">{X["lede"]}</p>
 <div class="btns"><a class="btn" href="#{I["workshops"]}">{X["b1"]} <span class="arrow" aria-hidden="true">&rarr;</span></a><a class="btn ghost" href="{F["tut"] or F["pilot"]}">{X["b2"]}</a></div>
-<p style="margin-top:2rem;font-family:var(--font-data);font-size:var(--step--1);color:var(--ink-3)">{X["by"]}</p></div>
+<p class="hero__by" style="margin-top:2rem;font-family:var(--font-data);font-size:var(--step--1);color:var(--ink-3)">{X["by"]}</p></div>
 <div class="hero__visual" aria-hidden="false">{hero_visual(T[lang]["labels"])}</div>
 </div></section>
+
+<div class="ticker" aria-hidden="true"><div class="ticker__track">{TICK}{TICK}</div></div>
 
 <section id="who"><div class="shell">
 <div class="section-head reveal"><span class="eyebrow">{X["who_eyebrow"]}</span><span class="rule"></span><h2>{X["who_h"]}</h2></div>
@@ -318,7 +325,7 @@ def home(lang):
 <div class="panel"><span class="label">{X["p_r"]}</span><div class="tiles varied" aria-hidden="true">{tiles}</div><p>{X["p_rc"]}</p></div>
 </div></div></section>
 
-<section id="{I["approach"]}"><div class="shell">
+<section class="dark" id="{I["approach"]}"><div class="shell">
 <div class="section-head reveal"><span class="eyebrow">{X["a_eyebrow"]}</span><span class="rule"></span><h2>{X["a_h"]}</h2></div>
 <div class="grid-3">{cards}</div></div></section>
 
@@ -335,7 +342,7 @@ def home(lang):
 <div class="grid-3">{tut}</div>{t_all}</div></section>
 
 <section id="discovery-lab"><div class="shell">
-<div class="dl-feature reveal">
+<div class="dl-feature reveal zoom">
 <div><span class="eyebrow">{X["d_eyebrow"]}</span><h2>{X["d_h"]}</h2><p>{X["d_p"]}</p><div class="shared">{chips}</div>
 <a class="btn" href="{DL}">{X["d_btn"]} <span class="arrow" aria-hidden="true">&rarr;</span></a></div>
 {DL_MARK}</div></div></section>
@@ -349,7 +356,7 @@ def home(lang):
 </div></div></section>
 
 <section id="{I["about"]}"><div class="shell about-grid">
-<img class="portrait reveal from-left" src="../assets/img/diego-portrait.jpg" width="340" height="340" alt="{X["ab_alt"]}" loading="lazy">
+<img class="portrait reveal clip" src="../assets/img/diego-portrait.jpg" width="340" height="340" alt="{X["ab_alt"]}" loading="lazy">
 <div class="prose reveal from-right" style="--d:100ms"><span class="eyebrow">{X["ab_eyebrow"]}</span><span class="rule"></span><h2>{X["ab_h"]}</h2>{abp}{ab_a}</div>
 </div></section>
 

@@ -22,6 +22,7 @@
 <link rel="preload" href="assets/fonts/public-sans-latin-3.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/tokens.css">
 <link rel="stylesheet" href="assets/site.css">
+<link rel="stylesheet" href="assets/motion.css">
 <script>document.documentElement.classList.add('js')</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "MoreHuman Ed", "url": "https://morehumaned.com", "description": "Practical systems that give teachers and trainers room to notice every learner. Workshops, tutorials and a safe pilot for schools and training organisations.", "founder": {"@type": "Person", "name": "Diego Guevara"}}</script>
 <script>try{if(/^es\b/i.test(navigator.language||"")&&!/[?&]lang=en/.test(location.search)){location.replace("es/index.html")}}catch(e){}</script>
@@ -35,18 +36,19 @@
 </div></header>
 <main id="main">
 
-<section class="hero"><div class="shell hero__grid">
+<section class="hero"><span class="hero__blob b1" aria-hidden="true"></span><span class="hero__blob b2" aria-hidden="true"></span><div class="shell hero__grid">
 <div><span class="eyebrow">Practical systems for schools and training organisations</span>
 <h1>Give teachers and trainers more time and mental space to <em>notice</em> every learner.</h1>
 <p class="hero__lede">MoreHuman Ed helps schools, training organisations and educators turn repetitive work and scattered technology experiments into practical, safe systems, so teachers and trainers can listen, notice and support each learner.</p>
 <div class="btns"><a class="btn" href="#workshops">Explore workshops <span class="arrow" aria-hidden="true">&rarr;</span></a><a class="btn ghost" href="en/tutorials.html">Watch a tutorial</a></div>
-<p style="margin-top:2rem;font-family:var(--font-data);font-size:var(--step--1);color:var(--ink-3)">By Diego Guevara, science educator and learning-systems designer.</p></div>
+<p class="hero__by" style="margin-top:2rem;font-family:var(--font-data);font-size:var(--step--1);color:var(--ink-3)">By Diego Guevara, science educator and learning-systems designer.</p></div>
 <div class="hero__visual" aria-hidden="false"><svg viewBox="-70 -10 540 420" role="img" aria-label="Time / Attention / Judgement / Care">
 <circle cx="200" cy="200" r="165" fill="none" stroke="currentColor" stroke-width="1.5" opacity=".28"/>
 <circle cx="200" cy="200" r="122" fill="none" stroke="currentColor" stroke-width="1.5" opacity=".18"/>
 <circle cx="200" cy="200" r="80" fill="none" stroke="currentColor" stroke-width="1.5" opacity=".12"/>
 <g stroke="currentColor" stroke-width="1.5" opacity=".45" fill="none"><path d="M200 18v26M200 356v26M18 200h26M356 200h26"/></g>
-<circle cx="280.0" cy="200.0" r="3.2" fill="currentColor" opacity=".55"/><circle cx="269.3" cy="240.0" r="3.2" fill="currentColor" opacity=".55"/><circle cx="240.0" cy="269.3" r="3.2" fill="currentColor" opacity=".55"/><circle cx="200.0" cy="280.0" r="3.2" fill="currentColor" opacity=".55"/><circle cx="160.0" cy="269.3" r="3.2" fill="currentColor" opacity=".55"/><circle cx="130.7" cy="240.0" r="3.2" fill="currentColor" opacity=".55"/><circle cx="120.0" cy="200.0" r="3.2" fill="currentColor" opacity=".55"/><circle cx="130.7" cy="160.0" r="3.2" fill="currentColor" opacity=".55"/><circle cx="160.0" cy="130.7" r="3.2" fill="currentColor" opacity=".55"/><circle cx="200.0" cy="120.0" r="3.2" fill="currentColor" opacity=".55"/><circle cx="240.0" cy="130.7" r="3.2" fill="currentColor" opacity=".55"/><circle cx="269.3" cy="160.0" r="3.2" fill="currentColor" opacity=".55"/>
+<g class="ring-spin"><circle cx="280.0" cy="200.0" r="3.2" fill="currentColor" opacity=".55"/><circle cx="269.3" cy="240.0" r="3.2" fill="currentColor" opacity=".55"/><circle cx="240.0" cy="269.3" r="3.2" fill="currentColor" opacity=".55"/><circle cx="200.0" cy="280.0" r="3.2" fill="currentColor" opacity=".55"/><circle cx="160.0" cy="269.3" r="3.2" fill="currentColor" opacity=".55"/><circle cx="130.7" cy="240.0" r="3.2" fill="currentColor" opacity=".55"/><circle cx="120.0" cy="200.0" r="3.2" fill="currentColor" opacity=".55"/><circle cx="130.7" cy="160.0" r="3.2" fill="currentColor" opacity=".55"/><circle cx="160.0" cy="130.7" r="3.2" fill="currentColor" opacity=".55"/><circle cx="200.0" cy="120.0" r="3.2" fill="currentColor" opacity=".55"/><circle cx="240.0" cy="130.7" r="3.2" fill="currentColor" opacity=".55"/><circle cx="269.3" cy="160.0" r="3.2" fill="currentColor" opacity=".55"/></g>
+<circle class="orbit2" cx="200" cy="200" r="190" fill="none" stroke="var(--signal)" stroke-width="2" stroke-dasharray="2 14" stroke-linecap="round" opacity=".7"/>
 <g class="orbit"><path d="M256.4 44.9 A165 165 0 0 1 335 105" fill="none" stroke="var(--accent)" stroke-width="3" stroke-linecap="round"/>
 <path d="M200 200 L335 105" stroke="var(--accent)" stroke-width="1.5" opacity=".55"/>
 <circle class="pulse" cx="335" cy="105" r="9" fill="var(--signal)"/></g>
@@ -56,6 +58,8 @@
 <text x="200" y="402" text-anchor="middle">Judgement</text>
 <text x="12" y="204" text-anchor="end">Care</text></svg></div>
 </div></section>
+
+<div class="ticker" aria-hidden="true"><div class="ticker__track"><span>Notice</span><span>Listen</span><span>Support</span><span>Every learner</span><span>Time to think</span><span>More human</span><span>Notice</span><span>Listen</span><span>Support</span><span>Every learner</span><span>Time to think</span><span>More human</span></div></div>
 
 <section id="who"><div class="shell">
 <div class="section-head reveal"><span class="eyebrow">Who it is for</span><span class="rule"></span><h2>For people who teach, train and lead learning</h2></div>
@@ -68,7 +72,7 @@
 <div class="panel"><span class="label">When teachers have room</span><div class="tiles varied" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><p>Each learner is noticed and supported in the way that fits them.</p></div>
 </div></div></section>
 
-<section id="approach"><div class="shell">
+<section class="dark" id="approach"><div class="shell">
 <div class="section-head reveal"><span class="eyebrow">The approach</span><span class="rule"></span><h2>Three ideas behind the work</h2></div>
 <div class="grid-3"><article class="reveal " style="--d:0ms"><div class="card"><span class="num">01</span><h3>Reduce routine work</h3><p>Find the repetitive tasks that crowd out attention, and turn them into simple, repeatable workflows.</p></div></article><article class="reveal " style="--d:90ms"><div class="card"><span class="num">02</span><h3>Protect professional judgement</h3><p>Technology drafts. Teachers and trainers review, decide, and speak with learners and families. Nothing leaves the organisation without a human.</p></div></article><article class="reveal " style="--d:180ms"><div class="card"><span class="num">03</span><h3>Make room for each learner</h3><p>Time and mental space are the real resource. The aim is to give them back, so teachers and trainers can notice, listen and respond.</p></div></article></div></div></section>
 
@@ -91,7 +95,7 @@
 <div class="grid-3"><article class="reveal " style="--d:0ms"><div class="card"><div class="thumb"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 10h32v20H22l-8 7v-7H8z"/><path d="M15 18h18M15 24h11"/></svg></div><span class="pill tag">Coming soon</span><h3 style="font-size:var(--step-1)">Why teachers are drained, and the one shift that helps</h3><p>The main idea behind MoreHuman Ed.</p></div></article><article class="reveal " style="--d:90ms"><div class="card"><div class="thumb"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8" y="8" width="14" height="14" rx="2"/><rect x="26" y="8" width="14" height="14" rx="2"/><rect x="8" y="26" width="14" height="14" rx="2"/><circle cx="33" cy="33" r="7"/></svg></div><span class="pill tag">Coming soon</span><h3 style="font-size:var(--step-1)">Build a revision website in 30 minutes</h3><p>A clear walk-through for any teacher.</p></div></article><article class="reveal " style="--d:180ms"><div class="card"><div class="thumb"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="11" width="34" height="26" rx="3"/><path d="M8 14l16 12 16-12"/></svg></div><span class="pill tag">Coming soon</span><h3 style="font-size:var(--step-1)">One system, many families</h3><p>Communicating clearly without adding to your workload.</p></div></article></div><p style="margin-top:2rem"><a href="en/tutorials.html">See all tutorials &rarr;</a></p></div></section>
 
 <section id="discovery-lab"><div class="shell">
-<div class="dl-feature reveal">
+<div class="dl-feature reveal zoom">
 <div><span class="eyebrow">See the approach in action</span><h2>Discovery Lab: learning by doing.</h2><p>Discovery Lab is an interactive science-learning project built around exploration, evidence and hands-on simulation. It shows the kind of human-centred learning experience MoreHuman Ed helps educators design.</p><div class="shared"><span class="pill">Interactive simulations</span><span class="pill">Built around evidence</span><span class="pill">Free to use</span></div>
 <a class="btn" href="https://educadug.github.io/discovery-lab/">Explore Discovery Lab <span class="arrow" aria-hidden="true">&rarr;</span></a></div>
 <svg class="mark" viewBox="0 0 64 64" role="img" aria-label="Discovery Lab compass"><circle cx="32" cy="32" r="27" fill="none" stroke="currentColor" stroke-width="1.5" opacity=".28"/><circle cx="32" cy="32" r="19" fill="none" stroke="currentColor" stroke-width="1.5" opacity=".18"/><circle cx="32" cy="32" r="11" fill="none" stroke="currentColor" stroke-width="1.5" opacity=".12"/><g stroke="currentColor" stroke-width="1.5" opacity=".45"><path d="M32 2v7M32 55v7M2 32h7M55 32h7"/></g><path d="M32 32 A27 27 0 0 1 53 21" fill="none" stroke="#40634C" stroke-width="2.5" stroke-linecap="round"/><circle cx="45" cy="22" r="5" fill="#B5551F"/><circle cx="32" cy="32" r="2.5" fill="currentColor"/></svg></div></div></section>
@@ -105,7 +109,7 @@
 </div></div></section>
 
 <section id="about"><div class="shell about-grid">
-<img class="portrait reveal from-left" src="assets/img/diego-portrait.jpg" width="340" height="340" alt="Diego, an independent educator based in Dunedin, New Zealand" loading="lazy">
+<img class="portrait reveal clip" src="assets/img/diego-portrait.jpg" width="340" height="340" alt="Diego, an independent educator based in Dunedin, New Zealand" loading="lazy">
 <div class="prose reveal from-right" style="--d:100ms"><span class="eyebrow">About</span><span class="rule"></span><h2>Diego Guevara</h2><p>Diego Guevara is a science educator, teacher trainer and learning-systems designer who helps schools and training organisations use practical technology to reduce routine work without losing the human heart of teaching and learning.</p><p>Through MoreHuman Ed, Diego explores how technology can strengthen human judgement, connection and care.</p><p><a href="en/about.html">More about Diego &rarr;</a></p></div>
 </div></section>
 
@@ -123,5 +127,6 @@
 </div></footer>
 <div class="float-cta"><a class="btn" href="https://cal.com/morehumaned/talk">Book a conversation <span class="arrow" aria-hidden="true">&rarr;</span></a></div>
 <script src="assets/site.js" defer></script>
+<script src="assets/motion.js" defer></script>
 </body>
 </html>
