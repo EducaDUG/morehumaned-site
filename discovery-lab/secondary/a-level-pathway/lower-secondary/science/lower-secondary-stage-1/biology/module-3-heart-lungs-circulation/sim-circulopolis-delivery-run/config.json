@@ -1,0 +1,231 @@
+{
+  "activityId": "ALEV-LS1-BIO-M03-SIM01",
+  "version": "1.3",
+  "title": "Circulopolis: The Delivery Run",
+  "subtitle": "You're the driver. The city never stops needing deliveries.",
+  "course": "Lower Secondary Stage 1 Science — Biology",
+  "pathway": "A-Level Pathway",
+  "module": "Module 3: Heart, Lungs, and Circulation",
+  "theme": "biology",
+  "ageBand": "lower-secondary",
+  "estimatedMinutes": 25,
+
+  "learningFocus": {
+    "skills": ["Scientific enquiry", "Systems thinking", "Analytical skills", "Communication"],
+    "summary": "This activity builds Lower Secondary Stage 1 Biology Module 3 knowledge of the heart, blood vessels and blood by casting the circulatory system as a city-wide delivery network the student physically drives: choosing arteries, capillaries or veins under time pressure practises structure-to-function reasoning, a real microscope photograph of a blood smear develops observational and classification skills for red cells, white cells, platelets and plasma, and the Explain/Apply questions push systems thinking by requiring the student to connect vessel structure and city logistics to real transport of oxygen, nutrients, hormones and waste."
+  },
+
+  "orient": {
+    "mission": "Circulopolis never sleeps. Grab the keys — every cell-house in this city needs a delivery, right now.",
+    "objective": "Explain how the heart, blood vessels and blood work together to transport substances around the body.",
+    "courseLink": "Lower Secondary Stage 1 Science, Biology Module 3 — the foundation for the respiratory and excretory systems you'll meet later this year.",
+    "successCriteria": [
+      "You will be able to compare arteries, veins and capillaries by structure and job.",
+      "You will be able to list what blood is made of and what each part does.",
+      "You will be able to explain how oxygen, nutrients, hormones and waste move between blood and cells."
+    ],
+    "steps": [
+      "Tap the city map to learn the route.",
+      "Make your hypothesis before you drive.",
+      "Load the cargo, then drive the full delivery loop.",
+      "Explain and apply what you found.",
+      "Finish the Knowledge Check and generate your Learning Evidence."
+    ],
+    "realLife": "Every thud in your chest and every red-faced huff after running up stairs is this exact delivery network working overtime for you, right now."
+  },
+
+  "predict": {
+    "type": "mc",
+    "prompt": "Hypothesis check: which road survives the heart's pressure blast every single beat, because it takes that blast first?",
+    "hint": "Think about which vessel type leaves the Pump Station first.",
+    "options": [
+      { "id": "a", "label": "Arteries — thick and muscular, because they take the full blast the instant the heart fires." },
+      { "id": "b", "label": "Veins — because they sit closest to where blood leaves the heart." },
+      { "id": "c", "label": "Capillaries — because they carry the greatest total amount of blood." }
+    ],
+    "revisable": true
+  },
+
+  "investigate": {
+    "title": "Drive the Delivery Route",
+    "lede": "First: open the cargo truck's delivery manifest — a real blood sample — to see what you're hauling. Then drive."
+  },
+
+  "record": {
+    "intro": "Every decision on the road is logged here automatically.",
+    "emptyText": "No runs yet — open the cargo bay in the interactive.",
+    "columns": [
+      { "key": "task", "label": "Task", "unit": "" },
+      { "key": "choice", "label": "Your choice", "unit": "" },
+      { "key": "result", "label": "Result", "unit": "" },
+      { "key": "detail", "label": "Why", "unit": "" },
+      { "key": "tries", "label": "Attempts taken", "unit": "" }
+    ]
+  },
+
+  "explain": {
+    "prompt": "Using your delivery run as evidence, explain why arteries need thick, muscular walls but capillaries can be just one cell thick.",
+    "lede": "Think about pressure, distance from the heart, and what actually has to cross the vessel wall.",
+    "maxMarks": 3,
+    "minChars": 80,
+    "skillFocus": "Use evidence from your own delivery run and explain your reasoning clearly."
+  },
+
+  "apply": {
+    "prompt": "Apply it: pick a real road or delivery network you know (a city, a delivery app, a school corridor at break) and match at least three of its parts to Circulopolis — your highway, your side street, your depot. Then describe what happens to the whole 'city' if one return route gets blocked, and explain why that consequence is a good match for what actually happens in the body when a real blood vessel gets blocked.",
+    "lede": "Name the real-world equivalent of at least three parts of the circulatory system, describe the consequence of a blockage, and then explain why that consequence matches what a blocked blood vessel actually does in the body.",
+    "maxMarks": 3,
+    "minChars": 80,
+    "skillFocus": "Apply what you found to a new situation and give clear, well-explained reasons."
+  },
+
+  "knowledgeCheck": [
+    {
+      "id": "kc1", "type": "mc", "marks": 1,
+      "prompt": "Which blood vessel type carries blood AWAY from the heart?",
+      "options": [
+        { "id": "a", "label": "Arteries" },
+        { "id": "b", "label": "Veins" },
+        { "id": "c", "label": "Capillaries" }
+      ],
+      "answer": "a",
+      "explain": "Arteries always carry blood away from the heart, at high pressure, which is why they need thick muscular walls."
+    },
+    {
+      "id": "kc2", "type": "numeric", "marks": 1,
+      "prompt": "A student counts 18 pulse beats in 15 seconds. What is their pulse rate in beats per minute?",
+      "answer": 72, "tolerance": 0, "unit": "bpm", "min": 0, "max": 220,
+      "explain": "15 seconds is a quarter of a minute, so multiply by 4: 18 × 4 = 72 bpm."
+    },
+    {
+      "id": "kc3", "type": "match", "marks": 4,
+      "prompt": "Match each part of blood to the job it does in Circulopolis.",
+      "pairs": [
+        { "left": "Red blood cells", "right": "Carry oxygen around the body" },
+        { "left": "White blood cells", "right": "Fight infection and destroy invaders" },
+        { "left": "Platelets", "right": "Help blood clot to seal a leak" },
+        { "left": "Plasma", "right": "The liquid that carries everything else" }
+      ],
+      "explain": "Every delivery truck (blood) needs oxygen carriers, security, a repair crew and a liquid to float in — that's red cells, white cells, platelets and plasma."
+    },
+    {
+      "id": "kc4", "type": "mc", "marks": 1,
+      "prompt": "Which type of circulation carries oxygen-rich blood from the heart to the rest of the body (not just the lungs)?",
+      "options": [
+        { "id": "a", "label": "Systemic circulation" },
+        { "id": "b", "label": "Pulmonary circulation" },
+        { "id": "c", "label": "Coronary circulation" }
+      ],
+      "answer": "a",
+      "explain": "Systemic circulation is the big citywide loop — pulmonary only runs to the lungs, and coronary only feeds the heart muscle itself."
+    }
+  ],
+
+  "rubric": {
+    "note": "You are graded out of the total marks, shown as a percentage.",
+    "criteria": [
+      { "key": "knowledge_accuracy", "label": "Knowledge & understanding", "descriptor": "Knowledge Check correct.", "max": 7, "auto": true },
+      {
+        "key": "use_of_evidence", "label": "Use of evidence", "max": 3,
+        "studentHint": "Use evidence clearly from your own delivery run or blood sample to support your answer."
+      },
+      {
+        "key": "reasoning", "label": "Scientific reasoning", "max": 3,
+        "studentHint": "Explain the scientific reasoning behind your answer, applying it correctly to the situation asked about."
+      },
+      {
+        "key": "communication", "label": "Communication", "max": 2,
+        "studentHint": "Write clearly, in full sentences, using correct scientific vocabulary."
+      }
+    ]
+  },
+
+  "es": {
+    "title": "Circulópolis: la ruta de reparto",
+    "subtitle": "Tú eres el conductor. La ciudad nunca deja de necesitar repartos.",
+    "course": "Ciencias de Lower Secondary, Etapa 1 — Biología",
+    "pathway": "Itinerario británico (A-Level)",
+    "module": "Módulo 3: Corazón, pulmones y circulación",
+    "learningFocus": {
+      "skills": ["Indagación científica", "Pensamiento sistémico", "Destrezas analíticas", "Comunicación"],
+      "summary": "Esta actividad desarrolla los contenidos del Módulo 3 de Biología (corazón, vasos sanguíneos y sangre) presentando el sistema circulatorio como una red de reparto urbana que el estudiante conduce en persona: elegir entre arterias, capilares o venas bajo presión de tiempo practica el razonamiento de estructura y función, una fotografía real de un frotis de sangre desarrolla destrezas de observación y clasificación de glóbulos rojos, glóbulos blancos, plaquetas y plasma, y las preguntas de Explicar y Aplicar exigen pensamiento sistémico al conectar la estructura de los vasos y la logística de una ciudad con el transporte real de oxígeno, nutrientes, hormonas y residuos."
+    },
+    "orient": {
+      "mission": "Circulópolis nunca duerme. Coge las llaves — cada casa-célula de esta ciudad necesita un reparto, ahora mismo.",
+      "objective": "Explicar cómo el corazón, los vasos sanguíneos y la sangre trabajan juntos para transportar sustancias por todo el cuerpo.",
+      "courseLink": "Ciencias de Lower Secondary, Etapa 1, Módulo 3 de Biología — la base para los sistemas respiratorio y excretor que estudiarás más adelante este año.",
+      "successCriteria": [
+        "Podrás comparar arterias, venas y capilares por su estructura y su función.",
+        "Podrás enumerar de qué está hecha la sangre y qué hace cada parte.",
+        "Podrás explicar cómo se mueven el oxígeno, los nutrientes, las hormonas y los residuos entre la sangre y las células."
+      ],
+      "steps": [
+        "Toca el mapa de la ciudad para aprender la ruta.",
+        "Formula tu hipótesis antes de conducir.",
+        "Carga la mercancía y conduce la ruta de reparto completa.",
+        "Explica y aplica lo que descubriste.",
+        "Termina la Comprobación de conocimientos y genera tu Evidencia de Aprendizaje."
+      ],
+      "realLife": "Cada latido en tu pecho y cada sofoco después de subir corriendo unas escaleras es esta misma red de reparto trabajando a toda marcha por ti, ahora mismo."
+    },
+    "predict": {
+      "prompt": "Comprobación de hipótesis: ¿qué vía sobrevive a la sacudida de presión del corazón en cada latido, porque es la primera en recibirla?",
+      "hint": "Piensa en qué tipo de vaso sale primero de la Estación de Bombeo.",
+      "options": [
+        { "id": "a", "label": "Las arterias — gruesas y musculosas, porque reciben toda la sacudida en el instante en que el corazón se contrae." },
+        { "id": "b", "label": "Las venas — porque están más cerca de donde la sangre sale del corazón." },
+        { "id": "c", "label": "Los capilares — porque transportan la mayor cantidad total de sangre." }
+      ]
+    },
+    "investigate": {
+      "title": "Conduce la ruta de reparto",
+      "lede": "Primero: abre el manifiesto de carga del camión — una muestra real de sangre — para ver qué transportas. Luego, conduce."
+    },
+    "record": {
+      "intro": "Cada decisión en la carretera se registra aquí automáticamente.",
+      "emptyText": "Aún no hay recorridos — abre la bodega de carga en el interactivo.",
+      "columns": [
+        { "key": "task", "label": "Tarea", "unit": "" },
+        { "key": "choice", "label": "Tu elección", "unit": "" },
+        { "key": "result", "label": "Resultado", "unit": "" },
+        { "key": "detail", "label": "Por qué", "unit": "" },
+        { "key": "tries", "label": "Intentos realizados", "unit": "" }
+      ]
+    },
+    "explain": {
+      "prompt": "Usando tu ruta de reparto como evidencia, explica por qué las arterias necesitan paredes gruesas y musculosas mientras que los capilares pueden tener solo una célula de grosor.",
+      "lede": "Piensa en la presión, la distancia desde el corazón y qué tiene que atravesar realmente la pared del vaso.",
+      "skillFocus": "Usa evidencia de tu propia ruta de reparto y explica tu razonamiento con claridad."
+    },
+    "apply": {
+      "prompt": "Aplícalo: elige una red real de carreteras o repartos que conozcas (una ciudad, una app de reparto, un pasillo del colegio en el recreo) y relaciona al menos tres de sus partes con Circulópolis — tu autopista, tu calle secundaria, tu almacén central. Después describe qué pasa con toda la 'ciudad' si se bloquea una vía de vuelta, y explica por qué esa consecuencia se parece a lo que ocurre realmente en el cuerpo cuando se bloquea un vaso sanguíneo real.",
+      "lede": "Nombra el equivalente real de al menos tres partes del sistema circulatorio, describe la consecuencia de un bloqueo, y luego explica por qué esa consecuencia coincide con lo que hace realmente un vaso sanguíneo bloqueado en el cuerpo.",
+      "skillFocus": "Aplica lo que descubriste a una situación nueva y da razones claras y bien explicadas."
+    },
+    "knowledgeCheck": [
+      { "id": "kc1", "prompt": "¿Qué tipo de vaso sanguíneo transporta la sangre ALEJÁNDOSE del corazón?", "options": [ { "id": "a", "label": "Arterias" }, { "id": "b", "label": "Venas" }, { "id": "c", "label": "Capilares" } ], "explain": "Las arterias siempre transportan la sangre alejándose del corazón, a alta presión, por eso necesitan paredes gruesas y musculosas." },
+      { "id": "kc2", "prompt": "Un estudiante cuenta 18 latidos de pulso en 15 segundos. ¿Cuál es su frecuencia de pulso en latidos por minuto?", "explain": "15 segundos es un cuarto de minuto, así que multiplica por 4: 18 × 4 = 72 lpm." },
+      {
+        "id": "kc3",
+        "prompt": "Relaciona cada parte de la sangre con la función que cumple en Circulópolis.",
+        "pairs": [
+          { "left": "Glóbulos rojos", "right": "Transportan oxígeno por todo el cuerpo" },
+          { "left": "Glóbulos blancos", "right": "Combaten infecciones y destruyen invasores" },
+          { "left": "Plaquetas", "right": "Ayudan a coagular la sangre para sellar una fuga" },
+          { "left": "Plasma", "right": "El líquido que transporta todo lo demás" }
+        ],
+        "explain": "Todo camión de reparto (la sangre) necesita transportadores de oxígeno, seguridad, un equipo de reparación y un líquido donde flotar — eso son los glóbulos rojos, los glóbulos blancos, las plaquetas y el plasma."
+      },
+      { "id": "kc4", "prompt": "¿Qué tipo de circulación transporta sangre rica en oxígeno desde el corazón hacia el resto del cuerpo (no solo los pulmones)?", "options": [ { "id": "a", "label": "Circulación sistémica" }, { "id": "b", "label": "Circulación pulmonar" }, { "id": "c", "label": "Circulación coronaria" } ], "explain": "La circulación sistémica es el gran circuito de toda la ciudad — la pulmonar solo llega a los pulmones, y la coronaria solo alimenta al propio músculo cardíaco." }
+    ],
+    "rubric": {
+      "note": "Tu nota son los puntos que obtienes del total, como porcentaje.",
+      "criteria": [
+        { "label": "Conocimiento y comprensión", "descriptor": "Comprobación de conocimientos correcta." },
+        { "label": "Uso de la evidencia", "studentHint": "Usa evidencia con claridad de tu propia ruta de reparto o muestra de sangre para respaldar tu respuesta." },
+        { "label": "Razonamiento científico", "studentHint": "Explica el razonamiento científico detrás de tu respuesta, aplicándolo correctamente a la situación planteada." },
+        { "label": "Comunicación", "studentHint": "Escribe con claridad, en oraciones completas, usando vocabulario científico correcto." }
+      ]
+    }
+  }
+}

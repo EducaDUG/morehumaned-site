@@ -1,0 +1,293 @@
+{
+  "activityId": "ALEV-LS2-L01-SIM01",
+  "version": "1.6",
+  "title": "Alive or Not? The MRS C GREN Scanner",
+  "subtitle": "Scan five mystery specimens in 3D and prove which life processes give away the living.",
+  "course": "Lower Secondary Stage 2 Science",
+  "pathway": "A-Level Pathway",
+  "module": "Life Processes and Organs",
+  "theme": "biology",
+  "ageBand": "lower-secondary",
+  "estimatedMinutes": 25,
+
+  "learningFocus": {
+    "skills": ["Scientific enquiry", "Critical thinking", "Classification & categorisation", "Analytical skills", "Communication"],
+    "summary": "In this activity the student takes on the role of a future biologist, using a 3D containment-chamber scanner to gather first-hand evidence for each of the eight life processes (MRS C GREN) across five very different specimens — a bacterium, a protist, a fungus, a carnivorous plant and a small animal. Every scan is unlabelled: the student must watch the 3D reaction closely, reason about what they saw, and actively choose which life process it demonstrates before the answer is confirmed — active recall and observation, not a checklist of clicks. Repeating this judgement across radically different body plans builds genuine scientific classification skill: the student learns to test a claim ('is this alive?') against a fixed, falsifiable set of criteria rather than a gut feeling about whether something looks alive. Interpreting why a motionless mushroom or a stationary bacterium still counts as living develops critical thinking and challenges a very common misconception, while the closing question on viruses pushes that reasoning into real scientific debate. This is the founding content of Lesson 1: Life Processes and Organs in Lower Secondary Stage 2 Science, and it sets up every future lesson on organs, systems and organisms by fixing exactly what 'alive' means before the course builds on it."
+  },
+
+  "orient": {
+    "objective": "Prove that every living thing — from a single bacterium to an animal — carries out the same eight life processes, remembered as MRS C GREN.",
+    "courseLink": "This is Lesson 1: Life Processes and Organs, Lower Secondary Stage 2 Science — the very first idea the whole course is built on. Every organ and system you study from here on exists to carry out one of these eight processes.",
+    "scientificObservation": "Look at the five sealed capsules in the chamber readout: a bacterium, a protist, a mushroom, a Venus flytrap and a beetle. They look nothing alike — one doesn't even move.",
+    "scientificQuestion": "Can a single fixed checklist of eight processes prove that ALL five of these very different things are alive — with no exceptions?",
+    "successCriteria": [
+      "Name all eight life processes using the mnemonic MRS C GREN.",
+      "Find and describe real evidence of each life process in five very different organisms.",
+      "Explain why something can be classed as 'living' even when it never moves or makes its own food."
+    ],
+    "mission": "A supply drone has just beamed five sealed specimen capsules into your lab's containment chamber. One looks like slime. One looks like a mushroom. One has jaws. Nobody in the lab is sure which of them actually count as living things. Your job: run unlabelled scans on each specimen, watch what happens, and work out for yourself which life process each reaction proves.",
+    "steps": [
+      "Meet MRS C GREN — the eight life processes every living thing shares.",
+      "Before you scan anything, make your prediction.",
+      "Load a specimen, run a blind scan, and decide which process you just witnessed before the answer is revealed. Repeat for all five specimens.",
+      "Every process you correctly identify saves into your Investigation Record automatically.",
+      "Explain a tricky case, apply MRS C GREN to a real scientific debate, then answer the Knowledge Check.",
+      "Press Generate Learning Evidence to download your work to hand in."
+    ],
+    "realLife": "You meet MRS C GREN every single day without noticing: catching a cold from bacteria, watching mould creep across old bread, seeing a Venus flytrap video online, or just feeling your own stomach growl. Every one of those is a living thing doing one of these exact eight things — the same eight things your own body is doing right now."
+  },
+
+  "predict": {
+    "type": "mc",
+    "prompt": "Form your hypothesis before you scan anything: which ONE of these do you predict is NOT truly alive — and why?",
+    "hint": "This is your hypothesis: if it fails the MRS C GREN test, then it isn't truly alive. Pick the option whose reason you believe most. You can revise it after you've run the scanner.",
+    "options": [
+      { "id": "mushroom", "label": "A mushroom — because it never moves and can't make its own food using light, so it fails Movement and Nutrition" },
+      { "id": "bacterium", "label": "A bacterium — because it is a single cell too simple to carry out all eight life processes" },
+      { "id": "coral", "label": "Coral — because it stays fixed in one place like a rock or shell, so it fails Movement" },
+      { "id": "crystal", "label": "A crystal growing in a cave — because it only grows by adding mineral layers; it doesn't feed, respire, sense or reproduce itself" }
+    ],
+    "revisable": true
+  },
+
+  "investigate": {
+    "title": "The Containment Chamber",
+    "lede": "Choose a specimen, drag to orbit it in 3D, then run a scan. Every scan is unlabelled — watch what happens, then decide for yourself which MRS C GREN process it proves before the answer is revealed. What changes (the specimen) is your test variable; what stays exactly the same (the same eight-process checklist, applied the same way to every specimen) is what makes this a fair test."
+  },
+
+  "record": {
+    "intro": "This is your results table. Every process you correctly identify is logged here automatically, along with how many tries it took you — this is your evidence file.",
+    "emptyText": "No processes identified yet. Load a specimen into the chamber and run a scan.",
+    "columns": [
+      { "key": "specimen", "label": "Specimen" },
+      { "key": "process", "label": "Life process" },
+      { "key": "result", "label": "How you did" },
+      { "key": "evidence", "label": "Evidence found" },
+      { "key": "tries", "label": "Attempts taken" }
+    ]
+  },
+
+  "explain": {
+    "prompt": "Look back at your Investigation Record. Choose ONE specimen that never moves around on its own and never makes its own food using light. Explain how your scans still proved it is alive — and say whether this evidence matches or contradicts the hypothesis you made in Predict.",
+    "lede": "Use the actual evidence readouts from your own scans — quote what the sensor found.",
+    "frame": "Try this shape: \"I scanned the ___ and even though it doesn't ___, my scan of ___ showed ___. This proves it is alive because ___. My original hypothesis said ___, and this evidence ___ (matches / contradicts) it because ___.\"",
+    "placeholder": "I scanned the...",
+    "maxMarks": 3,
+    "minChars": 90,
+    "skillFocus": "Use evidence from your own scans and explain your reasoning clearly."
+  },
+
+  "apply": {
+    "prompt": "A friend tells you: \"Viruses can't really be alive — they don't eat, grow, breathe or move on their own.\" Using MRS C GREN, say whether you agree, and name TWO life processes a virus cannot do by itself.",
+    "lede": "This is a genuine, unsettled debate among real scientists — there is a scientifically defensible answer either way, as long as you argue it with MRS C GREN.",
+    "frame": "State your position clearly, then name two specific life processes and explain why a virus fails each one without a host cell.",
+    "placeholder": "I agree / disagree that viruses are alive because...",
+    "maxMarks": 3,
+    "minChars": 90,
+    "skillFocus": "Apply what you found to a new situation and give clear, well-explained reasons."
+  },
+
+  "knowledgeCheck": [
+    {
+      "id": "kc1", "type": "match", "marks": 4,
+      "prompt": "Match each life process to what it actually means.",
+      "pairs": [
+        { "left": "Excretion", "right": "Removing waste products made by the organism's own chemical reactions" },
+        { "left": "Sensitivity", "right": "Detecting and responding to a change in the surroundings" },
+        { "left": "Control", "right": "Keeping internal conditions steady, such as body temperature" },
+        { "left": "Reproduction", "right": "Producing offspring, whether by splitting, spores, seeds or birth" }
+      ],
+      "explain": "Excretion is not just 'going to the toilet' — it's removing waste from chemical reactions inside the organism, which a bacterium does too. Sensitivity, Control and Reproduction all look different in different organisms but mean exactly the same thing every time."
+    },
+    {
+      "id": "kc2", "type": "mc", "marks": 1,
+      "prompt": "A mushroom cannot photosynthesise and barely moves. Which piece of evidence still proves it is alive?",
+      "options": [
+        { "id": "a", "label": "It releases spores to make new mushrooms" },
+        { "id": "b", "label": "It has leaves that turn to face the sun" },
+        { "id": "c", "label": "It walks slowly towards food" },
+        { "id": "d", "label": "It isn't alive — it's just organic matter" }
+      ],
+      "answer": "a",
+      "explain": "Releasing spores is Reproduction — one of the eight life processes. A mushroom doesn't need to move or photosynthesise to be alive; it just needs to carry out all eight processes in its own way."
+    },
+    {
+      "id": "kc3", "type": "mc", "marks": 1,
+      "prompt": "Which of these is the best example of Control (regulating internal conditions)?",
+      "options": [
+        { "id": "a", "label": "Your body sweating to cool itself down when you're hot" },
+        { "id": "b", "label": "A rock heating up in direct sunlight" },
+        { "id": "c", "label": "Water boiling at 100°C on a stove" },
+        { "id": "d", "label": "A car engine overheating and stalling" }
+      ],
+      "answer": "a",
+      "explain": "Sweating is your body actively regulating its own internal temperature — that's Control. The rock, the water and the engine are just responding to physics, not actively controlling themselves."
+    },
+    {
+      "id": "kc4", "type": "numeric", "marks": 1,
+      "prompt": "How many life processes make up MRS C GREN in total?",
+      "answer": 8, "tolerance": 0, "unit": "", "min": 0, "max": 20,
+      "explain": "Eight: Movement, Respiration, Sensitivity, Control, Growth, Reproduction, Excretion, Nutrition."
+    },
+    {
+      "id": "kc5", "type": "slider", "marks": 0,
+      "prompt": "Reflection (not marked): how confident are you now that ALL five specimens you scanned are truly alive?",
+      "hint": "0 = not confident at all, 100 = completely confident. This does not affect your score — it just tells your teacher what to go over with you next.",
+      "min": 0, "max": 100, "step": 5, "default": 50, "unit": "%"
+    }
+  ],
+
+  "rubric": {
+    "note": "You are graded out of 15 marks, shown as a percentage. The Knowledge Check is marked for you automatically; your teacher marks the two written answers.",
+    "criteria": [
+      { "key": "knowledge_accuracy", "label": "Knowledge & understanding", "descriptor": "Life-process definitions, the mushroom case, the Control example, and the number 8 — all correct in the Knowledge Check.", "max": 7, "auto": true },
+      {
+        "key": "use_of_evidence", "label": "Use of evidence", "max": 3,
+        "studentHint": "Use evidence clearly from your own scans to support your answer."
+      },
+      {
+        "key": "reasoning", "label": "Scientific reasoning", "max": 3,
+        "studentHint": "Explain the scientific reasoning behind your answer, applying it correctly to the situation asked about."
+      },
+      {
+        "key": "communication", "label": "Communication", "max": 2,
+        "studentHint": "Write clearly, in full sentences, using correct scientific vocabulary."
+      }
+    ]
+  },
+
+  "es": {
+    "title": "¿Vivo o no? El escáner de los 8 Verbos Vitales",
+    "subtitle": "Escanea cinco especímenes misteriosos en 3D y demuestra qué procesos vitales delatan a los seres vivos.",
+    "course": "Ciencias de Lower Secondary, Etapa 2",
+    "pathway": "Itinerario británico (A-Level)",
+    "module": "Procesos vitales y órganos",
+
+    "learningFocus": {
+      "skills": ["Investigación científica", "Pensamiento crítico", "Clasificación y categorización", "Habilidades analíticas", "Comunicación"],
+      "summary": "En esta actividad, el estudiante asume el papel de un futuro biólogo, usando un escáner 3D de cámara de contención para reunir evidencia directa de cada uno de los ocho procesos vitales (los 8 Verbos Vitales: se mueven, respiran, crecen, se reproducen, excretan, se controlan, sienten y se nutren) en cinco especímenes muy distintos entre sí — una bacteria, un protista, un hongo, una planta carnívora y un pequeño animal. Cada escaneo no está etiquetado: el estudiante debe observar con atención la reacción en 3D, razonar sobre lo que vio y elegir activamente qué proceso vital demuestra antes de que se confirme la respuesta — recuerdo activo y observación, no una lista de clics. Repetir este juicio en planes corporales radicalmente distintos desarrolla una auténtica habilidad de clasificación científica: el estudiante aprende a poner a prueba una afirmación ('¿está vivo esto?') frente a un conjunto de criterios fijo y comprobable, en lugar de una simple impresión visual. Interpretar por qué un hongo inmóvil o una bacteria estática cuentan igualmente como seres vivos desarrolla el pensamiento crítico y desafía un error conceptual muy común, mientras que la pregunta final sobre los virus lleva ese razonamiento a un auténtico debate científico. Este es el contenido fundacional de la Lección 1: Procesos vitales y órganos de Ciencias de Lower Secondary, Etapa 2, y sienta las bases de cada futura lección sobre órganos, sistemas y organismos al fijar exactamente qué significa 'estar vivo' antes de que el curso siga construyendo sobre esa idea."
+    },
+
+    "orient": {
+      "objective": "Demuestra que todo ser vivo — desde una sola bacteria hasta un animal — realiza los mismos ocho procesos vitales, recordados con los 8 Verbos Vitales: se mueven, respiran, crecen, se reproducen, excretan, se controlan, sienten y se nutren.",
+      "courseLink": "Esta es la Lección 1: Procesos vitales y órganos, de Ciencias de Lower Secondary, Etapa 2 — la primerísima idea sobre la que se construye todo el curso. Cada órgano y sistema que estudiarás a partir de ahora existe para llevar a cabo uno de estos ocho procesos.",
+      "scientificObservation": "Observa las cinco cápsulas selladas en la lectura de la cámara: una bacteria, un protista, un hongo, un atrapamoscas de Venus y un escarabajo. No se parecen en nada entre sí — una de ellas ni siquiera se mueve.",
+      "scientificQuestion": "¿Puede una única lista fija de ocho procesos demostrar que estas cinco cosas tan distintas están TODAS vivas — sin excepción?",
+      "successCriteria": [
+        "Nombrar los ocho procesos vitales usando los 8 Verbos Vitales.",
+        "Encontrar y describir evidencia real de cada proceso vital en cinco organismos muy distintos.",
+        "Explicar por qué algo puede clasificarse como 'vivo' incluso cuando nunca se mueve ni fabrica su propio alimento."
+      ],
+      "mission": "Un dron de suministro acaba de teletransportar cinco cápsulas de especímenes sellados a la cámara de contención de tu laboratorio. Una parece baba. Otra parece un hongo. Otra tiene mandíbulas. Nadie en el laboratorio está seguro de cuáles de ellos realmente cuentan como seres vivos. Tu tarea: ejecutar escaneos sin etiquetar en cada espécimen, observar lo que ocurre y descubrir por ti mismo qué proceso vital demuestra cada reacción.",
+      "steps": [
+        "Conoce los 8 Verbos Vitales — los ocho procesos vitales que comparten todos los seres vivos.",
+        "Antes de escanear nada, haz tu predicción.",
+        "Carga un espécimen, ejecuta un escaneo a ciegas y decide qué proceso acabas de presenciar antes de que se revele la respuesta. Repite con los cinco especímenes.",
+        "Cada proceso que identifiques correctamente se guarda automáticamente en tu Registro de Investigación.",
+        "Explica un caso complicado, aplica los 8 Verbos Vitales a un debate científico real y luego responde el Control de Conocimientos.",
+        "Pulsa Generar Evidencia de Aprendizaje para descargar tu trabajo y entregarlo."
+      ],
+      "realLife": "Te encuentras con los 8 Verbos Vitales todos los días sin darte cuenta: al resfriarte por culpa de una bacteria, al ver crecer el moho sobre pan viejo, al ver un vídeo de un atrapamoscas de Venus en internet, o simplemente al sentir cómo te suena el estómago. Cada una de esas cosas es un ser vivo realizando exactamente uno de estos ocho procesos — los mismos ocho que tu propio cuerpo está realizando ahora mismo."
+    },
+
+    "predict": {
+      "prompt": "Formula tu hipótesis antes de escanear nada: ¿cuál de estos predices que NO está realmente vivo — y por qué?",
+      "hint": "Esta es tu hipótesis: si falla la prueba de los 8 Verbos Vitales, entonces no está realmente vivo. Elige la opción cuyo motivo te parezca más convincente. Podrás revisarla después de usar el escáner.",
+      "options": [
+        { "id": "mushroom", "label": "Un hongo — porque nunca se mueve y no puede fabricar su propio alimento usando luz, así que falla en Movimiento y Nutrición" },
+        { "id": "bacterium", "label": "Una bacteria — porque es una sola célula demasiado simple para realizar los ocho procesos vitales" },
+        { "id": "coral", "label": "El coral — porque permanece fijo en un lugar como una roca o una concha, así que falla en Movimiento" },
+        { "id": "crystal", "label": "Un cristal que crece en una cueva — porque solo crece añadiendo capas de mineral; no se alimenta, no respira, no percibe ni se reproduce por sí mismo" }
+      ]
+    },
+
+    "investigate": {
+      "title": "La cámara de contención",
+      "lede": "Elige un espécimen, arrastra para orbitarlo en 3D y luego ejecuta un escaneo. Cada escaneo no está etiquetado — observa lo que ocurre y luego decide por ti mismo cuál de los 8 Verbos Vitales acabas de ver; no se te dirá de antemano. Lo que cambia (el espécimen) es tu variable de prueba; lo que permanece exactamente igual (la misma lista de ocho procesos, aplicada de la misma manera a cada espécimen) es lo que hace que esta sea una prueba justa."
+    },
+
+    "record": {
+      "intro": "Esta es tu tabla de resultados. Cada proceso que identifiques correctamente se registra aquí automáticamente, junto con cuántos intentos te tomó — este es tu archivo de evidencia.",
+      "emptyText": "Aún no se ha identificado ningún proceso. Carga un espécimen en la cámara y ejecuta un escaneo.",
+      "columns": [
+        { "key": "specimen", "label": "Espécimen" },
+        { "key": "process", "label": "Proceso vital" },
+        { "key": "result", "label": "Cómo lo hiciste" },
+        { "key": "evidence", "label": "Evidencia encontrada" },
+        { "key": "tries", "label": "Intentos realizados" }
+      ]
+    },
+
+    "explain": {
+      "prompt": "Revisa tu Registro de Investigación. Elige UN espécimen que nunca se desplace por sí mismo ni fabrique su propio alimento usando luz. Explica cómo tus escaneos aun así demostraron que está vivo — y di si esta evidencia coincide o contradice la hipótesis que hiciste en Predicción.",
+      "lede": "Usa las lecturas de evidencia reales de tus propios escaneos — cita lo que encontró el sensor.",
+      "frame": "Prueba con esta estructura: \"Escaneé el/la ___ y aunque no ___, mi escaneo de ___ mostró ___. Esto demuestra que está vivo porque ___. Mi hipótesis original decía ___, y esta evidencia ___ (coincide / contradice) con ella porque ___.\"",
+      "placeholder": "Escaneé el/la...",
+      "skillFocus": "Usa evidencia de tus propios escaneos y explica tu razonamiento con claridad."
+    },
+
+    "apply": {
+      "prompt": "Un amigo te dice: \"Los virus no pueden estar realmente vivos — no comen, no crecen, no respiran ni se mueven por sí mismos.\" Usando los 8 Verbos Vitales, di si estás de acuerdo y nombra DOS procesos vitales que un virus no puede hacer por sí solo.",
+      "lede": "Este es un debate real y no resuelto entre científicos de verdad — hay una respuesta científicamente defendible en ambos sentidos, siempre que la argumentes con los 8 Verbos Vitales.",
+      "frame": "Indica tu postura con claridad, luego nombra dos procesos vitales específicos y explica por qué un virus falla en cada uno sin una célula huésped.",
+      "placeholder": "Estoy de acuerdo / en desacuerdo en que los virus están vivos porque...",
+      "skillFocus": "Aplica lo que descubriste a una situación nueva y da razones claras y bien explicadas."
+    },
+
+    "knowledgeCheck": [
+      {
+        "id": "kc1",
+        "prompt": "Relaciona cada proceso vital con lo que realmente significa.",
+        "pairs": [
+          { "left": "Excreción", "right": "Eliminar los productos de desecho generados por las propias reacciones químicas del organismo" },
+          { "left": "Estimulación (Sensibilidad)", "right": "Detectar y responder a un cambio en el entorno" },
+          { "left": "Control", "right": "Mantener estables las condiciones internas, como la temperatura corporal" },
+          { "left": "Reproducción", "right": "Producir descendencia, ya sea por división, esporas, semillas o nacimiento" }
+        ],
+        "explain": "Excreción no es solo 'ir al baño' — es eliminar los desechos de las reacciones químicas internas, algo que una bacteria también hace. Estimulación, Control y Reproducción se ven distintos en cada organismo, pero significan exactamente lo mismo siempre."
+      },
+      {
+        "id": "kc2",
+        "prompt": "Un hongo no puede hacer fotosíntesis y apenas se mueve. ¿Qué evidencia demuestra igualmente que está vivo?",
+        "options": [
+          { "id": "a", "label": "Libera esporas para crear nuevos hongos" },
+          { "id": "b", "label": "Tiene hojas que giran hacia el sol" },
+          { "id": "c", "label": "Camina lentamente hacia su alimento" },
+          { "id": "d", "label": "No está vivo — es solo materia orgánica" }
+        ],
+        "explain": "Liberar esporas es Reproducción — uno de los ocho procesos vitales. Un hongo no necesita moverse ni hacer fotosíntesis para estar vivo; solo necesita realizar los ocho procesos a su propia manera."
+      },
+      {
+        "id": "kc3",
+        "prompt": "¿Cuál de estos es el mejor ejemplo de Control (regular las condiciones internas)?",
+        "options": [
+          { "id": "a", "label": "Tu cuerpo sudando para enfriarse cuando tienes calor" },
+          { "id": "b", "label": "Una roca calentándose bajo la luz solar directa" },
+          { "id": "c", "label": "El agua hirviendo a 100°C en una cocina" },
+          { "id": "d", "label": "El motor de un coche recalentándose y apagándose" }
+        ],
+        "explain": "Sudar es tu cuerpo regulando activamente su propia temperatura interna — eso es Control. La roca, el agua y el motor solo están respondiendo a la física, no controlándose a sí mismos."
+      },
+      {
+        "id": "kc4",
+        "prompt": "¿Cuántos procesos vitales forman los 8 Verbos Vitales en total?",
+        "explain": "Ocho: Movimiento, Respiración, Crecimiento, Reproducción, Excreción, Control, Estimulación (Sensibilidad) y Nutrición."
+      },
+      {
+        "id": "kc5",
+        "prompt": "Reflexión (no puntuada): ¿qué tan seguro estás ahora de que los CINCO especímenes que escaneaste están realmente vivos?",
+        "hint": "0 = nada seguro, 100 = completamente seguro. Esto no afecta tu puntuación — solo le indica a tu profesor qué repasar contigo después."
+      }
+    ],
+
+    "rubric": {
+      "note": "Te califican sobre 15 puntos, mostrados como porcentaje. El Control de Conocimientos se corrige automáticamente; tu profesor corrige las dos respuestas escritas.",
+      "criteria": [
+        { "key": "knowledge_accuracy", "label": "Conocimiento y comprensión", "descriptor": "Definiciones de los procesos vitales, el caso del hongo, el ejemplo de Control y el número 8 — todo correcto en el Control de Conocimientos." },
+        { "key": "use_of_evidence", "label": "Uso de la evidencia", "studentHint": "Usa evidencia con claridad de tus propios escaneos para respaldar tu respuesta." },
+        { "key": "reasoning", "label": "Razonamiento científico", "studentHint": "Explica el razonamiento científico detrás de tu respuesta, aplicándolo correctamente a la situación planteada." },
+        { "key": "communication", "label": "Comunicación", "studentHint": "Escribe con claridad, en oraciones completas, usando vocabulario científico correcto." }
+      ]
+    }
+  }
+}

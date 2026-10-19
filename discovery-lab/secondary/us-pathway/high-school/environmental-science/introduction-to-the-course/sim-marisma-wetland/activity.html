@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<!-- Environmental Science · Introduction to the course · Marisma Wetland Manager.
+     Content lives here + config.json only. The engine draws every other stage. -->
+<html lang="en" data-theme="earth" data-age-band="secondary" data-tint="paper" data-text-size="m">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Marisma: Manage a Wetland — Discovery Lab</title>
+<link rel="stylesheet" href="../../../../../../engine/style.css?v=12">
+<script>
+(function(){try{var p=JSON.parse(localStorage.getItem('dl-a11y-v1')||'{}');var r=document.documentElement;
+if(p.textSize)r.setAttribute('data-text-size',p.textSize);
+if(p.tint)r.setAttribute('data-tint',p.tint);
+if(p.dyslexia)r.setAttribute('data-dyslexia','on');
+if(p.motion==='on')r.setAttribute('data-reduced-motion','on');else if(p.motion==='off')r.setAttribute('data-reduced-motion','off');
+}catch(e){}})();
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main" data-lang="en">Skip to content</a>
+<a class="skip-link" href="#main" data-lang="es" hidden>Ir al contenido</a>
+
+<header class="site-head">
+  <div class="shell site-head__inner">
+    <a class="wordmark" href="../../../../../../">
+      <svg viewBox="0 0 64 64" aria-hidden="true">
+        <circle cx="32" cy="32" r="27" fill="none" stroke="currentColor" stroke-width="1.5" opacity=".28"/>
+        <circle cx="32" cy="32" r="19" fill="none" stroke="currentColor" stroke-width="1.5" opacity=".18"/>
+        <path d="M32 32 A27 27 0 0 1 53 21" fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round"/>
+        <circle cx="45" cy="22" r="5" fill="var(--signal)"/>
+        <circle cx="32" cy="32" r="2.5" fill="currentColor"/>
+      </svg>
+      <span class="wordmark__text">Discovery&nbsp;Lab</span>
+    </a>
+    <a class="eyebrow" href="../../../../../../about/" style="text-decoration:none" data-lang="en">About Mr&nbsp;Guevara</a>
+    <a class="eyebrow" href="../../../../../../about/" style="text-decoration:none" data-lang="es" hidden>Sobre el Sr.&nbsp;Guevara</a>
+  </div>
+</header>
+
+<main id="main" class="shell">
+  <div id="lab-root"></div>
+</main>
+
+<footer class="site-foot">
+  <div class="shell site-foot__inner">
+    <span data-lang="en">Discovery Lab — <a href="../../../../../../about/">Diego Urrutia Guevara</a></span>
+    <span data-lang="es" hidden>Discovery Lab — <a href="../../../../../../about/">Diego Urrutia Guevara</a></span>
+    <span data-lang="en">Your work stays in your browser. Nothing is uploaded or stored on a server.</span>
+    <span data-lang="es" hidden>Tu trabajo se queda en tu navegador. No se sube ni se guarda nada en ningún servidor.</span>
+  </div>
+</footer>
+
+<script type="module">
+import { mountActivity } from "../../../../../../engine/engine.js?v=19";
+
+const simulation = {
+  /* Orient: a stand-alone teaching diagram of a wetland food web and the
+     eutrophication chain, so a student who never saw the lesson still learns
+     the key idea — energy flows up the web, and fertiliser runoff triggers a
+     DELAYED collapse — before they start managing. */
+  orient(host){
+    host.innerHTML =
+      `<p class="q__hint">A wetland is a food web powered by plants. Energy flows upward: plants and reeds →
+       insects and small fish → large fish, frogs and water birds → birds of prey. Every population has a
+       <strong>carrying capacity</strong> — a ceiling set by food, habitat and water quality. Push one part and
+       the whole web responds, sometimes years later.</p>
+      <svg viewBox="0 0 384 262" style="width:100%;height:auto;background:var(--paper);border:1px solid var(--line);border-radius:10px;margin-top:12px" role="img" font-family="var(--font-data)" aria-label="Left: a wetland food chain from plants up to birds of prey, with an invasive species feeding into it. Right: the pollution chain in which fertiliser runoff leads, after a delay, to an algal bloom, falling oxygen and a fish die-off.">
+        <defs>
+          <marker id="ar" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <path d="M0 0 L10 5 L0 10 z" fill="var(--ink-3)"/>
+          </marker>
+          <marker id="arR" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <path d="M0 0 L10 5 L0 10 z" fill="#c0392b"/>
+          </marker>
+        </defs>
+
+        <!-- column headings -->
+        <text x="18" y="20" font-size="12" font-weight="700" fill="var(--ink-1)">Wetland food chain</text>
+        <text x="18" y="34" font-size="9.5" fill="var(--ink-3)">energy flows upward ↑</text>
+        <line x1="232" y1="14" x2="232" y2="250" stroke="var(--line)" stroke-width="1"/>
+        <text x="311" y="20" text-anchor="middle" font-size="12" font-weight="700" fill="#b5632a">The pollution chain</text>
+        <text x="311" y="34" text-anchor="middle" font-size="9.5" fill="var(--ink-3)">a delayed consequence</text>
+
+        <!-- LEFT: trophic ladder. Each level is a light chip with a colour dot
+             and dark, high-contrast text (labels sit ON the chip, never inside a
+             tight circle). Arrows show energy passing up the chain. -->
+        <g font-size="11" fill="var(--ink-1)">
+          <!-- apex -->
+          <rect x="20" y="52" width="150" height="30" rx="9" fill="#e7dff2" stroke="#c4b4e0"/>
+          <circle cx="37" cy="67" r="5.5" fill="#6a4b8a"/><text x="50" y="71">Birds of prey</text>
+          <!-- consumers 2 -->
+          <rect x="20" y="98" width="176" height="34" rx="9" fill="#d5e2ef" stroke="#a9c3e0"/>
+          <circle cx="37" cy="115" r="5.5" fill="#3f7d9a"/>
+          <text x="50" y="112">Large fish, frogs</text><text x="50" y="125">&amp; water birds</text>
+          <!-- consumers 1 -->
+          <rect x="20" y="148" width="158" height="30" rx="9" fill="#d3ece0" stroke="#a6d2c3"/>
+          <circle cx="37" cy="163" r="5.5" fill="#4e9a86"/><text x="50" y="167">Insects &amp; small fish</text>
+          <!-- producers -->
+          <rect x="20" y="194" width="150" height="30" rx="9" fill="#e3eecb" stroke="#c6d69a"/>
+          <circle cx="37" cy="209" r="5.5" fill="#6f9a4a"/><text x="50" y="213">Plants &amp; reeds</text>
+          <text x="176" y="213" font-size="8.5" fill="var(--ink-3)">producers</text>
+        </g>
+        <!-- energy arrows up the chain -->
+        <g stroke="var(--ink-3)" stroke-width="1.8" fill="none" marker-end="url(#ar)">
+          <path d="M95 194 L95 184"/><path d="M95 148 L95 138"/><path d="M95 98 L95 88"/>
+        </g>
+
+        <!-- invasive species: a distinct red chip feeding into the small fish -->
+        <g font-size="10" fill="var(--ink-1)">
+          <rect x="196" y="150" width="40" height="46" rx="9" fill="#f4d9d4" stroke="#d98b7e"/>
+          <circle cx="216" cy="164" r="5" fill="#c0392b"/>
+          <text x="216" y="180" text-anchor="middle" font-size="8.5">Invasive</text>
+          <text x="216" y="190" text-anchor="middle" font-size="8.5">species</text>
+        </g>
+        <path d="M196 168 L180 165" stroke="#c0392b" stroke-width="1.8" fill="none" stroke-dasharray="4 2" marker-end="url(#arR)"/>
+
+        <!-- RIGHT: the eutrophication chain. Light boxes, dark text, a coloured
+             left rail per step, arrows down. -->
+        <g font-size="10.5" fill="var(--ink-1)">
+          <g><rect x="252" y="46" width="120" height="30" rx="7" fill="#f6efd0" stroke="#e2cf86"/><rect x="252" y="46" width="6" height="30" rx="3" fill="#d9b74e"/><text x="314" y="65" text-anchor="middle">Fertiliser runoff</text></g>
+          <g><rect x="252" y="88" width="120" height="30" rx="7" fill="#eef1d4" stroke="#c9d38f"/><rect x="252" y="88" width="6" height="30" rx="3" fill="#a9bd54"/><text x="314" y="107" text-anchor="middle">Nutrients rise</text></g>
+          <g><rect x="252" y="130" width="120" height="30" rx="7" fill="#e2edcb" stroke="#b6cd86"/><rect x="252" y="130" width="6" height="30" rx="3" fill="#8fae4a"/><text x="314" y="149" text-anchor="middle">Algal bloom</text></g>
+          <g><rect x="252" y="172" width="120" height="34" rx="7" fill="#d8e8e3" stroke="#9cc7bd"/><rect x="252" y="172" width="6" height="34" rx="3" fill="#3f8a7e"/><text x="314" y="187" text-anchor="middle">Oxygen falls</text><text x="314" y="199" text-anchor="middle" font-size="8" fill="var(--ink-3)">(a year or two later)</text></g>
+          <g><rect x="252" y="218" width="120" height="30" rx="7" fill="#f4dbd5" stroke="#dc9c90"/><rect x="252" y="218" width="6" height="30" rx="3" fill="#c0392b"/><text x="314" y="237" text-anchor="middle" font-weight="700" fill="#a5342a">Fish die-off</text></g>
+        </g>
+        <g stroke="#c0392b" stroke-width="1.8" fill="none" marker-end="url(#arR)">
+          <path d="M314 76 L314 86"/><path d="M314 118 L314 128"/><path d="M314 160 L314 170"/><path d="M314 206 L314 216"/>
+        </g>
+      </svg>
+      <p class="q__hint" style="margin-top:10px">You will manage a wetland for <strong>20 years</strong> on a yearly budget, trading off
+       conservation against housing, farming and tourism. Some choices pay off at once; others — like pollution — bite years later.</p>
+      <p class="q__hint" style="margin-top:6px"><strong>The question you are investigating:</strong> which management strategy keeps a wetland
+       biodiverse and resilient enough to survive a severe drought? Each year you choose the <strong>independent variable</strong> — your actions
+       (fertiliser, farming, housing, corridors, protection) — and measure the <strong>dependent variables</strong> — biodiversity, water quality
+       and resilience. Every game starts from the same wetland and faces the same final drought, so your strategy is what changes, not the test
+       (a <strong>controlled</strong> comparison). Before each year you will write a quick hypothesis — "if I do this, then… will happen,
+       because…" — and it is logged straight into your Investigation Record alongside that year's results.</p>`;
+  },
+
+  /* Investigate: the Marisma wetland manager, embedded. Every simulated year it
+     posts that year's actions, event and key indicators up to this page, which
+     logs them to the Investigation Record automatically. */
+  investigate(host, sim){
+    host.innerHTML = "";
+    const wrap = document.createElement("div"); wrap.className = "stack";
+
+    const note = document.createElement("p"); note.className = "q__hint";
+    note.innerHTML = "<strong>Drag</strong> to orbit the wetland, <strong>scroll</strong> to zoom, and <strong>click</strong> the water, land or animals to inspect them. " +
+      "Each year, choose up to <strong>three actions</strong> on the bottom bar, press <strong>Plan year</strong>, write a quick hypothesis (if… then… because…), then <strong>Confirm</strong>. " +
+      "Every year you complete logs its actions, your hypothesis, any event, and your biodiversity, water quality and resilience to your Record below. Play all 20 years to face the final drought.";
+    wrap.append(note);
+
+    const frame = document.createElement("iframe");
+    frame.src = "../marisma-wetland/";
+    frame.title = "Marisma wetland-management simulation";
+    frame.setAttribute("allow", "autoplay; fullscreen");
+    frame.style.cssText = "width:100%;aspect-ratio:16/10;min-height:480px;border:1px solid var(--line);border-radius:12px;background:#0c1512;display:block";
+    wrap.append(frame);
+
+    host.append(wrap);
+
+    // Receive each year's readings from the embedded sim and log it to the Record.
+    if (!window.__marismaListener) {
+      window.__marismaListener = true;
+      window.addEventListener("message", (ev) => {
+        const d = ev.data;
+        if (!d || d.source !== "marisma-wetland" || d.kind !== "record" || !d.row) return;
+        sim.recordTrial(d.row);
+        sim.toast("Logged " + (d.row.year || "a year") + " to your Record.", "info");
+      });
+    }
+  }
+};
+
+mountActivity({ simulation }).catch(e => {
+  console.error("Activity failed to start:", e);
+  const r = document.getElementById("lab-root");
+  if (r) r.innerHTML = '<p class="nav-empty">Something went wrong. Please refresh.</p>';
+});
+</script>
+</body>
+</html>

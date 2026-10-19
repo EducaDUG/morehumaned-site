@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="physics" data-age-band="secondary" data-tint="paper" data-text-size="m">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ocean Power: Keep the Lights On — Discovery Lab</title>
+<meta name="description" content="Meet the ocean's wind, wave, tide, current and thermal energy technologies, measure their real kW and kWh, then run a city's power grid for six days without running out of money or electricity.">
+<link rel="stylesheet" href="../../../../../../engine/style.css?v=12">
+<link rel="stylesheet" href="ocean-power.css?v=8">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><circle cx='32' cy='32' r='28' fill='%230a2a44'/><path d='M8 38q8-8 16 0t16 0 16 0' fill='none' stroke='%235fe0ff' stroke-width='4' stroke-linecap='round'/><path d='M30 8l-9 18h8l-3 14 13-20h-9l4-12z' fill='%23ffd166'/></svg>">
+<script>
+(function(){try{var p=JSON.parse(localStorage.getItem('dl-a11y-v1')||'{}');var r=document.documentElement;
+if(p.textSize)r.setAttribute('data-text-size',p.textSize);
+if(p.tint)r.setAttribute('data-tint',p.tint);
+if(p.dyslexia)r.setAttribute('data-dyslexia','on');
+if(p.motion==='on')r.setAttribute('data-reduced-motion','on');else if(p.motion==='off')r.setAttribute('data-reduced-motion','off');
+}catch(e){}})();
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main" data-lang="en">Skip to content</a>
+<a class="skip-link" href="#main" data-lang="es" hidden>Ir al contenido</a>
+
+<header class="site-head">
+  <div class="shell site-head__inner">
+    <a class="wordmark" href="../../../../../../">
+      <svg viewBox="0 0 64 64" aria-hidden="true">
+        <circle cx="32" cy="32" r="27" fill="none" stroke="currentColor" stroke-width="1.5" opacity=".28"/>
+        <circle cx="32" cy="32" r="19" fill="none" stroke="currentColor" stroke-width="1.5" opacity=".18"/>
+        <g stroke="currentColor" stroke-width="1.5" opacity=".45"><path d="M32 2v7M32 55v7M2 32h7M55 32h7"/></g>
+        <path d="M32 32 A27 27 0 0 1 53 21" fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round"/>
+        <circle cx="45" cy="22" r="5" fill="var(--signal)"/>
+        <circle cx="32" cy="32" r="2.5" fill="currentColor"/>
+      </svg>
+      <span class="wordmark__text">Discovery&nbsp;Lab</span>
+    </a>
+    <a class="eyebrow" href="../../../../../../about/" style="text-decoration:none" data-lang="en">About Mr&nbsp;Guevara</a>
+    <a class="eyebrow" href="../../../../../../about/" style="text-decoration:none" data-lang="es" hidden>Sobre el Sr.&nbsp;Guevara</a>
+  </div>
+</header>
+
+<main id="main" class="shell">
+  <nav class="crumbs" aria-label="Breadcrumb">
+    <ol class="crumbs__list">
+      <li><a href="../../../../../../">Discovery Lab</a></li>
+      <li><a href="../../../../../">Secondary</a></li>
+      <li><a href="../../../../">US Pathway</a></li>
+      <li><a href="../../../">High School</a></li>
+      <li><a href="../../">Marine Science</a></li>
+      <li><a href="../">Module 1: Overview</a></li>
+      <li><span aria-current="page">Ocean Power: Keep the Lights On</span></li>
+    </ol>
+  </nav>
+  <div id="lab-root"></div>
+</main>
+
+<footer class="site-foot">
+  <div class="shell site-foot__inner">
+    <span data-lang="en">Discovery Lab — <a href="../../../../../../about/">Diego Urrutia Guevara</a></span>
+    <span data-lang="es" hidden>Discovery Lab — <a href="../../../../../../about/">Diego Urrutia Guevara</a></span>
+    <span data-lang="en">Your work stays in your browser. Nothing is uploaded or stored on a server.</span>
+    <span data-lang="es" hidden>Tu trabajo se queda en tu navegador. No se sube ni se guarda nada en ningún servidor.</span>
+  </div>
+</footer>
+
+<script type="module">
+import { mountActivity } from "../../../../../../engine/engine.js?v=19";
+import { getLang } from "../../../../../../engine/i18n.js?v=9";
+import { mountOceanSim } from "./marine-sim.js?v=9";
+import { MARINE_TECHNOLOGIES, TECH_IDS, CATEGORY } from "./marine-data.js?v=8";
+
+const HOME_KWH_DAY = 30;
+const L = (en, es) => getLang() === "es" ? es : en;
+const isReduced = () => { const a = document.documentElement.getAttribute("data-reduced-motion"); if (a === "on") return true; if (a === "off") return false; return !!(window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches); };
+const fmt = (n, d = 0) => Number(n).toLocaleString(undefined, { maximumFractionDigits: d });
+
+/* Photo credits — every photo is vendored in photos/ (never hotlinked); licences verified on each file's own Commons page. */
+const CREDITS = [
+  ["wind-barrow.jpg", L("Offshore wind turbines, Barrow", "Turbinas eólicas marinas, Barrow"), "Andy Dingley / Muhammad", "CC BY-SA 3.0", "https://creativecommons.org/licenses/by-sa/3.0/", "https://commons.wikimedia.org/wiki/File:Barrow_Offshore_wind_turbines_NR.jpg"],
+  ["wind-farm-horns-rev.jpg", L("Horns Rev offshore wind farm", "Parque eólico marino Horns Rev"), "Thomas Dahlström Nielsen", "CC BY-SA 4.0", "https://creativecommons.org/licenses/by-sa/4.0/", "https://commons.wikimedia.org/wiki/File:Horns_Rev_1_offshore_wind_farm.jpg"],
+  ["wind-floating-hywind.jpg", L("Hywind floating wind turbines, off Peterhead", "Turbinas flotantes Hywind, frente a Peterhead"), "Mike Pennington", "CC BY-SA 2.0", "https://creativecommons.org/licenses/by-sa/2.0/", "https://commons.wikimedia.org/wiki/File:Hywind_Wind_Farm,_off_Peterhead_-_geograph.org.uk_-_7226685.jpg"],
+  ["wave-pelamis.jpg", L("Pelamis wave device, Orkney", "Dispositivo undimotriz Pelamis, Orcadas"), "P123", L("Public domain", "Dominio público"), "", "https://commons.wikimedia.org/wiki/File:Pelamis_at_EMEC.jpg"],
+  ["wave-wavegem.jpg", L("WaveGEM wave-energy buoy beside a floating wind turbine (Ifremer, France)", "Boya undimotriz WaveGEM junto a una turbina flotante (Ifremer, Francia)"), "Olivier Dugornay / Ifremer", "CC BY 4.0", "https://creativecommons.org/licenses/by/4.0/", "https://commons.wikimedia.org/wiki/File:Bou%C3%A9e_WaveGEM_et_Eolienne_flottante_FLOATGEN_(Ifremer_00723-83468_-_35827).jpg"],
+  ["tidal-seaflow.jpg", L("Seaflow marine-current turbine", "Turbina de corriente marina Seaflow"), "Fundy", "CC BY-SA 3.0", "https://creativecommons.org/licenses/by-sa/3.0/", "https://commons.wikimedia.org/wiki/File:Seaflow_raised_16_jun_03.jpg"],
+  ["osmotic-statkraft.jpg", L("Statkraft osmotic power prototype, Tofte (Norway)", "Prototipo de energía osmótica de Statkraft, Tofte (Noruega)"), "Bjoertvedt", "CC BY-SA 3.0", "https://creativecommons.org/licenses/by-sa/3.0/", "https://commons.wikimedia.org/wiki/File:Statkraft_osmosis_IMG_7158_tofte.JPG"],
+  ["otec-hawaii.jpg", L("OTEC pilot plant, Hawaii", "Planta piloto OTEC, Hawái"), L("Unknown (US public domain)", "Desconocido (dominio público de EE. UU.)"), L("Public domain", "Dominio público"), "", "https://commons.wikimedia.org/wiki/File:OTEC_in_Hawaii.jpg"],
+  ["solar-floating.jpg", L("Floating solar array on a pond", "Campo solar flotante en un estanque"), "SPG Solar", "CC BY-SA 3.0", "https://creativecommons.org/licenses/by-sa/3.0/", "https://commons.wikimedia.org/wiki/File:Floating_PV_system_Far_Niente_Winery_California_2018.jpg"],
+  ["owc-supplied.jpg", L("Oscillating water column plant on a rocky coast (illustration)", "Planta de columna de agua oscilante en una costa rocosa (ilustración)"), L("Image supplied with the OceanCurrents simulator — AI-generated illustration, not a photograph", "Imagen incluida con el simulador OceanCurrents — ilustración generada por IA, no una fotografía"), L("not licence-checked", "licencia no verificada"), "", ""],
+  ["kite-supplied.jpg", L("Tethered tidal kite flying a figure-8 (illustration)", "Cometa de marea anclada trazando un ocho (ilustración)"), L("Image supplied with the OceanCurrents simulator — AI-generated illustration, not a photograph", "Imagen incluida con el simulador OceanCurrents — ilustración generada por IA, no una fotografía"), L("not licence-checked", "licencia no verificada"), "", ""],
+  ["battery-bess.jpg", L("Battery energy storage farm", "Granja de almacenamiento en baterías"), "Sig. Chiocciola", "CC0", "https://creativecommons.org/publicdomain/zero/1.0/", "https://commons.wikimedia.org/wiki/File:Reid_Gardner_BESS.jpg"],
+];
+function creditsEl() {
+  const d = document.createElement("details"); d.className = "og-credits";
+  d.innerHTML = `<summary>${L("Photo credits (real photos from Wikimedia Commons, plus two labelled illustrations)", "Créditos de las fotos (fotos reales de Wikimedia Commons y dos ilustraciones señaladas)")}</summary><ul>` +
+    CREDITS.map(c => !c[5] ? `<li>${c[1]} — ${c[2]} (${c[3]})</li>` : `<li>${c[1]} — ${c[2]}, <a href="${c[5]}" target="_blank" rel="noopener">Wikimedia Commons</a>${c[4] ? `, <a href="${c[4]}" target="_blank" rel="noopener">${c[3]}</a>` : `, ${c[3]}`}</li>`).join("") + `</ul>
+    <p>${L("Where a photo shows a close relative of the technology (a pond instead of the sea, a river or lab prototype, a different turbine of the same type), the caption says so. The oscillating water column and the tidal kite use the two illustrations supplied with the simulator, and the surge flap and hydrogen hub are drawn cutaway diagrams, because no suitably licensed photo exists for them.", "Cuando una foto muestra un pariente cercano de la tecnología (un estanque en vez del mar, un prototipo, otra turbina del mismo tipo), el pie lo dice. La columna de agua oscilante y la cometa de marea usan las dos ilustraciones incluidas con el simulador, y la aleta de oleaje y el centro de hidrógeno son diagramas dibujados, porque no existe una foto con licencia adecuada para ellos.")}</p>`;
+  return d;
+}
+
+const DIAGRAMS = (() => { const sea = '<rect width="200" height="110" fill="#0b2a4a"/><rect y="38" width="200" height="72" fill="#0369a1"/><path d="M0 38q12-6 25 0t25 0 25 0 25 0 25 0 25 0 25 0 25 0" fill="none" stroke="#bae6fd" stroke-width="2"/><rect y="96" width="200" height="14" fill="#3a2f23"/>', w = b => `<svg viewBox="0 0 200 110" role="img" aria-hidden="true" style="width:100%;height:100%;display:block">${sea}${b}</svg>`;
+  return {
+    owc: w('<rect x="70" y="14" width="64" height="62" fill="#94a3b8"/><rect x="78" y="40" width="48" height="36" fill="#0369a1"/><path d="M78 52q8-8 16 0t16 0 16 0" fill="none" stroke="#bae6fd" stroke-width="2"/><rect x="96" y="2" width="12" height="14" fill="#f8fafc"/><path d="M92 30l10-12 10 12M92 30h20" fill="none" stroke="#fde047" stroke-width="2.4"/>'),
+    flap: w('<rect x="60" y="88" width="80" height="8" fill="#64748b"/><circle cx="100" cy="88" r="4" fill="#e2e8f0"/><g transform="rotate(-16 100 88)"><rect x="96" y="40" width="8" height="48" fill="#facc15"/></g><g transform="rotate(16 100 88)" opacity=".35"><rect x="96" y="40" width="8" height="48" fill="#facc15"/></g>'),
+    kite: w('<path d="M100 96V60" stroke="#94a3b8" stroke-width="2"/><path d="M60 62c20-30 60-30 80 0s-60 30-80 0" fill="none" stroke="#a78bfa" stroke-width="2" stroke-dasharray="4 4"/><g transform="translate(122 44) rotate(24)"><rect x="-16" y="-2" width="32" height="5" rx="2" fill="#7c3aed"/><rect x="-5" y="3" width="10" height="7" rx="3" fill="#f8fafc"/></g>'),
+    h2: w('<path d="M70 96c0-34 60-34 60 0z" fill="#5eead4" opacity=".6" stroke="#99f6e4" stroke-width="2"/><rect x="92" y="60" width="16" height="36" fill="#f8fafc"/><text x="100" y="52" fill="#fff" font-size="13" text-anchor="middle" font-family="system-ui" font-weight="700">H₂</text>'),
+  }; })();
+
+const simulation = {
+
+  /* ---- ORIENT: label a real offshore turbine, play with kW x h = kWh, meet the six technologies ---- */
+  orient(host, api) {
+    host.innerHTML = "";
+    const st = api.state.orient || (api.state.orient = { done: {} });
+    const intro = document.createElement("p"); intro.className = "q__hint";
+    intro.textContent = L("A real offshore wind turbine. Tap a part name, then tap the matching spot on the photo.", "Una turbina eólica marina real. Toca el nombre de una parte y luego el punto correspondiente en la foto.");
+    host.append(intro);
+
+    const PARTS = [
+      { id: "blades", x: 43.8, y: 29.4, name: L("Blades", "Palas"), note: L("They catch the wind and turn it into rotation. Modern offshore blades can be over 80 m long, each shaped like an aeroplane wing.", "Capturan el viento y lo convierten en rotación. Las palas marinas modernas pueden medir más de 80 m, con forma de ala de avión.") },
+      { id: "nacelle", x: 45, y: 43.7, name: L("Hub & nacelle", "Buje y góndola"), note: L("The hub joins the blades; the nacelle behind it holds the gearbox and generator that turn rotation into electricity.", "El buje une las palas; la góndola detrás contiene la caja de engranajes y el generador que convierte la rotación en electricidad.") },
+      { id: "tower", x: 45.4, y: 63.3, name: L("Tower", "Torre"), note: L("It lifts the rotor up where the wind is faster. Power rises with the CUBE of wind speed, so height pays.", "Eleva el rotor donde el viento es más rápido. La potencia sube con el CUBO de la velocidad del viento, así que la altura compensa.") },
+      { id: "found", x: 45.4, y: 89.4, name: L("Foundation", "Cimentación"), note: L("The yellow section joins the tower to a steel foundation driven into the seabed. The power cable runs down through it and away to shore.", "La sección amarilla une la torre con una cimentación de acero hincada en el fondo marino. El cable de potencia baja por ella y sigue hacia la costa.") },
+    ];
+    let current = null; const wrap = document.createElement("div"); wrap.className = "hs-wrap";
+    const photoBox = document.createElement("div"); const frame = document.createElement("div"); frame.className = "hs-photo";
+    frame.innerHTML = `<img src="photos/wind-barrow-crop.jpg" alt="${L("An offshore wind turbine standing in calm sea with a yellow base", "Una turbina eólica marina en un mar en calma con base amarilla")}">`;
+    const tray = document.createElement("div"); tray.className = "hs-tray";
+    const markDone = (p, b, row) => {
+      st.done[p.id] = 1; b.classList.add("is-done"); row.classList.add("is-done"); row.querySelector(".hs-part__mark").textContent = "✓";
+      if (!row.querySelector(".hs-note")) { const n = document.createElement("p"); n.className = "hs-note"; n.textContent = p.note; row.append(n); }
+    };
+    const btns = {};
+    PARTS.forEach(p => {
+      const b = document.createElement("button"); b.type = "button"; b.className = "hotspot"; b.style.left = p.x + "%"; b.style.top = p.y + "%"; b.setAttribute("aria-label", p.name); b.innerHTML = `<span class="hotspot__dot"></span>`; btns[p.id] = b;
+      b.addEventListener("click", () => {
+        if (st.done[p.id]) return;
+        if (!current) { b.classList.add("is-wrong"); setTimeout(() => b.classList.remove("is-wrong"), 320); tray.animate && !isReduced() && tray.animate([{ transform: "translateX(0)" }, { transform: "translateX(-5px)" }, { transform: "translateX(5px)" }, { transform: "none" }], { duration: 300 }); api.toast(L("Choose a part name first — then tap its spot.", "Elige primero el nombre de una parte — luego toca su punto."), "info"); return; }
+        if (current === p.id) {
+          const row = tray.querySelector(`[data-part="${p.id}"]`); markDone(p, b, row);
+          if (api.ttsEnabled && api.ttsEnabled()) api.speak(`${p.name}. ${p.note}`);
+          current = null; Array.from(tray.children).forEach(r => r.setAttribute("aria-pressed", "false"));
+          if (PARTS.every(q => st.done[q.id])) api.award("anatomy", L("Turbine anatomist", "Anatomista de turbinas"));
+        } else { b.classList.add("is-wrong"); setTimeout(() => b.classList.remove("is-wrong"), 320); api.toast(L("Not that spot — look again at the part you chose.", "Ese no es el punto — vuelve a mirar la parte que elegiste."), "info"); }
+      });
+      frame.append(b);
+      const row = document.createElement("button"); row.type = "button"; row.className = "hs-part"; row.dataset.part = p.id; row.setAttribute("aria-pressed", "false");
+      row.innerHTML = `<span>${p.name}</span><span class="hs-part__mark">→</span>`;
+      row.addEventListener("click", () => { if (st.done[p.id]) return; Array.from(tray.children).forEach(r => r.setAttribute("aria-pressed", "false")); current = p.id; row.setAttribute("aria-pressed", "true"); });
+      tray.append(row);
+      if (st.done[p.id]) markDone(p, b, row);
+    });
+    photoBox.append(frame);
+    const cr = document.createElement("p"); cr.className = "hs-credit"; cr.innerHTML = L(`Photo (cropped): Andy Dingley / Muhammad, <a href="https://commons.wikimedia.org/wiki/File:Barrow_Offshore_wind_turbines_NR.jpg" target="_blank" rel="noopener">Wikimedia Commons</a>, <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener">CC BY-SA 3.0</a>.`, `Foto (recortada): Andy Dingley / Muhammad, <a href="https://commons.wikimedia.org/wiki/File:Barrow_Offshore_wind_turbines_NR.jpg" target="_blank" rel="noopener">Wikimedia Commons</a>, <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener">CC BY-SA 3.0</a>.`);
+    photoBox.append(cr); wrap.append(photoBox, tray); host.append(wrap);
+
+    /* ---- kW x hours = kWh calculator ---- */
+    const calc = document.createElement("div"); calc.className = "kwcalc";
+    calc.innerHTML = `<h4>${L("Power × time = energy", "Potencia × tiempo = energía")}</h4>
+      <p style="margin:0 0 .8em;font-size:var(--step--1)">${L("Your electricity bill is in <b>kilowatt-hours (kWh)</b>. A turbine's size is in <b>kilowatts (kW)</b>. Drag both and see the link.", "Tu factura de electricidad está en <b>kilovatios-hora (kWh)</b>. El tamaño de una turbina está en <b>kilovatios (kW)</b>. Mueve ambos y mira la relación.")}</p>
+      <div class="kwcalc__grid">
+        <div><label for="kc-kw">${L("Power", "Potencia")}: <output id="kc-kwo">3000</output> kW</label><input id="kc-kw" type="range" min="0" max="6000" step="100" value="3000"></div>
+        <div><label for="kc-h">${L("Running time", "Tiempo en marcha")}: <output id="kc-ho">6</output> h</label><input id="kc-h" type="range" min="0" max="24" step="1" value="6"></div>
+        <div class="kwcalc__res"><span id="kc-kwh">18,000</span><small>kWh</small></div></div>
+      <p class="kwcalc__homes" id="kc-homes" aria-live="polite"></p>`;
+    host.append(calc);
+    const kw = calc.querySelector("#kc-kw"), hh = calc.querySelector("#kc-h"), set = () => {
+      const k = +kw.value, h = +hh.value, e = k * h; calc.querySelector("#kc-kwo").textContent = fmt(k); calc.querySelector("#kc-ho").textContent = h; calc.querySelector("#kc-kwh").textContent = fmt(e);
+      calc.querySelector("#kc-homes").innerHTML = L(`That is enough for about <b>${fmt(e / HOME_KWH_DAY)}</b> homes for a whole day (an average home uses ~${HOME_KWH_DAY} kWh a day).`, `Alcanza para unos <b>${fmt(e / HOME_KWH_DAY)}</b> hogares durante un día entero (un hogar medio usa ~${HOME_KWH_DAY} kWh al día).`);
+      if (e >= 60000 && !st.calcAward) { st.calcAward = 1; api.award("kwhcalc", L("kWh calculator", "Calculadora de kWh")); }
+    };
+    kw.addEventListener("input", set); hh.addEventListener("input", set); set();
+
+    /* ---- the technology shelf: all 13 simulator technologies, with how ready each one is ---- */
+    const READY = {
+      offshore_wind_fixed: ["mature", L("Mature — thousands operate worldwide", "Madura — miles operan en el mundo")],
+      offshore_wind_floating: ["early", L("Early commercial — first floating farms", "Comercial temprana — primeros parques flotantes")],
+      point_absorber: ["prototype", L("Prototype — sea trials", "Prototipo — pruebas en el mar")],
+      oscillating_water_column: ["emerging", L("Small plants operating", "Pequeñas plantas operando")],
+      wave_attenuator: ["prototype", L("Prototype — full-scale sea tests", "Prototipo — pruebas a escala real")],
+      wave_surge_converter: ["prototype", L("Prototype — sea trials", "Prototipo — pruebas en el mar")],
+      tidal_stream_turbine: ["early", L("Early commercial — arrays operating", "Comercial temprana — parques en operación")],
+      tidal_kite: ["prototype", L("Prototype — sea trials", "Prototipo — pruebas en el mar")],
+      salinity_gradient: ["demo", L("Demonstration — pilot plants", "Demostración — plantas piloto")],
+      floating_marine_solar: ["mature", L("Mature on lakes · trialled at sea", "Madura en lagos · en pruebas en el mar")],
+      otec_platform: ["demo", L("Demonstration — pilot plants", "Demostración — plantas piloto")],
+      subsea_battery: ["emerging", L("Mature on land · subsea under development", "Madura en tierra · submarina en desarrollo")],
+      subsea_hydrogen_hub: ["prototype", L("Prototype — first offshore pilots", "Prototipo — primeros pilotos marinos")],
+    };
+    const shelf = document.createElement("div"); shelf.className = "shelf";
+    shelf.innerHTML = `<p class="eyebrow">${L("13 ocean technologies — what is available now and what is still under development. Tap each to open it.", "13 tecnologías oceánicas — qué está disponible hoy y qué sigue en desarrollo. Toca cada una para abrirla.")}</p><div class="shelf__grid"></div>`;
+    const grid = shelf.querySelector(".shelf__grid");
+    TECH_IDS.forEach(id => {
+      const t = MARINE_TECHNOLOGIES[id], r = READY[id];
+      const vis = t.photo ? `<img src="photos/${t.photo}" alt="" loading="lazy">` : `<div class="tech__diag" aria-hidden="true">${DIAGRAMS[t.diagram]}</div>`;
+      const b = document.createElement("button"); b.type = "button"; b.className = "tech"; b.dataset.r = r[0]; b.setAttribute("aria-expanded", "false");
+      b.innerHTML = `${vis}<div class="tech__b"><p class="tech__n">${t.name}</p><span class="tech__r">${r[1]}</span><p class="tech__more">${t.shortDesc} <i>${t.realWorldExample}</i></p></div>`;
+      b.addEventListener("click", () => { const on = b.classList.toggle("is-open"); b.setAttribute("aria-expanded", on); st.opened = st.opened || {}; st.opened[id] = 1; if (Object.keys(st.opened).length >= 13 && !st.shelfAward) { st.shelfAward = 1; api.award("shelf", L("Technology scout", "Explorador de tecnologías")); } });
+      grid.append(b);
+    });
+    host.append(shelf); host.append(creditsEl());
+  },
+
+  /* ---- OBSERVATION: three real photos, tap-to-reveal notices ---- */
+  observation(host, api) {
+    host.innerHTML = "";
+    const intro = document.createElement("p"); intro.className = "q__hint";
+    intro.textContent = L("Three real photographs of ocean energy at work. Tap each to notice real details — before anyone explains them.", "Tres fotografías reales de energía oceánica en acción. Toca cada una para notar detalles reales — antes de que alguien los explique.");
+    host.append(intro);
+    const CARDS = [
+      { img: "photos/wind-farm-horns-rev.jpg", name: L("A wind farm far out at sea", "Un parque eólico lejos en el mar"),
+        credit: `Thomas Dahlström Nielsen — <a href="https://commons.wikimedia.org/wiki/File:Horns_Rev_1_offshore_wind_farm.jpg" target="_blank" rel="noopener">CC BY-SA 4.0</a>`,
+        notices: [L("Dozens of turbines stand in rows, far from shore — out where the wind is stronger and steadier than on land.", "Decenas de turbinas en filas, lejos de la costa — donde el viento es más fuerte y constante que en tierra."),
+          L("White-topped waves in the foreground show the wind is strong enough to build real waves. Wind and waves arrive as a pair.", "Las olas con espuma en primer plano muestran que el viento es lo bastante fuerte para formar olas. Viento y olas llegan juntos."),
+          L("Every turbine stands on its own foundation in the seabed. The sea is both the site and the toughest engineering challenge.", "Cada turbina se apoya en su propia cimentación en el fondo marino. El mar es a la vez el sitio y el mayor reto de ingeniería.")] },
+      { img: "photos/wave-pelamis.jpg", name: L("A machine that rides the waves", "Una máquina que cabalga las olas"),
+        credit: `P123 — <a href="https://commons.wikimedia.org/wiki/File:Pelamis_at_EMEC.jpg" target="_blank" rel="noopener">${L("Public domain", "Dominio público")}</a>`,
+        notices: [L("It is long, red and mostly awash. There are no blades — it is a string of floating tubes.", "Es larga, roja y casi cubierta por el agua. No tiene palas — es una cadena de tubos flotantes."),
+          L("The sea is rough and grey. Big waves carry a lot of energy — and punish anything people build.", "El mar está agitado y gris. Las olas grandes llevan mucha energía — y castigan todo lo que construye la gente."),
+          L("As each wave passes, the joints between the tubes bend. That bending motion drives the generators inside.", "Al pasar cada ola, las articulaciones entre los tubos se doblan. Ese movimiento acciona los generadores internos.")] },
+      { img: "photos/tidal-seaflow.jpg", name: L("A turbine that works underwater", "Una turbina que trabaja bajo el agua"),
+        credit: `Fundy — <a href="https://commons.wikimedia.org/wiki/File:Seaflow_raised_16_jun_03.jpg" target="_blank" rel="noopener">CC BY-SA 3.0</a>`,
+        notices: [L("The rotor looks like a wind turbine's, but it spins underwater. Here it has been raised out of the sea for work.", "El rotor se parece al de una turbina eólica, pero gira bajo el agua. Aquí lo han subido fuera del mar para trabajar."),
+          L("Only two short blades. Water is about 800 times denser than air, so even slow water pushes hard.", "Solo dos palas cortas. El agua es unas 800 veces más densa que el aire, así que incluso el agua lenta empuja fuerte."),
+          L("It stands on a steel pile fixed to the seabed; the red housing sits above the surface so crews can reach it.", "Se apoya en un pilote de acero fijado al fondo; la carcasa roja queda sobre la superficie para que las cuadrillas lleguen a ella.")] },
+    ];
+    const grid = document.createElement("div"); grid.className = "obs-grid"; grid.style.gridTemplateColumns = "";
+    const seen = api.state.obsSeen || (api.state.obsSeen = {});
+    CARDS.forEach((c, ci) => {
+      const card = document.createElement("div"); card.className = "obs-card";
+      card.innerHTML = `<img src="${c.img}" alt="${c.name}"><div class="obs-card__body"><p class="obs-card__name">${c.name}</p><div class="obs-card__tray"></div></div>`;
+      const tray = card.querySelector(".obs-card__tray");
+      c.notices.forEach((note, i) => {
+        const b = document.createElement("button"); b.type = "button"; b.className = "obs-card__btn";
+        b.innerHTML = `<span>${L("Notice something #", "Notar algo #")}${i + 1}</span><span class="obs-card__mark">👁</span>`;
+        const key = ci + "_" + i;
+        const open = () => { b.classList.add("is-done"); b.querySelector("span").textContent = note; };
+        if (seen[key]) open();
+        b.addEventListener("click", () => { if (b.classList.contains("is-done")) return; seen[key] = 1; open(); if (api.ttsEnabled && api.ttsEnabled()) api.speak(note); api.saveState(); });
+        tray.append(b);
+      });
+      const credit = document.createElement("p"); credit.className = "obs-credit"; credit.innerHTML = c.credit; card.append(credit); grid.append(card);
+    });
+    grid.style.cssText = "display:grid;gap:var(--sp-4);margin-top:var(--sp-4)";
+    grid.className = "obs-grid obs-grid--3"; host.append(grid);
+    const mq = () => { grid.style.gridTemplateColumns = window.innerWidth >= 52 * 16 ? "repeat(3,1fr)" : window.innerWidth >= 42 * 16 ? "repeat(2,1fr)" : "1fr"; };
+    mq(); window.addEventListener("resize", mq);
+  },
+
+  /* ---- EXPERIMENT: the OceanCurrents Marine Renewable Energy Simulator ---- */
+  investigate(host, api) {
+    host.innerHTML = "";
+    if (window.__ocSim) { try { window.__ocSim.destroy(); } catch (e) {} window.__ocSim = null; }
+    const simEl = document.createElement("div"); host.append(simEl);
+    window.__ocSim = mountOceanSim(simEl, {
+      threeUrl: "../../../../../../engine/vendor/three.min.js", photoBase: "photos/", reduced: isReduced(),
+      award: (id, label) => api.award(id, label), recordTrial: row => api.recordTrial(row), setResult: (k, v) => { api.setResult(k, v); api.saveState(); },
+      toast: (m, k) => api.toast(m, k === "warn" ? "info" : k),
+    });
+    host.append(creditsEl());
+  },
+};
+
+mountActivity({ simulation }).catch(e => {
+  console.error("Activity failed to start:", e);
+  const r = document.getElementById("lab-root"); if (r) r.innerHTML = '<p class="nav-empty">Something went wrong. Please refresh.</p>';
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="biology" data-age-band="secondary" data-tint="paper" data-text-size="m">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Command Words Exam Drill — Discovery Lab</title>
+<meta name="description" content="Master the Edexcel IGCSE Biology command words: four drill modes with real past-paper scenarios, an Examiner Duel, the full Codex and the CORMMSS 6-mark guide.">
+<link rel="stylesheet" href="../../../../../engine/style.css?v=12">
+<script>
+(function(){try{var p=JSON.parse(localStorage.getItem('dl-a11y-v1')||'{}');var r=document.documentElement;
+if(p.textSize)r.setAttribute('data-text-size',p.textSize);
+if(p.tint)r.setAttribute('data-tint',p.tint);
+if(p.dyslexia)r.setAttribute('data-dyslexia','on');
+if(p.motion==='on')r.setAttribute('data-reduced-motion','on');else if(p.motion==='off')r.setAttribute('data-reduced-motion','off');
+}catch(e){}})();
+</script>
+<style>
+.cw{--bg:#0f172a;--panel:#020617;--line:#1e293b;--line2:#334155;--ink:#f1f5f9;--ink2:#cbd5e1;--ink3:#94a3b8;
+  --em:#34d399;--em-d:#059669;--am:#fbbf24;--ind:#818cf8;--ro:#fb7185;--bl:#60a5fa;--pu:#c084fc;
+  max-width:60rem;margin:var(--sp-4) auto;background:var(--bg);color:var(--ink);border:1px solid var(--line);
+  border-radius:1rem;padding:clamp(1rem,3vw,2rem);box-shadow:0 20px 50px rgba(2,6,23,.45);font-size:.95rem;line-height:1.5;}
+.cw *{box-sizing:border-box;}
+.cw h1,.cw h2,.cw h3{font-family:var(--font-display);margin:0;letter-spacing:-.01em;color:var(--ink);}
+.cw .mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;}
+.cw .muted{color:var(--ink3);}
+.cw .center{text-align:center;}
+.cw .stack>*+*{margin-top:1.1rem;}
+.cw .pre{white-space:pre-line;}
+.cw button{font:inherit;cursor:pointer;touch-action:manipulation;}
+.cw button:focus-visible,.cw input:focus-visible{outline:3px solid var(--am);outline-offset:2px;}
+.cw-fade{animation:cwfade .35s ease both;}
+@keyframes cwfade{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:none;}}
+[data-reduced-motion=on] .cw-fade{animation:none;}
+.cw-narrow{max-width:46rem;margin:0 auto;}
+
+.cw-top{display:flex;justify-content:space-between;align-items:center;gap:.6rem;flex-wrap:wrap;margin-bottom:1.2rem;}
+.cw-tabs{display:flex;gap:.4rem;flex-wrap:wrap;}
+.cw-tab{padding:.45rem .9rem;border-radius:999px;border:1px solid var(--line2);background:var(--panel);color:var(--ink2);font-weight:600;font-size:.8rem;}
+.cw-tab[aria-selected=true]{background:var(--em-d);border-color:var(--em);color:#fff;}
+.cw-meta{display:flex;gap:.4rem;align-items:center;flex-wrap:wrap;}
+.cw-pill{font-size:.75rem;font-weight:700;padding:.2rem .6rem;border-radius:999px;background:var(--panel);border:1px solid var(--line2);color:var(--ink2);}
+.cw-pill.hot{color:var(--am);border-color:var(--am);}
+.cw-mute{padding:.25rem .65rem;border-radius:999px;border:1px solid var(--line2);background:var(--panel);color:var(--ink2);font-size:.75rem;font-weight:700;}
+.cw-mute[aria-pressed=true]{color:var(--ro);border-color:var(--ro);}
+
+.cw-hero{background:linear-gradient(160deg,#0f172a,#020617);border:1px solid var(--line);border-radius:1rem;padding:1.3rem;display:flex;gap:1.2rem;flex-wrap:wrap;align-items:center;justify-content:space-between;}
+.cw-hero h1{font-size:clamp(1.5rem,4vw,2rem);font-weight:800;margin:.3rem 0;}
+.cw-hero h1 span{background:linear-gradient(90deg,var(--em),var(--bl));-webkit-background-clip:text;background-clip:text;color:transparent;}
+.cw-eyebrow{font-size:.72rem;color:var(--em);}
+.cw-mastery{background:#020617cc;border:1px solid var(--line);border-radius:.75rem;padding:.8rem 1rem;font-size:.75rem;}
+.cw-mastery div.row{display:flex;gap:.9rem;align-items:center;margin-top:.3rem;}
+.cw-mastery small{display:block;font-size:.6rem;color:var(--ink3);}
+.cw-mastery b{font-size:1.1rem;}
+.cw-modes{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:.9rem;margin-top:1rem;}
+.cw-mode{text-align:left;background:var(--bg);border:1px solid var(--line);border-radius:.8rem;padding:1rem;color:var(--ink);display:flex;flex-direction:column;justify-content:space-between;gap:.6rem;transition:border-color .15s,transform .15s;}
+.cw-mode:hover{transform:translateY(-2px);}
+.cw-mode h3{font-size:1rem;}
+.cw-mode p{margin:.3rem 0 0;font-size:.8rem;color:var(--ink3);}
+.cw-mode .tag{font-size:.65rem;padding:.1rem .45rem;border-radius:.3rem;border:1px solid;}
+.cw-mode .go{font-size:.75rem;font-weight:700;border-top:1px solid var(--line);padding-top:.5rem;}
+.m-a{--c:var(--em);}.m-b{--c:var(--ind);}.m-c{--c:var(--am);}.m-d{--c:var(--pu);}.m-e{--c:var(--bl);}
+.cw-mode{border-color:var(--line);}.cw-mode:hover{border-color:var(--c);}
+.cw-mode .lbl,.cw-mode .go{color:var(--c);}.cw-mode .tag{color:var(--c);border-color:var(--c);}
+.cw-set{display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between;align-items:center;margin-top:1rem;background:var(--bg);border:1px solid var(--line);border-radius:.75rem;padding:.8rem 1rem;font-size:.78rem;}
+.cw-set .grp{display:flex;gap:.35rem;align-items:center;flex-wrap:wrap;}
+.cw-seg{padding:.25rem .65rem;border-radius:.4rem;border:1px solid var(--line);background:var(--panel);color:var(--ink3);font-weight:600;}
+.cw-seg[aria-pressed=true]{background:var(--ind);border-color:var(--ind);color:#0f172a;}
+
+.cw-btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.65rem 1.2rem;border-radius:.6rem;border:1px solid var(--line2);background:#1e293b;color:var(--ink);font-weight:600;}
+.cw-btn:hover{background:#334155;}
+.cw-btn--go{background:var(--em-d);border-color:var(--em);color:#fff;font-weight:700;}
+.cw-btn--go:hover{background:#10b981;}
+.cw-btn--am{background:#b45309;border-color:var(--am);color:#fff;font-weight:700;}
+.cw-btn[disabled]{opacity:.4;cursor:not-allowed;}
+.cw-row{display:flex;gap:.7rem;flex-wrap:wrap;justify-content:center;}
+.cw-card{background:var(--bg);border:1px solid var(--line);border-radius:.8rem;padding:1.1rem;}
+.cw-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:.7rem;}
+.cw-stat{background:var(--panel);border:1px solid var(--line);border-radius:.75rem;padding:.7rem;text-align:center;}
+.cw-stat small{display:block;font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink3);}
+.cw-stat b{display:block;font-size:1.3rem;margin-top:.15rem;}
+
+/* quiz */
+.cw-qhead{display:flex;justify-content:space-between;gap:.6rem;flex-wrap:wrap;align-items:center;padding-bottom:.8rem;border-bottom:1px solid var(--line);font-size:.75rem;color:var(--ink3);}
+.cw-bar{height:8px;border-radius:999px;background:var(--panel);border:1px solid var(--line2);overflow:hidden;margin:.8rem 0;}
+.cw-bar i{display:block;height:100%;background:linear-gradient(90deg,var(--em),#a3e635);transition:width .4s;}
+.cw-life{display:flex;gap:.4rem;align-items:center;flex-wrap:wrap;margin:.6rem 0;font-size:.7rem;}
+.cw-lbtn{padding:.25rem .65rem;border-radius:.4rem;border:1px solid var(--line2);background:#1e293b;color:var(--ink2);font-size:.72rem;}
+.cw-lbtn[disabled]{opacity:.4;cursor:not-allowed;}
+.cw-alert{padding:.7rem .9rem;border-radius:.6rem;font-size:.82rem;margin:.6rem 0;border:1px solid;}
+.cw-alert.hint{background:#451a0366;border-color:#f59e0b55;color:#fde68a;}
+.cw-alert.time{background:#4c051966;border-color:#f43f5e66;color:#fda4af;}
+.cw-q__text{font-size:1.15rem;font-weight:600;margin:1rem 0 .3rem;line-height:1.4;}
+.cw-q__sub{font-size:.82rem;color:var(--ink3);margin:0 0 .6rem;}
+.cw-opts{display:grid;gap:.55rem;margin:1rem 0;}
+.cw-opt{display:flex;gap:.7rem;text-align:left;padding:.75rem .9rem;border-radius:.65rem;border:1px solid var(--line2);background:#1e293b66;color:var(--ink);transition:border-color .15s,background .15s,transform .15s;}
+.cw-opt:hover:not([disabled]){border-color:var(--ind);transform:translateX(3px);}
+.cw-opt__k{flex:none;width:1.5rem;height:1.5rem;border-radius:.35rem;display:grid;place-items:center;background:#1e293b;border:1px solid var(--line2);font-weight:800;font-size:.75rem;}
+.cw-opt.is-right{border-color:var(--em);background:#052e22;}
+.cw-opt.is-right .cw-opt__k{background:var(--em-d);color:#fff;}
+.cw-opt.is-wrong{border-color:var(--ro);background:#3b0a16;animation:cwshake .35s;}
+.cw-opt.is-wrong .cw-opt__k{background:#e11d48;color:#fff;}
+.cw-opt.is-dim{opacity:.45;}
+.cw-opt.is-gone{opacity:.35;text-decoration:line-through;pointer-events:none;}
+.cw-opt[disabled]{cursor:default;}
+@keyframes cwshake{25%{transform:translateX(-5px);}75%{transform:translateX(5px);}}
+[data-reduced-motion=on] .cw-opt.is-wrong{animation:none;}
+.cw-fb{margin-top:.8rem;padding:.9rem 1rem;border-radius:.65rem;border:1px solid var(--line2);background:var(--panel);}
+.cw-fb.ok{border-color:var(--em);}.cw-fb.no{border-color:var(--ro);}
+.cw-fb b.h{display:block;margin-bottom:.25rem;}
+.cw-fb.ok b.h{color:var(--em);}.cw-fb.no b.h{color:var(--ro);}
+.cw-note{margin-top:.7rem;padding:.7rem .9rem;background:var(--panel);border:1px solid var(--line);border-radius:.6rem;font-size:.82rem;}
+.cw-note h4{margin:0 0 .25rem;font-size:.66rem;letter-spacing:.09em;text-transform:uppercase;font-family:ui-monospace,Consolas,monospace;}
+.cw-note.rule h4{color:var(--am);}.cw-note.trap h4{color:var(--ro);}.cw-note.ms h4{color:var(--em);}
+.cw-link{background:none;border:0;color:var(--em);text-decoration:underline;text-underline-offset:4px;font-size:.78rem;padding:0;margin-top:.7rem;}
+.cw-xpf{position:absolute;pointer-events:none;font-weight:800;color:var(--am);animation:cwup 1s ease forwards;right:1rem;top:-.4rem;}
+@keyframes cwup{to{transform:translateY(-2.2rem);opacity:0;}}
+[data-reduced-motion=on] .cw-xpf{animation:none;opacity:0;}
+
+/* duel */
+.cw-board{background:var(--bg);border:1px solid var(--line);border-radius:.8rem;padding:1rem;}
+.cw-board .r{display:flex;justify-content:space-between;align-items:center;font-size:.75rem;gap:.6rem;}
+.cw-av{display:inline-grid;place-items:center;width:2rem;height:2rem;border-radius:.5rem;font-weight:800;border:1px solid;}
+.cw-av.p1{background:#05966933;border-color:#34d39988;color:var(--em);}.cw-av.p2{background:#d9770633;border-color:#fbbf2488;color:var(--am);}
+.cw-tug{display:flex;height:8px;border-radius:999px;overflow:hidden;border:1px solid var(--line2);background:var(--panel);margin-top:.7rem;}
+.cw-tug i{display:block;height:100%;transition:width .5s;}
+.cw-bot{margin-top:.7rem;padding:.6rem .8rem;background:var(--panel);border:1px solid var(--line);border-radius:.5rem;font-size:.78rem;color:var(--ink3);font-style:italic;display:flex;justify-content:space-between;gap:.6rem;}
+
+/* codex */
+.cw-search{width:100%;padding:.6rem .9rem;border-radius:.5rem;border:1px solid var(--line2);background:var(--panel);color:var(--ink);font:inherit;font-size:.85rem;}
+.cw-chips{display:flex;gap:.4rem;flex-wrap:wrap;margin:.8rem 0 0;}
+.cw-chip{padding:.3rem .75rem;border-radius:.5rem;border:1px solid var(--line2);background:var(--panel);color:var(--ink2);font-size:.75rem;font-weight:600;}
+.cw-chip[aria-pressed=true]{background:var(--em-d);border-color:var(--em);color:#fff;}
+.cw-cwgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(20rem,1fr));gap:.9rem;margin-top:1rem;}
+.cw-cw{background:var(--bg);border:1px solid var(--line);border-radius:.8rem;padding:1.1rem;display:flex;flex-direction:column;justify-content:space-between;}
+.cw-cw.open{border-color:var(--em);}
+.cw-cw h2{font-size:1.1rem;font-family:ui-monospace,Consolas,monospace;}
+.cw-def{padding:.7rem .85rem;background:var(--panel);border:1px solid var(--line);border-radius:.5rem;font-size:.85rem;margin:.7rem 0;}
+.cw-def small{display:block;font-size:.62rem;text-transform:uppercase;color:var(--ink3);margin-bottom:.2rem;}
+.cw-cw ul{margin:.3rem 0;padding-left:1rem;font-size:.8rem;color:var(--ink3);}
+.cw-ex{margin-top:.8rem;padding:.8rem;background:var(--panel);border:1px solid #6366f155;border-radius:.5rem;font-size:.8rem;}
+.cw-ex q{display:block;font-family:Georgia,serif;font-style:italic;margin:.4rem 0;color:var(--ink);quotes:none;}
+.cw-cat{font-size:.68rem;color:var(--em);text-transform:capitalize;}
+
+/* cormmss */
+.cw-sub{display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:1rem;}
+.cw-cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(16rem,1fr));gap:.9rem;margin-top:1rem;}
+.cw-col{background:var(--panel);border:1px solid;border-radius:.8rem;padding:1rem;font-size:.85rem;}
+.cw-col.d{border-color:#34d39955;}.cw-col.e{border-color:#818cf855;}
+.cw-col h3{font-family:ui-monospace,Consolas,monospace;font-size:1rem;margin-bottom:.4rem;}
+.cw-letters{display:flex;gap:.4rem;flex-wrap:wrap;border-bottom:1px solid var(--line);padding-bottom:.7rem;}
+.cw-letter{padding:.4rem .8rem;border-radius:.5rem;border:1px solid var(--line2);background:var(--panel);color:var(--ink2);font-family:ui-monospace,Consolas,monospace;font-weight:800;}
+.cw-letter[aria-pressed=true]{background:var(--em-d);border-color:var(--em);color:#fff;}
+.cw-badge{display:inline-grid;place-items:center;min-width:2rem;height:2rem;padding:0 .4rem;border-radius:.5rem;background:#05966944;border:1px solid #34d39988;color:var(--em);font-weight:800;font-family:ui-monospace,Consolas,monospace;}
+
+.cw-trophy{display:inline-flex;padding:.75rem;border-radius:1rem;background:var(--panel);border:1px solid var(--line);color:var(--am);}
+.cw-grade{display:inline-block;border:1px solid;padding:.6rem 1.3rem;border-radius:.75rem;text-align:center;}
+.cw-grade small{display:block;font-size:.66rem;letter-spacing:.09em;text-transform:uppercase;color:var(--ink3);}
+.cw-grade b{font-size:2rem;font-weight:800;}
+.g-hi{color:#34d399;border-color:#10b98166;background:#022c2266;}.g-bl{color:#60a5fa;border-color:#3b82f666;background:#17255466;}
+.g-am{color:#fbbf24;border-color:#f59e0b66;background:#45260966;}.g-ro{color:#fb7185;border-color:#f43f5e66;background:#4c051966;}
+.cw-check{background:var(--panel);border:1px solid var(--line);border-radius:.75rem;padding:.9rem 1rem;font-size:.85rem;}
+.cw-check h3{font-size:.85rem;color:var(--em);margin-bottom:.5rem;}
+.cw-check li{display:flex;gap:.5rem;margin:.4rem 0;color:var(--ink2);list-style:none;}
+.cw-check ul{margin:0;padding:0;}
+.cw-review{background:var(--panel);border:1px solid var(--line);border-radius:.75rem;padding:.9rem 1rem;font-size:.85rem;}
+.cw-review summary{cursor:pointer;font-weight:700;color:var(--ind);}
+.cw-review li{margin:.45rem 0;color:var(--ink2);}
+.cw-name{width:100%;max-width:18rem;padding:.6rem .8rem;border-radius:.5rem;border:1px solid var(--line2);background:var(--panel);color:var(--ink);font:inherit;}
+.cw-confetti{position:fixed;top:25vh;width:8px;height:12px;z-index:50;pointer-events:none;animation:cwfall 1.6s ease-in forwards;}
+@keyframes cwfall{to{transform:translateY(60vh) rotate(540deg);opacity:.2;}}
+[data-reduced-motion=on] .cw-confetti{display:none;}
+.cw-foot{margin-top:1.4rem;padding-top:1rem;border-top:1px solid var(--line);font-size:.72rem;color:var(--ink3);text-align:center;}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-head">
+  <div class="shell site-head__inner">
+    <a class="wordmark" href="../../../../../">
+      <svg viewBox="0 0 64 64" aria-hidden="true">
+        <circle cx="32" cy="32" r="27" fill="none" stroke="currentColor" stroke-width="1.5" opacity=".28"/>
+        <circle cx="32" cy="32" r="19" fill="none" stroke="currentColor" stroke-width="1.5" opacity=".18"/>
+        <path d="M32 32 A27 27 0 0 1 53 21" fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round"/>
+        <circle cx="45" cy="22" r="5" fill="var(--signal)"/>
+        <circle cx="32" cy="32" r="2.5" fill="currentColor"/>
+      </svg>
+      <span class="wordmark__text">Discovery&nbsp;Lab</span>
+    </a>
+    <a class="eyebrow" href="../../../../../about/" style="text-decoration:none" data-lang="en">About Mr&nbsp;Guevara</a>
+    <a class="eyebrow" href="../../../../../about/" style="text-decoration:none" data-lang="es" hidden>Sobre el Sr.&nbsp;Guevara</a>
+  </div>
+</header>
+
+<main id="main" class="shell">
+  <div class="cw" id="cw"></div>
+</main>
+
+<footer class="site-foot">
+  <div class="shell site-foot__inner">
+    <span>Discovery Lab — <a href="../../../../../about/">Diego Urrutia Guevara</a></span>
+    <span>Your work stays in your browser. Nothing is uploaded or stored on a server.</span>
+  </div>
+</footer>
+
+<script type="module">
+import "../../../../../engine/i18n.js?v=9";
+import "../../../../../engine/accessibility.js?v=9";
+import { COMMAND_WORDS } from "./commandwords.js?v=1";
+import { PAST_PAPER_QUESTIONS } from "./pastpapers.js?v=1";
+import { BANK as PICKS } from "./answerpicks.js?v=1";
+
+const ACTIVITY_ID = "ALEV-IGCSEBIO-M00-SIM01", VERSION = "2.0";
+const $ = (s, r = document) => r.querySelector(s);
+const root = $("#cw");
+const reduced = () => { const a = document.documentElement.getAttribute("data-reduced-motion");
+  return a === "on" || (a !== "off" && matchMedia("(prefers-reduced-motion: reduce)").matches); };
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const shuffle = a => { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
+const pick = a => a[Math.floor(Math.random() * a.length)];
+const store = { get(k, d) { try { const v = localStorage.getItem(k); return v == null ? d : v; } catch { return d; } }, set(k, v) { try { localStorage.setItem(k, v); } catch {} } };
+
+const ICON = {
+  trophy: '<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0zM17 5h3v2a3 3 0 0 1-3 3M7 5H4v2a3 3 0 0 0 3 3"/></svg>',
+  book: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#818cf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V3H6.5A2.5 2.5 0 0 0 4 5.5z"/></svg>',
+  redo: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7L3 8M3 3v5h5"/></svg>',
+  award: (c = "currentColor") => `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="${c}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="6"/><path d="M15.5 13.5 17 22l-5-3-5 3 1.5-8.5"/></svg>`,
+  dl: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>'
+};
+
+/* ================= sound (Web Audio, no files; always mutable) ================= */
+const sounds = (() => {
+  let ctx = null, on = store.get("dl-cw-sound", "on") !== "off";
+  const init = () => { if (!ctx) { const A = window.AudioContext || window.webkitAudioContext; if (A) ctx = new A(); } if (ctx && ctx.state === "suspended") ctx.resume(); return ctx; };
+  const tone = (type, f0, f1, t0, dur, vol) => { const c = ctx, now = c.currentTime + t0, o = c.createOscillator(), g = c.createGain();
+    o.type = type; o.frequency.setValueAtTime(f0, now); if (f1) o.frequency.exponentialRampToValueAtTime(f1, now + dur * .4);
+    g.gain.setValueAtTime(vol, now); g.gain.exponentialRampToValueAtTime(.001, now + dur); o.connect(g); g.connect(c.destination); o.start(now); o.stop(now + dur); };
+  const play = fn => { if (!on || !init()) return; try { fn(); } catch {} };
+  return {
+    get on() { return on; }, set on(v) { on = v; store.set("dl-cw-sound", v ? "on" : "off"); },
+    correct: s => play(() => { const b = 440 + Math.min(s * 30, 400); tone("triangle", b, b * 1.25, 0, .25, .15); tone("sine", b * 1.5, 0, .09, .26, .12); }),
+    wrong: () => play(() => tone("sawtooth", 180, 120, 0, .25, .15)),
+    combo: () => play(() => [523.25, 659.25, 783.99, 1046.5].forEach((f, i) => tone("sine", f, 0, i * .06, .2, .12))),
+    tick: () => play(() => tone("sine", 800, 0, 0, .04, .04)),
+    victory: () => play(() => [[523.25, 659.25, 783.99], [587.33, 739.99, 880], [659.25, 830.61, 987.77], [783.99, 987.77, 1174.66, 1567.98]].forEach((ch, i) => ch.forEach(f => tone("triangle", f, 0, i * .12, .4, .1))))
+  };
+})();
+
+/* ================= question generators (port of quizGenerator) ================= */
+function w2d(cw, para) {
+  const target = para && cw.paraphrasedDefinitions.length ? pick(cw.paraphrasedDefinitions) : cw.officialDefinition;
+  const d = shuffle(COMMAND_WORDS.filter(w => w.id !== cw.id)).slice(0, 3).map(o => para && o.paraphrasedDefinitions.length ? pick(o.paraphrasedDefinitions) : o.officialDefinition);
+  return { type: "word-to-def", prompt: `What is the exact requirement of the command word: "${cw.word}"?`,
+    sub: `Pearson Edexcel Biology (4BI1) Taxonomy · ${cw.category.toUpperCase()} · ${cw.typicalMarks}`, badge: "Word → Definition",
+    options: shuffle([target, ...d]), correct: target, explanation: `Official Edexcel Taxonomy: "${cw.officialDefinition}"`,
+    rule: cw.examinerRule, trap: cw.commonTrap, word: cw.word, hint: cw.examinerRule };
+}
+function d2w(cw, para) {
+  const def = para && cw.paraphrasedDefinitions.length ? pick(cw.paraphrasedDefinitions) : cw.officialDefinition;
+  let rivals = COMMAND_WORDS.filter(w => w.id !== cw.id);
+  const pairs = { Describe: ["Explain", "Discuss", "Justify", "Suggest"], Explain: ["Describe", "Suggest", "Give a reason / reasons", "Deduce"],
+    Plot: ["Sketch", "Draw", "Calculate", "Determine"], Calculate: ["Determine", "Estimate", "Show that", "Deduce"], Evaluate: ["Comment on", "Discuss", "Deduce", "Justify"] };
+  for (const k in pairs) if (cw.word.includes(k)) { rivals = COMMAND_WORDS.filter(w => pairs[k].includes(w.word)); break; }
+  const opts = shuffle([cw.word, ...shuffle(rivals).slice(0, 3).map(r => r.word)]);
+  return { type: "def-to-word", prompt: "Which Edexcel command word matches this requirement?", sub: `"${def}"`, badge: "Definition → Word",
+    options: opts, correct: cw.word, explanation: `This requirement describes "${cw.word}". Official Edexcel definition: "${cw.officialDefinition}"`,
+    rule: cw.examinerRule, trap: cw.commonTrap, word: cw.word, hint: cw.examinerRule };
+}
+function pp(q) {
+  return { type: "past-paper", prompt: q.questionScenario, sub: `${q.paper} · Topic: ${q.topic} · [${q.marks} Marks]`, badge: "Real Exam Scenario",
+    options: shuffle([q.targetCommandWord, ...q.distractorCommandWords]), correct: q.targetCommandWord, explanation: q.examinerExplanation,
+    rule: `Syllabus Ref ${q.syllabusRef}: Full mark response requires mastering this command verb.`, trap: q.distinctionTip, markScheme: q.markSchemePoints,
+    word: q.targetCommandWord, hint: q.distinctionTip };
+}
+function picks(p) {
+  return { type: "answer-pick", prompt: p.q, sub: p.ctx || "", badge: `Which answer earns the marks? · ${p.cw}`, options: shuffle(p.opts), correct: p.opts[p.a],
+    explanation: `Best answer: ${p.opts[p.a]}`, rule: p.tip, trap: "", word: p.cw, hint: p.tip };
+}
+function pool(mode, n) {
+  const cws = shuffle(COMMAND_WORDS), pps = shuffle(PAST_PAPER_QUESTIONS), aps = shuffle(PICKS), out = [];
+  for (let i = 0; i < n; i++) {
+    if (mode === "word-to-def") out.push(w2d(cws[i % cws.length], i % 2 === 1));
+    else if (mode === "def-to-word") out.push(d2w(cws[i % cws.length], i % 2 === 1));
+    else if (mode === "past-paper") out.push(pp(pps[i % pps.length]));
+    else if (mode === "answer-pick") out.push(picks(aps[i % aps.length]));
+    else { const m = i % 3; out.push(m === 0 ? w2d(cws[i % cws.length], Math.random() > .5) : m === 1 ? d2w(cws[(i + 3) % cws.length], Math.random() > .5) : pp(pps[i % pps.length])); }
+  }
+  return shuffle(out);
+}
+const MODE_NAME = { "word-to-def": "Word to Definition", "def-to-word": "Definition to Word", "past-paper": "Past Paper Spotter", "all": "Complete Exam Simulator", "answer-pick": "Which Answer Earns the Marks", "word-practice": "Targeted Word Practice" };
+
+/* ================= app state ================= */
+const S = {
+  tab: "drill", xp: +store.get("dl-cw-xp", 0) || 0, best: +store.get("dl-cw-best", 0) || 0, streak: 0,
+  cfg: { count: 10, timed: false, limit: 20 },
+  d: null,            // drill session
+  duel: null, codex: { q: "", cat: "all", open: null }, cor: { sub: "de", letter: "C" },
+  timers: []
+};
+const clearTimers = () => { S.timers.forEach(t => { clearInterval(t); clearTimeout(t); }); S.timers = []; };
+const saveStats = () => { store.set("dl-cw-xp", S.xp); store.set("dl-cw-best", S.best); };
+const predicted = () => S.xp > 3500 ? 9 : S.xp > 2400 ? 8 : S.xp > 1500 ? 7 : S.xp > 800 ? 6 : S.xp > 300 ? 5 : 4;
+const mult = s => s >= 8 ? 3 : s >= 5 ? 2 : s >= 3 ? 1.5 : 1;
+const GRADES = [
+  [85, 9, "Grade 9 standard! Complete fluency in examiner expectations and mark schemes.", "g-hi"],
+  [75, 8, "Grade 8 standard! Excellent grasp of tricky distinctions like Describe vs Explain.", "g-hi"],
+  [65, 7, "Grade 7 standard (solid A)! Good performance; review evaluation and practical nuances.", "g-bl"],
+  [55, 6, "Grade 6 standard! Practise telling Describe from Explain, and the calculation verbs.", "g-am"],
+  [45, 5, "Grade 5 standard! You understand the basics but still fall into some examiner traps.", "g-am"],
+  [35, 4, "Grade 4 (standard pass). Visit the Codex and study the exact definitions.", "g-ro"],
+  [0, 3, "Needs revision. Spend 10 minutes reading the Command Word Codex and retry!", "g-ro"]
+];
+const gradeFor = p => GRADES.find(g => p >= g[0]);
+
+function go(tab) { clearTimers(); S.tab = tab; S.d = null; if (S.duel && S.duel.over) S.duel = null; render(); root.scrollIntoView({ behavior: reduced() ? "auto" : "smooth", block: "start" }); }
+
+function render() {
+  const t = [["drill", "Practice Drills"], ["duel", "Examiner Duel"], ["codex", "Codex"], ["cormmss", "CORMMSS & Strategy"]];
+  root.innerHTML = `<div class="cw-top"><div class="cw-tabs" role="group" aria-label="Sections">${t.map(([id, n]) =>
+    `<button class="cw-tab" data-go="${id}" aria-selected="${S.tab === id}">${n}</button>`).join("")}</div>
+    <div class="cw-meta"><span class="cw-pill mono" id="cw-txp">${S.xp} XP</span><span class="cw-pill mono ${S.streak >= 3 ? "hot" : ""}" id="cw-tstreak">Streak ${S.streak}${S.streak >= 3 ? " \u{1F525}" : ""}</span>
+    <span class="cw-pill mono">Predicted Grade ${predicted()}</span>
+    <button class="cw-mute" id="cw-mute" aria-pressed="${!sounds.on}" aria-label="${sounds.on ? "Mute sound effects" : "Unmute sound effects"}">${sounds.on ? "Sound on" : "Sound off"}</button></div></div>
+    <div class="cw-fade" id="cw-body"></div>
+    <div class="cw-foot">Pearson Edexcel International GCSE (9-1) Biology (4BI1) · Appendix 5 Command Word Taxonomy</div>`;
+  root.querySelectorAll("[data-go]").forEach(b => b.onclick = () => go(b.dataset.go));
+  $("#cw-mute").onclick = () => { sounds.on = !sounds.on; render(); };
+  const body = $("#cw-body");
+  ({ drill: viewDrill, duel: viewDuel, codex: viewCodex, cormmss: viewCormmss }[S.tab])(body);
+}
+function refreshMeta() { const x = $("#cw-txp"), s = $("#cw-tstreak"); if (x) x.textContent = S.xp + " XP"; if (s) { s.textContent = "Streak " + S.streak + (S.streak >= 3 ? " \u{1F525}" : ""); s.classList.toggle("hot", S.streak >= 3); } }
+
+/* ================= DRILL ================= */
+function viewDrill(el) {
+  if (!S.d) return drillMenu(el);
+  if (S.d.phase === "results") return drillResults(el);
+  drillQuestion(el);
+}
+function drillMenu(el) {
+  const modes = [
+    ["word-to-def", "m-a", "Mode A", "Interactive Choice", "Command Word → Pick Definition", "See a command word (e.g. Deduce, Evaluate, Design) and choose between official and subtly reworded examiner definitions.", "Tests precise meaning"],
+    ["def-to-word", "m-b", "Mode B", "Reverse Identification", "Definition / Clue → Pick Command Word", "Read a nuanced requirement or paraphrased clue and identify which Edexcel command verb applies (Describe vs Explain vs Discuss).", "Tests subtle nuances"],
+    ["past-paper", "m-c", "Mode C", "Exam Papers 1B & 2B", "Real Biology Past Paper Spotter", "Examine authentic IGCSE Biology question stems (osmosis, enzyme kinetics, ADH, quadrats) and deduce the command word, with the full mark scheme.", "Full mark scheme breakdowns"],
+    ["all", "m-d", "Mode D", "Comprehensive", "Complete Exam Simulator", "A randomised marathon mixing definition matching, reverse identification and past-paper challenges, with streak multipliers.", "Maximum XP & Grade Boost"],
+    ["answer-pick", "m-e", "Mode E", "Answer Quality", "Which Answer Earns the Marks?", "See a question and a graph or scenario, then pick the student answer that actually matches the command word.", "Tests applying the word"]
+  ];
+  const seg = (on, a, t) => `<button class="cw-seg" aria-pressed="${on}" ${a}>${t}</button>`;
+  el.innerHTML = `<div class="cw-hero"><div style="max-width:34rem"><div class="cw-eyebrow mono">Edexcel IGCSE Biology (4BI1) · Examiner Taxonomy Training · A-Level Pathway</div>
+    <h1>Master Biology <span>Command Words</span></h1>
+    <p class="muted" style="margin:0;font-size:.85rem">Never lose easy marks confusing <b style="color:var(--ink)">Describe</b> with <b style="color:var(--ink)">Explain</b>, forgetting units on <b style="color:var(--ink)">Calculate</b>, or missing marks on <b style="color:var(--ink)">CORMMSS</b>. Train with authentic definitions, paraphrased variants and real exam scenarios.</p></div>
+    <div class="cw-mastery mono"><span class="muted">YOUR MASTERY CARD</span><div class="row">
+      <div><small>TOTAL XP</small><b style="color:var(--em)">${S.xp}</b></div><div><small>BEST STREAK</small><b style="color:var(--am)">${S.best} \u{1F525}</b></div><div><small>PREDICTED</small><b style="color:var(--ind)">Grade ${predicted()}</b></div></div></div></div>
+    <h2 style="font-size:1rem;margin:1.2rem 0 0">Choose Training Mode:</h2>
+    <div class="cw-modes">${modes.map(m => `<button class="cw-mode ${m[1]}" data-mode="${m[0]}"><div><div style="display:flex;justify-content:space-between;align-items:center"><span class="lbl mono" style="font-size:.75rem;font-weight:700">${m[2]}</span><span class="tag mono">${m[3]}</span></div>
+      <h3 style="margin-top:.4rem">${m[4]}</h3><p>${m[5]}</p></div><div class="go mono">${m[6]} — Start Drill →</div></button>`).join("")}</div>
+    <div class="cw-set mono"><div class="grp"><span class="muted">Questions:</span>${[5, 10, 15, 20].map(n => seg(S.cfg.count === n, `data-n="${n}"`, n)).join("")}</div>
+      <div class="grp"><span class="muted">Pace:</span>${seg(!S.cfg.timed, 'data-pace="0"', "Relaxed")}${seg(S.cfg.timed && S.cfg.limit === 20, 'data-pace="20"', "20s Exam Pace")}${seg(S.cfg.timed && S.cfg.limit === 10, 'data-pace="10"', "10s Blitz")}</div></div>
+    <p class="muted" style="font-size:.78rem;margin:.6rem 0 0">Relaxed is the default: you can take as long as you need. Timed paces are optional extra challenge.</p>`;
+  el.querySelectorAll("[data-mode]").forEach(b => b.onclick = () => startDrill(b.dataset.mode));
+  el.querySelectorAll("[data-n]").forEach(b => b.onclick = () => { S.cfg.count = +b.dataset.n; render(); });
+  el.querySelectorAll("[data-pace]").forEach(b => b.onclick = () => { const v = +b.dataset.pace; S.cfg.timed = v > 0; if (v) S.cfg.limit = v; render(); });
+}
+function startDrill(mode, qs) {
+  S.d = { phase: "play", mode, qs: qs || pool(mode, S.cfg.count), i: 0, score: 0, xp: 0, best: 0, answers: [], used5050: false, usedHint: false, st: null, timeLeft: S.cfg.limit };
+  S.d.st = freshQ(); S.tab = "drill"; clearTimers(); render(); root.scrollIntoView({ block: "start" });
+}
+const freshQ = () => ({ sel: null, answered: false, gone: [], hint: false, ms: false, timedOut: false });
+
+function drillQuestion(el) {
+  const d = S.d, q = d.qs[d.i], st = d.st, timed = S.cfg.timed;
+  const ok = st.sel === q.correct, m = mult(S.streak);
+  el.innerHTML = `<div class="cw-narrow"><div style="display:flex;justify-content:space-between;font-size:.75rem" class="mono muted"><button class="cw-link" style="margin:0;color:var(--ink3)" id="cw-exit">← Exit Practice</button><span>Mode: ${esc(MODE_NAME[d.mode]).toUpperCase()}</span></div>
+    <div class="cw-card" style="position:relative;margin-top:.6rem"><div class="cw-qhead"><span class="mono"><b style="color:var(--em)">Q${d.i + 1} / ${d.qs.length}</b> · ${esc(q.badge)}</span>
+      ${S.streak > 0 ? `<span class="mono" style="color:var(--am)">\u{1F525} ${S.streak} Streak (${m}x XP)</span>` : ""}
+      ${timed ? `<span class="mono" id="cw-time">${d.timeLeft}s</span>` : ""}</div>
+    <div class="cw-bar" role="progressbar" aria-valuemin="0" aria-valuemax="${d.qs.length}" aria-valuenow="${d.i}"><i style="width:${d.i / d.qs.length * 100}%"></i></div>
+    ${!st.answered ? `<div class="cw-life mono"><span class="muted">EXAM LIFELINES:</span>
+      <button class="cw-lbtn" id="cw-5050" ${d.used5050 ? "disabled" : ""} title="Discard two incorrect options">50/50</button>
+      <button class="cw-lbtn" id="cw-hint" ${d.usedHint ? "disabled" : ""} title="Examiner clue">Hint</button>
+      ${timed ? `<button class="cw-lbtn" id="cw-plus">+15s</button>` : ""}</div>` : ""}
+    ${st.hint && !st.answered ? `<div class="cw-alert hint cw-fade"><b>Examiner Hint: </b>${esc(q.hint)}</div>` : ""}
+    <div class="cw-q__text pre" id="cw-qt">${esc(q.prompt)}</div>${q.sub ? `<p class="cw-q__sub mono pre">${esc(q.sub)}</p>` : ""}
+    ${st.timedOut ? `<div class="cw-alert time">Time expired! Review the correct answer below before proceeding.</div>` : ""}
+    <div class="cw-opts" role="group" aria-labelledby="cw-qt">${q.options.map((o, i) => {
+      const right = o === q.correct, mine = st.sel === o, gone = st.gone.includes(o);
+      let c = ""; if (st.answered) c = right ? "is-right" : mine ? "is-wrong" : "is-dim"; if (gone) c = "is-gone";
+      return `<button class="cw-opt ${c}" data-i="${i}" ${st.answered || gone ? "disabled" : ""}><span class="cw-opt__k mono">${String.fromCharCode(65 + i)}</span><span>${esc(o)}${st.answered && right ? " ✓" : ""}${st.answered && mine && !right ? " ✗" : ""}</span></button>`; }).join("")}</div>
+    <div id="cw-fb" aria-live="polite">${st.answered ? feedback(q, ok, st) : ""}</div></div>
+    <p class="muted mono" style="font-size:.72rem;margin-top:.7rem">Tip: press A–D or 1–4 to answer.</p></div>`;
+  $("#cw-exit").onclick = () => { clearTimers(); S.d = null; render(); };
+  el.querySelectorAll(".cw-opt:not([disabled])").forEach(b => b.onclick = () => answerDrill(q.options[+b.dataset.i]));
+  if (!st.answered) {
+    const a = $("#cw-5050"); if (a) a.onclick = () => { if (d.used5050) return; d.used5050 = true; st.gone = shuffle(q.options.filter(o => o !== q.correct)).slice(0, 2); sounds.tick(); render(); };
+    const h = $("#cw-hint"); if (h) h.onclick = () => { if (d.usedHint) return; d.usedHint = true; st.hint = true; sounds.tick(); render(); };
+    const p = $("#cw-plus"); if (p) p.onclick = () => { d.timeLeft += 15; sounds.tick(); $("#cw-time").textContent = d.timeLeft + "s"; };
+    if (timed) { clearTimers(); S.timers.push(setInterval(() => { d.timeLeft--; const t = $("#cw-time"); if (t) { t.textContent = Math.max(d.timeLeft, 0) + "s"; t.style.color = d.timeLeft <= 5 ? "var(--ro)" : ""; }
+      if (d.timeLeft <= 4 && d.timeLeft > 0) sounds.tick(); if (d.timeLeft <= 0) { clearTimers(); st.timedOut = true; answerDrill("__TIMEOUT__"); } }, 1000)); }
+  } else { const nb = $("#cw-next"); if (nb) { nb.onclick = nextDrill; nb.focus({ preventScroll: true }); }
+    const ms = $("#cw-ms"); if (ms) ms.onclick = () => { st.ms = !st.ms; render(); }; }
+}
+function feedback(q, ok, st) {
+  const d = S.d, last = d.i === d.qs.length - 1, gain = st.gain;
+  return `<div class="cw-fb ${ok ? "ok" : "no"} cw-fade"><b class="h">${ok ? `Correct! Full Marks. +${gain} XP` : "Incorrect – Examiner Feedback:"}</b><div>${esc(q.explanation)}</div></div>
+    <div class="cw-note rule"><h4>Examiner's Golden Rule</h4>${esc(q.rule)}</div>
+    ${q.trap ? `<div class="cw-note trap"><h4>Common Student Mistake</h4>${esc(q.trap)}</div>` : ""}
+    ${q.markScheme ? `<button class="cw-link" id="cw-ms">${st.ms ? "Hide Edexcel Mark Scheme" : "View Official Mark Scheme Breakdown"}</button>${st.ms ? `<div class="cw-note ms cw-fade"><h4>Official Pearson Edexcel Marking Points</h4><ul style="margin:.2rem 0 0;padding-left:1.1rem">${q.markScheme.map(p => `<li>${esc(p)}</li>`).join("")}</ul></div>` : ""}` : ""}
+    <div class="cw-row" style="justify-content:flex-end;margin-top:1rem"><button class="cw-btn cw-btn--go" id="cw-next">${last ? "View Results" : "Next Question"} →</button></div>`;
+}
+function answerDrill(opt) {
+  const d = S.d, q = d.qs[d.i], st = d.st; if (st.answered) return; clearTimers();
+  st.answered = true; st.sel = opt; const ok = opt === q.correct, timed = S.cfg.timed;
+  const m = mult(S.streak);
+  if (ok) { sounds.correct(S.streak); if (S.streak + 1 >= 3) sounds.combo(); } else sounds.wrong();
+  st.gain = ok ? Math.floor((100 + (timed ? Math.max(d.timeLeft, 0) * 3 : 0)) * m) : 0;
+  if (ok) { S.streak++; d.score++; d.xp += st.gain; S.xp += st.gain; d.best = Math.max(d.best, S.streak); S.best = Math.max(S.best, S.streak); if (S.streak % 5 === 0) confetti(30); }
+  else S.streak = 0;
+  saveStats();
+  d.answers.push({ badge: q.badge, prompt: q.prompt, sub: q.sub, given: opt === "__TIMEOUT__" ? "(no answer - time expired)" : opt, correct: q.correct, ok, explanation: q.explanation, markScheme: q.markScheme || null });
+  render();
+}
+function nextDrill() {
+  const d = S.d; clearTimers();
+  if (d.i + 1 >= d.qs.length) { d.phase = "results"; render(); return; }
+  d.i++; d.st = freshQ(); d.timeLeft = S.cfg.limit; render(); root.scrollIntoView({ block: "start" });
+}
+document.addEventListener("keydown", e => {
+  if (S.tab !== "drill" || !S.d || S.d.phase !== "play" || S.d.st.answered || e.ctrlKey || e.metaKey || e.altKey || /INPUT|TEXTAREA/.test(document.activeElement.tagName)) return;
+  const k = e.key.toLowerCase(), i = /^[1-4]$/.test(k) ? +k - 1 : "abcd".indexOf(k);
+  if (i >= 0) { const b = root.querySelectorAll(".cw-opt")[i]; if (b && !b.disabled) { e.preventDefault(); b.click(); } }
+});
+
+function confetti(n = 50) {
+  if (reduced()) return; const cols = ["#34d399", "#fbbf24", "#818cf8", "#60a5fa", "#fb7185"];
+  for (let i = 0; i < n; i++) { const d = document.createElement("i"); d.className = "cw-confetti"; d.style.left = (35 + Math.random() * 30) + "vw"; d.style.background = cols[i % 5];
+    d.style.animationDelay = (Math.random() * .3) + "s"; d.style.marginLeft = ((Math.random() - .5) * 40) + "vw"; document.body.appendChild(d); setTimeout(() => d.remove(), 2200); }
+}
+
+/* ---------- results (port of the ResultsSummary component) ---------- */
+function drillResults(el) {
+  const d = S.d, total = d.qs.length, pct = Math.round(d.score / total * 100), [, grade, comment, cls] = gradeFor(pct), wrong = d.answers.filter(a => !a.ok);
+  el.innerHTML = `<div class="cw-narrow stack"><div class="center stack"><div class="cw-trophy">${ICON.trophy}</div>
+    <div><h2 style="font-size:1.6rem">Exam Drill Complete</h2><p class="muted" style="margin:.2rem 0 0;font-size:.85rem">Pearson Edexcel IGCSE Biology (4BI1) Performance · ${esc(MODE_NAME[d.mode])}</p></div>
+    <div class="cw-grade mono ${cls}"><small>Predicted standard (indicative)</small><b>Grade ${grade}</b></div>
+    <p style="color:var(--ink2);max-width:28rem;margin:0 auto">${comment}</p></div>
+    <div class="cw-stats"><div class="cw-stat"><small>Accuracy</small><b class="mono" style="color:var(--em)">${d.score}/${total}</b><span class="muted mono" style="font-size:.7rem">(${pct}%)</span></div>
+      <div class="cw-stat"><small>XP earned</small><b class="mono" style="color:var(--am)">+${d.xp}</b><span class="muted mono" style="font-size:.7rem">Exam points</span></div>
+      <div class="cw-stat"><small>Best streak</small><b class="mono" style="color:var(--ind)">${d.best}${d.best >= 3 ? " \u{1F525}" : ""}</b><span class="muted mono" style="font-size:.7rem">Consecutive</span></div></div>
+    <div class="cw-check"><h3 class="mono" style="display:flex;gap:.4rem;align-items:center">${ICON.award("#34d399")}Examiner Reflection Checklist:</h3><ul>
+      <li><span style="color:var(--em)">&#10003;</span><span><b>Describe:</b> Did you state what happens using graph values without accidentally giving molecular reasons?</span></li>
+      <li><span style="color:var(--em)">&#10003;</span><span><b>Explain:</b> Did you include causal words like "because" and detailed biological mechanisms?</span></li>
+      <li><span style="color:var(--em)">&#10003;</span><span><b>Design:</b> Can you recite CORMMSS by heart for the 6-mark practical investigation?</span></li></ul></div>
+    ${wrong.length ? `<details class="cw-review"><summary>Review ${wrong.length} missed question${wrong.length > 1 ? "s" : ""}</summary><ul>${wrong.map(a =>
+      `<li><b>${esc(a.badge)}:</b> <span class="pre">${esc(a.prompt)}</span><br><span style="color:var(--em)">Best answer: ${esc(a.correct)}</span><br><span class="muted">${esc(a.explanation)}</span></li>`).join("")}</ul></details>` : ""}
+    <div class="center stack" style="border-top:1px solid var(--line);padding-top:1rem"><label class="muted" for="cw-name" style="font-size:.8rem">Your name (for the evidence PDF - never stored)</label><br>
+      <input id="cw-name" class="cw-name" autocomplete="name" placeholder="First name and surname">
+      <div><button class="cw-btn cw-btn--go" id="cw-pdf">${ICON.dl}<span>Generate Learning Evidence (PDF)</span></button></div>
+      <div id="cw-pdfmsg" class="muted" style="font-size:.8rem" aria-live="polite"></div></div>
+    <div class="cw-row"><button class="cw-btn" id="cw-tocodex">${ICON.book}<span>Browse Command Word Codex</span></button>
+      <button class="cw-btn cw-btn--go" id="cw-again">${ICON.redo}<span>Play Another Round</span></button></div></div>`;
+  $("#cw-tocodex").onclick = () => go("codex");
+  $("#cw-again").onclick = () => { const m = d.mode; if (m === "word-practice") { S.d = null; render(); } else startDrill(m); };
+  $("#cw-pdf").onclick = makePDF;
+  if (!d.fx) { d.fx = true; if (grade >= 7) { confetti(); sounds.victory(); } }
+}
+
+/* ================= DUEL ================= */
+function viewDuel(el) {
+  const D = S.duel;
+  if (!D) {
+    el.innerHTML = `<div class="cw-narrow stack center"><div class="cw-card stack"><h1 style="font-size:1.6rem">Examiner Duel Arena</h1>
+      <p class="muted" style="margin:0 auto;max-width:32rem">Test your speed and mastery head-to-head. Outscore your rival across 6 Edexcel questions.</p>
+      <div class="cw-modes" style="max-width:40rem;margin:1rem auto 0;text-align:left"><button class="cw-mode m-c" data-d="bot"><div><span class="tag mono">Dr. Thorne (AI)</span><h3 style="margin-top:.4rem">vs Senior Examiner</h3><p>Race the strict Senior Examiner bot. Fast, accurate answers earn points.</p></div></button>
+      <button class="cw-mode m-b" data-d="pvp"><div><span class="tag mono">2 Players</span><h3 style="margin-top:.4rem">Pass & Play 1v1</h3><p>Battle a friend on the same screen. Player 1 answers, then Player 2.</p></div></button></div></div></div>`;
+    el.querySelectorAll("[data-d]").forEach(b => b.onclick = () => startDuel(b.dataset.d)); return;
+  }
+  if (D.over) {
+    const won = D.p1 >= D.p2, tie = D.p1 === D.p2;
+    el.innerHTML = `<div class="cw-narrow stack center"><div class="cw-card stack"><div class="cw-trophy" style="margin:0 auto">${ICON.trophy}</div>
+      <h2 style="font-size:1.5rem">${tie ? "Dead heat!" : won ? (D.type === "bot" ? "You beat the Senior Examiner!" : "Player 1 wins!") : (D.type === "bot" ? "Dr. Thorne wins this round" : "Player 2 wins!")}</h2>
+      <div class="cw-stats"><div class="cw-stat"><small>${D.type === "bot" ? "You" : "Player 1"}</small><b class="mono" style="color:var(--em)">${D.p1}</b></div><div class="cw-stat"><small>${D.type === "bot" ? "Dr. Thorne" : "Player 2"}</small><b class="mono" style="color:var(--am)">${D.p2}</b></div><div class="cw-stat"><small>XP banked</small><b class="mono" style="color:var(--ind)">+${D.p1}</b></div></div>
+      <div class="cw-row"><button class="cw-btn" id="cw-dmenu">Back to Arena</button><button class="cw-btn cw-btn--am" id="cw-dagain">Rematch</button></div></div></div>`;
+    $("#cw-dmenu").onclick = () => { S.duel = null; render(); }; $("#cw-dagain").onclick = () => startDuel(D.type); return;
+  }
+  const q = D.qs[D.r], tot = D.p1 + D.p2 || 1, pw = Math.max(10, Math.min(90, D.p1 / tot * 100));
+  el.innerHTML = `<div class="cw-narrow stack"><div class="cw-board"><div class="r mono"><div style="display:flex;gap:.5rem;align-items:center"><span class="cw-av p1">P1</span><div><b>You (Candidate)</b><div style="color:var(--em);font-weight:800">${D.p1} pts</div></div></div>
+    <div class="center"><span class="muted" style="font-size:.6rem;text-transform:uppercase;display:block">Round</span><b style="font-size:1.1rem">${D.r + 1} / ${D.qs.length}</b></div>
+    <div style="display:flex;gap:.5rem;align-items:center;text-align:right"><div><b>${D.type === "bot" ? "Dr. Thorne" : "Player 2"}</b><div style="color:var(--am);font-weight:800">${D.p2} pts</div></div><span class="cw-av p2">${D.type === "bot" ? "AI" : "P2"}</span></div></div>
+    <div class="cw-tug"><i style="width:${pw}%;background:var(--em)"></i><i style="width:${100 - pw}%;background:var(--am)"></i></div>
+    ${D.type === "bot" ? `<div class="cw-bot"><span>${esc(D.say)}</span>${D.thinking ? '<span class="mono" style="color:var(--am)">Examiner thinking...</span>' : ""}</div>` : ""}</div>
+    <div class="cw-card"><div class="mono" style="font-size:.72rem;color:var(--em)">${esc(q.badge)}${q.sub ? " · " : ""}<span class="pre">${esc(q.sub)}</span></div>
+    <div class="cw-q__text pre" id="cw-dq">${esc(q.prompt)}</div>
+    <div class="mono muted" style="font-size:.72rem;display:flex;justify-content:space-between"><span>${D.type === "pvp" && D.a1 && !D.a2 ? "" : "Your Answer:"}</span>${D.a1 ? `<span style="color:${D.a1 === q.correct ? "var(--em)" : "var(--ro)"}">${D.a1 === q.correct ? "✓ Correct (+120 pts)" : "✗ Incorrect (0 pts)"}</span>` : ""}</div>
+    <div class="cw-opts" role="group" aria-labelledby="cw-dq">${q.options.map((o, i) => { let c = ""; if (D.roundOver) c = o === q.correct ? "is-right" : D.a1 === o ? "is-wrong" : "is-dim"; else if (D.a1) c = "is-dim";
+      return `<button class="cw-opt ${c}" data-i="${i}" ${D.a1 ? "disabled" : ""}><span class="cw-opt__k mono">${String.fromCharCode(65 + i)}</span><span>${esc(o)}</span></button>`; }).join("")}</div>
+    ${D.type === "pvp" && D.a1 && !D.a2 ? `<div class="cw-note cw-fade"><h4 style="color:var(--am)">Player 2's turn — pass the screen</h4><div class="cw-opts">${q.options.map((o, i) => `<button class="cw-opt" data-p2="${i}"><span class="cw-opt__k mono">${String.fromCharCode(65 + i)}</span><span>${esc(o)}</span></button>`).join("")}</div></div>` : ""}
+    ${D.roundOver ? `<div class="cw-note ms cw-fade"><h4>Examiner Verdict</h4>${esc(q.explanation)}<div class="muted" style="margin-top:.3rem">${esc(q.rule)}</div></div>
+      <div class="cw-row" style="justify-content:space-between;margin-top:.8rem;align-items:center"><span class="muted mono" style="font-size:.75rem">${D.type === "bot" ? "Dr. Thorne picked: <b style='color:var(--ink)'>" + esc(D.a2) + "</b>" : D.type === "pvp" ? "Player 2 picked: <b style='color:var(--ink)'>" + esc(D.a2) + "</b>" : ""}</span>
+      <button class="cw-btn cw-btn--am" id="cw-dnext">${D.r + 1 >= D.qs.length ? "See Duel Results" : "Next Round"} →</button></div>` : ""}</div></div>`;
+  el.querySelectorAll(".cw-opt[data-i]").forEach(b => b.onclick = () => duelP1(q.options[+b.dataset.i]));
+  el.querySelectorAll("[data-p2]").forEach(b => b.onclick = () => duelP2(q.options[+b.dataset.p2]));
+  const n = $("#cw-dnext"); if (n) { n.onclick = duelNext; n.focus({ preventScroll: true }); }
+}
+function startDuel(type) {
+  clearTimers();
+  S.duel = { type, qs: pool("all", 6), r: 0, p1: 0, p2: 0, a1: null, a2: null, roundOver: false, thinking: false, say: "Dr. Thorne is reviewing Question 1...", over: false };
+  S.tab = "duel"; render(); botTurn();
+}
+function botTurn() {
+  const D = S.duel; if (!D || D.type !== "bot" || D.roundOver || D.over) return;
+  D.thinking = true; render();
+  S.timers.push(setTimeout(() => {
+    const q = D.qs[D.r], good = Math.random() < .82;
+    D.a2 = good ? q.correct : pick(q.options.filter(o => o !== q.correct)); D.thinking = false;
+    if (good) { D.p2 += 100; D.say = D.a2.includes("Explain") ? 'Dr. Thorne: "Naturally. A clear causal biological mechanism with \'because\'."' : 'Dr. Thorne: "Correct taxonomy, as mandated in Appendix 5."'; }
+    else D.say = 'Dr. Thorne: "Confound it! Even senior examiners occasionally misread a stimulus..."';
+    if (D.a1) D.roundOver = true; if (S.tab === "duel") render();
+  }, 2500 + Math.random() * 2000));
+}
+function duelP1(o) {
+  const D = S.duel, q = D.qs[D.r]; if (D.a1) return; D.a1 = o;
+  if (o === q.correct) { sounds.correct(0); D.p1 += 120; } else sounds.wrong();
+  if (D.type === "bot" && D.a2) D.roundOver = true; render();
+}
+function duelP2(o) {
+  const D = S.duel, q = D.qs[D.r]; if (D.a2) return; D.a2 = o;
+  if (o === q.correct) { sounds.correct(0); D.p2 += 120; } else sounds.wrong();
+  D.roundOver = true; render();
+}
+function duelNext() {
+  const D = S.duel;
+  if (D.r + 1 < D.qs.length) { D.r++; D.a1 = null; D.a2 = null; D.roundOver = false; D.say = "Dr. Thorne is scrutinizing the next question..."; render(); botTurn(); return; }
+  D.over = true; S.xp += D.p1; if (D.p1 >= D.p2) { S.streak += 2; S.best = Math.max(S.best, S.streak); sounds.victory(); confetti(60); } saveStats(); render();
+}
+
+/* ================= CODEX ================= */
+const CATS = [["all", "All Command Words"], ["recall", "Recall & Direct"], ["application", "Application & Cause"], ["data-math", "Data & Math"], ["practical", "Practical & CORMMSS"], ["evaluation", "Evaluation & Judgement"]];
+function viewCodex(el) {
+  const C = S.codex, qy = C.q.toLowerCase();
+  const list = COMMAND_WORDS.filter(w => (C.cat === "all" || w.category === C.cat) && (!qy || [w.word, w.officialDefinition, w.biologyExample.context, w.biologyExample.questionStem, ...w.paraphrasedDefinitions].some(t => t.toLowerCase().includes(qy))));
+  el.innerHTML = `<div class="cw-card"><div class="cw-eyebrow mono">Appendix 5: Command Word Taxonomy · Pearson Edexcel IGCSE Biology (4BI1)</div>
+    <h1 style="font-size:1.5rem;margin:.2rem 0">Command Word Codex & Revision Reference</h1>
+    <p class="muted" style="margin:0 0 .8rem;font-size:.85rem">Exact definitions, nuances and examiner traps for every command word tested in Paper 1B and Paper 2B. Showing <b style="color:var(--ink)">${list.length}</b> of ${COMMAND_WORDS.length}.</p>
+    <label class="muted" for="cw-s" style="display:block;font-size:.72rem;margin-bottom:.2rem">Search</label>
+    <input id="cw-s" class="cw-search" type="search" value="${esc(C.q)}" placeholder="Search command word or definition keyword (e.g. 'quantitative', 'working', 'justify')...">
+    <div class="cw-chips" role="group" aria-label="Filter by category">${CATS.map(([k, n]) => `<button class="cw-chip" data-c="${k}" aria-pressed="${C.cat === k}">${n} <span class="mono" style="opacity:.7">${k === "all" ? COMMAND_WORDS.length : COMMAND_WORDS.filter(w => w.category === k).length}</span></button>`).join("")}</div></div>
+    <div class="cw-cwgrid">${list.map(w => { const open = C.open === w.id; return `<div class="cw-cw ${open ? "open" : ""}"><div>
+      <div style="display:flex;justify-content:space-between;gap:.6rem;align-items:flex-start"><div><h2>${esc(w.word)}</h2><div class="mono muted" style="font-size:.7rem"><span class="cw-cat">${esc(w.category)}</span> · ${esc(w.typicalMarks)}</div></div>
+        <button class="cw-btn cw-btn--go" style="padding:.3rem .7rem;font-size:.75rem" data-p="${w.id}" title="Launch targeted practice on this command word">▶ Practice</button></div>
+      <div class="cw-def"><small class="mono">Official Edexcel Specification Definition:</small>"${esc(w.officialDefinition)}"</div>
+      <div class="mono" style="font-size:.7rem;color:var(--ind)">How it might also be worded in exams:</div><ul>${w.paraphrasedDefinitions.map(p => `<li>${esc(p)}</li>`).join("")}</ul>
+      <div class="cw-note rule"><h4>Examiner Rule</h4>${esc(w.examinerRule)}</div><div class="cw-note trap"><h4>Common Pitfall</h4>${esc(w.commonTrap)}</div>
+      ${open ? `<div class="cw-ex cw-fade"><b class="mono" style="font-size:.7rem;color:var(--ind)">Biology Exam Example (${esc(w.biologyExample.context)})</b><q>"${esc(w.biologyExample.questionStem)}"</q><span style="color:var(--em);font-weight:700">What the examiner expects: </span>${esc(w.biologyExample.whatExaminerWants)}</div>` : ""}</div>
+      <div style="margin-top:.8rem;padding-top:.5rem;border-top:1px solid var(--line);display:flex;justify-content:space-between"><button class="cw-link" style="margin:0;color:var(--ink3)" data-o="${w.id}" aria-expanded="${open}">${open ? "Hide Exam Question" : "View Biology Exam Example"}</button>
+      <button class="cw-link" style="margin:0" data-p="${w.id}">Test this verb →</button></div></div>`; }).join("")}</div>
+    ${list.length ? "" : '<p class="muted center" style="margin-top:1.5rem">No command words match. Try another search.</p>'}`;
+  const s = $("#cw-s"); s.oninput = () => { C.q = s.value; const pos = s.selectionStart; viewCodex(el); const n = $("#cw-s"); n.focus(); n.setSelectionRange(pos, pos); };
+  el.querySelectorAll("[data-c]").forEach(b => b.onclick = () => { C.cat = b.dataset.c; render(); });
+  el.querySelectorAll("[data-o]").forEach(b => b.onclick = () => { C.open = C.open === b.dataset.o ? null : b.dataset.o; render(); });
+  el.querySelectorAll("[data-p]").forEach(b => b.onclick = () => { const w = COMMAND_WORDS.find(x => x.id === b.dataset.p); startDrill("word-practice", [w2d(w, false), d2w(w, true), w2d(w, true), d2w(w, false)]); });
+}
+
+/* ================= CORMMSS & strategy ================= */
+const COR = [
+  ["C", "Change (Independent Variable)", "What you are deliberately changing in the investigation. Must state at least 5 different values or conditions.", 'To gain this mark, you cannot just say "change the temperature". You MUST state: "Use at least five different temperatures (e.g. 10, 20, 30, 40, 50 °C) using a thermostatically controlled water bath."', "5 different concentrations of sodium chloride solution (0.0, 0.2, 0.4, 0.6, 0.8 mol/dm³)."],
+  ["O", "Organism (Standardised Specimen)", "The biological material used must be standardized to make the test fair and comparable.", "State the species AND at least two properties to keep constant: e.g. same mass, same age, same sex, same variety, or same surface area.", "Potato cylinders cut from the same potato variety, cut to the exact same length (30 mm) and diameter (5 mm) using a cork borer."],
+  ["R", "Repeat (Reliability)", "Repeat the investigation multiple times to identify anomalies and calculate a concordant mean.", 'Always write: "Repeat the experiment at each condition at least 3 times (or 5 times), calculate a mean, and exclude any anomalous results."', "Test 3 replicate boiling tubes for each temperature to calculate an average rate of bubble production."],
+  ["M1", "Measure 1 (Dependent Variable)", "What physical quantity or biological product you are measuring, with appropriate apparatus and units.", 'Be precise with apparatus. Say: "Measure the volume of gas released using a gas syringe (in cm³)" or "Measure the change in mass using an electronic balance (in grams)".', "Measure the volume of oxygen gas collected in an inverted measuring cylinder / gas syringe in cm³."],
+  ["M2", "Measure 2 (Timeframe / Rate)", "The specific timeframe over which the dependent variable measurement is recorded.", 'Specify an exact time: "Measure after 5 minutes" or "Use a stopwatch to record the time taken for the indicator to turn yellow."', "Count the number of oxygen bubbles evolved in a fixed time period of 3 minutes using a stopwatch."],
+  ["S1", "Same 1 (Controlled Variable 1)", "First abiotic or physical environmental factor kept strictly constant throughout all test groups.", 'Must give a concrete value and method: "Keep the pH constant using a buffer solution at pH 7" or "Keep temperature at 25 °C using a water bath".', "Keep light intensity constant by placing the lamp at a fixed distance of 20 cm from the boiling tube."],
+  ["S2", "Same 2 (Controlled Variable 2)", "Second factor kept constant to ensure valid results.", 'Must be different from S1 and also include the method: "Keep volume of enzyme constant at 5 cm³ using a graduated pipette."', "Keep the concentration of sodium hydrogen carbonate constant at 1% to ensure carbon dioxide is not limiting."]
+];
+function viewCormmss(el) {
+  const C = S.cor, sub = [["de", "Describe vs Explain Matrix"], ["co", "CORMMSS 6-Mark Formula"], ["ev", 'How to Ace "Evaluate"']];
+  let inner = "";
+  if (C.sub === "de") inner = `<div class="cw-card"><h2 style="font-size:1.3rem">The #1 Reason Students Lose Marks in Edexcel Biology</h2>
+    <p class="muted" style="font-size:.88rem">Confusing <b style="color:var(--em)">Describe</b> with <b style="color:var(--ind)">Explain</b> accounts for up to 15 lost marks on every GCSE paper! Here is how examiners distinguish them:</p>
+    <div class="cw-cols"><div class="cw-col d"><h3 style="color:var(--em)">DESCRIBE <span class="muted" style="font-size:.7rem;font-weight:400">"What happens?"</span></h3><p>State the patterns, trends, stages or physical observations. Statements need to be linked, but <b>DO NOT</b> need a justification, reason or biological mechanism.</p>
+      <div class="cw-note ms"><h4>Examiner Golden Key</h4>Quote coordinates and values directly from the graph: "Rate increases between 10°C and 40°C, peaks at 40°C with 30 units, then falls to zero at 60°C."</div></div>
+    <div class="cw-col e"><h3 style="color:var(--ind)">EXPLAIN <span class="muted" style="font-size:.7rem;font-weight:400">"Why & how does it happen?"</span></h3><p>Provide biological reasons, underlying scientific mechanisms and justifications. Must include cause-and-effect connectors like <b>"because"</b>, <b>"due to"</b> or <b>"as a result of"</b>.</p>
+      <div class="cw-note" style="border-color:#818cf855"><h4 style="color:var(--ind)">Examiner Golden Key</h4>Connect molecular/cellular causes: "At 60°C high kinetic energy breaks bonds in active site, causing denaturation so substrate can no longer bind."</div></div></div></div>
+    <div class="cw-card" style="margin-top:1rem"><h3 class="mono" style="font-size:1rem;margin-bottom:.8rem">Exam Case Study: Temperature on Enzyme Activity</h3>
+      <div class="cw-note trap"><h4>✗ The Common Student Blunder — question asked: "Describe the graph"</h4><i>"The rate goes up because enzymes have more kinetic energy and collide more, then it goes down because they denature."</i><div style="color:var(--ro);margin-top:.4rem"><b class="mono">Score: 0 / 3 marks!</b> <span class="muted">The student wrote an explanation instead of describing the graph values.</span></div></div>
+      <div class="cw-note ms"><h4>✓ The Grade 9 Response — how to get full 3 / 3 marks</h4>"As temperature rises from 10 °C to 40 °C, the rate increases from 5 to 35 mm/min. The optimum rate is at 40 °C. Above 40 °C, the rate decreases sharply until it reaches zero at 60 °C."<div style="color:var(--em);margin-top:.4rem" class="mono">Full 3 / 3 marks awarded for identifying initial increase, optimum peak value, and decline to zero!</div></div></div>`;
+  else if (C.sub === "co") { const cur = COR.find(x => x[0] === C.letter) || COR[0];
+    inner = `<div class="cw-card"><div style="display:flex;justify-content:space-between;gap:.6rem;flex-wrap:wrap"><div><h2 style="font-size:1.3rem">CORMMSS: The Secret to 6-Mark "Design" Questions</h2>
+      <p class="muted" style="font-size:.88rem;margin:.3rem 0 .8rem">Every Edexcel IGCSE Biology paper has a 6-mark practical question beginning with the command word <b style="color:var(--ink)">"Design"</b>. Use this 7-letter mnemonic to guarantee 6/6 marks.</p></div><span class="cw-pill mono" style="align-self:flex-start;color:var(--em)">Guaranteed 6 Marks</span></div>
+      <div class="cw-letters" role="group" aria-label="CORMMSS letters">${COR.map(x => `<button class="cw-letter" data-l="${x[0]}" aria-pressed="${x[0] === cur[0]}">${x[0]} <span class="muted" style="font-family:inherit;font-weight:400;font-size:.72rem">${x[1].split(" ")[0]}</span></button>`).join("")}</div>
+      <div class="cw-def" style="margin-top:1rem;padding:1rem"><div style="display:flex;gap:.6rem;align-items:center"><span class="cw-badge">${cur[0]}</span><h3 style="font-size:1.05rem">${cur[1]}</h3></div><p class="muted" style="font-size:.85rem">${cur[2]}</p>
+        <div class="cw-note rule"><h4>Edexcel Examiner Requirement</h4>${cur[3]}</div><div class="cw-note ms"><h4>Model Past Paper Sentence</h4><i style="font-family:Georgia,serif">"${cur[4]}"</i></div></div></div>`; }
+  else inner = `<div class="cw-card"><h2 style="font-size:1.3rem">Acing 4 to 6 Mark "Evaluate" Questions</h2><p class="muted" style="font-size:.88rem">When Edexcel uses <b style="color:var(--ink)">"Evaluate"</b>, review experimental data or claims, balance the evidence, and come to a justified judgement.</p>
+    <div class="cw-cols" style="grid-template-columns:repeat(auto-fit,minmax(13rem,1fr))"><div class="cw-col" style="border-color:var(--line)"><b class="mono" style="color:var(--em)">STEP 1: EVIDENCE FOR</b><p>Quote numerical data or trends from the table/graph that directly support the student's hypothesis or manufacturer's claim.</p></div>
+    <div class="cw-col" style="border-color:var(--line)"><b class="mono" style="color:var(--am)">STEP 2: EVIDENCE AGAINST</b><p>Look for experimental limitations: tiny sample size, lack of repeats, no placebo/control group, bias (all males or one age group), uncontrolled variables.</p></div>
+    <div class="cw-col" style="border-color:var(--line)"><b class="mono" style="color:var(--ind)">STEP 3: SUPPORTED CONCLUSION</b><p>Conclude whether the claim is fully supported, partially supported, or not justified based on the weight of the evidence.</p></div></div></div>`;
+  el.innerHTML = `<div class="cw-sub" role="group" aria-label="Strategy topics">${sub.map(([k, n]) => `<button class="cw-tab" data-s="${k}" aria-selected="${C.sub === k}">${n}</button>`).join("")}</div>${inner}`;
+  el.querySelectorAll("[data-s]").forEach(b => b.onclick = () => { C.sub = b.dataset.s; render(); });
+  el.querySelectorAll("[data-l]").forEach(b => b.onclick = () => { C.letter = b.dataset.l; render(); });
+}
+
+/* ================= Evidence PDF (Discovery Lab Report) ================= */
+function loadJsPDF() {
+  if (window.jspdf?.jsPDF) return Promise.resolve(window.jspdf.jsPDF);
+  return new Promise((res, rej) => { const s = document.createElement("script");
+    s.src = new URL("../../../../../engine/vendor/jspdf.umd.min.js", location.href).href;
+    s.onload = () => window.jspdf?.jsPDF ? res(window.jspdf.jsPDF) : rej(new Error("jsPDF missing"));
+    s.onerror = () => rej(new Error("jsPDF failed to load")); document.head.appendChild(s); });
+}
+const ascii = s => String(s ?? "").replace(/[‘’]/g, "'").replace(/[“”]/g, '"').replace(/[–—]/g, "-").replace(/→/g, "->").replace(/°/g, " deg").replace(/³/g, "3").replace(/[^\x20-\x7E\n]/g, "");
+function checksum(s) { let h = 5381; for (let i = 0; i < s.length; i++) h = ((h << 5) + h + s.charCodeAt(i)) >>> 0; return h.toString(36).toUpperCase().padStart(7, "0").slice(0, 7); }
+async function makePDF() {
+  const msg = $("#cw-pdfmsg"), d = S.d; msg.textContent = "Building your PDF...";
+  try {
+    const jsPDF = await loadJsPDF(), doc = new jsPDF({ unit: "pt", format: "letter" });
+    const W = 612, H = 792, M = 46, CW = W - 2 * M, name = ascii($("#cw-name").value.trim()) || "Student", total = d.qs.length;
+    const pct = Math.round(d.score / total * 100), grade = gradeFor(pct)[1], dateStr = new Date().toISOString().slice(0, 10), url = location.origin + location.pathname;
+    const sum = checksum(d.answers.map(a => a.ok ? 1 : 0).join("") + d.score + d.xp + name + dateStr + d.mode);
+    let y = 0;
+    const wrap = (t, w, size, style) => { doc.setFont("helvetica", style || "normal"); doc.setFontSize(size); return doc.splitTextToSize(ascii(t), w); };
+    const need = h => { if (y + h > H - 50) { doc.addPage(); y = M; } };
+    const para = (t, o = {}) => { const size = o.size || 9.5, lines = wrap(t, o.w || CW, size, o.style), lh = size * 1.3;
+      need(lh * lines.length); doc.setTextColor(...(o.color || [30, 41, 59])); doc.text(lines, o.x || M, y + size); y += lh * lines.length + (o.gap ?? 4); };
+    doc.setFillColor(15, 23, 42); doc.rect(0, 0, W, 78, "F");
+    doc.setFont("helvetica", "bold"); doc.setFontSize(15); doc.setTextColor(255, 255, 255); doc.text("DISCOVERY LAB REPORT - LEARNING EVIDENCE", M, 34);
+    doc.setFont("helvetica", "normal"); doc.setFontSize(10); doc.setTextColor(167, 243, 208); doc.text("Command Words Exam Drill  |  IGCSE Biology (Edexcel 4BI1)", M, 54);
+    doc.setTextColor(147, 197, 253); doc.textWithLink("Open the live activity ->", M, 69, { url });
+    y = 98;
+    [["Student", name], ["Course", "IGCSE Biology - A-Level Pathway (British System)"], ["Module", "Exam Skills"], ["Activity", `Command Words Exam Drill (${ACTIVITY_ID} v${VERSION})`],
+     ["Drill mode", MODE_NAME[d.mode] + (S.cfg.timed ? ` (timed, ${S.cfg.limit}s per question)` : " (relaxed pace)")], ["Completed", dateStr]].forEach(([k, v]) => {
+      doc.setFont("helvetica", "bold"); doc.setFontSize(9.5); doc.setTextColor(71, 85, 105); doc.text(k, M, y + 9);
+      doc.setFont("helvetica", "normal"); doc.setTextColor(15, 23, 42); doc.text(wrap(v, CW - 80, 9.5), M + 80, y + 9); y += 15; });
+    y += 6;
+    para("Objective", { style: "bold", size: 11, color: [5, 150, 105], gap: 2 });
+    para("Interpret Edexcel command words correctly (State, Describe, Explain, Compare, Calculate, Suggest, Evaluate, Design and more) so that an answer matches exactly what the question asks for. This skill applies to every IGCSE Biology paper: it protects marks the student already knows how to earn.");
+    para("Method", { style: "bold", size: 11, color: [5, 150, 105], gap: 2 });
+    para(`The student completed a ${total}-question auto-marked drill (${MODE_NAME[d.mode]}) drawn from the Edexcel (4BI1) command word taxonomy, paraphrased definitions, past-paper style scenarios and answer-quality questions. Each question is objectively marked (1 mark each); lifelines (50/50, hint) were available once each per round. No teacher marking or constructed-response rubric applies to this activity.`);
+    para("Results", { style: "bold", size: 11, color: [5, 150, 105], gap: 4 });
+    need(62); doc.setFillColor(241, 245, 249); doc.roundedRect(M, y, CW, 50, 6, 6, "F");
+    [["Score", `${d.score} / ${total} (${pct}%)`], ["Indicative grade", "Grade " + grade], ["XP this round", String(d.xp)], ["Best streak", String(d.best)]].forEach(([k, v], i) => {
+      const x = M + 14 + i * (CW / 4); doc.setFont("helvetica", "normal"); doc.setFontSize(8); doc.setTextColor(100, 116, 139); doc.text(k.toUpperCase(), x, y + 18);
+      doc.setFont("helvetica", "bold"); doc.setFontSize(13); doc.setTextColor(15, 23, 42); doc.text(v, x, y + 38); });
+    y += 62;
+    para("The grade shown is an indicative estimate from drill accuracy only. It is not an official or predicted exam grade.", { size: 8.5, color: [100, 116, 139], gap: 10 });
+    para("Auto-marked questions (1 mark each)", { style: "bold", size: 11, color: [5, 150, 105], gap: 4 });
+    d.answers.forEach((a, i) => {
+      const l1 = [`Q${i + 1}. [${a.badge}] ${a.prompt}`, a.sub ? "Context: " + a.sub : null].filter(Boolean).flatMap(t => wrap(t, CW - 90, 9.5, "bold"));
+      const l2 = wrap("Student answer: " + a.given, CW - 16, 9), l3 = a.ok ? [] : wrap("Correct answer: " + a.correct, CW - 16, 9);
+      const l4 = a.markScheme ? wrap("Mark scheme points: " + a.markScheme.join("; "), CW - 16, 8) : [];
+      const total = (l1.length + l2.length + l3.length) * 12.5 + l4.length * 11 + 18; need(total + 4);
+      doc.setDrawColor(203, 213, 225); doc.setFillColor(a.ok ? 236 : 254, a.ok ? 253 : 242, a.ok ? 245 : 242); doc.roundedRect(M, y, CW, total, 4, 4, "FD");
+      let yy = y + 5; doc.setFont("helvetica", "bold"); doc.setFontSize(9.5); doc.setTextColor(15, 23, 42); doc.text(l1, M + 8, yy + 8); yy += l1.length * 12.5;
+      doc.setFont("helvetica", "normal"); doc.setFontSize(9); doc.setTextColor(51, 65, 85); doc.text(l2, M + 8, yy + 8); yy += l2.length * 12.5;
+      if (l3.length) { doc.setTextColor(4, 120, 87); doc.text(l3, M + 8, yy + 8); yy += l3.length * 12.5; }
+      if (l4.length) { doc.setFontSize(8); doc.setTextColor(100, 116, 139); doc.text(l4, M + 8, yy + 8); }
+      doc.setFont("helvetica", "bold"); doc.setFontSize(9); doc.setTextColor(a.ok ? 4 : 190, a.ok ? 120 : 18, a.ok ? 87 : 60);
+      doc.text(a.ok ? "1 / 1 mark" : "0 / 1 mark", W - M - 8, y + 13, { align: "right" });
+      y += total + 6;
+    });
+    need(60); y += 4;
+    para("Simulation link", { style: "bold", size: 9, color: [71, 85, 105], gap: 1 });
+    const ul = wrap(url, CW, 8.5); need(ul.length * 11 + 14); doc.setTextColor(37, 99, 235); doc.textWithLink(ul[0], M, y + 9, { url });
+    if (ul.length > 1) doc.text(ul.slice(1), M, y + 20); y += ul.length * 11 + 6;
+    para(`Integrity code ${sum} (tamper-evident only: it changes if the scores above are edited, but it does not prevent editing).`, { size: 8, color: [100, 116, 139] });
+    const n = doc.internal.getNumberOfPages();
+    for (let p = 1; p <= n; p++) { doc.setPage(p); doc.setFont("helvetica", "normal"); doc.setFontSize(8); doc.setTextColor(100, 116, 139);
+      doc.text(`Discovery Lab Report - ${name} - ${dateStr}`, M, H - 24); doc.text(`Page ${p} of ${n}`, W - M, H - 24, { align: "right" }); }
+    const file = `${name.replace(/[^A-Za-z0-9]+/g, "")}_IGCSEBiology_ExamSkills_CommandWords_${dateStr}.pdf`;
+    const a = document.createElement("a"); a.href = URL.createObjectURL(doc.output("blob")); a.download = file;
+    document.body.appendChild(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(a.href), 3000);
+    msg.textContent = "Downloaded " + file + ". Upload this PDF to Learning Lab.";
+  } catch (e) { console.error(e); msg.textContent = "Sorry, the PDF could not be built. Please try again."; }
+}
+
+render();
+</script>
+</body>
+</html>
