@@ -124,8 +124,8 @@ def head_and_shell(lang, fname, title, desc, body, bodyclass=""):
 <meta name="theme-color" content="#F5F0E6">
 <link rel="icon" type="image/png" sizes="64x64" href="../assets/img/favicon-64.png">
 <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
-<link rel="preload" href="../assets/fonts/dm-serif-display.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="../assets/fonts/dm-sans.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/fraunces-latin-1.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/public-sans-latin-3.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="../assets/tokens.css">
 <link rel="stylesheet" href="../assets/site.css">
 <script>document.documentElement.classList.add('js')</script>

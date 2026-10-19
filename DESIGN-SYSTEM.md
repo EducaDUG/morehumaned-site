@@ -1,7 +1,7 @@
 # MoreHuman Ed design system (brand kit, updated 2026-10-19)
 
 Concept: editorial human systems. A calm studio, not a tech startup.
-Source of truth for colour, type and logo: the MoreHuman Ed brand kit (kept privately in the Catapult Strategy folder, `brand/`). The notebook grid and compass idea are shared with Discovery Lab.
+Source of truth for colour and logo: the MoreHuman Ed brand kit. Source of truth for type: Discovery Lab (kept privately in the Catapult Strategy folder, `brand/`). The notebook grid and compass idea are shared with Discovery Lab.
 
 ## Colour (assets/tokens.css)
 | Token | Hex | Use |
@@ -15,17 +15,18 @@ Source of truth for colour, type and logo: the MoreHuman Ed brand kit (kept priv
 | --charcoal | #202624 | Long text where softer contrast helps |
 Balance: about 60% quiet background, 25% navy, 10% green or sage, 5% terracotta.
 
-## Type (self-hosted in assets/fonts)
-- DM Serif Display: headings (one weight, 400)
-- DM Sans: body, navigation, buttons
-- IBM Plex Mono: small labels only (400 and 600)
+## Type (self-hosted in assets/fonts, verified from Discovery Lab's source on 2026-10-19)
+- Fraunces (variable): headings and wordmark, `opsz 40`, `wght 600`
+- Public Sans: body, navigation, buttons
+- JetBrains Mono: small labels only
+These are the exact fonts Discovery Lab uses (its `engine/vendor/fonts`). The brand kit's DM Serif Display, DM Sans and IBM Plex Mono were provisional fallbacks and are not used.
 
 ## Logo
 Compass with two figures and an orbit: `assets/img/logo-mark-128.png` (header and footer), `logo-mark-512.png`, `favicon-64.png`, `apple-touch-icon.png`. Do not stretch, shadow, glow or put text inside it. Use at 54px or larger.
 The hero compass on the home page is an animated line drawing in the same palette.
 
 ## Discovery Lab
-Discovery Lab keeps its own fonts and palette (Fraunces, Public Sans, JetBrains Mono, #40634C and #B5551F). Its compass appears in its own colours inside the Discovery Lab feature card, so the two brands stay related but distinct. To align Discovery Lab fully later, copy `assets/tokens.css` and the three font files into its `engine/` folder.
+Typography is identical on both sites. Discovery Lab keeps its subject themes and its fuller compass, shown in its own colours inside the Discovery Lab feature card. Its paper (#F2EFE6), ink (#1D211C), green (#40634C) and rust (#B5551F) are close to the kit's palette. Optional alignment later: add a small "A MoreHuman Ed project" link and logo to Discovery Lab's header or footer. That is a change to a separate live project and needs Diego's approval.
 
 ## Rules
 - No robot imagery, neon gradients, stock photos, invented testimonials or numbers.

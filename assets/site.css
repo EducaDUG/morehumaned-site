@@ -24,8 +24,9 @@ a:hover { color: var(--accent-hi); }
 :focus-visible { outline: var(--focus-ring) solid var(--blue); outline-offset: 3px; border-radius: 3px; }
 
 h1, h2, h3 {
-  font-family: var(--font-display); font-weight: 400;
-  line-height: 1.1; letter-spacing: -0.005em; text-wrap: balance;
+  font-family: var(--font-display); font-weight: 600;
+  font-variation-settings: "opsz" 40, "wght" 600;
+  line-height: 1.08; letter-spacing: -0.015em; text-wrap: balance;
 }
 h1 { font-size: var(--step-5); }
 h2 { font-size: var(--step-4); }
@@ -71,7 +72,7 @@ h3 { font-size: var(--step-2); }
 .site-head__inner { display: flex; align-items: center; gap: var(--sp-5); min-height: 68px; }
 .wordmark { display: inline-flex; align-items: center; gap: .65rem; color: var(--ink); text-decoration: none; margin-right: auto; }
 .wordmark:hover { color: var(--ink); }
-.wordmark__text { font-family: var(--font-display); font-weight: 400; font-size: 1.3rem; letter-spacing: 0; }
+.wordmark__text { font-family: var(--font-display); font-variation-settings: "opsz" 30, "wght" 650; font-size: 1.2rem; letter-spacing: -.01em; }
 .mark-img { width: 54px; height: 54px; flex: none; object-fit: contain; }
 .nav { display: flex; align-items: center; gap: var(--sp-5); }
 .nav a { color: var(--ink-2); text-decoration: none; font-size: .95rem; font-weight: 500; padding: .5rem 0; position: relative; }
