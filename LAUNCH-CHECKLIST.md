@@ -17,7 +17,7 @@ Diego reports the gate is clear (2026-10-19, document not reviewed by Claude). K
 - [ ] Bot GitHub account, fine-grained token for this repo only, branch protection on main
 
 ## Content to replace (search TODO-LAUNCH)
-- [ ] Contact email and booking link
+- [x] Contact email and booking link (cal.com/morehumaned/talk)
 - [x] Newsletter and Teacher Time Audit sign-up dropped for now (no mailing list, no PO Box needed)
 - [x] Pilot price: decided to keep it off the site, 'on inquiry' (2026-10-19)
 - [ ] YouTube playlist links
