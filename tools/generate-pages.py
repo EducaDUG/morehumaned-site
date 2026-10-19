@@ -190,6 +190,7 @@ def home(lang):
           h1='Give teachers and trainers more time and mental space to <em>notice</em> every learner.',
           lede="MoreHuman Ed helps schools, training organisations and educators turn repetitive work and scattered technology experiments into practical, safe systems, so teachers and trainers can listen, notice and support each learner.",
           b1="Explore workshops", b2="Watch a tutorial", by="By Diego Guevara, science educator and learning-systems designer.",
+          ph_eyebrow="In the room", ph_h="Real rooms, real people, room to notice each one.",
           who_eyebrow="Who it is for", who_h="For people who teach, train and lead learning",
           who_cards=[("Schools and school leaders","Principals, deputy heads and teaching teams who want to give teachers time back and keep the human side of teaching strong."),
                      ("Training organisations and institutions","Training providers, vocational and professional institutes and corporate learning teams who want practical systems that save trainer time without lowering quality."),
@@ -240,6 +241,7 @@ def home(lang):
           h1='Dale a docentes y formadores más tiempo y espacio mental para <em>atender</em> a cada persona que aprende.',
           lede="MoreHuman Ed ayuda a escuelas, organizaciones de formación y educadores a convertir el trabajo repetitivo y los experimentos tecnológicos dispersos en sistemas prácticos y seguros, para que docentes y formadores puedan escuchar, observar y acompañar a cada persona que aprende.",
           b1="Ver los talleres", b2="Ver el piloto", by="Por Diego Guevara, educador científico y diseñador de sistemas de aprendizaje.",
+          ph_eyebrow="En la sala", ph_h="Salas reales, personas reales, espacio para ver a cada una.",
           who_eyebrow="Para quién es", who_h="Para quienes enseñan, forman y lideran el aprendizaje",
           who_cards=[("Escuelas y equipos directivos","Directores, jefes de estudios y equipos docentes que quieren devolver tiempo al profesorado y mantener fuerte la parte humana de enseñar."),
                      ("Organizaciones e instituciones de formación","Entidades de formación, institutos profesionales y equipos de aprendizaje corporativo que quieren sistemas prácticos que ahorren tiempo a los formadores sin bajar la calidad."),
@@ -284,6 +286,12 @@ def home(lang):
           f_p="Una conversación relajada de 20 minutos. Sin compromiso.", f_b1="Hablar de un piloto", f_b2="Escríbeme",
           ids=dict(approach="enfoque", workshops="talleres", about="sobre"), files=dict(pilot="piloto.html", tut=None, priv="../en/privacy.html", about=None))
     I = X["ids"]; F = X["files"]
+    _ph = [("workshop-1","Quilia","A presenter speaking to a seated group beside a projector screen","from-left"),
+           ("workshop-3","Centre for Ageing Better","A facilitator leading a small-group workshop at a flipchart","drop"),
+           ("workshop-2","Juli Kosolapova","Participants watching a presentation in a training room","zoom"),
+           ("workshop-4","LexScope","A teacher explaining an idea to a class","from-right"),
+           ("workshop-5","Quilia","A teacher standing at the front of a busy classroom","zoom")]
+    PHOTOS = "".join(f'<figure class="photo reveal {c}" style="--d:{i*110}ms"><img src="../assets/img/photos/{n}.jpg" width="1000" height="750" alt="{alt}" loading="lazy"><figcaption>Photo: {who} / Unsplash</figcaption></figure>' for i,(n,who,alt,c) in enumerate(_ph))
     _tw = ["Notice","Listen","Support","Every learner","Time to think","More human"] if lang == "en" else ["Observar","Escuchar","Acompañar","Cada persona","Tiempo para pensar","Más humano"]
     TICK = "".join(f"<span>{w}</span>" for w in _tw)
     ws = ""
@@ -317,6 +325,10 @@ def home(lang):
 <section id="who"><div class="shell">
 <div class="section-head reveal"><span class="eyebrow">{X["who_eyebrow"]}</span><span class="rule"></span><h2>{X["who_h"]}</h2></div>
 <div class="grid-3">{who}</div></div></section>
+
+<section class="photos"><div class="shell">
+<div class="section-head reveal"><span class="eyebrow">{X["ph_eyebrow"]}</span><span class="rule"></span><h2>{X["ph_h"]}</h2></div>
+<div class="photo-band">{PHOTOS}</div></div></section>
 
 <section class="tint" id="problem"><div class="shell problem">
 <div class="problem__copy reveal from-left"><span class="eyebrow">{X["p_eyebrow"]}</span><span class="rule"></span><h2>{X["p_h"]}</h2><p>{X["p_1"]}</p><p>{X["p_2"]}</p></div>
