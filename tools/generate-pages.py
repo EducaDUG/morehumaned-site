@@ -15,21 +15,15 @@ def w(rel, content):
         fh.write(content)
 
 # ---------- Marks ----------
-MARK = ('<svg viewBox="0 0 64 64" aria-hidden="true">'
-        '<circle cx="32" cy="32" r="27" fill="none" stroke="currentColor" stroke-width="1.5" opacity=".28"/>'
-        '<circle cx="32" cy="32" r="13" fill="none" stroke="currentColor" stroke-width="1.5" opacity=".18"/>'
-        '<path d="M32 2v7M32 55v7M2 32h7M55 32h7" stroke="currentColor" stroke-width="1.5" opacity=".45" fill="none"/>'
-        '<path d="M32 32 L45 22" stroke="var(--accent)" stroke-width="2" stroke-linecap="round"/>'
-        '<circle cx="45" cy="22" r="5" fill="var(--signal)"/>'
-        '<circle cx="32" cy="32" r="3.2" fill="currentColor"/></svg>')
+MARK = '<img class="mark-img" src="../assets/img/logo-mark-128.png" width="54" height="54" alt="">'
 
 DL_MARK = ('<svg class="mark" viewBox="0 0 64 64" role="img" aria-label="Discovery Lab compass">'
            '<circle cx="32" cy="32" r="27" fill="none" stroke="currentColor" stroke-width="1.5" opacity=".28"/>'
            '<circle cx="32" cy="32" r="19" fill="none" stroke="currentColor" stroke-width="1.5" opacity=".18"/>'
            '<circle cx="32" cy="32" r="11" fill="none" stroke="currentColor" stroke-width="1.5" opacity=".12"/>'
            '<g stroke="currentColor" stroke-width="1.5" opacity=".45"><path d="M32 2v7M32 55v7M2 32h7M55 32h7"/></g>'
-           '<path d="M32 32 A27 27 0 0 1 53 21" fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round"/>'
-           '<circle cx="45" cy="22" r="5" fill="var(--signal)"/><circle cx="32" cy="32" r="2.5" fill="currentColor"/></svg>')
+           '<path d="M32 32 A27 27 0 0 1 53 21" fill="none" stroke="#40634C" stroke-width="2.5" stroke-linecap="round"/>'
+           '<circle cx="45" cy="22" r="5" fill="#B5551F"/><circle cx="32" cy="32" r="2.5" fill="currentColor"/></svg>')
 
 def hero_visual(labels):
     t, a, j, c = labels
@@ -110,9 +104,6 @@ def head_and_shell(lang, fname, title, desc, body, bodyclass=""):
             "url": DOMAIN, "description": desc, "founder": {"@type": "Person", "name": "Diego Guevara"}},
             ensure_ascii=False) + '</script>'
     locale = "en_NZ" if lang == "en" else "es_ES"
-    favicon = ("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'>"
-               "<circle cx='32' cy='32' r='27' fill='none' stroke='%231D211C' stroke-width='4'/>"
-               "<circle cx='45' cy='22' r='7' fill='%23B5551F'/></svg>")
     return f'''<!doctype html>
 <html lang="{lang}">
 <head>
@@ -130,10 +121,11 @@ def head_and_shell(lang, fname, title, desc, body, bodyclass=""):
 <meta property="og:locale" content="{locale}">
 <meta property="og:image" content="{DOMAIN}/assets/img/og.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#F2EFE6">
-<link rel="icon" href="{favicon}">
-<link rel="preload" href="../assets/fonts/fraunces-latin-1.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="../assets/fonts/public-sans-latin-3.woff2" as="font" type="font/woff2" crossorigin>
+<meta name="theme-color" content="#F5F0E6">
+<link rel="icon" type="image/png" sizes="64x64" href="../assets/img/favicon-64.png">
+<link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
+<link rel="preload" href="../assets/fonts/dm-serif-display.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/dm-sans.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="../assets/tokens.css">
 <link rel="stylesheet" href="../assets/site.css">
 <script>document.documentElement.classList.add('js')</script>
@@ -444,6 +436,8 @@ chooser_head = '''<!doctype html>
 <title>MoreHuman Ed</title>
 <meta name="description" content="Practical systems that give teachers room to notice every student. / Sistemas prácticos para que los docentes tengan tiempo y espacio para atender a cada estudiante.">
 <link rel="canonical" href="https://morehumaned.com/">
+<meta name="theme-color" content="#F5F0E6">
+<link rel="icon" type="image/png" sizes="64x64" href="%(p)sassets/img/favicon-64.png">
 <link rel="stylesheet" href="%(p)sassets/tokens.css"><link rel="stylesheet" href="%(p)sassets/site.css">
 </head><body>'''
 w("index.html", chooser_head % {"p": ""} + f'''<main id="main"><section class="hero"><div class="shell hero__grid"><div>
