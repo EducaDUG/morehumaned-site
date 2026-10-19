@@ -16,6 +16,9 @@ UPDATE 2026-10-19: Diego stated in chat that he has written permission and/or le
 - Use only general, fictional or independently created material. Nothing from the employer, its students, staff, systems or branding.
 - Tell the lawyer and the employer that workshops may be paid, and that outreach emails were sent.
 
+## Audience update (2026-10-19)
+Diego widened the audience beyond schools: schools and school leaders, training organisations and institutions, and individual trainers and adult educators. Learners, not only students. The site now says "teachers and trainers" and "every learner". Keep one audience as the first pilot focus even though the message speaks to all three.
+
 ## Core decisions (from ChatGPT review and Claude review)
 1. Buyer purchases teacher time, attention and consistency. Not AI. Agents stay backstage.
 2. Beachhead: small independent and international schools. Not large public systems.
