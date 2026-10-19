@@ -5,7 +5,7 @@ import os, json, html as H
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DOMAIN = "https://morehumaned.com"
 CAL = "https://cal.com/morehumaned/talk"
-DL = "https://educadug.github.io/discovery-lab/"
+DL = "https://morehumaned.com/discovery-lab/"
 MAIL = "mailto:hello@morehumaned.com"
 
 def w(rel, content):
@@ -63,7 +63,7 @@ T = {
   tag="Practical systems that give teachers and trainers room to notice every learner.",
   foot_note="Independent educator, Dunedin, New Zealand.",
   foot_cols=[("Explore",[("index.html#workshops","Workshops"),("pilot.html","Pilot"),("tutorials.html","Tutorials"),("about.html","About")]),
-             ("Connect",[("https://educadug.github.io/discovery-lab/","Discovery Lab"),("privacy.html","Privacy and safety"),("mailto:hello@morehumaned.com","hello@morehumaned.com")])],
+             ("Connect",[("https://morehumaned.com/discovery-lab/","Discovery Lab"),("privacy.html","Privacy and safety"),("mailto:hello@morehumaned.com","hello@morehumaned.com")])],
   labels=("Time","Attention","Judgement","Care"),
 ),
 "es": dict(
@@ -72,7 +72,7 @@ T = {
   tag="Sistemas prácticos para que docentes y formadores tengan tiempo y espacio para atender a cada persona que aprende.",
   foot_note="Educador independiente, Dunedin, Nueva Zelanda.",
   foot_cols=[("Explorar",[("index.html#talleres","Talleres"),("piloto.html","Piloto para escuelas"),("index.html#sobre","Sobre mí")]),
-             ("Contacto",[("https://educadug.github.io/discovery-lab/","Discovery Lab"),("../en/privacy.html","Privacidad y seguridad (en inglés)"),("mailto:hello@morehumaned.com","hello@morehumaned.com")])],
+             ("Contacto",[("https://morehumaned.com/discovery-lab/","Discovery Lab"),("../en/privacy.html","Privacidad y seguridad (en inglés)"),("mailto:hello@morehumaned.com","hello@morehumaned.com")])],
   labels=("Tiempo","Atención","Criterio","Cuidado"),
 ),
 }

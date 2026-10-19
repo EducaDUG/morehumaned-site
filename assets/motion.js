@@ -42,7 +42,7 @@
   }
 
   // Discovery Lab hand-off: a soft gradient into its colours, then navigate
-  var DL = /^https:\/\/educadug\.github\.io\/discovery-lab/i;
+  var DL = /^https:\/\/morehumaned\.com\/discovery-lab/i;
   var veil;
   function makeVeil() {
     veil = document.createElement('div'); veil.className = 'dl-veil'; veil.setAttribute('aria-hidden', 'true');
