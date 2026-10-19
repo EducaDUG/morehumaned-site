@@ -26,7 +26,7 @@ Diego reports the gate is clear (2026-10-19, document not reviewed by Claude). K
 
 ## Go live
 Stage 1 (done 2026-10-19): fully launched and open to search at https://educadug.github.io/morehumaned-site/ (Diego's decision). Canonical and sitemap use that address for now.
-Stage 2: buy domain, add CNAME file and DNS, switch DOMAIN to https://morehumaned.com in canonical tags and sitemap, fill the TODO-LAUNCH items.
+Stage 2 (done 2026-10-19): custom domain morehumaned.com connected (CNAME file, Cloudflare DNS, Pages custom domain). Remaining: Enforce HTTPS, Search Console, fill TODO-LAUNCH items.
 
 - [ ] Repo public, Settings > Pages > main, custom domain morehumaned.com, Enforce HTTPS
 - [ ] Cloudflare DNS: four A records and a www CNAME, DNS only

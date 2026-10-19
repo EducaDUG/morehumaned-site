@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://educadug.github.io/morehumaned-site/sitemap.xml
+Sitemap: https://morehumaned.com/sitemap.xml
