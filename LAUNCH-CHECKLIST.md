@@ -18,8 +18,8 @@ Diego reports the gate is clear (2026-10-19, document not reviewed by Claude). K
 
 ## Content to replace (search TODO-LAUNCH)
 - [ ] Contact email and booking link
-- [ ] Mailing form URL
-- [ ] Pilot price
+- [x] Newsletter and Teacher Time Audit sign-up dropped for now (no mailing list, no PO Box needed)
+- [x] Pilot price: decided to keep it off the site, 'on inquiry' (2026-10-19)
 - [ ] YouTube playlist links
 - [ ] About story and photo
 - [x] noindex tags removed
