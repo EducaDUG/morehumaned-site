@@ -25,8 +25,8 @@ Diego reports the gate is clear (2026-10-19, document not reviewed by Claude). K
 - [ ] Remove `noindex` meta tags from every page
 
 ## Go live
-Stage 1 (NOT done yet, blocked 2026-10-19: the auto-mode classifier denied creating a public repo): publish at the GitHub Pages address in link-only mode, noindex kept, no custom domain yet. Local commit d369db9 is ready.
-Stage 2: buy domain, add CNAME file and DNS, fill the TODO-LAUNCH items, remove noindex and the robots.txt Disallow line.
+Stage 1 (done 2026-10-19): fully launched and open to search at https://educadug.github.io/morehumaned-site/ (Diego's decision). Canonical and sitemap use that address for now.
+Stage 2: buy domain, add CNAME file and DNS, switch DOMAIN to https://morehumaned.com in canonical tags and sitemap, fill the TODO-LAUNCH items.
 
 - [ ] Repo public, Settings > Pages > main, custom domain morehumaned.com, Enforce HTTPS
 - [ ] Cloudflare DNS: four A records and a www CNAME, DNS only

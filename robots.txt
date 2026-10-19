@@ -1,5 +1,4 @@
-# TODO-LAUNCH: remove the Disallow line below when the site goes live
 User-agent: *
-Disallow: /
+Allow: /
 
-Sitemap: https://morehumaned.com/sitemap.xml
+Sitemap: https://educadug.github.io/morehumaned-site/sitemap.xml

@@ -16,7 +16,7 @@ This is the public website for MoreHuman Ed. Treat everything here as public.
 - Change prices, promises or privacy statements. Propose them in the PR description and wait.
 - Contact schools, principals or families.
 - Store passwords or tokens in the repo.
-- Remove the `noindex` tags or enable GitHub Pages. Only Diego does that, after the launch gate clears.
+- Change hosting, DNS, the custom domain or search-engine settings. Only Diego does that.
 
 ## Good first tasks
 - Draft a tutorial page from a video transcript Diego provides.
