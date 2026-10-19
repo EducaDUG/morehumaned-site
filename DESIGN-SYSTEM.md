@@ -28,6 +28,11 @@ The hero compass on the home page is an animated line drawing in the same palett
 ## Discovery Lab
 Typography is identical on both sites. Discovery Lab keeps its subject themes and its fuller compass, shown in its own colours inside the Discovery Lab feature card. Its paper (#F2EFE6), ink (#1D211C), green (#40634C) and rust (#B5551F) are close to the kit's palette. Optional alignment later: add a small "A MoreHuman Ed project" link and logo to Discovery Lab's header or footer. That is a change to a separate live project and needs Diego's approval.
 
+## Language switcher and homepage
+- Language is chosen with British and Spanish flags in the header, as on Discovery Lab. The current language has a navy outline. On phones the flags sit in the menu.
+- The English home page is served at the site root (https://morehumaned.com/) and its canonical address is the root. Spanish browsers are sent to /es/ automatically; add `?lang=en` to stay on English.
+- The hero uses the brand kit's paper-and-circles artwork (`assets/img/hero-paper.jpg`) under a paper-coloured overlay so text stays readable.
+
 ## Rules
 - No robot imagery, neon gradients, stock photos, invented testimonials or numbers.
 - Content is visible without JavaScript. Scroll reveals respect `prefers-reduced-motion`.

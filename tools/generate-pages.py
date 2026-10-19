@@ -81,16 +81,40 @@ SWITCH = {("en","index.html"):"../es/index.html",("en","pilot.html"):"../es/pilo
 ALT = {("en","index.html"):("es","index.html"),("en","pilot.html"):("es","piloto.html"),
        ("es","index.html"):("en","index.html"),("es","piloto.html"):("en","pilot.html")}
 
+
+# ---------- Language flags (as on Discovery Lab) ----------
+FLAG_UK = ('<svg viewBox="0 0 60 30" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">'
+           '<clipPath id="fs"><path d="M0,0 v30 h60 v-30 z"/></clipPath><clipPath id="ft"><path d="M30,15 h30 v15 z v15 h-30 z h-30 v-15 z v-15 h30 z"/></clipPath>'
+           '<g clip-path="url(#fs)"><path d="M0,0 v30 h60 v-30 z" fill="#012169"/>'
+           '<path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/>'
+           '<path d="M0,0 L60,30 M60,0 L0,30" clip-path="url(#ft)" stroke="#C8102E" stroke-width="4"/>'
+           '<path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10"/><path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6"/></g></svg>')
+FLAG_ES = ('<svg viewBox="0 0 60 40" aria-hidden="true" focusable="false"><rect width="60" height="40" fill="#AA151B"/>'
+           '<rect y="10" width="60" height="20" fill="#F1BF00"/></svg>')
+
+def lang_switch(lang, sw):
+    en_cls = "flag current" if lang == "en" else "flag"
+    es_cls = "flag current" if lang == "es" else "flag"
+    en_href = "#" if lang == "en" else sw
+    es_href = "#" if lang == "es" else sw
+    en = (f'<span class="{en_cls}" role="img" aria-label="English" lang="en" aria-current="true">{FLAG_UK}</span>' if lang == "en"
+          else f'<a class="{en_cls}" href="{en_href}" hreflang="en" lang="en" aria-label="English" title="English">{FLAG_UK}</a>')
+    es = (f'<span class="{es_cls}" role="img" aria-label="Español" lang="es" aria-current="true">{FLAG_ES}</span>' if lang == "es"
+          else f'<a class="{es_cls}" href="{es_href}" hreflang="es" lang="es" aria-label="Español" title="Español">{FLAG_ES}</a>')
+    return f'<span class="lang-switch" role="group" aria-label="Language">{en}{es}</span>'
+
 def head_and_shell(lang, fname, title, desc, body, bodyclass=""):
     c = T[lang]
     other = "es" if lang == "en" else "en"
     canon = f"{DOMAIN}/{lang}/{fname}"
+    if (lang, fname) == ("en", "index.html"):
+        canon = f"{DOMAIN}/"
     alt = ""
     if (lang, fname) in ALT:
         al, af = ALT[(lang, fname)]
         alt = (f'<link rel="alternate" hreflang="{lang}" href="{canon}">'
-               f'<link rel="alternate" hreflang="{al}" href="{DOMAIN}/{al}/{af}">'
-               f'<link rel="alternate" hreflang="x-default" href="{DOMAIN}/en/index.html">')
+               f'<link rel="alternate" hreflang="{al}" href="{DOMAIN}/{al}/{af}" >'.replace(f"{DOMAIN}/en/index.html", f"{DOMAIN}/") +
+               f'<link rel="alternate" hreflang="x-default" href="{DOMAIN}/">')
     sw = SWITCH.get((lang, fname), f"../{other}/index.html")
     nav = "".join(
         f'<a href="{h}"{" aria-current=\"page\"" if h == fname else ""}>{t}</a>' for h, t in c["nav"])
@@ -136,7 +160,7 @@ def head_and_shell(lang, fname, title, desc, body, bodyclass=""):
 <header class="site-head"><div class="shell site-head__inner">
 <a class="wordmark" href="index.html">{MARK}<span class="wordmark__text">MoreHuman&nbsp;Ed</span></a>
 <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="{c["menu"]}"><span></span></button>
-<nav class="nav" id="site-nav" aria-label="Main">{nav}<a class="lang" href="{sw}" hreflang="{other}" lang="{other}">{c["langname"]}</a><a class="btn" href="{CAL}">{c["cta"]}</a></nav>
+<nav class="nav" id="site-nav" aria-label="Main">{nav}{lang_switch(lang, sw)}<a class="btn" href="{CAL}">{c["cta"]}</a></nav>
 </div></header>
 <main id="main">
 {body}
@@ -430,28 +454,27 @@ pages = [
 for lang, fname, title, desc, body in pages:
     w(f"{lang}/{fname}", head_and_shell(lang, fname, title, desc, body))
 
-# root chooser and 404
-chooser_head = '''<!doctype html>
+# root page: the English home, served at / (Spanish browsers are sent to /es/)
+import re as _re
+_en = next(pg for pg in pages if pg[0] == "en" and pg[1] == "index.html")
+_html = head_and_shell("en", "index.html", _en[2], _en[3], _en[4])
+_html = _html.replace('../assets/', 'assets/').replace('../es/', 'es/')
+_html = _re.sub(r'href="(pilot|tutorials|about|privacy)\.html"', r'href="en/\1.html"', _html)
+_redirect = ('<script>try{if(/^es\\b/i.test(navigator.language||"")&&!/[?&]lang=en/.test(location.search))'
+             '{location.replace("es/index.html")}}catch(e){}</script>\n</head>')
+_html = _html.replace('</head>', _redirect, 1)
+w("index.html", _html)
+w("404.html", '''<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>MoreHuman Ed</title>
-<meta name="description" content="Practical systems that give teachers room to notice every student. / Sistemas prácticos para que los docentes tengan tiempo y espacio para atender a cada estudiante.">
-<link rel="canonical" href="https://morehumaned.com/">
-<meta name="theme-color" content="#F5F0E6">
-<link rel="icon" type="image/png" sizes="64x64" href="%(p)sassets/img/favicon-64.png">
-<link rel="stylesheet" href="%(p)sassets/tokens.css"><link rel="stylesheet" href="%(p)sassets/site.css">
-</head><body>'''
-w("index.html", chooser_head % {"p": ""} + f'''<main id="main"><section class="hero"><div class="shell hero__grid"><div>
-<span class="eyebrow">MoreHuman Ed</span><h1 style="margin-top:1rem">Room to <em>notice</em> every student.</h1>
-<p class="hero__lede">Espacio para atender a cada estudiante.</p>
-<div class="btns"><a class="btn" href="en/index.html">English</a><a class="btn ghost" href="es/index.html">Español</a></div></div>
-<div class="hero__visual">{hero_visual(("Time","Attention","Judgement","Care"))}</div></div></section></main></body></html>
-''')
-w("404.html", chooser_head % {"p": "/"} + f'''<main id="main"><section class="hero"><div class="shell"><span class="eyebrow">404</span>
+<title>Page not found | MoreHuman Ed</title><meta name="robots" content="noindex">
+<link rel="icon" type="image/png" sizes="64x64" href="/assets/img/favicon-64.png">
+<link rel="stylesheet" href="/assets/tokens.css"><link rel="stylesheet" href="/assets/site.css"></head>
+<body><main id="main"><section class="hero"><div class="shell"><span class="eyebrow">404</span>
 <h1 style="margin-top:1rem">That page wandered off.</h1>
-<p class="hero__lede">Try the <a href="/en/index.html">home page</a> or la <a href="/es/index.html">página en español</a>.</p></div></section></main></body></html>
+<p class="hero__lede">Try the <a href="/">home page</a> or la <a href="/es/index.html">página en español</a>.</p></div></section></main></body></html>
 ''')
 
-urls = [f"{DOMAIN}/"] + [f"{DOMAIN}/{l}/{f}" for l, f, _, _, _ in pages]
+urls = [f"{DOMAIN}/"] + [f"{DOMAIN}/{l}/{f}" for l, f, _, _, _ in pages if (l, f) != ("en", "index.html")]
 sm = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
 sm += [f"<url><loc>{u}</loc></url>" for u in urls] + ["</urlset>"]
 w("sitemap.xml", "\n".join(sm) + "\n")

@@ -284,3 +284,29 @@ form.signup { display: grid; gap: var(--sp-3); max-width: 26rem; }
   .orbit, .pulse { animation: none; }
   .process::after { transition: none; }
 }
+
+/* ---- Language flags (same pattern as Discovery Lab) ---- */
+.lang-switch { display: inline-flex; align-items: center; gap: .6rem; }
+.flag { position: relative; display: inline-flex; width: 40px; height: 28px; border-radius: 5px; overflow: hidden; border: 1.5px solid transparent; padding: 0; opacity: .8; transition: opacity var(--dur-fast), transform var(--dur-fast) var(--ease), border-color var(--dur-fast); }
+.flag svg { width: 100%; height: 100%; display: block; }
+a.flag::before { content: ""; position: absolute; inset: -8px; }
+a.flag:hover { opacity: 1; transform: translateY(-1px); border-color: var(--line-strong); }
+.flag.current { opacity: 1; border-color: var(--ink); box-shadow: 0 0 0 2px var(--surface); }
+@media (max-width: 900px) {
+  .nav .lang-switch { margin-top: var(--sp-4); justify-content: center; gap: 1rem; }
+  .nav .lang-switch a.flag, .nav .lang-switch .flag { padding: 0; min-height: 0; border-bottom: 1.5px solid transparent; display: inline-flex; width: 52px; height: 36px; }
+  .nav .lang-switch .flag.current { border-color: var(--ink); }
+}
+
+/* ---- Hero artwork (brand kit paper background) ---- */
+.hero {
+  position: relative; isolation: isolate; border-bottom: 1px solid var(--line);
+  background-image: linear-gradient(90deg, rgb(245 240 230 / .95) 0%, rgb(245 240 230 / .84) 46%, rgb(245 240 230 / .40) 100%), url(./img/hero-paper.jpg);
+  background-size: cover; background-position: center;
+}
+@media (max-width: 900px) {
+  .hero { background-image: linear-gradient(rgb(245 240 230 / .90), rgb(245 240 230 / .90)), url(./img/hero-paper.jpg); }
+}
+.nav a.flag { padding: 0; min-height: 0; border-bottom: 1.5px solid transparent; font-size: 0; }
+.nav a.flag::after { display: none; }
+.nav a.flag:hover { border-color: var(--line-strong); }
