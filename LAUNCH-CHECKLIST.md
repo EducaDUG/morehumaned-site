@@ -22,7 +22,7 @@ Diego reports the gate is clear (2026-10-19, document not reviewed by Claude). K
 - [ ] Pilot price
 - [ ] YouTube playlist links
 - [ ] About story and photo
-- [ ] Remove `noindex` meta tags from every page
+- [x] noindex tags removed
 
 ## Go live
 Stage 1 (done 2026-10-19): fully launched and open to search at https://educadug.github.io/morehumaned-site/ (Diego's decision). Canonical and sitemap use that address for now.
