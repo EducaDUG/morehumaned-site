@@ -9,11 +9,11 @@ Diego reports the gate is clear (2026-10-19, document not reviewed by Claude). K
 - [ ] Trademark search for MoreHuman (NZ, AU, US, UK, EU, WIPO)
 
 ## Accounts (Diego does these)
-- [ ] Cloudflare account with 2FA, domain bought, auto-renew on
+- [x] Cloudflare account, domain bought (2026-10-19). 2FA: confirm email or app 2FA is on
 - [ ] YouTube Brand Account channel "MoreHuman Ed", handle @morehumaned, phone verified, uploads default Unlisted
 - [ ] GitHub repo morehumaned-site (keep PRIVATE until the gate clears)
-- [ ] Email forwarding hello@morehumaned.com to Gmail
-- [ ] Booking tool (Cal.com) and mailing platform with double opt-in
+- [x] Email forwarding hello@morehumaned.com to Gmail; sending via Brevo SMTP + Gmail Send-as (SPF/DKIM/DMARC pass)
+- [ ] Booking tool (Cal.com). Mailing platform: Brevo account exists, needs PO Box address before newsletters
 - [ ] Bot GitHub account, fine-grained token for this repo only, branch protection on main
 
 ## Content to replace (search TODO-LAUNCH)
@@ -28,8 +28,8 @@ Diego reports the gate is clear (2026-10-19, document not reviewed by Claude). K
 Stage 1 (done 2026-10-19): fully launched and open to search at https://educadug.github.io/morehumaned-site/ (Diego's decision). Canonical and sitemap use that address for now.
 Stage 2 (done 2026-10-19): custom domain morehumaned.com connected (CNAME file, Cloudflare DNS, Pages custom domain). Remaining: Enforce HTTPS, Search Console, fill TODO-LAUNCH items.
 
-- [ ] Repo public, Settings > Pages > main, custom domain morehumaned.com, Enforce HTTPS
-- [ ] Cloudflare DNS: four A records and a www CNAME, DNS only
-- [ ] Google Search Console: domain property, submit sitemap.xml
-- [ ] Mailing platform sender authentication (SPF, DKIM, DMARC)
+- [x] Repo public, Pages on main, custom domain morehumaned.com, HTTPS enforced
+- [x] Cloudflare DNS: four A records and a www CNAME, DNS only
+- [x] Google Search Console: domain property verified, sitemap submitted, home page indexing requested (2026-10-19)
+- [x] Sender authentication (SPF, DKIM, DMARC) for Brevo
 - [ ] LinkedIn profile updated (headline, banner, About, Featured)
