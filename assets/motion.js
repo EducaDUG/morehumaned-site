@@ -81,3 +81,14 @@
   window.addEventListener('scroll', function () { if (!t) { t = true; requestAnimationFrame(run); } }, { passive: true });
   run();
 })();
+
+// Click-to-load video: nothing is requested from YouTube until the visitor presses play
+document.addEventListener('click', function (e) {
+  var a = e.target.closest && e.target.closest('a.yt[data-yt]');
+  if (!a || e.metaKey || e.ctrlKey || e.shiftKey || e.button) return;
+  e.preventDefault();
+  var f = document.createElement('iframe');
+  f.src = 'https://www.youtube-nocookie.com/embed/' + a.getAttribute('data-yt') + '?autoplay=1&rel=0&modestbranding=1';
+  f.title = a.getAttribute('aria-label'); f.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen'; f.allowFullscreen = true;
+  a.replaceWith((function () { var d = document.createElement('div'); d.className = 'yt'; d.appendChild(f); return d; })());
+});

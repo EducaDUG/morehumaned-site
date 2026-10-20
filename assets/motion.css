@@ -167,3 +167,20 @@ section.dark .card p { color: #D9DCD3; }
 .photo-break__text p::before { content: ""; display: block; width: 72px; height: 3px; background: var(--signal); margin-bottom: 1rem; }
 .photo-break__text small { font-family: var(--font-data); font-size: .68rem; letter-spacing: .08em; opacity: .75; }
 @media (prefers-reduced-motion: reduce) { .ticker span::after { animation: none; } .photo-break img { top: 0; height: 100%; } }
+
+/* ---- Video (click-to-load, nothing from YouTube until play) ---- */
+.welcome { padding-block: clamp(2.5rem, 6vw, 5rem); }
+.welcome__grid { display: grid; gap: var(--sp-7); align-items: center; grid-template-columns: 1fr; }
+@media (min-width: 900px) { .welcome__grid { grid-template-columns: 1.25fr .75fr; } }
+.welcome h2 { font-size: var(--step-3); margin: var(--sp-3) 0 var(--sp-4); }
+.welcome p { color: var(--ink-2); }
+.welcome__note { font-family: var(--font-data); font-size: var(--step--1); color: var(--ink-3) !important; margin-top: var(--sp-4); }
+.yt { position: relative; display: block; aspect-ratio: 16/9; border-radius: var(--radius-lg); overflow: hidden; background: var(--navy); box-shadow: var(--shadow-3); border: 1px solid var(--line-strong); }
+.yt img, .yt iframe { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; border: 0; }
+.yt img { transition: transform 800ms var(--ease), filter 400ms; }
+.yt:hover img { transform: scale(1.04); filter: brightness(.92); }
+.yt__play { position: absolute; left: 50%; top: 50%; width: 5.2rem; height: 5.2rem; margin: -2.6rem 0 0 -2.6rem; border-radius: 50%; background: var(--signal-btn); display: grid; place-items: center; box-shadow: 0 0 0 0 #E2875C88; animation: ringpulse 2.6s ease-out infinite; transition: transform var(--dur-mid) var(--ease); }
+.yt__play svg { width: 2.2rem; height: 2.2rem; fill: var(--navy); margin-left: .2rem; }
+.yt:hover .yt__play { transform: scale(1.1); }
+@keyframes ringpulse { 0% { box-shadow: 0 0 0 0 #E2875C99; } 70% { box-shadow: 0 0 0 1.6rem #E2875C00; } 100% { box-shadow: 0 0 0 0 #E2875C00; } }
+@media (prefers-reduced-motion: reduce) { .yt__play { animation: none; } }

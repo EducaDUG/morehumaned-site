@@ -47,6 +47,12 @@ def hero_visual(labels):
 <text x="200" y="402" text-anchor="middle">{H.escape(j)}</text>
 <text x="12" y="204" text-anchor="end">{H.escape(c)}</text></svg>'''
 
+WELCOME_ID = "pWLURit_sOc"
+def video_block(title, label):
+    return (f'<a class="yt" href="https://youtu.be/{WELCOME_ID}" data-yt="{WELCOME_ID}" aria-label="{label}: {title}">'
+            f'<img src="../assets/img/welcome-poster.jpg" width="960" height="540" alt="" loading="lazy">'
+            f'<span class="yt__play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></a>')
+
 def thumb_icon(kind):
     icons = {
         "chat": '<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 10h32v20H22l-8 7v-7H8z"/><path d="M15 18h18M15 24h11"/></svg>',
@@ -191,6 +197,7 @@ def home(lang):
           lede="MoreHuman Ed helps schools, training organisations and educators turn repetitive work and scattered technology experiments into practical, safe systems, so teachers and trainers can listen, notice and support each learner.",
           b1="Explore workshops", b2="Watch a tutorial", by="By Diego Guevara, science educator and learning-systems designer.",
           ph_eyebrow="In the room", ph_h="Real rooms, real people, room to notice each one.",
+          wl_eyebrow="Start here", wl_h="Welcome to MoreHuman Ed", wl_p="A six-minute introduction from Diego: who this is for, why saving time matters, and what you will find here.", wl_play="Play video", wl_title="Welcome to MoreHuman Ed", wl_note="Plays from YouTube only when you press play.",
           who_eyebrow="Who it is for", who_h="For people who teach, train and lead learning",
           who_cards=[("Schools and school leaders","Principals, deputy heads and teaching teams who want to give teachers time back and keep the human side of teaching strong."),
                      ("Training organisations and institutions","Training providers, vocational and professional institutes and corporate learning teams who want practical systems that save trainer time without lowering quality."),
@@ -242,6 +249,7 @@ def home(lang):
           lede="MoreHuman Ed ayuda a escuelas, organizaciones de formación y educadores a convertir el trabajo repetitivo y los experimentos tecnológicos dispersos en sistemas prácticos y seguros, para que docentes y formadores puedan escuchar, observar y acompañar a cada persona que aprende.",
           b1="Ver los talleres", b2="Ver el piloto", by="Por Diego Guevara, educador científico y diseñador de sistemas de aprendizaje.",
           ph_eyebrow="En la sala", ph_h="Salas reales, personas reales, espacio para ver a cada una.",
+          wl_eyebrow="Empieza aquí", wl_h="Te damos la bienvenida a MoreHuman Ed", wl_p="Una introducción de seis minutos de Diego: para quién es, por qué importa ahorrar tiempo y qué vas a encontrar aquí. El vídeo está en inglés.", wl_play="Reproducir vídeo", wl_title="Welcome to MoreHuman Ed", wl_note="Se reproduce desde YouTube solo cuando pulsas el botón.",
           who_eyebrow="Para quién es", who_h="Para quienes enseñan, forman y lideran el aprendizaje",
           who_cards=[("Escuelas y equipos directivos","Directores, jefes de estudios y equipos docentes que quieren devolver tiempo al profesorado y mantener fuerte la parte humana de enseñar."),
                      ("Organizaciones e instituciones de formación","Entidades de formación, institutos profesionales y equipos de aprendizaje corporativo que quieren sistemas prácticos que ahorren tiempo a los formadores sin bajar la calidad."),
@@ -324,6 +332,11 @@ def home(lang):
 </div></section>
 
 <div class="ticker" aria-hidden="true"><div class="ticker__track">{TICK}{TICK}</div></div>
+
+<section class="welcome" id="welcome"><div class="shell welcome__grid">
+<div class="reveal from-left">{video_block(X["wl_title"], X["wl_play"])}</div>
+<div class="reveal from-right" style="--d:120ms"><span class="eyebrow">{X["wl_eyebrow"]}</span><span class="rule"></span><h2>{X["wl_h"]}</h2><p>{X["wl_p"]}</p><p class="welcome__note">{X["wl_note"]}</p></div>
+</div></section>
 
 <section id="who"><div class="shell">
 <div class="section-head reveal"><span class="eyebrow">{X["who_eyebrow"]}</span><span class="rule"></span><h2>{X["who_h"]}</h2></div>
@@ -447,7 +460,11 @@ def tutorials():
     return f'''
 <section class="page-hero"><div class="shell"><span class="eyebrow">Tutorials</span><h1 class="reveal">Practical, short, human.</h1>
 <p class="hero__lede">Videos on simple systems that return time and attention to teachers and trainers. Each one comes with a short written summary.</p></div></section>
-<section class="tint library"><div class="shell"><div class="section-head reveal"><span class="eyebrow">First videos</span><span class="rule"></span><h2>Coming soon</h2></div>
+<section class="welcome"><div class="shell welcome__grid">
+<div class="reveal from-left">{video_block("Welcome to MoreHuman Ed", "Play video")}</div>
+<div class="reveal from-right" style="--d:120ms"><span class="eyebrow">Latest video</span><span class="rule"></span><h2>Welcome to MoreHuman Ed</h2><p>A six-minute introduction from Diego: who this is for, why saving time matters, and what you will find here.</p><p class="welcome__note">Plays from YouTube only when you press play.</p></div>
+</div></section>
+<section class="tint library"><div class="shell"><div class="section-head reveal"><span class="eyebrow">Coming next</span><span class="rule"></span><h2>More videos on the way</h2></div>
 <div class="grid-3">{cards}</div></div></section>
 '''
 
@@ -474,6 +491,7 @@ def privacy():
 <p class="hero__lede">Schools and training organisations hold sensitive information. The way I work is designed to need none of it.</p></div></section>
 <section><div class="shell prose">
 <ul class="tick reveal"><li>No student names or identifiable records in demonstrations. I use invented examples and say so.</li><li>No autonomous contact with students or families. Technology drafts, people decide and send.</li><li>Human approval before anything is published outside the school.</li><li>Clear handling of any school information: it is only used for the agreed purpose and is not shared.</li><li>A review of any third-party tool before it is suggested, and a privacy impact assessment if a system needs personal information.</li><li>Case studies and testimonials only with the school's written approval.</li></ul>
+<p>The video player on this site loads from YouTube, in its privacy-enhanced mode, only if you press play. Nothing is loaded from YouTube before that.</p>
 <p>This approach is designed with the New Zealand Privacy Act 2020 in mind.</p>
 <p>Questions: <a href="mailto:hello@morehumaned.com">hello@morehumaned.com</a></p>
 </div></section>
