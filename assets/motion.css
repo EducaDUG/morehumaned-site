@@ -184,3 +184,10 @@ section.dark .card p { color: #D9DCD3; }
 .yt:hover .yt__play { transform: scale(1.1); }
 @keyframes ringpulse { 0% { box-shadow: 0 0 0 0 #E2875C99; } 70% { box-shadow: 0 0 0 1.6rem #E2875C00; } 100% { box-shadow: 0 0 0 0 #E2875C00; } }
 @media (prefers-reduced-motion: reduce) { .yt__play { animation: none; } }
+
+/* Video cards inside grids */
+.vcard { padding-top: 0; }
+.vcard .yt { margin: 0 calc(var(--sp-6) * -1) var(--sp-5); border-radius: var(--radius-lg) var(--radius-lg) 0 0; box-shadow: none; border: 0; border-bottom: 1px solid var(--line-strong); }
+.vcard .yt__play { width: 3.6rem; height: 3.6rem; margin: -1.8rem 0 0 -1.8rem; }
+.vcard .yt__play svg { width: 1.6rem; height: 1.6rem; }
+.library .vcard::after { display: block; }

@@ -48,10 +48,26 @@ def hero_visual(labels):
 <text x="12" y="204" text-anchor="end">{H.escape(c)}</text></svg>'''
 
 WELCOME_ID = "pWLURit_sOc"
-def video_block(title, label):
-    return (f'<a class="yt" href="https://youtu.be/{WELCOME_ID}" data-yt="{WELCOME_ID}" aria-label="{label}: {title}">'
-            f'<img src="../assets/img/welcome-poster.jpg" width="960" height="540" alt="" loading="lazy">'
+def video_block(title, label, vid=WELCOME_ID, poster="welcome-poster.jpg"):
+    return (f'<a class="yt" href="https://youtu.be/{vid}" data-yt="{vid}" aria-label="{label}: {title}">'
+            f'<img src="../assets/img/{poster}" width="960" height="540" alt="" loading="lazy">'
             f'<span class="yt__play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></a>')
+
+# Published tutorials, newest first. Add each new video here (after it is public on YouTube).
+VIDEOS = [
+    dict(id="0MwhBLxHPfQ", poster="video2-poster.jpg",
+         title_en="Email, differentiation and study guides in seconds: the real work is training your AI tools",
+         title_es="Correos, diferenciación y guías de estudio en segundos: el verdadero trabajo es entrenar tus herramientas de IA",
+         desc_en="Three practical examples for teachers and trainers: a warm, professional email, one explanation differentiated for three learners, and a study guide with quiz and self-assessment.",
+         desc_es="Tres ejemplos prácticos para docentes y formadores: un correo cálido y profesional, una explicación diferenciada para tres estudiantes y una guía de estudio con cuestionario y autoevaluación. El vídeo está en inglés."),
+]
+def video_cards(lang, start=0):
+    out = ""
+    for i, v in enumerate([v for v in VIDEOS if v["id"] != "PENDING"]):
+        t = v["title_" + lang]; d = v["desc_" + lang]; tag = "New" if lang == "en" else "Nuevo"; pl = "Play video" if lang == "en" else "Reproducir vídeo"
+        out += (f'<article class="reveal" style="--d:{(start+i)*90}ms"><div class="card vcard">{video_block(t, pl, v["id"], v["poster"])}'
+                f'<span class="pill tag">{tag}</span><h3 style="font-size:var(--step-1)">{t}</h3><p>{d}</p></div></article>')
+    return out
 
 def thumb_icon(kind):
     icons = {
@@ -312,7 +328,8 @@ def home(lang):
 <a class="btn ghost" href="{href}">{btn} <span class="arrow" aria-hidden="true">&rarr;</span></a></div></article>'''
     cards = "".join(f'<article {rv(i)}><div class="card"><span class="num">0{i+1}</span><h3>{t}</h3><p>{p}</p></div></article>' for i, (t, p) in enumerate(X["a_cards"]))
     steps = "".join(f'<li {rv(i)}><h3>{t}</h3><p>{p}</p></li>' for i, (t, p) in enumerate(X["pr_steps"]))
-    tut = "".join(f'<article {rv(i)}><div class="card">{thumb_icon(k)}<span class="pill tag">{tag}</span><h3 style="font-size:var(--step-1)">{t}</h3><p>{d}</p></div></article>' for i, (k, tag, t, d) in enumerate(X["t_cards"]))
+    _live = video_cards(lang); _nlive = len([v for v in VIDEOS if v["id"] != "PENDING"])
+    tut = _live + "".join(f'<article {rv(i)}><div class="card">{thumb_icon(k)}<span class="pill tag">{tag}</span><h3 style="font-size:var(--step-1)">{t}</h3><p>{d}</p></div></article>' for i, (k, tag, t, d) in enumerate(X["t_cards"][_nlive:]))
     t_all = f'<p style="margin-top:2rem"><a href="{F["tut"]}">{X["t_all"]} &rarr;</a></p>' if F["tut"] else ""
     chips = "".join(f'<span class="pill">{c}</span>' for c in X["d_chips"])
     e1 = "".join(f"<li>{x}</li>" for x in X["e_1l"]); e2 = "".join(f"<li>{x}</li>" for x in X["e_2l"])
@@ -452,11 +469,12 @@ def pilot(lang):
 '''
 
 def tutorials():
-    cards = "".join(f'<article class="reveal" style="--d:{i*90}ms"><div class="card">{thumb_icon(k)}<span class="pill tag">Coming soon</span><h3 style="font-size:var(--step-1)">{t}</h3><p>{d}</p></div></article>'
+    _nlive = len([v for v in VIDEOS if v["id"] != "PENDING"])
+    cards = video_cards("en") + "".join(f'<article class="reveal" style="--d:{(i+_nlive)*90}ms"><div class="card">{thumb_icon(k)}<span class="pill tag">Coming soon</span><h3 style="font-size:var(--step-1)">{t}</h3><p>{d}</p></div></article>'
                     for i, (k, t, d) in enumerate([
                         ("chat", "Why teachers are drained, and the one shift that helps", "The main idea behind MoreHuman Ed."),
                         ("grid", "Build a revision website in 30 minutes", "A clear walk-through for any teacher."),
-                        ("mail", "One system, many families", "Communicating clearly without adding to your workload.")]))
+                        ("mail", "One system, many families", "Communicating clearly without adding to your workload.")][_nlive:]))
     return f'''
 <section class="page-hero"><div class="shell"><span class="eyebrow">Tutorials</span><h1 class="reveal">Practical, short, human.</h1>
 <p class="hero__lede">Videos on simple systems that return time and attention to teachers and trainers. Each one comes with a short written summary.</p></div></section>
@@ -464,7 +482,7 @@ def tutorials():
 <div class="reveal from-left">{video_block("Welcome to MoreHuman Ed", "Play video")}</div>
 <div class="reveal from-right" style="--d:120ms"><span class="eyebrow">Latest video</span><span class="rule"></span><h2>Welcome to MoreHuman Ed</h2><p>A six-minute introduction from Diego: who this is for, why saving time matters, and what you will find here.</p><p class="welcome__note">Plays from YouTube only when you press play.</p></div>
 </div></section>
-<section class="tint library"><div class="shell"><div class="section-head reveal"><span class="eyebrow">Coming next</span><span class="rule"></span><h2>More videos on the way</h2></div>
+<section class="tint library"><div class="shell"><div class="section-head reveal"><span class="eyebrow">Library</span><span class="rule"></span><h2>All tutorials</h2></div>
 <div class="grid-3">{cards}</div></div></section>
 '''
 
