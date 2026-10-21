@@ -55,6 +55,11 @@ def video_block(title, label, vid=WELCOME_ID, poster="welcome-poster.jpg"):
 
 # Published tutorials, newest first. Add each new video here (after it is public on YouTube).
 VIDEOS = [
+    dict(id="DT_bx6GEReA", poster="video3-poster.jpg",
+         title_en="Turn quick notes into feedback, a weekly planner and a reusable checklist",
+         title_es="Convierte notas rápidas en retroalimentación, una agenda semanal y una lista de verificación reutilizable",
+         desc_en="Three practical ways teachers and trainers can save time: personal feedback from marking notes, a visual weekly planner, and a reusable checklist built from a course presentation.",
+         desc_es="Tres formas prácticas en que docentes y formadores pueden ahorrar tiempo: retroalimentación personal a partir de notas de corrección, una agenda semanal visual y una lista de verificación reutilizable creada desde una presentación del curso. El vídeo está en inglés."),
     dict(id="0MwhBLxHPfQ", poster="video2-poster.jpg",
          title_en="Email, differentiation and study guides in seconds: the real work is training your AI tools",
          title_es="Correos, diferenciación y guías de estudio en segundos: el verdadero trabajo es entrenar tus herramientas de IA",
@@ -64,7 +69,7 @@ VIDEOS = [
 def video_cards(lang, start=0):
     out = ""
     for i, v in enumerate([v for v in VIDEOS if v["id"] != "PENDING"]):
-        t = v["title_" + lang]; d = v["desc_" + lang]; tag = "New" if lang == "en" else "Nuevo"; pl = "Play video" if lang == "en" else "Reproducir vídeo"
+        t = v["title_" + lang]; d = v["desc_" + lang]; tag = ("New" if lang == "en" else "Nuevo") if i == 0 else ("Video" if lang == "en" else "Vídeo"); pl = "Play video" if lang == "en" else "Reproducir vídeo"
         out += (f'<article class="reveal" style="--d:{(start+i)*90}ms"><div class="card vcard">{video_block(t, pl, v["id"], v["poster"])}'
                 f'<span class="pill tag">{tag}</span><h3 style="font-size:var(--step-1)">{t}</h3><p>{d}</p></div></article>')
     return out
