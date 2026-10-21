@@ -74,6 +74,34 @@ def video_cards(lang, start=0):
                 f'<span class="pill tag">{tag}</span><h3 style="font-size:var(--step-1)">{t}</h3><p>{d}</p></div></article>')
     return out
 
+def ba_visual(l_label, r_label, l_cap, r_cap, hint):
+    cols = [90, 195, 300, 405, 510]; rows = [118, 218, 318]
+    pal = ["#587361", "#D9774B", "#142B3D", "#8FA58A", "#2F5871", "#E2875C", "#587361", "#142B3D", "#D9774B", "#8FA58A", "#2F5871", "#587361", "#E2875C", "#142B3D", "#D9774B"]
+    def person(x, y, fill, cls="", delay=0):
+        return (f'<g class="{cls}" style="--dl:{delay}ms"><circle cx="{x}" cy="{y}" r="15" fill="{fill}"/>'
+                f'<path d="M{x-25},{y+44} Q{x-25},{y+20} {x},{y+20} Q{x+25},{y+20} {x+25},{y+44} Z" fill="{fill}"/></g>')
+    beams = "".join(f'<rect x="{x-44}" y="48" width="88" height="350" rx="10" fill="#142B3D" opacity=".05"/>' for x in cols)
+    same = "".join(person(x, y, "#B9B6AA") for y in rows for x in cols)
+    left = (f'<svg viewBox="0 0 600 410" role="img" aria-label="{H.escape(l_label)}"><rect x="40" y="18" width="520" height="16" rx="8" fill="#142B3D" opacity=".55"/>'
+            f'{beams}{same}</svg>')
+    d = 0; lines = ""; people = ""
+    for r, y in enumerate(rows):
+        for c, x in enumerate(cols):
+            col = pal[r * 5 + c]
+            lines += f'<path class="ba__flow" d="M300,40 Q{(300+x)//2},{(40+y)//2-18} {x},{y-18}" stroke="{col}"/>'
+            people += person(x, y, col, "ba__p", d); d += 160
+    path = "M90,118 L195,118 L300,118 L405,118 L510,118 L510,218 L405,218 L300,218 L195,218 L90,218 L90,318 L195,318 L300,318 L405,318 L510,318 L510,218 L405,118 L300,218 L195,118 Z"
+    spot = f'<circle class="ba__spot" r="36" fill="none" stroke="#D9774B" stroke-width="4" style="offset-path:path(&quot;{path}&quot;)"/>'
+    compass = ('<circle cx="300" cy="40" r="20" fill="#FBF8F1" stroke="#142B3D" stroke-width="2"/>'
+               '<path d="M300 26v28M286 40h28" stroke="#142B3D" stroke-width="2"/><circle cx="300" cy="40" r="5" fill="#D9774B"/>')
+    right = f'<svg viewBox="0 0 600 410" role="img" aria-label="{H.escape(r_label)}">{lines}{compass}{people}{spot}</svg>'
+    return (f'<div class="ba reveal from-right" style="--d:120ms;--pos:50%">'
+            f'<div class="ba__stage"><div class="ba__layer ba__a">{left}<span class="ba__tag">{l_label}</span></div>'
+            f'<div class="ba__layer ba__b">{right}<span class="ba__tag ba__tag--r">{r_label}</span></div>'
+            f'<span class="ba__handle" aria-hidden="true"><i></i></span>'
+            f'<input class="ba__range" type="range" min="0" max="100" value="50" aria-label="{H.escape(hint)}"></div>'
+            f'<div class="ba__caps"><p>{l_cap}</p><p>{r_cap}</p></div></div>')
+
 def thumb_icon(kind):
     icons = {
         "chat": '<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 10h32v20H22l-8 7v-7H8z"/><path d="M15 18h18M15 24h11"/></svg>',
@@ -226,7 +254,7 @@ def home(lang):
           p_eyebrow="The problem", p_h="One approach for everyone fits no one.",
           p_1="Every classroom and every training room holds people who learn in different ways. Teaching to each of them is hard when teachers and trainers are tired and the day is full of routine work.",
           p_2="The answer is not asking teachers and trainers to do more. It is removing what does not need a human, so what does can have room.",
-          p_l="The blanket approach", p_lc="Everyone receives the same thing. Differences go unseen.",
+          p_hint="Drag to compare the two approaches", p_l="The blanket approach", p_lc="Everyone receives the same thing. Differences go unseen.",
           p_r="When teachers have room", p_rc="Each learner is noticed and supported in the way that fits them.",
           a_eyebrow="The approach", a_h="Three ideas behind the work",
           a_cards=[("Reduce routine work","Find the repetitive tasks that crowd out attention, and turn them into simple, repeatable workflows."),
@@ -278,7 +306,7 @@ def home(lang):
           p_eyebrow="El problema", p_h="Un mismo enfoque para todos no sirve a nadie.",
           p_1="En cada aula y en cada sala de formación hay personas que aprenden de maneras distintas. Atender a cada una es difícil cuando docentes y formadores están cansados y el día está lleno de tareas rutinarias.",
           p_2="La solución no es pedirles más. Es quitar lo que no necesita a una persona, para que lo que sí la necesita tenga espacio.",
-          p_l="El enfoque para todos", p_lc="Todos reciben lo mismo. Las diferencias pasan desapercibidas.",
+          p_hint="Arrastra para comparar los dos enfoques", p_l="El enfoque para todos", p_lc="Todos reciben lo mismo. Las diferencias pasan desapercibidas.",
           p_r="Cuando el docente tiene espacio", p_rc="Cada persona que aprende es vista y acompañada de la manera que le conviene.",
           a_eyebrow="El enfoque", a_h="Tres ideas detrás del trabajo",
           a_cards=[("Reducir el trabajo rutinario","Identificar las tareas repetitivas que le quitan atención al aula y convertirlas en flujos de trabajo simples y repetibles."),
@@ -368,9 +396,7 @@ def home(lang):
 
 <section class="tint" id="problem"><div class="shell problem">
 <div class="problem__copy reveal from-left"><span class="eyebrow">{X["p_eyebrow"]}</span><span class="rule"></span><h2>{X["p_h"]}</h2><p>{X["p_1"]}</p><p>{X["p_2"]}</p></div>
-<div class="compare reveal from-right" style="--d:120ms">
-<div class="panel"><span class="label">{X["p_l"]}</span><div class="tiles" aria-hidden="true">{tiles}</div><p>{X["p_lc"]}</p></div>
-<div class="panel"><span class="label">{X["p_r"]}</span><div class="tiles varied" aria-hidden="true">{tiles}</div><p>{X["p_rc"]}</p></div>
+{ba_visual(X["p_l"], X["p_r"], X["p_lc"], X["p_rc"], X["p_hint"])}
 </div></div></section>
 
 <section class="dark" id="{I["approach"]}"><div class="shell">

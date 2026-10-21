@@ -92,3 +92,32 @@ document.addEventListener('click', function (e) {
   f.title = a.getAttribute('aria-label'); f.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen'; f.allowFullscreen = true;
   a.replaceWith((function () { var d = document.createElement('div'); d.className = 'yt'; d.appendChild(f); return d; })());
 });
+
+// Before/after comparison: drag (or use arrow keys) to reveal; plays itself once when it comes into view
+(function () {
+  var ba = document.querySelector('.ba'); if (!ba) return;
+  var range = ba.querySelector('.ba__range');
+  var stopped = false;
+  function set(v) { ba.style.setProperty('--pos', v + '%'); }
+  range.addEventListener('input', function () { stopped = true; set(range.value); });
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduce || !('IntersectionObserver' in window)) return;
+  var io = new IntersectionObserver(function (en) {
+    if (!en[0].isIntersecting) return;
+    io.disconnect();
+    var t0 = null, keys = [[0, 50], [0.28, 88], [0.62, 12], [1, 50]];
+    function ease(x) { return x * x * (3 - 2 * x); }
+    function step(ts) {
+      if (stopped) return;
+      if (t0 === null) t0 = ts;
+      var p = Math.min(1, (ts - t0) / 4200), i = 0;
+      while (i < keys.length - 2 && p > keys[i + 1][0]) i++;
+      var a = keys[i], b = keys[i + 1], q = ease(Math.max(0, Math.min(1, (p - a[0]) / (b[0] - a[0]))));
+      var v = a[1] + (b[1] - a[1]) * q;
+      set(v); range.value = v;
+      if (p < 1) requestAnimationFrame(step);
+    }
+    setTimeout(function () { requestAnimationFrame(step); }, 600);
+  }, { threshold: 0.5 });
+  io.observe(ba);
+})();
