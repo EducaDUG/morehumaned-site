@@ -1,0 +1,24 @@
+name: Refresh short links
+# Discovery Lab pages are synced into this repo automatically. When that happens, rebuild the /dl/ short links.
+on:
+  push:
+    branches: [main]
+    paths: ["discovery-lab/**"]
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  shortlinks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python tools/generate-shortlinks.py
+      - name: Commit if anything changed
+        run: |
+          git config user.name "morehumaned-bot"
+          git config user.email "hello@morehumaned.com"
+          git add -A dl pilot tutorials videos about privacy workshops talk piloto talleres sobre .shortlinks-manifest
+          git diff --cached --quiet && echo "no changes" || (git commit -m "Refresh short links" && git push)
