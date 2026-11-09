@@ -1,7 +1,7 @@
 :root{
-  --bg:#fbf8f3;--surface:#ffffff;--ink:#14213d;--muted:#55607a;
+  --bg:#FFFFFF;--surface:#ffffff;--ink:#14213d;--muted:#55607a;
   --accent:#ff6b4a;--accent-2:#1fb5a3;--accent-ink:#ffffff;
-  --line:#e8e1d6;--shadow:0 10px 30px rgba(20,33,61,.08);
+  --line:#e8e1d6;--shadow:0 10px 30px rgba(43,48,54,.08);
   --radius:18px;--max:1080px;
 }
 @media (prefers-color-scheme:dark){

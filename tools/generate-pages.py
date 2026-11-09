@@ -23,7 +23,7 @@ DL_MARK = ('<svg class="mark" viewBox="0 0 64 64" role="img" aria-label="Discove
            '<circle cx="32" cy="32" r="11" fill="none" stroke="currentColor" stroke-width="1.5" opacity=".12"/>'
            '<g stroke="currentColor" stroke-width="1.5" opacity=".45"><path d="M32 2v7M32 55v7M2 32h7M55 32h7"/></g>'
            '<path d="M32 32 A27 27 0 0 1 53 21" fill="none" stroke="#40634C" stroke-width="2.5" stroke-linecap="round"/>'
-           '<circle cx="45" cy="22" r="5" fill="#B5551F"/><circle cx="32" cy="32" r="2.5" fill="currentColor"/></svg>')
+           '<circle cx="45" cy="22" r="5" fill="#946A00"/><circle cx="32" cy="32" r="2.5" fill="currentColor"/></svg>')
 
 def hero_visual(labels):
     t, a, j, c = labels
@@ -76,13 +76,13 @@ def video_cards(lang, start=0):
 
 def ba_visual(l_label, r_label, l_cap, r_cap, hint):
     cols = [90, 195, 300, 405, 510]; rows = [118, 218, 318]
-    pal = ["#587361", "#D9774B", "#142B3D", "#8FA58A", "#2F5871", "#E2875C", "#587361", "#142B3D", "#D9774B", "#8FA58A", "#2F5871", "#587361", "#E2875C", "#142B3D", "#D9774B"]
+    pal = ["#2F7F7C", "#E3B230", "#2B3036", "#7DB5B1", "#2F5871", "#EDC04F", "#2F7F7C", "#2B3036", "#E3B230", "#7DB5B1", "#2F5871", "#2F7F7C", "#EDC04F", "#2B3036", "#E3B230"]
     def person(x, y, fill, cls="", delay=0):
         return (f'<g class="{cls}" style="--dl:{delay}ms"><circle cx="{x}" cy="{y}" r="15" fill="{fill}"/>'
                 f'<path d="M{x-25},{y+44} Q{x-25},{y+20} {x},{y+20} Q{x+25},{y+20} {x+25},{y+44} Z" fill="{fill}"/></g>')
-    beams = "".join(f'<rect x="{x-44}" y="48" width="88" height="350" rx="10" fill="#142B3D" opacity=".05"/>' for x in cols)
-    same = "".join(person(x, y, "#B9B6AA") for y in rows for x in cols)
-    left = (f'<svg viewBox="0 0 600 410" role="img" aria-label="{H.escape(l_label)}"><rect x="40" y="18" width="520" height="16" rx="8" fill="#142B3D" opacity=".55"/>'
+    beams = "".join(f'<rect x="{x-44}" y="48" width="88" height="350" rx="10" fill="#2B3036" opacity=".05"/>' for x in cols)
+    same = "".join(person(x, y, "#B8BEC0") for y in rows for x in cols)
+    left = (f'<svg viewBox="0 0 600 410" role="img" aria-label="{H.escape(l_label)}"><rect x="40" y="18" width="520" height="16" rx="8" fill="#2B3036" opacity=".55"/>'
             f'{beams}{same}</svg>')
     d = 0; lines = ""; people = ""
     for r, y in enumerate(rows):
@@ -91,9 +91,9 @@ def ba_visual(l_label, r_label, l_cap, r_cap, hint):
             lines += f'<path class="ba__flow" d="M300,40 Q{(300+x)//2},{(40+y)//2-18} {x},{y-18}" stroke="{col}"/>'
             people += person(x, y, col, "ba__p", d); d += 160
     path = "M90,118 L195,118 L300,118 L405,118 L510,118 L510,218 L405,218 L300,218 L195,218 L90,218 L90,318 L195,318 L300,318 L405,318 L510,318 L510,218 L405,118 L300,218 L195,118 Z"
-    spot = f'<circle class="ba__spot" r="36" fill="none" stroke="#D9774B" stroke-width="4" style="offset-path:path(&quot;{path}&quot;)"/>'
-    compass = ('<circle cx="300" cy="40" r="20" fill="#FBF8F1" stroke="#142B3D" stroke-width="2"/>'
-               '<path d="M300 26v28M286 40h28" stroke="#142B3D" stroke-width="2"/><circle cx="300" cy="40" r="5" fill="#D9774B"/>')
+    spot = f'<circle class="ba__spot" r="36" fill="none" stroke="#E3B230" stroke-width="4" style="offset-path:path(&quot;{path}&quot;)"/>'
+    compass = ('<circle cx="300" cy="40" r="20" fill="#FFFFFF" stroke="#2B3036" stroke-width="2"/>'
+               '<path d="M300 26v28M286 40h28" stroke="#2B3036" stroke-width="2"/><circle cx="300" cy="40" r="5" fill="#E3B230"/>')
     right = f'<svg viewBox="0 0 600 410" role="img" aria-label="{H.escape(r_label)}">{lines}{compass}{people}{spot}</svg>'
     return (f'<div class="ba reveal from-right" style="--d:120ms;--pos:50%">'
             f'<div class="ba__stage"><div class="ba__layer ba__a">{left}<span class="ba__tag">{l_label}</span></div>'
@@ -201,7 +201,7 @@ def head_and_shell(lang, fname, title, desc, body, bodyclass=""):
 <meta property="og:locale" content="{locale}">
 <meta property="og:image" content="{DOMAIN}/assets/img/og.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#F5F0E6">
+<meta name="theme-color" content="#F3F4F2">
 <link rel="icon" type="image/png" sizes="64x64" href="../assets/img/favicon-64.png">
 <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
 <link rel="preload" href="../assets/fonts/fraunces-latin-1.woff2" as="font" type="font/woff2" crossorigin>
