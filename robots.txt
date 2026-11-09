@@ -3,3 +3,4 @@ Allow: /
 Disallow: /discovery-lab/primary/primary-enrichment/admin/
 
 Sitemap: https://morehumaned.com/sitemap.xml
+Sitemap: https://morehumaned.com/discovery-lab/sitemap.xml

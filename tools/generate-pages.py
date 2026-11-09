@@ -23,7 +23,7 @@ DL_MARK = ('<svg class="mark" viewBox="0 0 64 64" role="img" aria-label="Discove
            '<circle cx="32" cy="32" r="11" fill="none" stroke="currentColor" stroke-width="1.5" opacity=".12"/>'
            '<g stroke="currentColor" stroke-width="1.5" opacity=".45"><path d="M32 2v7M32 55v7M2 32h7M55 32h7"/></g>'
            '<path d="M32 32 A27 27 0 0 1 53 21" fill="none" stroke="#40634C" stroke-width="2.5" stroke-linecap="round"/>'
-           '<circle cx="45" cy="22" r="5" fill="#B5551F"/><circle cx="32" cy="32" r="2.5" fill="currentColor"/></svg>')
+           '<circle cx="45" cy="22" r="5" fill="#946A00"/><circle cx="32" cy="32" r="2.5" fill="currentColor"/></svg>')
 
 def hero_visual(labels):
     t, a, j, c = labels
@@ -76,13 +76,13 @@ def video_cards(lang, start=0):
 
 def ba_visual(l_label, r_label, l_cap, r_cap, hint):
     cols = [90, 195, 300, 405, 510]; rows = [118, 218, 318]
-    pal = ["#587361", "#D9774B", "#142B3D", "#8FA58A", "#2F5871", "#E2875C", "#587361", "#142B3D", "#D9774B", "#8FA58A", "#2F5871", "#587361", "#E2875C", "#142B3D", "#D9774B"]
+    pal = ["#2F7F7C", "#E3B230", "#2B3036", "#7DB5B1", "#2F5871", "#EDC04F", "#2F7F7C", "#2B3036", "#E3B230", "#7DB5B1", "#2F5871", "#2F7F7C", "#EDC04F", "#2B3036", "#E3B230"]
     def person(x, y, fill, cls="", delay=0):
         return (f'<g class="{cls}" style="--dl:{delay}ms"><circle cx="{x}" cy="{y}" r="15" fill="{fill}"/>'
                 f'<path d="M{x-25},{y+44} Q{x-25},{y+20} {x},{y+20} Q{x+25},{y+20} {x+25},{y+44} Z" fill="{fill}"/></g>')
-    beams = "".join(f'<rect x="{x-44}" y="48" width="88" height="350" rx="10" fill="#142B3D" opacity=".05"/>' for x in cols)
-    same = "".join(person(x, y, "#B9B6AA") for y in rows for x in cols)
-    left = (f'<svg viewBox="0 0 600 410" role="img" aria-label="{H.escape(l_label)}"><rect x="40" y="18" width="520" height="16" rx="8" fill="#142B3D" opacity=".55"/>'
+    beams = "".join(f'<rect x="{x-44}" y="48" width="88" height="350" rx="10" fill="#2B3036" opacity=".05"/>' for x in cols)
+    same = "".join(person(x, y, "#B8BEC0") for y in rows for x in cols)
+    left = (f'<svg viewBox="0 0 600 410" role="img" aria-label="{H.escape(l_label)}"><rect x="40" y="18" width="520" height="16" rx="8" fill="#2B3036" opacity=".55"/>'
             f'{beams}{same}</svg>')
     d = 0; lines = ""; people = ""
     for r, y in enumerate(rows):
@@ -91,9 +91,9 @@ def ba_visual(l_label, r_label, l_cap, r_cap, hint):
             lines += f'<path class="ba__flow" d="M300,40 Q{(300+x)//2},{(40+y)//2-18} {x},{y-18}" stroke="{col}"/>'
             people += person(x, y, col, "ba__p", d); d += 160
     path = "M90,118 L195,118 L300,118 L405,118 L510,118 L510,218 L405,218 L300,218 L195,218 L90,218 L90,318 L195,318 L300,318 L405,318 L510,318 L510,218 L405,118 L300,218 L195,118 Z"
-    spot = f'<circle class="ba__spot" r="36" fill="none" stroke="#D9774B" stroke-width="4" style="offset-path:path(&quot;{path}&quot;)"/>'
-    compass = ('<circle cx="300" cy="40" r="20" fill="#FBF8F1" stroke="#142B3D" stroke-width="2"/>'
-               '<path d="M300 26v28M286 40h28" stroke="#142B3D" stroke-width="2"/><circle cx="300" cy="40" r="5" fill="#D9774B"/>')
+    spot = f'<circle class="ba__spot" r="36" fill="none" stroke="#E3B230" stroke-width="4" style="offset-path:path(&quot;{path}&quot;)"/>'
+    compass = ('<circle cx="300" cy="40" r="20" fill="#FFFFFF" stroke="#2B3036" stroke-width="2"/>'
+               '<path d="M300 26v28M286 40h28" stroke="#2B3036" stroke-width="2"/><circle cx="300" cy="40" r="5" fill="#E3B230"/>')
     right = f'<svg viewBox="0 0 600 410" role="img" aria-label="{H.escape(r_label)}">{lines}{compass}{people}{spot}</svg>'
     return (f'<div class="ba reveal from-right" style="--d:120ms;--pos:50%">'
             f'<div class="ba__stage"><div class="ba__layer ba__a">{left}<span class="ba__tag">{l_label}</span></div>'
@@ -178,11 +178,20 @@ def head_and_shell(lang, fname, title, desc, body, bodyclass=""):
     for ttl, links in c["foot_cols"]:
         foot += f'<div><h4>{ttl}</h4><ul>' + "".join(f'<li><a href="{h}">{t}</a></li>' for h, t in links) + '</ul></div>'
     ld = ""
+    org = {"@type": "Organization", "name": "MoreHuman Ed", "url": DOMAIN, "logo": DOMAIN + "/assets/img/logo-mark-512.png",
+           "description": "Practical systems that give teachers and trainers room to notice every learner.",
+           "founder": {"@type": "Person", "name": "Diego Guevara", "jobTitle": "Science educator and teacher trainer",
+                       "address": {"@type": "PostalAddress", "addressLocality": "Dunedin", "addressCountry": "NZ"}},
+           "knowsLanguage": ["en", "es"], "sameAs": [DOMAIN + "/discovery-lab/"]}
+    graph = [dict(org, **{"@context": "https://schema.org"})]
+    graph.append({"@context": "https://schema.org", "@type": "WebSite", "name": "MoreHuman Ed", "url": DOMAIN, "inLanguage": lang})
+    graph.append({"@context": "https://schema.org", "@type": "WebPage", "name": title, "description": desc, "url": canon,
+                  "inLanguage": lang, "isPartOf": {"@type": "WebSite", "url": DOMAIN},
+                  "accessibilityFeature": ["largePrint", "displayTransformability", "readingOrder", "highContrastDisplay"]})
     if fname == "index.html":
-        ld = '<script type="application/ld+json">' + json.dumps({
-            "@context": "https://schema.org", "@type": "Organization", "name": "MoreHuman Ed",
-            "url": DOMAIN, "description": desc, "founder": {"@type": "Person", "name": "Diego Guevara"}},
-            ensure_ascii=False) + '</script>'
+        graph.append({"@context": "https://schema.org", "@type": "EducationalOrganization", "name": "Discovery Lab",
+                      "url": DOMAIN + "/discovery-lab/", "parentOrganization": {"@type": "Organization", "name": "MoreHuman Ed"}})
+    ld = "".join('<script type="application/ld+json">' + json.dumps(g, ensure_ascii=False) + '</script>' for g in graph)
     locale = "en_NZ" if lang == "en" else "es_ES"
     return f'''<!doctype html>
 <html lang="{lang}">
@@ -201,14 +210,16 @@ def head_and_shell(lang, fname, title, desc, body, bodyclass=""):
 <meta property="og:locale" content="{locale}">
 <meta property="og:image" content="{DOMAIN}/assets/img/og.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#F5F0E6">
+<meta name="theme-color" content="#F3F4F2">
+<link rel="alternate" type="text/plain" href="{DOMAIN}/llms.txt" title="llms.txt">
 <link rel="icon" type="image/png" sizes="64x64" href="../assets/img/favicon-64.png">
 <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
-<link rel="preload" href="../assets/fonts/fraunces-latin-1.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/atkinson-700.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../assets/fonts/public-sans-latin-3.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="../assets/tokens.css">
 <link rel="stylesheet" href="../assets/site.css">
 <link rel="stylesheet" href="../assets/motion.css">
+<link rel="stylesheet" href="../assets/brandplus.css">
 <script>document.documentElement.classList.add('js')</script>
 {ld}
 </head>
@@ -230,6 +241,7 @@ def head_and_shell(lang, fname, title, desc, body, bodyclass=""):
 <div class="float-cta"><a class="btn" href="{CAL}">{c["cta"]} <span class="arrow" aria-hidden="true">&rarr;</span></a></div>
 <script src="../assets/site.js" defer></script>
 <script src="../assets/motion.js" defer></script>
+<script src="../assets/brandplus.js" defer data-panel></script>
 </body>
 </html>
 '''
@@ -390,7 +402,7 @@ def home(lang):
 
 <section id="who"><div class="shell">
 <div class="section-head reveal"><span class="eyebrow">{X["who_eyebrow"]}</span><span class="rule"></span><h2>{X["who_h"]}</h2></div>
-<div class="grid-3">{who}</div></div></section>
+<div class="grid-3 bento">{who}</div></div></section>
 
 {BRK1}
 
@@ -401,11 +413,11 @@ def home(lang):
 
 <section class="dark" id="{I["approach"]}"><div class="shell">
 <div class="section-head reveal"><span class="eyebrow">{X["a_eyebrow"]}</span><span class="rule"></span><h2>{X["a_h"]}</h2></div>
-<div class="grid-3">{cards}</div></div></section>
+<div class="grid-3 bento">{cards}</div></div></section>
 
 <section class="tint" id="{I["workshops"]}"><div class="shell">
 <div class="section-head reveal"><span class="eyebrow">{X["w_eyebrow"]}</span><span class="rule"></span><h2>{X["w_h"]}</h2><p>{X["w_p"]}</p></div>
-<div class="grid-3">{ws}</div></div></section>
+<div class="grid-3 bento">{ws}</div></div></section>
 
 <section id="process"><div class="shell">
 <div class="section-head reveal"><span class="eyebrow">{X["pr_eyebrow"]}</span><span class="rule"></span><h2>{X["pr_h"]}</h2></div>
@@ -415,7 +427,7 @@ def home(lang):
 
 <section class="tint library" id="tutorials"><div class="shell">
 <div class="section-head reveal"><span class="eyebrow">{X["t_eyebrow"]}</span><span class="rule"></span><h2>{X["t_h"]}</h2><p>{X["t_p"]}</p></div>
-<div class="grid-3">{tut}</div>{t_all}</div></section>
+<div class="grid-3 bento">{tut}</div>{t_all}</div></section>
 
 <section id="discovery-lab"><div class="shell">
 <div class="dl-feature reveal zoom">
@@ -425,7 +437,7 @@ def home(lang):
 
 <section class="tint evidence" id="trust"><div class="shell">
 <div class="section-head reveal"><span class="eyebrow">{X["e_eyebrow"]}</span><span class="rule"></span><h2>{X["e_h"]}</h2></div>
-<div class="grid-3">
+<div class="grid-3 bento">
 <article {rv(0)}><div class="card"><h3>{X["e_1"]}</h3><ul>{e1}</ul></div></article>
 <article {rv(1)}><div class="card"><h3>{X["e_2"]}</h3><ul>{e2}</ul>{e2a}</div></article>
 <article {rv(2)}><div class="card ghost-card"><h3>{X["e_3"]}</h3><p>{X["e_3p"]}</p></div></article>
@@ -514,7 +526,7 @@ def tutorials():
 <div class="reveal from-right" style="--d:120ms"><span class="eyebrow">Latest video</span><span class="rule"></span><h2>Welcome to MoreHuman Ed</h2><p>A six-minute introduction from Diego: who this is for, why saving time matters, and what you will find here.</p><p class="welcome__note">Plays from YouTube only when you press play.</p></div>
 </div></section>
 <section class="tint library"><div class="shell"><div class="section-head reveal"><span class="eyebrow">Library</span><span class="rule"></span><h2>All tutorials</h2></div>
-<div class="grid-3">{cards}</div></div></section>
+<div class="grid-3 bento">{cards}</div></div></section>
 '''
 
 def about():

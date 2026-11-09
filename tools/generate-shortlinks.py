@@ -23,7 +23,7 @@ PAGE = '''<!doctype html>
 <link rel="canonical" href="{abs}">
 <meta http-equiv="refresh" content="0; url={target}">
 <script>location.replace({js}+location.search+location.hash)</script>
-<style>body{{font:16px/1.5 system-ui,sans-serif;background:#F5F0E6;color:#142B3D;display:grid;place-items:center;min-height:100vh;margin:0}}a{{color:#4A6354}}</style>
+<style>body{{font:16px/1.5 system-ui,sans-serif;background:#F3F4F2;color:#2B3036;display:grid;place-items:center;min-height:100vh;margin:0}}a{{color:#23706D}}</style>
 </head><body><p>Taking you to <a href="{target}">{label}</a>&hellip;</p></body></html>
 '''
 
