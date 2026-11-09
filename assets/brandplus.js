@@ -73,12 +73,17 @@
       if (calm() || root.getAttribute('data-dyslexia') === 'on') return;
       splitWords(h); io.observe(h);
     });
+    var fine = window.matchMedia && window.matchMedia('(pointer: fine)').matches;
     [].forEach.call(document.querySelectorAll('.tile, .choice, .card'), function (c) {
       if (c.dataset.bpSpot) return; c.dataset.bpSpot = '1'; c.classList.add('bp-spot');
+      var tilt = fine && /(^| )(tile|choice)( |$)/.test(c.className);
+      if (tilt) c.classList.add('bp-tilt');
       c.addEventListener('pointermove', function (e) {
-        var r = c.getBoundingClientRect();
+        var r = c.getBoundingClientRect(), x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5;
         c.style.setProperty('--mx', (e.clientX - r.left) + 'px'); c.style.setProperty('--my', (e.clientY - r.top) + 'px');
+        if (tilt) { c.style.setProperty('--ry', (x * 7).toFixed(2) + 'deg'); c.style.setProperty('--rx', (-y * 7).toFixed(2) + 'deg'); }
       }, { passive: true });
+      c.addEventListener('pointerleave', function () { c.style.setProperty('--rx', '0deg'); c.style.setProperty('--ry', '0deg'); });
     });
     [].forEach.call(document.querySelectorAll('img:not([loading])'), function (im) {
       if (im.getBoundingClientRect().top > window.innerHeight) im.loading = 'lazy';
