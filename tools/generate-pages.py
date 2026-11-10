@@ -216,10 +216,10 @@ def head_and_shell(lang, fname, title, desc, body, bodyclass=""):
 <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
 <link rel="preload" href="../assets/fonts/atkinson-700.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../assets/fonts/public-sans-latin-3.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../assets/tokens.css?v=3">
-<link rel="stylesheet" href="../assets/site.css?v=3">
-<link rel="stylesheet" href="../assets/motion.css?v=3">
-<link rel="stylesheet" href="../assets/brandplus.css?v=3">
+<link rel="stylesheet" href="../assets/tokens.css?v=4">
+<link rel="stylesheet" href="../assets/site.css?v=4">
+<link rel="stylesheet" href="../assets/motion.css?v=4">
+<link rel="stylesheet" href="../assets/brandplus.css?v=4">
 <script>document.documentElement.classList.add('js')</script>
 {ld}
 </head>
@@ -239,9 +239,9 @@ def head_and_shell(lang, fname, title, desc, body, bodyclass=""):
 {foot}
 </div></footer>
 <div class="float-cta"><a class="btn" href="{CAL}">{c["cta"]} <span class="arrow" aria-hidden="true">&rarr;</span></a></div>
-<script src="../assets/site.js?v=3" defer></script>
-<script src="../assets/motion.js?v=3" defer></script>
-<script src="../assets/brandplus.js?v=3" defer data-panel></script>
+<script src="../assets/site.js?v=4" defer></script>
+<script src="../assets/motion.js?v=4" defer></script>
+<script src="../assets/brandplus.js?v=4" defer data-panel></script>
 </body>
 </html>
 '''
@@ -584,7 +584,7 @@ w("404.html", '''<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Page not found | MoreHuman Ed</title><meta name="robots" content="noindex">
 <link rel="icon" type="image/png" sizes="64x64" href="/assets/img/favicon-64.png">
-<link rel="stylesheet" href="/assets/tokens.css?v=3"><link rel="stylesheet" href="/assets/site.css?v=3"></head>
+<link rel="stylesheet" href="/assets/tokens.css?v=4"><link rel="stylesheet" href="/assets/site.css?v=4"></head>
 <body><main id="main"><section class="hero"><div class="shell"><span class="eyebrow">404</span>
 <h1 style="margin-top:1rem">That page wandered off.</h1>
 <p class="hero__lede">Try the <a href="/">home page</a> or la <a href="/es/index.html">página en español</a>.</p></div></section></main></body></html>
