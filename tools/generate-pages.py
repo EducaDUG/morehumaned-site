@@ -219,7 +219,7 @@ def head_and_shell(lang, fname, title, desc, body, bodyclass=""):
 <link rel="stylesheet" href="../assets/tokens.css?v=3">
 <link rel="stylesheet" href="../assets/site.css?v=3">
 <link rel="stylesheet" href="../assets/motion.css?v=3">
-<link rel="stylesheet" href="../assets/brandplus.css?v=3">
+<link rel="stylesheet" href="../assets/brandplus.css?v=5">
 <script>document.documentElement.classList.add('js')</script>
 {ld}
 </head>
