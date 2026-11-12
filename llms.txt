@@ -1,13 +1,14 @@
 # MoreHuman Ed
 
-> A personal, independent space for tips, ideas and reflections on keeping people at the centre of learning, by Diego Guevara, a science educator. Bilingual (English and Spanish). Nothing is for sale and no services are offered. The site uses no cookies or tracking.
+> Tips, ideas and reflections on keeping people at the centre of learning, by Diego Guevara, a science educator. Bilingual (English and Spanish). The site uses no cookies or tracking.
 
 ## Pages
-- [Home](https://morehumaned.com/): what I'm exploring, videos and notes
+- [Home](https://morehumaned.com/): what I'm exploring, videos and where to follow along
 - [Videos](https://morehumaned.com/en/tutorials.html): short videos with tips
 - [About](https://morehumaned.com/en/about.html): about Diego Guevara
-- [About this site](https://morehumaned.com/en/privacy.html): independence, how AI is used, privacy
+- [How this site works](https://morehumaned.com/en/privacy.html): how AI is used, sources, privacy
 - [Inicio (Spanish)](https://morehumaned.com/es/index.html): the site in Spanish
 
-## Side project
+## Elsewhere
+- [LinkedIn](https://www.linkedin.com/in/diego-urrutia-guevara-150bb641/): tips, projects and reflections
 - [Discovery Lab](https://morehumaned.com/discovery-lab/): a free collection of interactive science simulations built for my students

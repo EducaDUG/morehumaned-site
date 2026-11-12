@@ -8,6 +8,7 @@ CAL = "https://cal.com/morehumaned/talk"
 DL = "https://morehumaned.com/discovery-lab/"
 MAIL = "mailto:hello@morehumaned.com"  # no longer used on the site
 YT = "https://www.youtube.com/@morehumaned"
+LI = "https://www.linkedin.com/in/diego-urrutia-guevara-150bb641/"
 
 def w(rel, content):
     p = os.path.join(ROOT, rel)
@@ -114,21 +115,21 @@ def thumb_icon(kind):
 # ---------- Copy ----------
 T = {
 "en": dict(
-  nav=[("index.html#explore","Ideas"),("tutorials.html","Videos"),("about.html","About"),("privacy.html","About this site")],
+  nav=[("index.html#explore","Ideas"),("https://morehumaned.com/discovery-lab/","Discovery Lab"),("about.html","About")],
   skip="Skip to content", langname="ES", menu="Menu",
   tag="Tips, ideas and reflections on keeping people at the centre of learning.",
-  foot_note="A personal, independent project. Nothing here is for sale.",
-  foot_cols=[("Explore",[("index.html#explore","Ideas"),("tutorials.html","Videos"),("about.html","About"),("privacy.html","About this site")]),
-             ("Elsewhere",[("https://www.youtube.com/@morehumaned","YouTube"),("https://morehumaned.com/discovery-lab/","Discovery Lab")])],
+  foot_note="By Diego Guevara, science educator.",
+  foot_cols=[("Explore",[("index.html#explore","Ideas"),("tutorials.html","Videos"),("about.html","About"),("privacy.html","How this site works")]),
+             ("Elsewhere",[("https://www.linkedin.com/in/diego-urrutia-guevara-150bb641/","LinkedIn"),("https://www.youtube.com/@morehumaned","YouTube"),("https://morehumaned.com/discovery-lab/","Discovery Lab")])],
   labels=("Time","Attention","Judgement","Care"),
 ),
 "es": dict(
-  nav=[("index.html#explorar","Ideas"),("index.html#tutorials","Vídeos"),("index.html#sobre","Sobre mí"),("../en/privacy.html","Sobre este sitio")],
+  nav=[("index.html#explorar","Ideas"),("https://morehumaned.com/discovery-lab/","Discovery Lab"),("index.html#sobre","Sobre mí")],
   skip="Ir al contenido", langname="EN", menu="Menú",
   tag="Ideas, consejos y reflexiones para mantener a las personas en el centro del aprendizaje.",
-  foot_note="Un proyecto personal e independiente. Nada aquí está a la venta.",
+  foot_note="Por Diego Guevara, educador científico.",
   foot_cols=[("Explorar",[("index.html#explorar","Ideas"),("index.html#tutorials","Vídeos"),("index.html#sobre","Sobre mí")]),
-             ("En otros lugares",[("https://www.youtube.com/@morehumaned","YouTube"),("https://morehumaned.com/discovery-lab/","Discovery Lab"),("../en/privacy.html","Sobre este sitio (en inglés)")])],
+             ("En otros lugares",[("https://www.linkedin.com/in/diego-urrutia-guevara-150bb641/","LinkedIn"),("https://www.youtube.com/@morehumaned","YouTube"),("https://morehumaned.com/discovery-lab/","Discovery Lab"),("../en/privacy.html","Cómo funciona este sitio (en inglés)")])],
   labels=("Tiempo","Atención","Criterio","Cuidado"),
 ),
 }
@@ -177,9 +178,9 @@ def head_and_shell(lang, fname, title, desc, body, bodyclass=""):
         foot += f'<div><h4>{ttl}</h4><ul>' + "".join(f'<li><a href="{h}">{t}</a></li>' for h, t in links) + '</ul></div>'
     ld = ""
     org = {"@type": "Organization", "name": "MoreHuman Ed", "url": DOMAIN, "logo": DOMAIN + "/assets/img/logo-mark-512.png",
-           "description": "A personal, independent space for tips, ideas and reflections about learning.",
+           "description": "Tips, ideas and reflections about learning.",
            "founder": {"@type": "Person", "name": "Diego Guevara", "jobTitle": "Science educator"},
-           "knowsLanguage": ["en", "es"], "sameAs": [YT]}
+           "knowsLanguage": ["en", "es"], "sameAs": [YT, LI]}
     graph = [dict(org, **{"@context": "https://schema.org"})]
     graph.append({"@context": "https://schema.org", "@type": "WebSite", "name": "MoreHuman Ed", "url": DOMAIN, "inLanguage": lang})
     graph.append({"@context": "https://schema.org", "@type": "WebPage", "name": title, "description": desc, "url": canon,
@@ -246,7 +247,7 @@ def rv(i, extra=""):
 def home(lang):
     if lang == "en":
         X = dict(
-          h_eyebrow="A personal space for sharing what I'm learning",
+          h_eyebrow="Sharing what I'm learning",
           h1='Tips, ideas and reflections on keeping <em>people</em> at the centre of learning.',
           lede="I'm Diego, a teacher. I'm exploring how AI, research and human connection can help us rethink learning, and I share what I find because I enjoy it and I hope something here helps another teacher.",
           b1="Read the ideas", b2="Watch the videos", by="By Diego Guevara, science educator.",
@@ -267,19 +268,19 @@ def home(lang):
           a_cards=[("Reduce routine work","Repetitive tasks crowd out attention. I'm curious about what can be simplified safely, and what should not be."),
                    ("Protect professional judgement","Technology can draft. People review, decide and speak with learners and families."),
                    ("Make room for each learner","Time and mental space are the real resource. I'm exploring how to give some back.")],
-          t_eyebrow="Videos", t_h="Short videos of tips", t_p="Things I've found useful, shared in the hope they help another teacher. Nothing is for sale.", t_all="See all videos",
-          n_eyebrow="Notes", n_h="Written notes are on the way", n_p="Reflections and reading notes, about one a month. There is no schedule and no pressure. I would rather write one thing worth reading.",
-          s_eyebrow="About this site", s_h="A personal, independent project", s_p="Nothing here is for sale and no services are offered. Examples are invented, and I say so. I use AI to help draft, and I read and edit everything myself. The views are my own.", s_a="Read more",
+          t_eyebrow="Videos", t_h="Short videos of tips", t_p="Things I've found useful, shared in the hope they help another teacher.", t_all="See all videos",
+          n_eyebrow="Follow along", n_h="Tips, projects and reflections on LinkedIn", n_p="Short posts about what I'm trying, the projects I'm working on, and where I think education is heading in the era of AI. Come and join the conversation.", n_b="Follow on LinkedIn",
+          s_eyebrow="", s_h="", s_p="", s_a="",
           ab_eyebrow="About", ab_h="Diego Guevara",
           ab_p=["I'm a science educator and I teach students of different ages and subjects. I'm curious about how AI, research and human connection can help us rethink learning.",
                 "This is a personal place where I think out loud: what I'm noticing, what I'm unsure about, and ideas I'm still testing.",
                 f'I also build <a href="{DL}">Discovery Lab</a>, a free collection of interactive science simulations for my students.'],
           ab_a="More about me", ab_alt="Diego, a science educator",
-          f_eyebrow="Join in", f_h="Something that works for you?", f_p="Share it in the comments on any video. I read them, and I learn from them.", f_b1="Watch on YouTube",
+          f_eyebrow="Let's keep the chat going", f_h="What are you noticing?", f_p="Share a tip, a question or a disagreement in the comments on any video, or on LinkedIn. I read them, and I learn from them.", f_b1="Join on LinkedIn", f_b2="Watch on YouTube",
           ids=dict(explore="explore", approach="approach", about="about"), files=dict(tut="tutorials.html", priv="privacy.html", about="about.html"))
     else:
         X = dict(
-          h_eyebrow="Un espacio personal para compartir lo que voy aprendiendo",
+          h_eyebrow="Compartiendo lo que voy aprendiendo",
           h1='Ideas, consejos y reflexiones para mantener a las <em>personas</em> en el centro del aprendizaje.',
           lede="Soy Diego, docente. Exploro cómo la IA, la investigación y la conexión humana pueden ayudarnos a repensar el aprendizaje, y comparto lo que encuentro porque lo disfruto y espero que algo de esto ayude a otra persona que enseña.",
           b1="Leer las ideas", b2="Ver los vídeos", by="Por Diego Guevara, educador científico.",
@@ -300,15 +301,15 @@ def home(lang):
           a_cards=[("Reducir el trabajo rutinario","Las tareas repetitivas le quitan atención al aula. Me interesa saber qué se puede simplificar con seguridad y qué no."),
                    ("Proteger el criterio profesional","La tecnología puede proponer. Las personas revisan, deciden y hablan con quienes aprenden y con sus familias."),
                    ("Dar espacio a cada persona que aprende","El tiempo y el espacio mental son el verdadero recurso. Exploro cómo devolver algo de ambos.")],
-          t_eyebrow="Vídeos", t_h="Vídeos breves con consejos", t_p="Cosas que me han resultado útiles, compartidas con la esperanza de que ayuden a otra persona que enseña. Nada está a la venta. Los vídeos están en inglés.", t_all="",
-          n_eyebrow="Notas", n_h="Las notas escritas están en camino", n_p="Reflexiones y notas de lectura, más o menos una al mes. No hay calendario ni presión. Prefiero escribir una cosa que merezca la pena leer.",
-          s_eyebrow="Sobre este sitio", s_h="Un proyecto personal e independiente", s_p="Nada aquí está a la venta ni se ofrece ningún servicio. Los ejemplos son inventados, y lo digo. Uso la IA para ayudarme a redactar, y lo leo y edito todo yo mismo. Las opiniones son mías.", s_a="",
+          t_eyebrow="Vídeos", t_h="Vídeos breves con consejos", t_p="Cosas que me han resultado útiles, compartidas con la esperanza de que ayuden a otra persona que enseña. Los vídeos están en inglés.", t_all="",
+          n_eyebrow="Sígueme", n_h="Consejos, proyectos y reflexiones en LinkedIn", n_p="Publicaciones breves sobre lo que estoy probando, los proyectos en los que trabajo y hacia dónde creo que va la educación en la era de la IA. Únete a la conversación.", n_b="Seguir en LinkedIn",
+          s_eyebrow="", s_h="", s_p="", s_a="",
           ab_eyebrow="Sobre mí", ab_h="Diego Guevara",
           ab_p=["Soy educador científico y doy clase a estudiantes de distintas edades y materias. Me interesa cómo la IA, la investigación y la conexión humana pueden ayudarnos a repensar el aprendizaje.",
                 "Este es un lugar personal donde pienso en voz alta: lo que voy notando, de lo que no estoy seguro y las ideas que sigo poniendo a prueba.",
                 f'También creo <a href="{DL}">Discovery Lab</a>, una colección gratuita de simulaciones científicas interactivas para mis estudiantes.'],
           ab_a="", ab_alt="Diego, educador científico",
-          f_eyebrow="Súmate", f_h="¿Algo que te funciona?", f_p="Cuéntalo en los comentarios de cualquier vídeo. Los leo y aprendo de ellos.", f_b1="Ver en YouTube",
+          f_eyebrow="Sigamos conversando", f_h="¿Qué estás notando?", f_p="Comparte un consejo, una duda o una discrepancia en los comentarios de cualquier vídeo, o en LinkedIn. Los leo y aprendo de ellos.", f_b1="Unirme en LinkedIn", f_b2="Ver en YouTube",
           ids=dict(explore="explorar", approach="enfoque", about="sobre"), files=dict(tut=None, priv="../en/privacy.html", about=None))
     I = X["ids"]; F = X["files"]
     _bt = {"en": ["Every room holds someone who needs to be noticed.", "Technology drafts. People decide.", "Time to listen is the real resource."],
@@ -334,7 +335,7 @@ def home(lang):
 <div><span class="eyebrow">{X["h_eyebrow"]}</span>
 <h1>{X["h1"]}</h1>
 <p class="hero__lede">{X["lede"]}</p>
-<div class="btns"><a class="btn" href="#{I["explore"]}">{X["b1"]} <span class="arrow" aria-hidden="true">&rarr;</span></a><a class="btn ghost" href="#tutorials">{X["b2"]}</a></div>
+<div class="btns"><a class="btn" href="#{I["explore"]}">{X["b1"]} <span class="arrow" aria-hidden="true">&rarr;</span></a></div>
 <p class="hero__by" style="margin-top:2rem;font-family:var(--font-data);font-size:var(--step--1);color:var(--ink-3)">{X["by"]}</p></div>
 <div class="hero__visual" aria-hidden="false">{hero_visual(T[lang]["labels"])}</div>
 </div></section>
@@ -368,12 +369,10 @@ def home(lang):
 <div class="grid-3 bento">{tut}</div>{t_all}</div></section>
 
 <section id="notes"><div class="shell">
-<div class="section-head reveal"><span class="eyebrow">{X["n_eyebrow"]}</span><span class="rule"></span><h2>{X["n_h"]}</h2><p>{X["n_p"]}</p></div></div></section>
+<div class="section-head reveal"><span class="eyebrow">{X["n_eyebrow"]}</span><span class="rule"></span><h2>{X["n_h"]}</h2><p>{X["n_p"]}</p>
+<p style="margin-top:1.25rem"><a class="btn" href="{LI}">{X["n_b"]} <span class="arrow" aria-hidden="true">&rarr;</span></a></p></div></div></section>
 
 {BRK3}
-
-<section class="tint" id="site"><div class="shell">
-<div class="section-head reveal"><span class="eyebrow">{X["s_eyebrow"]}</span><span class="rule"></span><h2>{X["s_h"]}</h2><p>{X["s_p"]}</p>{s_a}</div></div></section>
 
 <section id="{I["about"]}"><div class="shell about-grid">
 <img class="portrait reveal from-left" src="../assets/img/diego-portrait.jpg" width="340" height="340" alt="{X["ab_alt"]}" loading="lazy">
@@ -383,14 +382,14 @@ def home(lang):
 <section class="final"><div class="shell reveal">
 <span class="eyebrow">{X["f_eyebrow"]}</span><span class="rule"></span>
 <h2>{X["f_h"]}</h2><p>{X["f_p"]}</p>
-<div class="btns"><a class="btn on-dark" href="{YT}">{X["f_b1"]} <span class="arrow" aria-hidden="true">&rarr;</span></a></div>
+<div class="btns"><a class="btn on-dark" href="{LI}">{X["f_b1"]} <span class="arrow" aria-hidden="true">&rarr;</span></a><a class="btn ghost" style="color:var(--surface);border-color:#ffffff66" href="{YT}">{X["f_b2"]}</a></div>
 </div></section>
 '''
 
 def tutorials():
     return f'''
 <section class="page-hero"><div class="shell"><span class="eyebrow">Videos</span><h1 class="reveal">Tips, shared in the hope they help.</h1>
-<p class="hero__lede">Short videos with things I've found useful. Nothing is for sale and nothing is promised.</p></div></section>
+<p class="hero__lede">Short videos with things I've found useful.</p></div></section>
 <section class="welcome"><div class="shell welcome__grid">
 <div class="reveal from-left">{video_block("Welcome to MoreHuman Ed", "Play video")}</div>
 <div class="reveal from-right" style="--d:120ms"><span class="eyebrow">Start here</span><span class="rule"></span><h2>Welcome to MoreHuman Ed</h2><p>A six-minute hello: why I'm sharing this, and what you will find here.</p><p class="welcome__note">Plays from YouTube only when you press play.</p></div>
@@ -411,26 +410,25 @@ def about():
 <p>What I keep noticing is that technology helps most when it protects time and attention for people. This site is where I explore that: what seems to work, what doesn't, and what the research says.</p>
 <p>I work in English and Spanish.</p>
 <p>I also build <a href="https://morehumaned.com/discovery-lab/">Discovery Lab</a>, a free collection of interactive science simulations for my students.</p>
-<p>This is a personal, independent project. Nothing here is for sale and I am not offering services. You can read more on <a href="privacy.html">About this site</a>.</p>
+<p>You can find me on <a href="https://www.linkedin.com/in/diego-urrutia-guevara-150bb641/">LinkedIn</a>, where I share tips, projects and reflections on where education is heading in the era of AI. Come and say hello.</p>
 </div></div></section>
 '''
 
 def privacy():
     return '''
-<section class="page-hero"><div class="shell"><span class="eyebrow">About this site</span><h1 class="reveal">A personal, independent project.</h1>
-<p class="hero__lede">Nothing here is for sale.</p></div></section>
+<section class="page-hero"><div class="shell"><span class="eyebrow">How this site works</span><h1 class="reveal">A few notes on how I work.</h1></div></section>
 <section><div class="shell prose">
-<ul class="tick reveal"><li>No services are offered, and there is nothing to book or sign up for.</li><li>Examples are invented, and I say so. No learner, family or colleague information appears.</li><li>I use AI to help draft and organise, and I read, check and edit everything myself.</li><li>I try to cite sources, and to say what I'm unsure about.</li><li>The views here are my own.</li></ul>
+<ul class="tick reveal"><li>Examples are invented, and I say so. No learner, family or colleague information appears.</li><li>I use AI to help draft and organise, and I read, check and edit everything myself.</li><li>I try to cite sources, and to say what I'm unsure about.</li><li>The views here are my own.</li></ul>
 <h2 class="reveal">Privacy</h2>
 <p>This site uses no cookies, no tracking and no forms. The video player loads from YouTube, in its privacy-enhanced mode, only if you press play. Nothing is loaded from YouTube before that.</p>
 </div></section>
 '''
 
 pages = [
- ("en","index.html","MoreHuman Ed | Tips, ideas and reflections on learning","A personal space to explore how AI, research and human connection can help us rethink learning. Tips, videos and reflections from a science educator.",home("en")),
+ ("en","index.html","MoreHuman Ed | Tips, ideas and reflections on learning","Tips, ideas and reflections on how AI, research and human connection can help us rethink learning, from a science educator.",home("en")),
  ("en","tutorials.html","Videos | MoreHuman Ed","Short videos with tips on teaching and technology, shared in the hope they help another teacher.",tutorials()),
  ("en","about.html","About | MoreHuman Ed","Diego Guevara, a science educator exploring how technology can strengthen the human side of learning.",about()),
- ("en","privacy.html","About this site | MoreHuman Ed","A personal, independent project. Nothing is for sale, and the site uses no cookies or tracking.",privacy()),
+ ("en","privacy.html","How this site works | MoreHuman Ed","How I use AI, how I handle examples and sources, and how this site treats your privacy.",privacy()),
  ("es","index.html","MoreHuman Ed | Ideas, consejos y reflexiones sobre el aprendizaje","Un espacio personal para explorar cómo la IA, la investigación y la conexión humana pueden ayudarnos a repensar el aprendizaje.",home("es")),
 ]
 for lang, fname, title, desc, body in pages:
