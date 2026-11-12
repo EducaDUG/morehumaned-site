@@ -119,7 +119,7 @@ T = {
   tag="Tips, ideas and reflections on keeping people at the centre of learning.",
   foot_note="A personal, independent project. Nothing here is for sale.",
   foot_cols=[("Explore",[("index.html#explore","Ideas"),("tutorials.html","Videos"),("about.html","About"),("privacy.html","About this site")]),
-             ("Elsewhere",[("https://www.youtube.com/@morehumaned","YouTube")])],
+             ("Elsewhere",[("https://www.youtube.com/@morehumaned","YouTube"),("https://morehumaned.com/discovery-lab/","Discovery Lab")])],
   labels=("Time","Attention","Judgement","Care"),
 ),
 "es": dict(
@@ -128,7 +128,7 @@ T = {
   tag="Ideas, consejos y reflexiones para mantener a las personas en el centro del aprendizaje.",
   foot_note="Un proyecto personal e independiente. Nada aquí está a la venta.",
   foot_cols=[("Explorar",[("index.html#explorar","Ideas"),("index.html#tutorials","Vídeos"),("index.html#sobre","Sobre mí")]),
-             ("En otros lugares",[("https://www.youtube.com/@morehumaned","YouTube"),("../en/privacy.html","Sobre este sitio (en inglés)")])],
+             ("En otros lugares",[("https://www.youtube.com/@morehumaned","YouTube"),("https://morehumaned.com/discovery-lab/","Discovery Lab"),("../en/privacy.html","Sobre este sitio (en inglés)")])],
   labels=("Tiempo","Atención","Criterio","Cuidado"),
 ),
 }
@@ -272,7 +272,8 @@ def home(lang):
           s_eyebrow="About this site", s_h="A personal, independent project", s_p="Nothing here is for sale and no services are offered. Examples are invented, and I say so. I use AI to help draft, and I read and edit everything myself. The views are my own.", s_a="Read more",
           ab_eyebrow="About", ab_h="Diego Guevara",
           ab_p=["I'm a science educator and I teach students of different ages and subjects. I'm curious about how AI, research and human connection can help us rethink learning.",
-                "This is a personal place where I think out loud: what I'm noticing, what I'm unsure about, and ideas I'm still testing."],
+                "This is a personal place where I think out loud: what I'm noticing, what I'm unsure about, and ideas I'm still testing.",
+                f'I also build <a href="{DL}">Discovery Lab</a>, a free collection of interactive science simulations for my students.'],
           ab_a="More about me", ab_alt="Diego, a science educator",
           f_eyebrow="Join in", f_h="Something that works for you?", f_p="Share it in the comments on any video. I read them, and I learn from them.", f_b1="Watch on YouTube",
           ids=dict(explore="explore", approach="approach", about="about"), files=dict(tut="tutorials.html", priv="privacy.html", about="about.html"))
@@ -304,7 +305,8 @@ def home(lang):
           s_eyebrow="Sobre este sitio", s_h="Un proyecto personal e independiente", s_p="Nada aquí está a la venta ni se ofrece ningún servicio. Los ejemplos son inventados, y lo digo. Uso la IA para ayudarme a redactar, y lo leo y edito todo yo mismo. Las opiniones son mías.", s_a="",
           ab_eyebrow="Sobre mí", ab_h="Diego Guevara",
           ab_p=["Soy educador científico y doy clase a estudiantes de distintas edades y materias. Me interesa cómo la IA, la investigación y la conexión humana pueden ayudarnos a repensar el aprendizaje.",
-                "Este es un lugar personal donde pienso en voz alta: lo que voy notando, de lo que no estoy seguro y las ideas que sigo poniendo a prueba."],
+                "Este es un lugar personal donde pienso en voz alta: lo que voy notando, de lo que no estoy seguro y las ideas que sigo poniendo a prueba.",
+                f'También creo <a href="{DL}">Discovery Lab</a>, una colección gratuita de simulaciones científicas interactivas para mis estudiantes.'],
           ab_a="", ab_alt="Diego, educador científico",
           f_eyebrow="Súmate", f_h="¿Algo que te funciona?", f_p="Cuéntalo en los comentarios de cualquier vídeo. Los leo y aprendo de ellos.", f_b1="Ver en YouTube",
           ids=dict(explore="explorar", approach="enfoque", about="sobre"), files=dict(tut=None, priv="../en/privacy.html", about=None))
@@ -408,6 +410,7 @@ def about():
 <p>My background is in science and ecology, and I have worked in teaching, leadership and educational technology.</p>
 <p>What I keep noticing is that technology helps most when it protects time and attention for people. This site is where I explore that: what seems to work, what doesn't, and what the research says.</p>
 <p>I work in English and Spanish.</p>
+<p>I also build <a href="https://morehumaned.com/discovery-lab/">Discovery Lab</a>, a free collection of interactive science simulations for my students.</p>
 <p>This is a personal, independent project. Nothing here is for sale and I am not offering services. You can read more on <a href="privacy.html">About this site</a>.</p>
 </div></div></section>
 '''

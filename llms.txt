@@ -8,3 +8,6 @@
 - [About](https://morehumaned.com/en/about.html): about Diego Guevara
 - [About this site](https://morehumaned.com/en/privacy.html): independence, how AI is used, privacy
 - [Inicio (Spanish)](https://morehumaned.com/es/index.html): the site in Spanish
+
+## Side project
+- [Discovery Lab](https://morehumaned.com/discovery-lab/): a free collection of interactive science simulations built for my students
