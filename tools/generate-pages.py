@@ -252,6 +252,9 @@ def home(lang):
           lede="I'm Diego, a teacher. I'm exploring how AI, research and human connection can help us rethink learning, and I share what I find because I enjoy it and I hope something here helps another teacher.",
           b1="Read the ideas", b2="Watch the videos", by="By Diego Guevara, science educator.",
           wl_eyebrow="Start here", wl_h="Welcome to MoreHuman Ed", wl_p="A six-minute hello: why I'm sharing this, and what you will find here.", wl_play="Play video", wl_title="Welcome to MoreHuman Ed", wl_note="Plays from YouTube only when you press play.",
+          pu_eyebrow="My purpose", pu_h="Let machines do the machine work, and let people do the human work.",
+          pu_p="Much of a teacher's day is forms, formatting and repetition, and none of it needs a human heart. Technology can help carry that weight. What it can't do is notice the quiet student, listen with patience, or make someone feel seen. I'm exploring how to give teachers back the energy and attention for exactly that. My purpose is simple: to help as many people as I can learn, connect and grow, and to share what I learn along the way.",
+          dl_eyebrow="A bigger project", dl_h="Discovery Lab", dl_p="Discovery Lab is one of my bigger projects: a free collection of interactive simulations in science, Spanish, maths and more, where students practise real skills such as critical thinking and problem solving, and finish each activity with a short check on what they understood.", dl_btn="Explore Discovery Lab",
           ex_eyebrow="What I'm exploring", ex_h="Six questions I keep coming back to",
           ex_cards=[("AI and human intelligence","Where technology helps, where it gets in the way, and what should always stay human."),
                     ("Human connection and learning","Why feeling noticed is so often where learning begins."),
@@ -285,6 +288,9 @@ def home(lang):
           lede="Soy Diego, docente. Exploro cómo la IA, la investigación y la conexión humana pueden ayudarnos a repensar el aprendizaje, y comparto lo que encuentro porque lo disfruto y espero que algo de esto ayude a otra persona que enseña.",
           b1="Leer las ideas", b2="Ver los vídeos", by="Por Diego Guevara, educador científico.",
           wl_eyebrow="Empieza aquí", wl_h="Te damos la bienvenida a MoreHuman Ed", wl_p="Un saludo de seis minutos: por qué comparto esto y qué vas a encontrar aquí. El vídeo está en inglés.", wl_play="Reproducir vídeo", wl_title="Welcome to MoreHuman Ed", wl_note="Se reproduce desde YouTube solo cuando pulsas el botón.",
+          pu_eyebrow="Mi propósito", pu_h="Que las máquinas hagan el trabajo de las máquinas, y que las personas hagan el trabajo humano.",
+          pu_p="Buena parte del día de un docente son formularios, formatos y repetición, y nada de eso necesita un corazón humano. La tecnología puede ayudar a llevar ese peso. Lo que no puede es fijarse en el estudiante callado, escuchar con paciencia o hacer que alguien se sienta visto. Exploro cómo devolverle al profesorado la energía y la atención para eso. Mi propósito es sencillo: ayudar a tantas personas como pueda a aprender, conectar y crecer, y compartir lo que voy aprendiendo.",
+          dl_eyebrow="Un proyecto más grande", dl_h="Discovery Lab", dl_p="Discovery Lab es uno de mis proyectos más grandes: una colección gratuita de simulaciones interactivas de ciencias, español, matemáticas y más, donde el estudiantado practica habilidades reales, como el pensamiento crítico y la resolución de problemas, y termina cada actividad con una breve comprobación de lo que ha entendido.", dl_btn="Explorar Discovery Lab",
           ex_eyebrow="Lo que exploro", ex_h="Seis preguntas a las que vuelvo una y otra vez",
           ex_cards=[("IA e inteligencia humana","Dónde ayuda la tecnología, dónde estorba y qué debería seguir siendo siempre humano."),
                     ("Conexión humana y aprendizaje","Por qué sentirse visto es tantas veces el principio del aprendizaje."),
@@ -347,6 +353,9 @@ def home(lang):
 <div class="reveal from-right" style="--d:120ms"><span class="eyebrow">{X["wl_eyebrow"]}</span><span class="rule"></span><h2>{X["wl_h"]}</h2><p>{X["wl_p"]}</p><p class="welcome__note">{X["wl_note"]}</p></div>
 </div></section>
 
+<section class="tint purpose" id="purpose"><div class="shell">
+<div class="section-head reveal"><span class="eyebrow">{X["pu_eyebrow"]}</span><span class="rule"></span><h2>{X["pu_h"]}</h2><p>{X["pu_p"]}</p></div></div></section>
+
 <section id="{I["explore"]}"><div class="shell">
 <div class="section-head reveal"><span class="eyebrow">{X["ex_eyebrow"]}</span><span class="rule"></span><h2>{X["ex_h"]}</h2></div>
 <div class="grid-3 bento">{ex}</div></div></section>
@@ -371,6 +380,12 @@ def home(lang):
 <section id="notes"><div class="shell">
 <div class="section-head reveal"><span class="eyebrow">{X["n_eyebrow"]}</span><span class="rule"></span><h2>{X["n_h"]}</h2><p>{X["n_p"]}</p>
 <p style="margin-top:1.25rem"><a class="btn" href="{LI}">{X["n_b"]} <span class="arrow" aria-hidden="true">&rarr;</span></a></p></div></div></section>
+
+<section id="discovery-lab"><div class="shell">
+<div class="dl-feature reveal zoom">
+<div><span class="eyebrow">{X["dl_eyebrow"]}</span><h2>{X["dl_h"]}</h2><p>{X["dl_p"]}</p>
+<a class="btn" href="{DL}">{X["dl_btn"]} <span class="arrow" aria-hidden="true">&rarr;</span></a></div>
+{DL_MARK}</div></div></section>
 
 {BRK3}
 
