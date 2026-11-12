@@ -1,16 +1,10 @@
 # MoreHuman Ed
 
-> Practical systems that give teachers and trainers room to notice every learner. Workshops, short tutorials and a safe pilot for schools and training organisations, from an independent educator in Dunedin, New Zealand. Bilingual (English and Spanish). Designed to be accessible, including for readers with dyslexia, dyspraxia and other special educational needs. No learner-identifiable data is collected.
+> A personal, independent space for tips, ideas and reflections on keeping people at the centre of learning, by Diego Guevara, a science educator. Bilingual (English and Spanish). Nothing is for sale and no services are offered. The site uses no cookies or tracking.
 
 ## Pages
-- [Home](https://morehumaned.com/): what MoreHuman Ed offers
-- [Pilot](https://morehumaned.com/en/pilot.html): a small, safe pilot for a school or organisation
-- [Tutorials](https://morehumaned.com/en/tutorials.html): short practical videos
-- [About](https://morehumaned.com/en/about.html): about Diego Guevara, science educator and teacher trainer
-- [Privacy](https://morehumaned.com/en/privacy.html): how data is handled
+- [Home](https://morehumaned.com/): what I'm exploring, videos and notes
+- [Videos](https://morehumaned.com/en/tutorials.html): short videos with tips
+- [About](https://morehumaned.com/en/about.html): about Diego Guevara
+- [About this site](https://morehumaned.com/en/privacy.html): independence, how AI is used, privacy
 - [Inicio (Spanish)](https://morehumaned.com/es/index.html): the site in Spanish
-- [Piloto (Spanish)](https://morehumaned.com/es/piloto.html)
-
-## Discovery Lab
-- [Discovery Lab](https://morehumaned.com/discovery-lab/): free interactive science, computing and language simulations for primary and secondary students, each with an auto-marked check and a downloadable evidence report
-- [Discovery Lab activity list](https://morehumaned.com/discovery-lab/llms-full.txt): every live activity with a summary and level
