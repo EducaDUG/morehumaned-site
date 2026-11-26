@@ -25,7 +25,8 @@
 <link rel="stylesheet" href="../assets/site.css?v=3">
 <link rel="stylesheet" href="../assets/motion.css?v=3">
 <link rel="stylesheet" href="../assets/brandplus.css?v=3">
-<script>document.documentElement.classList.add('js')</script>
+<link rel="stylesheet" href="../assets/a11y-site.css?v=1">
+<script>document.documentElement.classList.add('js');try{var d=document.documentElement,p=JSON.parse(localStorage.getItem('dl-a11y-v1')||'{}');localStorage.setItem('dl-lang',d.lang==='es'?'es':'en');if(p.textSize)d.setAttribute('data-text-size',p.textSize);if(p.tint)d.setAttribute('data-tint',p.tint);if(p.spacing)d.setAttribute('data-spacing',p.spacing);if(p.plain)d.setAttribute('data-plainfont','on');if(p.dyslexia)d.setAttribute('data-dyslexia','on');if(p.motion==='on'||p.motion==='off')d.setAttribute('data-reduced-motion',p.motion)}catch(e){}</script>
 <script type="application/ld+json">{"@type": "Organization", "name": "MoreHuman Ed", "url": "https://morehumaned.com", "logo": "https://morehumaned.com/assets/img/logo-mark-512.png", "description": "Tips, ideas and reflections about learning.", "founder": {"@type": "Person", "name": "Diego Guevara", "jobTitle": "Science educator"}, "knowsLanguage": ["en", "es"], "sameAs": ["https://www.youtube.com/@morehumaned", "https://www.linkedin.com/in/diego-urrutia-guevara-150bb641/"], "@context": "https://schema.org"}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "name": "MoreHuman Ed", "url": "https://morehumaned.com", "inLanguage": "en"}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "How this site works | MoreHuman Ed", "description": "How I use AI, how I handle examples and sources, and how this site treats your privacy.", "url": "https://morehumaned.com/en/privacy.html", "inLanguage": "en", "isPartOf": {"@type": "WebSite", "url": "https://morehumaned.com"}, "accessibilityFeature": ["largePrint", "displayTransformability", "readingOrder", "highContrastDisplay"]}</script>
 </head>
 <body>
@@ -42,6 +43,10 @@
 <ul class="tick reveal"><li>Examples are invented, and I say so. No learner, family or colleague information appears.</li><li>I use AI to help draft and organise, and I read, check and edit everything myself.</li><li>I try to cite sources, and to say what I'm unsure about.</li><li>The views here are my own.</li></ul>
 <h2 class="reveal">Privacy</h2>
 <p>This site uses no cookies, no tracking and no forms. The video player loads from YouTube, in its privacy-enhanced mode, only if you press play. Nothing is loaded from YouTube before that.</p>
+<h2 class="reveal">Reading and listening settings</h2>
+<p>The round settings button at the bottom right lets you change text size, background colour, spacing, the typeface, a reading ruler and motion, and have text read aloud in English or Spanish, with a choice of accent and a female or male voice. These are reasonable adjustments to make reading more comfortable. They are not a treatment for anything.</p>
+<p>Your choices are saved on your own device only. Nothing about them is sent anywhere.</p>
+<p>The natural voices run entirely on your device. The first time you use one, its voice file (60 to 80 MB) is downloaded once from Hugging Face and kept on your device, and your text never leaves it. That is the one time this site fetches anything from another service, and only if you switch read-aloud on and ask for a voice. If a natural voice can't load, your browser's own voices are used instead.</p>
 </div></section>
 
 </main>
@@ -52,6 +57,8 @@
 </div></footer>
 <script src="../assets/site.js?v=3" defer></script>
 <script src="../assets/motion.js?v=3" defer></script>
-<script src="../assets/brandplus.js?v=3" defer data-panel></script>
+<script src="../assets/brandplus.js?v=3" defer></script>
+<script type="module" src="/discovery-lab/engine/accessibility.js"></script>
+<script type="module" src="../assets/a11y-read.js?v=1"></script>
 </body>
 </html>

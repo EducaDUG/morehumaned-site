@@ -25,7 +25,8 @@
 <link rel="stylesheet" href="assets/site.css?v=3">
 <link rel="stylesheet" href="assets/motion.css?v=3">
 <link rel="stylesheet" href="assets/brandplus.css?v=3">
-<script>document.documentElement.classList.add('js')</script>
+<link rel="stylesheet" href="assets/a11y-site.css?v=1">
+<script>document.documentElement.classList.add('js');try{var d=document.documentElement,p=JSON.parse(localStorage.getItem('dl-a11y-v1')||'{}');localStorage.setItem('dl-lang',d.lang==='es'?'es':'en');if(p.textSize)d.setAttribute('data-text-size',p.textSize);if(p.tint)d.setAttribute('data-tint',p.tint);if(p.spacing)d.setAttribute('data-spacing',p.spacing);if(p.plain)d.setAttribute('data-plainfont','on');if(p.dyslexia)d.setAttribute('data-dyslexia','on');if(p.motion==='on'||p.motion==='off')d.setAttribute('data-reduced-motion',p.motion)}catch(e){}</script>
 <script type="application/ld+json">{"@type": "Organization", "name": "MoreHuman Ed", "url": "https://morehumaned.com", "logo": "https://morehumaned.com/assets/img/logo-mark-512.png", "description": "Tips, ideas and reflections about learning.", "founder": {"@type": "Person", "name": "Diego Guevara", "jobTitle": "Science educator"}, "knowsLanguage": ["en", "es"], "sameAs": ["https://www.youtube.com/@morehumaned", "https://www.linkedin.com/in/diego-urrutia-guevara-150bb641/"], "@context": "https://schema.org"}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "name": "MoreHuman Ed", "url": "https://morehumaned.com", "inLanguage": "en"}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "MoreHuman Ed | Tips, ideas and reflections on learning", "description": "Tips, ideas and reflections on how AI, research and human connection can help us rethink learning, from a science educator.", "url": "https://morehumaned.com/", "inLanguage": "en", "isPartOf": {"@type": "WebSite", "url": "https://morehumaned.com"}, "accessibilityFeature": ["largePrint", "displayTransformability", "readingOrder", "highContrastDisplay"]}</script>
 <script>try{if(/^es\b/i.test(navigator.language||"")&&!/[?&]lang=en/.test(location.search)){location.replace("es/index.html")}}catch(e){}</script>
 </head>
@@ -123,6 +124,8 @@
 </div></footer>
 <script src="assets/site.js?v=3" defer></script>
 <script src="assets/motion.js?v=3" defer></script>
-<script src="assets/brandplus.js?v=3" defer data-panel></script>
+<script src="assets/brandplus.js?v=3" defer></script>
+<script type="module" src="/discovery-lab/engine/accessibility.js"></script>
+<script type="module" src="assets/a11y-read.js?v=1"></script>
 </body>
 </html>

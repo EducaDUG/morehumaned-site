@@ -1,0 +1,34 @@
+/* Reading settings for MoreHuman Ed pages.
+   The panel itself is Discovery Lab's (/discovery-lab/engine/accessibility.js). It sets data-* switches on <html>;
+   these rules teach this site's own CSS to respond to the ones the site did not already understand.
+   The extra tints (rose, peach, yellow, mint, aqua, lilac), spacing, plain font and reading ruler are injected by the panel itself. */
+
+html[data-text-size="s"] { font-size: 92%; }
+
+html[data-tint="dusk"] { --paper: #DCD7CE; --surface: #E8E4DC; --surface-2: #CCC6BB; }
+html[data-tint="warm"] { --surface-2: #EADFC9; }
+html[data-tint="cool"] { --surface-2: #D8E3EA; }
+
+html[data-tint="dark"] {
+  color-scheme: dark;
+  --paper: #1B1F23; --surface: #252A2F; --surface-2: #2F353B;
+  --ink: #ECEFF1; --ink-2: #B4BCC1; --ink-3: #8A9399;
+  --line: #ECEFF124; --line-strong: #ECEFF140;
+  --accent: #5FC2BC; --accent-hi: #7FD3CE; --accent-text: #7FD3CE; --accent-ink: #10141A;
+  --signal: #EDC04F; --signal-btn: #EDC04F;
+  --shadow-1: 0 1px 2px rgb(0 0 0 / 0.4);
+  --shadow-2: 0 2px 4px rgb(0 0 0 / 0.4), 0 8px 20px -8px rgb(0 0 0 / 0.6);
+  --shadow-3: 0 4px 8px rgb(0 0 0 / 0.4), 0 20px 48px -16px rgb(0 0 0 / 0.7);
+}
+/* Sections that are always dark keep light text when the page itself goes dark */
+html[data-tint="dark"] section.dark, html[data-tint="dark"] section.dark h2, html[data-tint="dark"] section.dark h3,
+html[data-tint="dark"] .final, html[data-tint="dark"] .final h2, html[data-tint="dark"] .final p { color: #ECEFF1; }
+html[data-tint="dark"] .btn.on-dark { color: #10141A; }
+html[data-tint="dark"] .photo-break__text, html[data-tint="dark"] .photo-break__text p { color: #fff; }
+
+/* The reading ruler and panel sit above the sticky header */
+.a11y-fab, .a11y-panel { z-index: 200; }
+
+/* Speaker buttons beside text (shown only when read-aloud is on) */
+.a11y-speak { margin-left: .5rem; }
+.hero__lede .a11y-speak, .section-head p .a11y-speak, .prose p .a11y-speak { vertical-align: middle; }
