@@ -6,6 +6,6 @@ Part of MoreHuman Ed: https://morehumaned.com/
 
 ## Start here
 
-- [Home](https://educadug.github.io/discovery-lab/): choose Primary or Secondary
-- [About](https://educadug.github.io/discovery-lab/about/): about the author and approach
-- [Full list of activities](https://educadug.github.io/discovery-lab/llms-full.txt): every live activity with a summary
+- [Home](https://morehumaned.com/discovery-lab/): choose Primary or Secondary
+- [About](https://morehumaned.com/discovery-lab/about/): about the author and approach
+- [Full list of activities](https://morehumaned.com/discovery-lab/llms-full.txt): every live activity with a summary
