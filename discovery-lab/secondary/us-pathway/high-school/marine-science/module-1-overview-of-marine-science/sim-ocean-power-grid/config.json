@@ -1,0 +1,563 @@
+{
+  "activityId": "USDP-MAR-M01-SIM02",
+  "version": "3.3",
+  "title": "Ocean Power: Keep the Lights On",
+  "subtitle": "Run the OceanCurrents simulator: compare 13 marine energy technologies across a 10-day natural weather cycle in a 3D bay, then build, price and maintain a grid that keeps Pacifica Bay powered, solvent and happy.",
+  "course": "Marine Science",
+  "pathway": "US Pathway",
+  "module": "High School — Module 1: Overview of Marine Science",
+  "theme": "physics",
+  "ageBand": "secondary",
+  "estimatedMinutes": 35,
+  "assessmentMode": "formative",
+  "learningFocus": {
+    "skills": [
+      "Scientific enquiry",
+      "Systems thinking",
+      "Mathematical reasoning",
+      "Data analysis",
+      "Critical thinking",
+      "Communication"
+    ],
+    "summary": "Students work inside OceanCurrents, a marine renewable-energy simulator built around Pacifica Bay, a coastal city of 28,000 people that needs about 10 MW. In a 3D bay they place 13 real technologies in the correct depth zone (shallow coast, continental shelf or deep ocean): fixed and floating offshore wind, point-absorber, oscillating-water-column, attenuator and surge-flap wave converters, tidal-stream turbines and kites, osmotic salinity-gradient plants, floating solar, ocean thermal energy conversion (OTEC), and subsea battery and hydrogen storage. They watch a natural 10-day weather cycle (sunny, breezy, storm, overcast, spring tide, swell, doldrums, trade winds, gale and lunar peak current) and read live measurements of wind speed (kts), significant wave height Hs and wave energy flux (0.49 × Hs² × Te, kW per metre), tidal current (kts), surface and deep water temperature and sunlight, and log snapshots of power by technology (MW), demand, storage, price, treasury, citizen approval and blackout hours as evidence. They then manage the engineering and economic trade-offs: kWh and the price charged to households against levelised cost of energy (LCOE), daily operating costs, biofouling and structural integrity, the service workboat and the air-drop helicopter, R&D unlocks, and the land and CO2 saved by building offshore rather than on land. Through three missions, the Field Guide and the Land-vs-Ocean lab they connect the Module 1 big idea of renewable versus non-renewable energy to quantitative reasoning, systems thinking and evidence-based evaluation at US high-school level."
+  },
+  "orient": {
+    "objective": "Compare how offshore wind, waves, tides, ocean heat, salinity, sunlight and storage behave as the weather changes from day to day, using the real physics and the kW/MW, kWh, price and LCOE measurements in the OceanCurrents simulator to design a coastal grid that keeps Pacifica Bay powered, solvent and happy.",
+    "courseLink": "Marine Science, High School, Module 1: Overview of Marine Science. This is the module's renewable-versus-non-renewable energy idea in action; the ocean's currents, waves, tides and thermal layers return in depth in later modules.",
+    "successCriteria": [
+      "Use your own logged snapshots to explain which technologies depend on sunlight, wind, waves, tides or temperature, and which keep running 24/7.",
+      "Use kW, MW and kWh correctly, and explain how the price per kWh, the treasury, maintenance (biofouling and integrity) and citizen happiness affect each other.",
+      "Compare at least three of the 13 ocean technologies: what is available now, what is still under development, and which depth zone each belongs in."
+    ],
+    "mission": "Welcome aboard, Marine Engineer. Pacifica Bay (28,000 residents, about 10 MW) wants to run on ocean power alone. Explore 13 technologies in a 3D bay, watch the weather change day by day, log real measurements, then build, price and maintain a grid that never goes dark.",
+    "steps": [
+      "Label a real offshore turbine and play with kW × hours = kWh.",
+      "Meet the 13 ocean technologies: what is available now and what is still being developed.",
+      "Notice real details in three photographs of ocean energy at work.",
+      "Pin down the real scientific question, then write your hypothesis.",
+      "Run the OceanCurrents simulator: build in the right depth zone, let the natural weather cycle run, set the price, send the workboat — and log at least 3 snapshots on at least 2 different weather days.",
+      "Finish a mission and save its result to your Investigation Record.",
+      "Explain your data, apply it to a council proposal, then answer the Knowledge Check.",
+      "Press Generate Learning Evidence to download your Marine Science lab report."
+    ],
+    "realLife": "Every time you charge a phone or switch on a light you use kilowatt-hours that someone has to generate at that very moment. Coastal countries from Scotland to the USA are already building offshore wind farms and testing wave, tidal and thermal machines — the ocean covers 71% of the planet and never stops moving — but the same sea that powers a city also grows barnacles on the turbines and throws storms at them, so keeping them running is a real engineering and budget challenge.",
+    "scientificObservation": "Wind farms, wave machines and underwater turbines already work off the coasts of several countries, yet the same sea that powers them also fouls them with barnacles and batters them in storms.",
+    "scientificQuestion": "How do ocean conditions (wind, waves, tides, sunlight and water temperature) change the power each marine energy technology delivers, and what mix of technologies, price per kWh and maintenance keeps a coastal city powered, solvent and happy?"
+  },
+  "question": {
+    "type": "mc",
+    "prompt": "Before you start, pin down the real question this investigation is designed to answer.",
+    "hint": "Pick the one real, testable question — not just a fact about the ocean.",
+    "options": [
+      {
+        "id": "a",
+        "label": "How do ocean conditions (wind, waves, tides, sunlight and water temperature) change the power each marine energy technology delivers, and what mix of technologies, price per kWh and maintenance keeps a coastal city powered, solvent and happy?"
+      },
+      {
+        "id": "b",
+        "label": "Which ocean has the most fish?"
+      },
+      {
+        "id": "c",
+        "label": "How deep is the deepest part of the Pacific Ocean?"
+      },
+      {
+        "id": "d",
+        "label": "Are wind turbines noisy for people living near the coast?"
+      }
+    ]
+  },
+  "predict": {
+    "type": "mc",
+    "prompt": "Choose the hypothesis you believe is correct — a full \"If..., then..., because...\" statement comparing a stormy day with a sunny day at the same hour.",
+    "hint": "Only one option gives a reason that is actually about what each technology depends on.",
+    "options": [
+      {
+        "id": "a",
+        "label": "If I compare the Ocean Swell Storm day with the Sunny & Fair day at the same hour, then floating solar output will fall sharply while wave-converter output rises, because solar needs direct sunlight (storm clouds block it) while wave power depends on wave height, which a storm increases."
+      },
+      {
+        "id": "b",
+        "label": "If I compare the Ocean Swell Storm day with the Sunny & Fair day at the same hour, then every technology will fall by about the same amount, because storms darken the whole ocean."
+      },
+      {
+        "id": "c",
+        "label": "If I compare the Ocean Swell Storm day with the Sunny & Fair day at the same hour, then floating solar output will rise, because storm winds blow the panels clean."
+      },
+      {
+        "id": "d",
+        "label": "If I compare the Ocean Swell Storm day with the Sunny & Fair day at the same hour, then nothing will change anywhere, because the grid always balances itself."
+      }
+    ],
+    "revisable": true
+  },
+  "investigate": {
+    "title": "The OceanCurrents Marine Energy Simulator",
+    "lede": "The weather changes by itself every day in a 10-day cycle (open the forecast pill to see what is coming). Build a Floating Solar Island and a few other technologies first, keep your build and price the same, then speed time up and log at least 3 snapshots on at least 2 different weather days at about the SAME hour of the day (for example Day 1 Sunny & Fair and Day 3 Ocean Swell Storm) to test your hypothesis. Then build, price and maintain Pacifica Bay's grid and finish a mission."
+  },
+  "record": {
+    "intro": "Every row you log here is your real evidence — snapshots of the live ocean conditions and the grid, or the result of a mission you finished in the simulator. Nothing is typed from memory. Key: Weather = the weather day and time of day; Wave Hs = significant wave height; Flux = wave energy flux; Tide = tidal current; Output = ocean generation; By tech = MW from each technology; Happy = citizen approval; Outage = blackout hours so far.",
+    "emptyText": "No snapshots yet. Open the simulator and log one.",
+    "columns": [
+      {
+        "key": "cond",
+        "label": "Weather"
+      },
+      {
+        "key": "wind",
+        "label": "Wind",
+        "unit": "kts"
+      },
+      {
+        "key": "hs",
+        "label": "Wave Hs",
+        "unit": "m"
+      },
+      {
+        "key": "flux",
+        "label": "Flux",
+        "unit": "kW/m"
+      },
+      {
+        "key": "tide",
+        "label": "Tide",
+        "unit": "kts"
+      },
+      {
+        "key": "gen",
+        "label": "Output",
+        "unit": "MW"
+      },
+      {
+        "key": "demand",
+        "label": "Demand",
+        "unit": "MW"
+      },
+      {
+        "key": "mix",
+        "label": "By tech",
+        "unit": "MW"
+      },
+      {
+        "key": "tariff",
+        "label": "Price",
+        "unit": "$/kWh"
+      },
+      {
+        "key": "funds",
+        "label": "Funds",
+        "unit": "$"
+      },
+      {
+        "key": "approval",
+        "label": "Happy",
+        "unit": "%"
+      },
+      {
+        "key": "blackout",
+        "label": "Outage",
+        "unit": "h"
+      }
+    ]
+  },
+  "explain": {
+    "prompt": "Look back at your Investigation Record. Compare two snapshots taken on different weather days at about the same hour of the day: say how the output of at least one technology changed while another did not, explain WHY using the physics of that resource (for example sunlight, wave energy flux, tidal current or the ocean's temperature gradient), and say whether your hypothesis was supported.",
+    "lede": "Use the wind, Hs, tidal current and MW-by-technology values from your own snapshots as evidence — this answers the scientific question you started with.",
+    "frame": "Try this shape: \"In the ___ snapshot, ___ produced ___ MW, but in the ___ snapshot it produced ___ MW, while ___ stayed at about ___ MW. This happened because ___. My hypothesis was ___ because ___.\"",
+    "placeholder": "In the first snapshot...",
+    "maxMarks": 3,
+    "minChars": 90,
+    "skillFocus": "Use evidence from your own investigation and explain your reasoning clearly."
+  },
+  "apply": {
+    "prompt": "The Pacifica Bay council proposes to power the whole city with floating solar and offshore wind only, and to set the price at $0.05 per kWh to win votes. Evaluate this plan. In your answer, explain why this mix would leave the city short of power at times, name ONE other technology that would fix this and explain why it helps, and explain how the price per kWh must balance citizen happiness against the money the treasury needs for maintenance and new construction.",
+    "lede": "Think about what you saw in the simulator: night time, a stormy or overcast day, slack wind, the evening demand peak, barnacles and the service workboat.",
+    "frame": "Structure your answer in three parts: (1) why solar + wind alone leave gaps, (2) another technology (or storage) and why it helps, (3) the price trade-off.",
+    "placeholder": "A solar-and-wind-only plan would leave gaps because...",
+    "maxMarks": 3,
+    "minChars": 110,
+    "skillFocus": "Apply what you found to a new situation, weigh the options and explain your reasoning clearly, part by part."
+  },
+  "knowledgeCheck": [
+    {
+      "id": "kc1",
+      "type": "numeric",
+      "prompt": "A household uses 900 kWh in a month and the city charges $0.18 per kWh. What is the household's monthly electricity bill?",
+      "marks": 1,
+      "answer": 162,
+      "tolerance": 0,
+      "unit": "$",
+      "min": 0,
+      "max": 1000,
+      "explain": "Cost = energy × price: 900 kWh × $0.18/kWh = $162. Mission 1 asks you to keep bills under about $150 a month (roughly $0.16/kWh)."
+    },
+    {
+      "id": "kc2",
+      "type": "mc",
+      "prompt": "Significant wave height doubles from 2 m to 4 m while the wave period stays the same. Using P = 0.49 × Hs² × Te, the wave energy flux per metre of crest changes by about...",
+      "marks": 1,
+      "options": [
+        {
+          "id": "a",
+          "label": "2 times"
+        },
+        {
+          "id": "b",
+          "label": "4 times"
+        },
+        {
+          "id": "c",
+          "label": "8 times"
+        },
+        {
+          "id": "d",
+          "label": "It does not change"
+        }
+      ],
+      "answer": "b",
+      "explain": "Wave power depends on the square of wave height: 2² = 4. A 4 m swell carries four times the energy per metre of a 2 m swell (when Te is unchanged)."
+    },
+    {
+      "id": "kc3",
+      "type": "match",
+      "prompt": "Match each technology to the statement that describes it best.",
+      "marks": 4,
+      "pairs": [
+        {
+          "left": "Subsea tidal stream turbine",
+          "right": "Predictable years ahead because the Moon drives it, and unaffected by clouds"
+        },
+        {
+          "left": "OTEC platform",
+          "right": "Runs 24/7 by using the roughly 20 °C gap between warm surface water and cold deep water"
+        },
+        {
+          "left": "Floating marine solar island",
+          "right": "Produces nothing at night or under heavy cloud, though seawater cooling boosts its yield"
+        },
+        {
+          "left": "Subsea battery hub",
+          "right": "Does not generate power: it stores surplus and releases it at the evening peak"
+        }
+      ],
+      "explain": "Tidal turbines follow the Moon and ignore the weather; OTEC is steady baseload from the ocean's temperature gradient; floating solar needs daylight and clear skies; and a battery is storage, not generation."
+    },
+    {
+      "id": "kc4",
+      "type": "mc",
+      "prompt": "Barnacles and kelp (biofouling) build up on an ocean energy device. What is the main effect?",
+      "marks": 1,
+      "options": [
+        {
+          "id": "a",
+          "label": "It makes the device produce more power"
+        },
+        {
+          "id": "b",
+          "label": "It reduces the device's efficiency (up to about 30% power loss) until a service boat scrubs it clean"
+        },
+        {
+          "id": "c",
+          "label": "It has no effect on output, only on appearance"
+        },
+        {
+          "id": "d",
+          "label": "It changes the tariff paid by households"
+        }
+      ],
+      "answer": "b",
+      "explain": "Biofouling adds drag and slows moving parts, cutting output until the device is scrubbed; ignoring maintenance leaves the city with less power and a bigger repair bill later."
+    }
+  ],
+  "rubric": {
+    "note": "You are graded out of 15 marks, shown as a percentage. The Knowledge Check is marked for you automatically; your teacher marks the two written answers.",
+    "criteria": [
+      {
+        "key": "knowledge_accuracy",
+        "label": "Knowledge & understanding",
+        "descriptor": "Bill and kWh calculation, wave energy flux, how each technology behaves and what biofouling does — all correct in the Knowledge Check.",
+        "max": 7,
+        "auto": true
+      },
+      {
+        "key": "use_of_evidence",
+        "label": "Use of evidence",
+        "max": 3,
+        "studentHint": "Use evidence clearly from your own investigation to support your answer."
+      },
+      {
+        "key": "reasoning",
+        "label": "Scientific reasoning",
+        "max": 3,
+        "studentHint": "Explain the scientific reasoning behind your answer, applying it correctly to the situation asked about."
+      },
+      {
+        "key": "communication",
+        "label": "Communication",
+        "max": 2,
+        "studentHint": "Write clearly, in full sentences, using correct scientific vocabulary."
+      }
+    ]
+  },
+  "es": {
+    "title": "Energía del océano: mantén las luces encendidas",
+    "subtitle": "Ejecuta el simulador OceanCurrents: compara 13 tecnologías de energía marina a lo largo de un ciclo natural de 10 días de clima en una bahía 3D y luego construye, fija el precio y mantén una red que mantenga a Pacifica Bay abastecida, solvente y feliz.",
+    "module": "Secundaria — Módulo 1: Panorama de las Ciencias Marinas",
+    "course": "Ciencias Marinas",
+    "pathway": "Itinerario de EE. UU.",
+    "learningFocus": {
+      "skills": [
+        "Indagación científica",
+        "Pensamiento sistémico",
+        "Razonamiento matemático",
+        "Análisis de datos",
+        "Pensamiento crítico",
+        "Comunicación"
+      ],
+      "summary": "Los estudiantes trabajan dentro de OceanCurrents, un simulador de energía renovable marina centrado en Pacifica Bay, una ciudad costera de 28.000 habitantes que necesita unos 10 MW. En una bahía 3D colocan 13 tecnologías reales en la zona de profundidad correcta (costa somera, plataforma continental u océano profundo): eólica marina fija y flotante, convertidores de olas de absorción puntual, de columna de agua oscilante, atenuadores y de aleta de oleaje, turbinas y cometas de corriente de marea, plantas osmóticas de gradiente salino, solar flotante, conversión de energía térmica oceánica (OTEC) y almacenamiento submarino en baterías e hidrógeno. Observan un ciclo natural de 10 días de clima (soleado, brisa, tormenta, nublado, marea viva, oleaje, calmas, alisios, temporal y corriente lunar máxima) y leen medidas en vivo de la velocidad del viento (nudos), la altura significativa de ola Hs y el flujo de energía de ola (0,49 × Hs² × Te, kW por metro), la corriente de marea (nudos), la temperatura del agua en superficie y fondo y la luz solar, y registran instantáneas de la potencia por tecnología (MW), la demanda, el almacenamiento, el precio, la tesorería, la aprobación ciudadana y las horas de apagón como evidencia. Después gestionan los compromisos de ingeniería y economía: kWh y el precio cobrado a los hogares frente al coste nivelado de la energía (LCOE), los costes diarios de operación, la bioincrustación y la integridad estructural, el barco de servicio y el helicóptero, los desbloqueos de I+D y la tierra y el CO2 que se ahorran construyendo en el mar en vez de en tierra. Con tres misiones, la Guía de campo y el laboratorio Tierra vs Océano conectan la gran idea del Módulo 1 sobre energía renovable y no renovable con razonamiento cuantitativo, pensamiento sistémico y evaluación basada en evidencia."
+    },
+    "orient": {
+      "objective": "Comparar cómo se comportan la eólica marina, las olas, las mareas, el calor del océano, la salinidad, la luz solar y el almacenamiento cuando el clima cambia de un día a otro, usando la física real y las medidas de kW/MW, kWh, precio y LCOE del simulador OceanCurrents para diseñar una red costera que mantenga a Pacifica Bay abastecida, solvente y feliz.",
+      "courseLink": "Ciencias Marinas, Secundaria, Módulo 1: Panorama de las Ciencias Marinas. Es la idea de energía renovable frente a no renovable del módulo en acción; las corrientes, olas, mareas y capas térmicas del océano volverán con más detalle en módulos posteriores.",
+      "successCriteria": [
+        "Usar tus propias instantáneas registradas para explicar qué tecnologías dependen de la luz solar, el viento, las olas, las mareas o la temperatura, y cuáles siguen funcionando 24/7.",
+        "Usar correctamente kW, MW y kWh, y explicar cómo se afectan entre sí el precio por kWh, la tesorería, el mantenimiento (bioincrustación e integridad) y la felicidad ciudadana.",
+        "Comparar al menos tres de las 13 tecnologías oceánicas: qué está disponible hoy, qué sigue en desarrollo y a qué zona de profundidad pertenece cada una."
+      ],
+      "mission": "Bienvenido a bordo, ingeniero marino. Pacifica Bay (28.000 habitantes, unos 10 MW) quiere funcionar solo con energía oceánica. Explora 13 tecnologías en una bahía 3D, observa cómo cambia el clima día a día, registra medidas reales y luego construye, fija el precio y mantén una red que nunca se apague.",
+      "steps": [
+        "Etiqueta una turbina eólica marina real y juega con kW × horas = kWh.",
+        "Conoce las 13 tecnologías oceánicas: qué está disponible hoy y qué se sigue desarrollando.",
+        "Fíjate en detalles reales en tres fotografías de energía oceánica en acción.",
+        "Define la pregunta científica real y escribe tu hipótesis.",
+        "Ejecuta el simulador OceanCurrents: construye en la zona de profundidad correcta, deja correr el ciclo natural de clima, fija el precio, envía el barco — y registra al menos 3 instantáneas en al menos 2 días de clima distintos.",
+        "Termina una misión y guarda su resultado en tu Registro de investigación.",
+        "Explica tus datos, aplícalos a la propuesta de un concejo y responde la Comprobación de conocimientos.",
+        "Pulsa Generar evidencia de aprendizaje para descargar tu informe de laboratorio de Ciencias Marinas."
+      ],
+      "realLife": "Cada vez que cargas el teléfono o enciendes una luz usas kilovatios-hora que alguien tiene que generar en ese mismo instante. Países costeros desde Escocia hasta EE. UU. ya construyen parques eólicos marinos y prueban máquinas de olas, mareas y calor oceánico — el océano cubre el 71% del planeta y nunca deja de moverse —, pero el mismo mar que abastece una ciudad también llena de percebes las turbinas y les lanza tormentas, así que mantenerlas funcionando es un reto real de ingeniería y de presupuesto.",
+      "scientificObservation": "Parques eólicos, máquinas de olas y turbinas submarinas ya funcionan frente a las costas de varios países, pero el mismo mar que las alimenta también las ensucia de percebes y las golpea en las tormentas.",
+      "scientificQuestion": "¿Cómo cambian las condiciones oceánicas (viento, olas, mareas, luz solar y temperatura del agua) la potencia que entrega cada tecnología de energía marina, y qué mezcla de tecnologías, precio por kWh y mantenimiento mantiene a una ciudad costera abastecida, solvente y feliz?"
+    },
+    "question": {
+      "prompt": "Antes de empezar, define la pregunta real que esta investigación está diseñada para responder.",
+      "hint": "Elige la única pregunta real y comprobable — no solo un dato sobre el océano.",
+      "options": [
+        {
+          "id": "a",
+          "label": "¿Cómo cambian las condiciones oceánicas (viento, olas, mareas, luz solar y temperatura del agua) la potencia que entrega cada tecnología de energía marina, y qué mezcla de tecnologías, precio por kWh y mantenimiento mantiene a una ciudad costera abastecida, solvente y feliz?"
+        },
+        {
+          "id": "b",
+          "label": "¿Qué océano tiene más peces?"
+        },
+        {
+          "id": "c",
+          "label": "¿Qué profundidad tiene la parte más honda del océano Pacífico?"
+        },
+        {
+          "id": "d",
+          "label": "¿Son ruidosas las turbinas eólicas para quienes viven cerca de la costa?"
+        }
+      ]
+    },
+    "predict": {
+      "prompt": "Elige la hipótesis que crees correcta — una frase completa \"Si..., entonces..., porque...\" que compare un día de tormenta con un día soleado a la misma hora.",
+      "hint": "Solo una opción da una razón que trate realmente de qué depende cada tecnología.",
+      "options": [
+        {
+          "id": "a",
+          "label": "Si comparo el día de Tormenta con oleaje con el día Soleado y despejado a la misma hora, entonces la salida de la solar flotante caerá mucho mientras la de los convertidores de olas sube, porque la solar necesita luz solar directa (las nubes de tormenta la bloquean) mientras que la potencia de las olas depende de la altura de ola, que una tormenta aumenta."
+        },
+        {
+          "id": "b",
+          "label": "Si comparo el día de Tormenta con oleaje con el día Soleado y despejado a la misma hora, entonces todas las tecnologías caerán más o menos lo mismo, porque las tormentas oscurecen todo el océano."
+        },
+        {
+          "id": "c",
+          "label": "Si comparo el día de Tormenta con oleaje con el día Soleado y despejado a la misma hora, entonces la salida de la solar flotante subirá, porque el viento de la tormenta deja limpios los paneles."
+        },
+        {
+          "id": "d",
+          "label": "Si comparo el día de Tormenta con oleaje con el día Soleado y despejado a la misma hora, entonces no cambiará nada en ningún sitio, porque la red siempre se equilibra sola."
+        }
+      ]
+    },
+    "investigate": {
+      "title": "El simulador de energía marina OceanCurrents",
+      "lede": "El clima cambia solo cada día en un ciclo de 10 días (abre el botón del pronóstico para ver lo que viene). Construye primero una isla solar flotante y algunas otras tecnologías, mantén igual tu construcción y el precio, acelera el tiempo y registra al menos 3 instantáneas en al menos 2 días de clima distintos a una hora PARECIDA del día (por ejemplo el día 1 Soleado y despejado y el día 3 Tormenta con oleaje) para probar tu hipótesis. Luego construye, fija el precio y mantén la red de Pacifica Bay y termina una misión."
+    },
+    "record": {
+      "intro": "Cada fila que registras aquí es tu evidencia real — instantáneas de las condiciones oceánicas en vivo y de la red, o el resultado de una misión terminada en el simulador. Nada se escribe de memoria. Clave: Clima = día de clima y hora del día; Ola Hs = altura significativa de ola; Flujo = flujo de energía de ola; Marea = corriente de marea; Salida = generación oceánica; Por tec. = MW de cada tecnología; Ánimo = aprobación ciudadana; Apagón = horas de apagón acumuladas.",
+      "emptyText": "Todavía no hay instantáneas. Abre el simulador y registra una.",
+      "columns": [
+        {
+          "key": "cond",
+          "label": "Clima"
+        },
+        {
+          "key": "wind",
+          "label": "Viento",
+          "unit": "nudos"
+        },
+        {
+          "key": "hs",
+          "label": "Ola Hs",
+          "unit": "m"
+        },
+        {
+          "key": "flux",
+          "label": "Flujo",
+          "unit": "kW/m"
+        },
+        {
+          "key": "tide",
+          "label": "Marea",
+          "unit": "nudos"
+        },
+        {
+          "key": "gen",
+          "label": "Salida",
+          "unit": "MW"
+        },
+        {
+          "key": "demand",
+          "label": "Demanda",
+          "unit": "MW"
+        },
+        {
+          "key": "mix",
+          "label": "Por tec.",
+          "unit": "MW"
+        },
+        {
+          "key": "tariff",
+          "label": "Precio",
+          "unit": "$/kWh"
+        },
+        {
+          "key": "funds",
+          "label": "Fondos",
+          "unit": "$"
+        },
+        {
+          "key": "approval",
+          "label": "Ánimo",
+          "unit": "%"
+        },
+        {
+          "key": "blackout",
+          "label": "Apagón",
+          "unit": "h"
+        }
+      ]
+    },
+    "explain": {
+      "prompt": "Mira tu Registro de investigación. Compara dos instantáneas tomadas en días de clima distintos a una hora parecida del día: di cómo cambió la salida de al menos una tecnología mientras otra no cambió, explica POR QUÉ usando la física de ese recurso (por ejemplo la luz solar, el flujo de energía de ola, la corriente de marea o el gradiente de temperatura del océano) y di si tu hipótesis se confirmó.",
+      "lede": "Usa el viento, Hs, la corriente de marea y los MW por tecnología de tus propias instantáneas como evidencia — esto responde la pregunta científica con la que empezaste.",
+      "frame": "Prueba esta estructura: \"En la instantánea ___, ___ produjo ___ MW, pero en la instantánea ___ produjo ___ MW, mientras que ___ se mantuvo en unos ___ MW. Esto ocurrió porque ___. Mi hipótesis fue ___ porque ___.\"",
+      "placeholder": "En la primera instantánea...",
+      "skillFocus": "Usa evidencia de tu propia investigación y explica tu razonamiento con claridad."
+    },
+    "apply": {
+      "prompt": "El concejo de Pacifica Bay propone abastecer toda la ciudad solo con solar flotante y eólica marina, y fijar el precio en $0,05 por kWh para ganar votos. Evalúa este plan. En tu respuesta, explica por qué esta mezcla dejaría a la ciudad sin energía en algunos momentos, nombra UNA otra tecnología que lo resolvería y explica por qué ayuda, y explica cómo el precio por kWh debe equilibrar la felicidad ciudadana con el dinero que la tesorería necesita para mantenimiento y nuevas obras.",
+      "lede": "Piensa en lo que viste en el simulador: la noche, un día nublado o de tormenta, el viento flojo, la hora punta de demanda de la tarde, los percebes y el barco de servicio.",
+      "frame": "Estructura tu respuesta en tres partes: (1) por qué solar + eólica solas dejan huecos, (2) otra tecnología (o almacenamiento) y por qué ayuda, (3) el equilibrio del precio.",
+      "placeholder": "Un plan solo con solar y eólica dejaría huecos porque...",
+      "skillFocus": "Aplica lo que descubriste a una situación nueva, sopesa las opciones y explica tu razonamiento con claridad, parte por parte."
+    },
+    "knowledgeCheck": [
+      {
+        "id": "kc1",
+        "prompt": "Un hogar usa 900 kWh en un mes y la ciudad cobra $0,18 por kWh. ¿Cuál es la factura mensual de electricidad del hogar?",
+        "explain": "Coste = energía × precio: 900 kWh × $0,18/kWh = $162. La Misión 1 te pide mantener las facturas por debajo de unos $150 al mes (aprox. $0,16/kWh)."
+      },
+      {
+        "id": "kc2",
+        "prompt": "La altura significativa de ola se duplica de 2 m a 4 m mientras el periodo no cambia. Usando P = 0,49 × Hs² × Te, el flujo de energía de ola por metro de cresta cambia aproximadamente...",
+        "options": [
+          {
+            "id": "a",
+            "label": "2 veces"
+          },
+          {
+            "id": "b",
+            "label": "4 veces"
+          },
+          {
+            "id": "c",
+            "label": "8 veces"
+          },
+          {
+            "id": "d",
+            "label": "No cambia"
+          }
+        ],
+        "explain": "La potencia de las olas depende del cuadrado de la altura: 2² = 4. Un oleaje de 4 m lleva cuatro veces la energía por metro de uno de 2 m (con Te sin cambios)."
+      },
+      {
+        "id": "kc3",
+        "prompt": "Empareja cada tecnología con la afirmación que mejor la describe.",
+        "pairs": [
+          {
+            "left": "Turbina submarina de corriente de marea",
+            "right": "Predecible con años de antelación porque la mueve la Luna, y no le afectan las nubes"
+          },
+          {
+            "left": "Plataforma OTEC",
+            "right": "Funciona 24/7 aprovechando la diferencia de unos 20 °C entre el agua cálida de la superficie y la fría del fondo"
+          },
+          {
+            "left": "Isla solar marina flotante",
+            "right": "No produce nada de noche ni con mucha nubosidad, aunque el enfriamiento del agua de mar aumenta su rendimiento"
+          },
+          {
+            "left": "Centro submarino de baterías",
+            "right": "No genera energía: almacena el excedente y lo libera en la hora punta de la tarde"
+          }
+        ],
+        "explain": "Las turbinas de marea siguen a la Luna e ignoran el clima; la OTEC es una base estable gracias al gradiente de temperatura del océano; la solar flotante necesita luz y cielo despejado; y una batería es almacenamiento, no generación."
+      },
+      {
+        "id": "kc4",
+        "prompt": "Percebes y algas (bioincrustación) se acumulan en un dispositivo de energía oceánica. ¿Cuál es el efecto principal?",
+        "options": [
+          {
+            "id": "a",
+            "label": "Hace que el dispositivo produzca más energía"
+          },
+          {
+            "id": "b",
+            "label": "Reduce su eficiencia (hasta un 30% de pérdida de potencia) hasta que un barco de servicio lo limpia"
+          },
+          {
+            "id": "c",
+            "label": "No afecta a la producción, solo al aspecto"
+          },
+          {
+            "id": "d",
+            "label": "Cambia la tarifa que pagan los hogares"
+          }
+        ],
+        "explain": "La bioincrustación añade arrastre y frena las piezas móviles, reduciendo la salida hasta que se limpia el dispositivo; ignorar el mantenimiento deja a la ciudad con menos energía y una reparación más cara después."
+      }
+    ],
+    "rubric": {
+      "note": "Tu nota son los puntos que obtienes de 15, como porcentaje. La Comprobación de conocimientos se corrige sola; tu profesor corrige las dos respuestas escritas.",
+      "criteria": [
+        {
+          "descriptor": "Cálculo de factura y kWh, flujo de energía de ola, cómo se comporta cada tecnología y qué hace la bioincrustación — todo correcto en la Comprobación de conocimientos."
+        },
+        {
+          "studentHint": "Usa con claridad evidencia de tu propia investigación para respaldar tu respuesta."
+        },
+        {
+          "studentHint": "Explica el razonamiento científico detrás de tu respuesta, aplicándolo correctamente a la situación planteada."
+        },
+        {
+          "studentHint": "Escribe con claridad, en frases completas, usando el vocabulario científico correcto."
+        }
+      ]
+    }
+  }
+}

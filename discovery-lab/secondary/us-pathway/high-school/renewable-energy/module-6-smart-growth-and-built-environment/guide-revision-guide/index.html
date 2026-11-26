@@ -1,0 +1,1534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 6: Sustainable Cities, Smart Growth & Conservation | Discovery Lab</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;600;700&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --brandGreen: #1E4D2B;
+            --brandGreenLight: #2D5A27;
+            --brandAmber: #D97736;
+            --brandBlue: #3B5B78;
+            --parchment: #F2EFE6;
+            --cardBg: #FAF8F5;
+            --cardBorder: #E2DDD0;
+            --ink: #1D211C;
+            --inkLight: #4A4E48;
+            --white: #FFFFFF;
+            --correctGreen: #2e7d32;
+            --incorrectRed: #c62828;
+
+            --font-serif: 'Fraunces', Georgia, serif;
+            --font-sans: 'Public Sans', system-ui, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--parchment);
+            color: var(--ink);
+            line-height: 1.6;
+            font-size: 16px;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: var(--font-serif);
+            color: var(--brandGreen);
+            line-height: 1.2;
+        }
+
+        .eyebrow {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 700;
+            color: var(--brandAmber);
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        /* ---- Discovery Lab site chrome ---- */
+        .dl-head { background: var(--cardBg); border-bottom: 2px solid var(--cardBorder); padding: .9rem 1.25rem; }
+        .dl-head__inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+        .dl-wordmark { display: flex; align-items: center; gap: .5rem; font-family: var(--font-serif); font-weight: 700; font-size: 1.05rem; color: var(--ink); text-decoration: none; }
+        .dl-wordmark:hover { color: var(--brandGreen); }
+        .dl-about { font-size: .78rem; text-transform: uppercase; letter-spacing: .08em; color: var(--inkLight); text-decoration: none; }
+        .dl-about:hover { color: var(--brandGreen); }
+        .dl-crumbs { max-width: 1200px; margin: 0 auto; padding: .6rem 1.25rem 0; font-size: .78rem; }
+        .dl-crumbs ol { list-style: none; display: flex; flex-wrap: wrap; }
+        .dl-crumbs a { color: var(--brandBlue); text-decoration: none; }
+        .dl-crumbs a:hover { text-decoration: underline; }
+        .dl-crumbs li + li::before { content: "/"; margin: 0 .5em; color: var(--cardBorder); }
+        .dl-crumbs li:last-child { color: var(--inkLight); }
+        .dl-download-row { max-width: 1200px; margin: 1rem auto 0; padding: 0 1.25rem; text-align: center; }
+        .dl-download-btn {
+            display: inline-flex; align-items: center; gap: .5rem;
+            background: var(--brandAmber); color: var(--white); font-weight: 700; font-size: .92rem;
+            padding: .8rem 1.4rem; border-radius: .5rem; text-decoration: none;
+            box-shadow: 0 2px 8px rgba(29,33,28,.08);
+        }
+        .dl-download-btn:hover { background: #b25f1f; }
+        .hero3d { max-width: 900px; height: 260px; margin: 1.5rem auto 0; border-radius: 1rem; overflow: hidden; box-shadow: 0 4px 16px rgba(29,33,28,.12); background: linear-gradient(160deg, #12385c 0%, #050d17 100%); cursor: grab; touch-action: none; }
+        .hero3d:active { cursor: grabbing; }
+        .hero3d canvas { display: block; width: 100%; height: 100%; }
+        .hero3d-caption { font-size: .75rem; color: var(--inkLight); margin-top: .4rem; }
+        .photo-figure { margin: 1.5rem 0; }
+        .photo-figure img { width: 100%; height: auto; max-height: 420px; object-fit: cover; border-radius: .75rem; box-shadow: 0 8px 24px rgba(0,0,0,.15); display: block; }
+        .photo-figure figcaption { font-size: .78rem; color: var(--inkLight); margin-top: .5rem; text-align: center; }
+        .photo-figure figcaption a { color: inherit; }
+        .dl-foot { text-align: center; padding: 2rem 1rem; border-top: 1px solid var(--cardBorder); color: var(--inkLight); font-size: .85rem; background: var(--cardBg); }
+        .dl-foot a { color: var(--brandGreen); }
+
+        nav {
+            background-color: var(--cardBg);
+            border-bottom: 1px solid var(--cardBorder);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .logo {
+            font-family: var(--font-serif);
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--brandGreen);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            color: var(--inkLight);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.8rem;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--brandGreen);
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        section {
+            margin-bottom: 5rem;
+            scroll-margin-top: 100px;
+        }
+
+        .hero {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.125rem;
+            color: var(--inkLight);
+        }
+
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 4rem;
+        }
+
+        .summary-card {
+            background: var(--cardBg);
+            border: 1px solid var(--cardBorder);
+            border-radius: 8px;
+            padding: 1.5rem;
+            text-decoration: none;
+            color: inherit;
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .summary-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(29, 33, 28, 0.08);
+            border-color: var(--brandGreenLight);
+        }
+
+        .summary-card h3 {
+            margin-bottom: 0.75rem;
+            font-size: 1.25rem;
+        }
+
+        .summary-card p {
+            font-size: 0.9rem;
+            color: var(--inkLight);
+            margin-bottom: 1rem;
+            flex-grow: 1;
+        }
+
+        .summary-card .link-text {
+            color: var(--brandBlue);
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .content-card {
+            background: var(--cardBg);
+            border: 1px solid var(--cardBorder);
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .content-card h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--cardBorder);
+            padding-bottom: 0.5rem;
+        }
+
+        .level-group {
+            margin-bottom: 2.5rem;
+        }
+
+        .level-group:last-child {
+            margin-bottom: 0;
+        }
+
+        .level-badge {
+            display: inline-block;
+            background: var(--brandGreen);
+            color: var(--white);
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 0.25rem 0.75rem;
+            border-radius: 99px;
+            margin-bottom: 1rem;
+            letter-spacing: 0.05em;
+        }
+
+        .level-2-badge { background: var(--brandBlue); }
+        .level-3-badge { background: var(--brandAmber); }
+
+        .concept-box {
+            background: var(--white);
+            border: 1px solid var(--cardBorder);
+            border-left: 4px solid var(--brandGreen);
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-radius: 4px 8px 8px 4px;
+        }
+
+        .concept-box strong {
+            color: var(--brandGreen);
+            font-family: var(--font-serif);
+            font-size: 1.1rem;
+        }
+
+        .exam-alert {
+            background: rgba(217, 119, 54, 0.1);
+            border-left: 4px solid var(--brandAmber);
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0 4px 4px 0;
+            font-size: 0.95rem;
+        }
+
+        .sim-container {
+            background: var(--white);
+            border: 1px solid var(--cardBorder);
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 2rem 0;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        /* ---- Lab 1: Land Value Sorting Game ---- */
+        .landgame {
+            background: linear-gradient(160deg, #0f2418 0%, #16382a 100%);
+            border-radius: 16px;
+            padding: 1.75rem;
+            color: #eafcef;
+            text-align: left;
+        }
+        .landgame__stats {
+            display: flex; justify-content: space-between; align-items: center;
+            font-size: .85rem; font-weight: 700; margin-bottom: 1rem; flex-wrap: wrap; gap: .5rem;
+        }
+        .landgame__stats span { color: #eafcef; }
+        .landgame__stats .streak { color: #ffd166; }
+        .landgame__progress {
+            height: 8px; border-radius: 99px; background: rgba(255,255,255,.15); overflow: hidden; margin-bottom: 1.25rem;
+        }
+        .landgame__progress-bar { height: 100%; background: linear-gradient(90deg, #4cc08c, #ffd166); border-radius: 99px; transition: width .4s ease; width: 0%; }
+        .landgame__scenario {
+            background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.15); border-radius: 14px;
+            padding: 1.5rem; display: flex; gap: 1rem; align-items: center; margin-bottom: 1.25rem;
+            transition: transform .25s ease, opacity .25s ease;
+        }
+        .landgame__scenario.shake { animation: landShake .4s; }
+        .landgame__scenario.flyout { transform: translateX(60px) scale(.85); opacity: 0; }
+        .landgame__icon { flex: 0 0 auto; width: 56px; height: 56px; }
+        .landgame__scenario p { font-weight: 600; font-size: 1rem; line-height: 1.4; margin: 0; }
+        .landgame__bins {
+            display: grid; grid-template-columns: repeat(2, 1fr); gap: .75rem;
+        }
+        @media (min-width: 640px) { .landgame__bins { grid-template-columns: repeat(4, 1fr); } }
+        .landgame__bin {
+            background: rgba(255,255,255,.08); border: 2px solid rgba(255,255,255,.15); border-radius: 12px;
+            padding: 1rem .5rem; cursor: pointer; transition: transform .15s ease, background .15s ease, border-color .15s ease;
+            color: #eafcef; display: flex; flex-direction: column; align-items: center; gap: .4rem; font-size: .78rem; font-weight: 700;
+            position: relative; overflow: visible;
+        }
+        .landgame__bin svg { width: 30px; height: 30px; }
+        .landgame__bin:hover { transform: translateY(-3px); background: rgba(255,255,255,.16); }
+        .landgame__bin.correct { background: #2e7d32; border-color: #7fe6a0; animation: landPop .5s; }
+        .landgame__bin.incorrect { animation: landShake .4s; border-color: #ff6b6b; }
+        .landgame__feedback { margin-top: 1rem; min-height: 2.4rem; font-weight: 600; font-size: .88rem; color: #eafcef; }
+        .landgame__done { text-align: center; padding: 1.5rem; }
+        .landgame__done .score { font-size: 2.2rem; font-weight: 800; color: #ffd166; }
+        .landgame__replay { margin-top: 1rem; background: #4cc08c; color: #0f2418; border: none; font-weight: 700; padding: .7rem 1.4rem; border-radius: 99px; cursor: pointer; }
+        @keyframes landShake { 0%,100% { transform: translateX(0); } 20% { transform: translateX(-8px); } 40% { transform: translateX(8px); } 60% { transform: translateX(-6px); } 80% { transform: translateX(6px); } }
+        @keyframes landPop { 0% { transform: scale(1); } 40% { transform: scale(1.12); } 100% { transform: scale(1); } }
+        .landgame__particle {
+            position: absolute; top: 50%; left: 50%; width: 8px; height: 8px; border-radius: 50%;
+            background: #ffd166; pointer-events: none; animation: landBurst .6s ease-out forwards;
+        }
+        @keyframes landBurst {
+            to { transform: translate(var(--dx), var(--dy)) scale(0); opacity: 0; }
+        }
+
+        /* ---- Lab 2: Urban Transect Zone Explorer ---- */
+        .transect-scene { border-radius: 14px; overflow: hidden; box-shadow: 0 8px 24px rgba(0,0,0,.15); margin: 1.5rem 0; }
+        .transect-scene svg { display: block; width: 100%; height: auto; }
+        .transect-zone-rect { cursor: pointer; transition: opacity .2s; }
+        .transect-zone-rect:hover { opacity: .85; }
+        .transect-marker { transition: transform .5s cubic-bezier(.34,1.4,.64,1); }
+        .transect-display {
+            background: var(--parchment);
+            border: 2px solid var(--cardBorder);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 0 0 1.5rem;
+            text-align: left;
+            display: flex; gap: 1rem; align-items: center;
+        }
+        .transect-display__icon { flex: 0 0 auto; width: 48px; height: 48px; }
+
+        .transect-controls {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            align-items: center;
+            margin-top: 1.5rem;
+        }
+
+        input[type="range"] {
+            width: 100%;
+            max-width: 400px;
+            accent-color: var(--brandAmber);
+        }
+
+        .quiz-engine {
+            background: var(--white);
+            border: 1px solid var(--cardBorder);
+            border-radius: 12px;
+            padding: 2rem;
+        }
+
+        .quiz-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid var(--cardBorder);
+            padding-bottom: 1rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .btn {
+            background: var(--brandGreen);
+            color: var(--white);
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            font-weight: 600;
+            font-family: var(--font-sans);
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .btn:hover {
+            background: var(--brandGreenLight);
+        }
+
+        .question-card {
+            background: var(--cardBg);
+            border: 1px solid var(--cardBorder);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .question-text {
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .options-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .option-btn {
+            text-align: left;
+            background: var(--white);
+            border: 1px solid var(--cardBorder);
+            padding: 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-family: var(--font-sans);
+            font-size: 1rem;
+            transition: all 0.2s;
+        }
+
+        .option-btn:hover:not(:disabled) {
+            border-color: var(--brandBlue);
+            background: #f0f4f8;
+        }
+
+        .option-btn:disabled {
+            cursor: default;
+        }
+
+        .option-btn.correct {
+            background: #e8f5e9;
+            border-color: var(--correctGreen);
+            color: var(--correctGreen);
+        }
+
+        .option-btn.incorrect {
+            background: #ffebee;
+            border-color: var(--incorrectRed);
+            color: var(--incorrectRed);
+        }
+
+        .feedback-text {
+            margin-top: 1rem;
+            font-size: 0.95rem;
+            font-weight: 500;
+            padding: 1rem;
+            border-radius: 6px;
+            display: none;
+        }
+
+        .feedback-text.show {
+            display: block;
+        }
+
+        .feedback-text.correct-feedback {
+            background: #e8f5e9;
+            color: var(--correctGreen);
+        }
+
+        .feedback-text.incorrect-feedback {
+            background: #ffebee;
+            color: var(--incorrectRed);
+        }
+
+        .resource-list {
+            list-style: none;
+        }
+
+        .resource-list li {
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--cardBorder);
+        }
+
+        .resource-list a {
+            color: var(--brandBlue);
+            font-weight: 600;
+            text-decoration: none;
+            display: block;
+            margin-top: 0.25rem;
+        }
+
+        .resource-list a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Discovery Lab site chrome -->
+    <div class="dl-head">
+        <div class="dl-head__inner">
+            <a class="dl-wordmark" href="../../../../../../">
+                <svg viewBox="0 0 64 64" width="24" height="24" aria-hidden="true">
+                    <circle cx="32" cy="32" r="27" fill="none" stroke="currentColor" stroke-width="1.5" opacity=".35"/>
+                    <path d="M32 32 A27 27 0 0 1 53 21" fill="none" stroke="#1E4D2B" stroke-width="2.5" stroke-linecap="round"/>
+                    <circle cx="45" cy="22" r="5" fill="#D97736"/>
+                </svg>
+                Discovery Lab
+            </a>
+            <a class="dl-about" href="../../../../../../about/">About Mr Guevara</a>
+        </div>
+    </div>
+    <nav class="dl-crumbs" aria-label="Breadcrumb" style="position:static; box-shadow:none; padding-top:.6rem;">
+        <ol>
+            <li><a href="../../../../../../">Discovery Lab</a></li>
+            <li><a href="../../../../../">Secondary</a></li>
+            <li><a href="../../../../">US Pathway</a></li>
+            <li><a href="../../../">High School</a></li>
+            <li><a href="../../">Renewable Energy</a></li>
+            <li><a href="../">Module 6: Smart Growth, Ecological Economics, &amp; The Built Environment</a></li>
+            <li>Revision Hub</li>
+        </ol>
+    </nav>
+    <nav>
+        <div class="nav-container">
+            <a href="#home" class="logo">Discovery Lab</a>
+            <div class="nav-links">
+                <a href="#biodiversity">Conservation & Economics</a>
+                <a href="#labs">Interactive Labs</a>
+                <a href="#species">Species & Biodiversity</a>
+                <a href="#bioprospecting">Bioprospecting & Policy</a>
+                <a href="#sprawl">Urban Sprawl</a>
+                <a href="#smart-growth">Smart Growth & Transect</a>
+                <a href="#quiz-section">Quiz & Resources</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section id="home">
+            <div class="hero">
+                <span class="eyebrow">Grade 11-12 High School Curriculum</span>
+                <h1>Module 6: Sustainable Cities, Smart Growth & Conservation</h1>
+                <p>As global populations urbanize, the design of our cities and the stewardship of natural ecosystems determine our ecological future. Shifting away from car-centric sprawl requires mastering biodiversity protection, conservation economics, bioprospecting rights, smart growth planning, and sustainable transit networks.</p>
+                <div style="margin-top:1.5rem;">
+                    <a class="dl-download-btn" href="module-6-study-guide.pdf" download>
+                        &#128190; Download the Revision Guide
+                    </a>
+                </div>
+                <div class="hero3d" id="hero3d-m6" aria-hidden="true"></div>
+                <p class="hero3d-caption">Drag to orbit — a smart-growth city skyline at night, live 3D</p>
+                <figure class="photo-figure">
+                    <img src="photos/green-building-solar.jpg" alt="A modern mid-rise building with rooftop solar panels under a blue sky" loading="lazy">
+                    <figcaption>A modern mixed-use building with rooftop solar — smart growth means building up, not out, while cutting the building's own footprint. Photo: PattayaPatrol, CC BY-SA 4.0, via <a href="https://commons.wikimedia.org/wiki/File:DZ6_0459_Modern_mid-rise_hotel_complex_with_a_light-gray_facade_and_rooftop_solar_panels_under_a_blue_sky.jpg" target="_blank" rel="noopener">Wikimedia Commons</a>.</figcaption>
+                </figure>
+            </div>
+
+            <div class="summary-grid">
+                <a href="#biodiversity" class="summary-card">
+                    <h3>Biodiversity & Conservation Economics</h3>
+                    <p>Wildlife corridors, national park ecotourism budgets in India, ecosystem services valuation, agricultural growth in Ethiopia, and debt-for-nature swaps.</p>
+                    <span class="link-text">Explore Biodiversity →</span>
+                </a>
+                <a href="#labs" class="summary-card">
+                    <h3>Interactive Labs</h3>
+                    <p>Experiment with land value classification and explore the six zones of the urban transect planning model in real-time simulations.</p>
+                    <span class="link-text">Open Labs →</span>
+                </a>
+                <a href="#species" class="summary-card">
+                    <h3>Species, Ecosystems & Biodiversity Loss</h3>
+                    <p>Habitat degradation vs. loss, native species, E.O. Wilson's HIPPO drivers, coevolved relations, and global biodiversity definitions.</p>
+                    <span class="link-text">Study Species →</span>
+                </a>
+                <a href="#bioprospecting" class="summary-card">
+                    <h3>Bioprospecting & Global Policy</h3>
+                    <p>Biopiracy versus bioprospecting, the 1992 UN Convention on Biological Diversity, and global biodiversity hotspots.</p>
+                    <span class="link-text">Examine Bioprospecting →</span>
+                </a>
+                <a href="#sprawl" class="summary-card">
+                    <h3>Urban Sprawl & the Built Environment</h3>
+                    <p>Suburban land consumption (2M acres/yr), suburban growth metrics (300% surge), built environments, and problems with sprawl.</p>
+                    <span class="link-text">View Sprawl →</span>
+                </a>
+                <a href="#smart-growth" class="summary-card">
+                    <h3>Smart Growth & Transect Planning</h3>
+                    <p>Urban growth boundaries, multiuse buildings, brownfield redevelopment, urban infill, transect zoning, and transit-oriented design.</p>
+                    <span class="link-text">Dive Into Smart Growth →</span>
+                </a>
+            </div>
+        </section>
+
+        <section id="biodiversity">
+            <div class="content-card">
+                <span class="eyebrow">Module Part 1</span>
+                <h2>Biodiversity & Conservation Economics</h2>
+
+                <div class="level-group">
+                    <span class="level-badge">LEVEL 1: THE BASICS</span>
+                    <p>Financing conservation and recognizing the economic value of nature are foundational to preserving global ecosystems.</p>
+
+                    <div class="concept-box">
+                        <strong>Wildlife Corridors</strong> <br>
+                        Strips of natural habitat connecting isolated protected areas as a primary solution for decreasing animal isolation on reserves and mitigating habitat fragmentation.
+                    </div>
+
+                    <div class="concept-box">
+                        <strong>Ecotourism Budget Impact in India</strong> <br>
+                        In India, ecotourism provides approximately <strong>three-fourths</strong> (75%) of the annual operating budget for national parks and wildlife reserves. <br>
+                        <em>Study Guide Source Citation:</em> Verified from Lesson 3 study text covering national park operating budget financing.
+                    </div>
+
+                    <div class="concept-box">
+                        <strong>Ecosystem Services Value</strong> <br>
+                        The economic valuation of what land and natural systems provide for free when protected and restored to health (e.g., clean water filtration, carbon sequestration, pollination).
+                    </div>
+
+                    <div class="concept-box">
+                        <strong>Annual U.S. Land Loss to Sprawl</strong> <br>
+                        The United States loses approximately <strong>2 million acres</strong> of agricultural and natural land each year to development and urban expansion. <br>
+                        <em>Study Guide Source Citation:</em> Verified from Lesson 5 study text covering annual land loss metrics.
+                    </div>
+
+                    <div class="concept-box">
+                        <strong>Ethiopian Agricultural Investment</strong> <br>
+                        <strong>Ethiopia</strong> is recognized as the leading African country promoting agricultural investment as a core component of its economic growth and poverty alleviation strategy. <br>
+                        <em>Study Guide Source Citation:</em> Verified from Lesson 4 study text covering agricultural investment leadership in Africa.
+                    </div>
+
+                    <div class="concept-box">
+                        <strong>Debt-for-Nature Swaps</strong> <br>
+                        A financial policy mechanism where an international creditor cancels a portion of a developing nation's national debt in exchange for the nation establishing a domestic conservation program using local currency funds.
+                    </div>
+                </div>
+
+                <div class="level-group">
+                    <span class="level-badge level-2-badge">LEVEL 2: DEEPENING UNDERSTANDING</span>
+                    <p>Evaluating the interplay between sovereign debt and ecological preservation reveals innovative conservation financing models.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="labs">
+            <div class="content-card">
+                <span class="eyebrow">Interactive Application</span>
+                <h2>Interactive Labs</h2>
+                <p>Experiment with land valuation concepts and navigate the urban transect planning model dynamically.</p>
+
+                <!-- Sim 1: Land Value Classification Lab -->
+                <div class="sim-container" id="sim1-container">
+                    <h3>Lab 1: Land Value Sorting Game</h3>
+                    <p>Sort real-world land scenarios into the correct valuation category to understand why ecosystems are often undervalued in commercial markets.</p>
+
+                    <div class="landgame">
+                        <div class="landgame__stats">
+                            <span>Score: <span id="land-score">0</span></span>
+                            <span class="streak">🔥 Streak: <span id="land-streak">0</span></span>
+                            <span id="land-progress-label">Scenario 1 / 4</span>
+                        </div>
+                        <div class="landgame__progress"><div class="landgame__progress-bar" id="land-progress-bar"></div></div>
+
+                        <div id="landgame-body">
+                            <div class="landgame__scenario" id="active-scenario">
+                                <div class="landgame__icon" id="scenario-icon"></div>
+                                <p id="scenario-text">Loading scenario...</p>
+                            </div>
+                            <div class="landgame__bins">
+                                <button class="landgame__bin" id="bin-ecosystem-services" onclick="checkLandSorting('ecosystem-services')">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8 6 4 9 4 14a8 8 0 0016 0c0-5-4-8-8-12z"/></svg>
+                                    Ecosystem Services
+                                </button>
+                                <button class="landgame__bin" id="bin-real-estate" onclick="checkLandSorting('real-estate')">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M9 20v-6h6v6"/></svg>
+                                    Real Estate
+                                </button>
+                                <button class="landgame__bin" id="bin-natural-resource" onclick="checkLandSorting('natural-resource')">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3 6 6 1-4.5 4.5 1 6L12 16l-5.5 3.5 1-6L3 9l6-1z"/></svg>
+                                    Natural Resource
+                                </button>
+                                <button class="landgame__bin" id="bin-existence-value" onclick="checkLandSorting('existence-value')">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-4.5-9.5-9C.7 8.2 2 5 5 5c2 0 3.5 1.3 4 2.5C9.5 6.3 11 5 13 5c3 0 4.3 3.2 2.5 7-2.5 4.5-9.5 9-9.5 9z"/></svg>
+                                    Existence Value
+                                </button>
+                            </div>
+                            <div class="sim-feedback landgame__feedback" id="sim1-feedback">Tap a category to sort the scenario above.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sim 2: Transect Zone Explorer -->
+                <div class="sim-container">
+                    <h3>Lab 2: Urban Transect Zone Explorer</h3>
+                    <p>Drag the slider (or tap a zone) to journey through the six zones of the urban transect planning model, from rural wilderness to the urban core.</p>
+
+                    <div class="transect-scene">
+                        <svg viewBox="0 0 600 200" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="sky-grad" x1="0" y1="0" x2="1" y2="0">
+                                    <stop id="sky-stop-1" offset="0%" stop-color="#bfe6d4"/>
+                                    <stop id="sky-stop-2" offset="100%" stop-color="#dfefff"/>
+                                </linearGradient>
+                            </defs>
+                            <rect width="600" height="200" fill="url(#sky-grad)"/>
+                            <!-- 6 zone segments, 100px each -->
+                            <g id="zone-rects">
+                                <rect class="transect-zone-rect" data-zone="1" x="0" y="0" width="100" height="200" fill="transparent" onclick="updateTransectSim(1)"/>
+                                <rect class="transect-zone-rect" data-zone="2" x="100" y="0" width="100" height="200" fill="transparent" onclick="updateTransectSim(2)"/>
+                                <rect class="transect-zone-rect" data-zone="3" x="200" y="0" width="100" height="200" fill="transparent" onclick="updateTransectSim(3)"/>
+                                <rect class="transect-zone-rect" data-zone="4" x="300" y="0" width="100" height="200" fill="transparent" onclick="updateTransectSim(4)"/>
+                                <rect class="transect-zone-rect" data-zone="5" x="400" y="0" width="100" height="200" fill="transparent" onclick="updateTransectSim(5)"/>
+                                <rect class="transect-zone-rect" data-zone="6" x="500" y="0" width="100" height="200" fill="transparent" onclick="updateTransectSim(6)"/>
+                            </g>
+                            <!-- ground line -->
+                            <rect x="0" y="170" width="600" height="30" fill="#8a9a7a" opacity=".5"/>
+                            <!-- Zone 1: Natural - trees -->
+                            <g id="skyline-1" fill="#2d7a52">
+                                <path d="M20 170 L35 130 L50 170 Z"/><path d="M50 170 L65 120 L80 170 Z"/>
+                            </g>
+                            <!-- Zone 2: Rural - farmhouse -->
+                            <g id="skyline-2" fill="#5a8a4a">
+                                <rect x="130" y="145" width="40" height="25"/><path d="M125 145 L150 120 L175 145 Z"/>
+                            </g>
+                            <!-- Zone 3: Edge - small houses -->
+                            <g id="skyline-3" fill="#8c7351">
+                                <rect x="220" y="135" width="30" height="35"/><rect x="255" y="145" width="25" height="25"/>
+                            </g>
+                            <!-- Zone 4: General - rowhomes -->
+                            <g id="skyline-4" fill="#7a6a8c">
+                                <rect x="315" y="110" width="25" height="60"/><rect x="345" y="120" width="25" height="50"/><rect x="375" y="100" width="20" height="70"/>
+                            </g>
+                            <!-- Zone 5: Center - mixed use -->
+                            <g id="skyline-5" fill="#3b5b78">
+                                <rect x="415" y="80" width="30" height="90"/><rect x="450" y="95" width="25" height="75"/><rect x="480" y="70" width="20" height="100"/>
+                            </g>
+                            <!-- Zone 6: Core - skyscrapers -->
+                            <g id="skyline-6" fill="#1e4d2b">
+                                <rect x="515" y="40" width="24" height="130"/><rect x="545" y="20" width="20" height="150"/><rect x="570" y="55" width="22" height="115"/>
+                            </g>
+                            <!-- Moving marker -->
+                            <g class="transect-marker" id="transect-marker" transform="translate(50,0)">
+                                <circle cx="0" cy="178" r="7" fill="#d97736" stroke="#fff" stroke-width="2"/>
+                            </g>
+                        </svg>
+                    </div>
+
+                    <div class="transect-display">
+                        <div class="transect-display__icon" id="zone-icon"></div>
+                        <div>
+                            <h4 id="zone-title" style="color:var(--brandGreen); margin-bottom:0.5rem;">Zone 1: Natural Zones</h4>
+                            <p id="zone-desc" style="color:var(--inkLight); font-size:0.95rem; margin-bottom:0.5rem;">Unmodified natural wilderness and open landscape areas requiring complete ecological preservation.</p>
+                            <p id="zone-detail" style="font-size:0.9rem; font-weight:600; color:var(--brandAmber);">Key Exam Feature: Open natural landscape preserving primary biodiversity.</p>
+                        </div>
+                    </div>
+
+                    <div class="transect-controls">
+                        <label for="transect-slider"><strong>Transect Position:</strong> <span id="transect-val">Zone 1 (Natural)</span></label>
+                        <input type="range" id="transect-slider" min="1" max="6" value="1" oninput="updateTransectSim(this.value)">
+                    </div>
+
+                    <div class="exam-alert" style="margin-top:1.5rem;">
+                        <strong>Exam Connection:</strong> The transect model comprises exactly <strong>six</strong> zones. The business district is located in <strong>the core</strong> (Zone 6), natural open areas are in <strong>the rural zone</strong> (Zone 2), and the largest mostly-residential zone is <strong>the general zone</strong> (Zone 4).
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="species">
+            <div class="content-card">
+                <span class="eyebrow">Module Part 2</span>
+                <h2>Species, Ecosystems & Biodiversity Loss</h2>
+
+                <div class="level-group">
+                    <span class="level-badge">LEVEL 1: THE BASICS</span>
+                    <p>Understanding the precise drivers of biodiversity loss and ecological definitions is critical for targeted conservation.</p>
+
+                    <div class="concept-box">
+                        <strong>Habitat Degradation</strong> <br>
+                        A significant qualitative change to an ecosystem as a result of human activities that reduces its ecological health (distinct from complete physical removal or fragmentation).
+                    </div>
+
+                    <div class="concept-box">
+                        <strong>Native Species</strong> <br>
+                        A species that is naturally occurring and indigenous to an ecosystem without human introduction. (Note: Native species is NOT part of E.O. Wilson's HIPPO acronym).
+                    </div>
+
+                    <div class="concept-box">
+                        <strong>E.O. Wilson's HIPPO Acronym</strong> <br>
+                        Biologist E.O. Wilson categorized the primary drivers of biodiversity loss as: <strong>Habitat loss, Invasive species, Pollution, Population growth, and Overharvesting</strong>. Native species is excluded from this list.
+                    </div>
+
+                    <div class="concept-box">
+                        <strong>Biodiversity</strong> <br>
+                        All life on Earth—encompassing the immense variety of all living species, plants, animals, fungi, and microorganisms, as well as ecosystems.
+                    </div>
+
+                    <div class="concept-box">
+                        <strong>Coevolved Relation</strong> <br>
+                        The affiliation and mutual survival reliance between animals and plants that depend on one another to survive (distinct from coextinction, which is their actual disappearance).
+                    </div>
+
+                    <div class="concept-box">
+                        <strong>Real Estate Value</strong> <br>
+                        The commercial market valuation of what can be built on land (e.g., housing developments, commercial strip malls).
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="bioprospecting">
+            <div class="content-card">
+                <span class="eyebrow">Module Part 3</span>
+                <h2>Bioprospecting & Global Policy</h2>
+
+                <div class="level-group">
+                    <span class="level-badge">LEVEL 1: THE BASICS</span>
+                    <p>International treaties and bio-ethical frameworks govern how genetic resources are explored and protected.</p>
+
+                    <div class="concept-box">
+                        <strong>Biopiracy</strong> <br>
+                        The unauthorized extraction of biological resources and/or the patenting of processes based on traditional knowledge from indigenous communities without fair compensation.
+                    </div>
+
+                    <div class="concept-box">
+                        <strong>1992 United Nations Biodiversity Agreement</strong> <br>
+                        In <strong>1992</strong>, the United Nations developed an international agreement (Convention on Biological Diversity) at the Rio Earth Summit to conserve global biodiversity and share benefits fairly. <br>
+                        <em>Study Guide Source Citation:</em> Verified from Lesson 4 study text covering the 1992 Rio Earth Summit convention.
+                    </div>
+
+                    <div class="concept-box">
+                        <strong>Bioprospecting</strong> <br>
+                        The lawful exploration of biodiversity for commercially valuable genetic and biochemical resources (such as medicinal compounds from rainforest plants).
+                    </div>
+
+                    <div class="concept-box">
+                        <strong>Biodiversity Hotspots</strong> <br>
+                        Areas of high biodiversity that have at least <strong>1,500 species of endemic vascular plants</strong> and have lost at least <strong>70 percent of their original habitat</strong>.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="sprawl">
+            <div class="content-card">
+                <span class="eyebrow">Module Part 4</span>
+                <h2>Urban Sprawl & the Built Environment</h2>
+
+                <figure class="photo-figure">
+                    <img src="photos/suburban-sprawl-aerial.jpg" alt="Aerial view of a low-density suburban housing subdivision" loading="lazy">
+                    <figcaption>Car-centric suburban sprawl from above — low-density housing consumes far more land per resident than compact development. Photo: Alfred Twu, CC0, via <a href="https://commons.wikimedia.org/wiki/File:South-Los-Angeles-subdivision-houses-near-Darby-Park-Aerial-view-from-north-August-2014.jpg" target="_blank" rel="noopener">Wikimedia Commons</a>.</figcaption>
+                </figure>
+
+                <div class="level-group">
+                    <span class="level-badge">LEVEL 1: THE BASICS</span>
+                    <p>Car-centric suburban expansion generates severe ecological fragmentation and resource consumption.</p>
+
+                    <div class="concept-box">
+                        <strong>Suburb Definition</strong> <br>
+                        The residential area surrounding a city made up of mostly single-family homes.
+                    </div>
+
+                    <div class="concept-box">
+                        <strong>Problems With Urban Sprawl EXCEPT</strong> <br>
+                        Problems associated with urban sprawl include reducing green space, overrunning farmland, and destroying animal habitats. <strong>Blocking high views</strong> is NOT a problem associated with urban sprawl.
+                    </div>
+
+                    <div class="concept-box">
+                        <strong>U.S. Urban-Suburban Population Surge</strong> <br>
+                        Between 1950 and 1990, the urban-suburban population in the United States experienced a massive increase of <strong>300 percent</strong>. <br>
+                        <em>Study Guide Source Citation:</em> Verified from Lesson 5 study text covering U.S. suburban demographic expansion.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="smart-growth">
+            <div class="content-card">
+                <span class="eyebrow">Module Part 5</span>
+                <h2>Smart Growth & Transect Planning</h2>
+
+                <figure class="photo-figure">
+                    <img src="photos/light-rail-transit.jpg" alt="A modern light-rail transit vehicle on a city street" loading="lazy">
+                    <figcaption>Modern light-rail transit — smart growth pairs density with real transit-oriented alternatives to car-centric sprawl. Photo: amandabhslater, CC BY-SA 2.0, via <a href="https://commons.wikimedia.org/wiki/File:Coventry_Very_Light_Rail_-_Test_Drive_-_03.jpg" target="_blank" rel="noopener">Wikimedia Commons</a>.</figcaption>
+                </figure>
+
+                <div class="level-group">
+                    <span class="level-badge">LEVEL 1: THE BASICS</span>
+                    <p>Advanced urban planning models replace sprawl with compact, efficient, transit-oriented communities.</p>
+
+                    <div class="concept-box">
+                        <strong>The Core (Business District)</strong> <br>
+                        In the urban transect planning model, the core is located at the center and represents the high-density downtown business district.
+                    </div>
+
+                    <div class="concept-box">
+                        <strong>Urban Growth Boundaries</strong> <br>
+                        A set restriction (or line set by city planners) to distinguish between urban land and rural land and prevent outward sprawl.
+                    </div>
+
+                    <div class="concept-box">
+                        <strong>Curitiba, Brazil</strong> <br>
+                        Curitiba is globally considered to have the best <strong>Bus Rapid Transit (BRT)</strong> system in the world, rivaling subways at a fraction of the cost.
+                    </div>
+
+                    <div class="concept-box">
+                        <strong>Suburban Retrofit Strategies</strong> <br>
+                        There are exactly <strong>three</strong> main retrofit strategies that help solve the ecological and social problems with car-centric suburbs (re-inhabitation, redevelopment, and re-greening).
+                    </div>
+
+                    <div class="concept-box">
+                        <strong>Redevelopment</strong> <br>
+                        Demolishing an existing building and reusing the site for another purpose.
+                    </div>
+
+                    <div class="concept-box">
+                        <strong>The Rural Zone</strong> <br>
+                        Natural areas and open landscapes in the transect model are categorized as the rural zone.
+                    </div>
+
+                    <div class="concept-box">
+                        <strong>Multiuse Building</strong> <br>
+                        A structural building that is used for both residential and commercial purposes.
+                    </div>
+
+                    <div class="concept-box">
+                        <strong>Built Environment</strong> <br>
+                        All human-created surroundings—including buildings, parks, and infrastructure.
+                    </div>
+
+                    <div class="concept-box">
+                        <strong>NAUTILUS Satellite Technology</strong> <br>
+                        NASA established the <strong>NAUTILUS (Northeast Applications of Useable Technology in Land planning for Urban Sprawl)</strong> satellite imagery technology to monitor urban growth and land planning.
+                    </div>
+
+                    <div class="concept-box">
+                        <strong>Urban Infill</strong> <br>
+                        The use of vacant land for new construction within an already built-up area.
+                    </div>
+
+                    <div class="concept-box">
+                        <strong>Copenhagen Bike Program</strong> <br>
+                        Copenhagen is famous for its pioneering municipal bike-share programs providing free and accessible bikes. <br>
+                        <em>Study Guide Source Citation:</em> Verified from Lesson 9 study text covering municipal cycling infrastructure.
+                    </div>
+
+                    <div class="concept-box">
+                        <strong>Car Carbon Emissions Share</strong> <br>
+                        Passenger automobiles account for approximately <strong>10%</strong> of the world's carbon emissions from fossil fuels. <br>
+                        <em>Study Guide Source Citation:</em> Verified from Lesson 9 study text covering transportation carbon emission ratios.
+                    </div>
+
+                    <div class="concept-box">
+                        <strong>Transit-Oriented Design (TOD)</strong> <br>
+                        Mixed-use residential and commercial communities designed to maximize access to public transportation.
+                    </div>
+
+                    <div class="concept-box">
+                        <strong>Traditional Neighborhood Development (TND)</strong> <br>
+                        An urban planning model that mirrors the layout of neighborhoods before urban sprawl.
+                    </div>
+
+                    <div class="concept-box">
+                        <strong>The General Zone</strong> <br>
+                        In the transect model, the largest zone—consisting mostly of urban residential housing—is called the general zone.
+                    </div>
+
+                    <div class="concept-box">
+                        <strong>Transect Zoning Categories</strong> <br>
+                        The complete urban transect planning model is made up of exactly <strong>six</strong> distinct zoning categories.
+                    </div>
+
+                    <div class="concept-box">
+                        <strong>Brownfield</strong> <br>
+                        An abandoned commercial or industrial site that is reused, often redeveloped into a multiuse building.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="quiz-section">
+            <div class="quiz-engine">
+                <div class="quiz-header">
+                    <h2>Module 6 Exam Simulator</h2>
+                    <button class="btn" onclick="initQuiz()">Regenerate Quiz (New Random Set)</button>
+                </div>
+                <p style="margin-bottom: 2rem; color: var(--inkLight);">This self-marking exam simulator draws 20 random questions from our comprehensive 108-question question bank covering every Module 6 concept. Click an answer to receive immediate feedback.</p>
+
+                <div id="quiz-container">
+                    <!-- JS injects questions here -->
+                </div>
+            </div>
+        </section>
+
+        <section id="resources">
+            <div class="content-card">
+                <h2>If you want to know more about this, visit these sites.</h2>
+                <ul class="resource-list">
+                    <li>
+                        Explore global biodiversity hotspots, conservation priorities, and protected area maps:
+                        <a href="https://www.conservation.org" target="_blank" rel="noopener">Conservation International - Biodiversity Hotspots</a>
+                    </li>
+                    <li>
+                        Review smart growth principles, urban planning models, and transect zoning frameworks:
+                        <a href="https://smartgrowth.org" target="_blank" rel="noopener">Smart Growth America - Program Hub</a>
+                    </li>
+                    <li>
+                        Investigate satellite Earth observation data, land cover changes, and NAUTILUS imagery:
+                        <a href="https://earthobservatory.nasa.gov" target="_blank" rel="noopener">NASA Earth Observatory - Land Cover & Urban Sprawl</a>
+                    </li>
+                    <li>
+                        Examine sustainable transportation networks, Bus Rapid Transit, and urban mobility case studies:
+                        <a href="https://www.itdp.org" target="_blank" rel="noopener">Institute for Transportation and Development Policy (ITDP)</a>
+                    </li>
+                    <li>
+                        Learn more about industrial ecology, brownfield redevelopment, and sustainable urban design:
+                        <a href="https://www.epa.gov/brownfields" target="_blank" rel="noopener">U.S. EPA - Brownfields and Land Revitalization</a>
+                    </li>
+                    <li>
+                        Access environmental science lessons on human populations, cities, and ecosystems:
+                        <a href="https://www.khanacademy.org" target="_blank" rel="noopener">Khan Academy - AP Environmental Science & Human Geography</a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <div class="dl-foot">
+        Discovery Lab — <a href="../../../../../../about/">Diego Urrutia Guevara</a>. Your work stays in your browser. Nothing is uploaded or stored on a server.
+    </div>
+
+    <script src="../../../../../../engine/vendor/three.min.js"></script>
+    <script>
+        (function () {
+            const reduceMotion = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+            const mount = document.getElementById('hero3d-m6');
+            if (!mount || typeof THREE === 'undefined') return;
+            const w = mount.clientWidth, h = mount.clientHeight || 260;
+            const scene = new THREE.Scene();
+            scene.fog = new THREE.FogExp2(0x050d17, 0.045);
+            const camera = new THREE.PerspectiveCamera(45, w / h, 0.1, 100);
+            const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+            renderer.setSize(w, h);
+            renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+            mount.appendChild(renderer.domElement);
+
+            scene.add(new THREE.AmbientLight(0x9fc6ff, 0.5));
+            const moon = new THREE.DirectionalLight(0xbfe0ff, 0.9);
+            moon.position.set(-4, 6, 5);
+            scene.add(moon);
+
+            // Ground
+            const ground = new THREE.Mesh(new THREE.PlaneGeometry(40, 40), new THREE.MeshStandardMaterial({ color: 0x0b1a2a, roughness: 1 }));
+            ground.rotation.x = -Math.PI / 2;
+            ground.position.y = -1.4;
+            scene.add(ground);
+
+            // City skyline — boxes of varying height with emissive "window" strips
+            const buildings = [];
+            const winMats = [];
+            const bodyMat = new THREE.MeshStandardMaterial({ color: 0x1b2c40, roughness: 0.8 });
+            for (let i = 0; i < 9; i++) {
+                const height = 1.2 + Math.random() * 3;
+                const bw = 0.55 + Math.random() * 0.25;
+                const body = new THREE.Mesh(new THREE.BoxGeometry(bw, height, bw), bodyMat);
+                body.position.set(-4 + i * 1, height / 2 - 1.4, (i % 2 === 0 ? -0.4 : 0.4));
+                scene.add(body);
+                buildings.push(body);
+
+                const winMat = new THREE.MeshBasicMaterial({ color: 0xffd166, transparent: true, opacity: 0.15 + Math.random() * 0.5 });
+                const windows = new THREE.Mesh(new THREE.BoxGeometry(bw * 0.7, height * 0.85, bw * 0.02), winMat);
+                windows.position.set(body.position.x, body.position.y, body.position.z + bw / 2 + 0.01);
+                windows.userData.phase = Math.random() * Math.PI * 2;
+                scene.add(windows);
+                winMats.push(windows);
+            }
+
+            // Transit line with a moving light (light-rail)
+            const rail = new THREE.Mesh(new THREE.TorusGeometry(4.4, 0.02, 8, 64), new THREE.MeshBasicMaterial({ color: 0x2d5a27 }));
+            rail.rotation.x = Math.PI / 2;
+            rail.position.y = -1.38;
+            scene.add(rail);
+            const train = new THREE.Mesh(new THREE.SphereGeometry(0.09, 12, 12), new THREE.MeshBasicMaterial({ color: 0x7fd8ff }));
+            scene.add(train);
+
+            let dragging = false, lastX = 0, yaw = 0;
+            mount.addEventListener('pointerdown', e => { dragging = true; lastX = e.clientX; mount.setPointerCapture(e.pointerId); });
+            mount.addEventListener('pointermove', e => { if (!dragging) return; yaw += (e.clientX - lastX) * 0.005; lastX = e.clientX; });
+            mount.addEventListener('pointerup', () => dragging = false);
+            mount.addEventListener('pointerleave', () => dragging = false);
+
+            function animate(t) {
+                requestAnimationFrame(animate);
+                if (!reduceMotion) {
+                    winMats.forEach(win => {
+                        win.material.opacity = 0.25 + 0.35 * (0.5 + 0.5 * Math.sin(t * 0.0015 + win.userData.phase));
+                    });
+                    const trainAngle = t * 0.0006;
+                    train.position.set(Math.cos(trainAngle) * 4.4, -1.3, Math.sin(trainAngle) * 4.4);
+                }
+                const auto = reduceMotion ? 0 : t * 0.00012;
+                camera.position.x = Math.sin(yaw + auto) * 9;
+                camera.position.z = Math.cos(yaw + auto) * 9;
+                camera.position.y = 1.8;
+                camera.lookAt(0, 0.2, 0);
+                renderer.render(scene, camera);
+            }
+            requestAnimationFrame(animate);
+
+            window.addEventListener('resize', () => {
+                const w2 = mount.clientWidth, h2 = mount.clientHeight || 260;
+                camera.aspect = w2 / h2;
+                camera.updateProjectionMatrix();
+                renderer.setSize(w2, h2);
+            });
+        })();
+    </script>
+    <script>
+        /* ==========================================================================
+           SIMULATION 1: Land Value Classification Lab
+           ========================================================================== */
+        const landScenarios = [
+            {
+                text: "A wetland filters agricultural runoff, purifying local drinking water for free and preventing downstream floods.",
+                answer: "ecosystem-services",
+                explanation: "Correct! This is Ecosystem Services Value — the economic worth of free life-support functions provided by healthy natural ecosystems.",
+                icon: '<svg viewBox="0 0 24 24" fill="none" stroke="#7fe6a0" stroke-width="2"><path d="M12 2C8 6 4 9 4 14a8 8 0 0016 0c0-5-4-8-8-12z"/></svg>'
+            },
+            {
+                text: "A developer purchases 50 acres of cleared farmland to construct a commercial strip mall and luxury housing subdivision.",
+                answer: "real-estate",
+                explanation: "Correct! This represents Real Estate Value — the commercial market valuation of what can be built on cleared land.",
+                icon: '<svg viewBox="0 0 24 24" fill="none" stroke="#9fc6ff" stroke-width="2"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M9 20v-6h6v6"/></svg>'
+            },
+            {
+                text: "Timber and mineral reserves extracted from a forest for industrial manufacturing.",
+                answer: "natural-resource",
+                explanation: "Correct! This is Natural Resource Value — physical commodities harvested directly from the earth.",
+                icon: '<svg viewBox="0 0 24 24" fill="none" stroke="#e8c55c" stroke-width="2"><path d="M12 2l3 6 6 1-4.5 4.5 1 6L12 16l-5.5 3.5 1-6L3 9l6-1z"/></svg>'
+            },
+            {
+                text: "Valuing the continued existence of blue whales and pristine wilderness regardless of direct human utility.",
+                answer: "existence-value",
+                explanation: "Correct! This is Existence Value — the intrinsic moral and cultural worth of preserving living species.",
+                icon: '<svg viewBox="0 0 24 24" fill="none" stroke="#ff9fc0" stroke-width="2"><path d="M12 21s-7-4.5-9.5-9C.7 8.2 2 5 5 5c2 0 3.5 1.3 4 2.5C9.5 6.3 11 5 13 5c3 0 4.3 3.2 2.5 7-2.5 4.5-9.5 9-9.5 9z"/></svg>'
+            }
+        ];
+
+        let currentLandIndex = 0;
+        let landScore = 0;
+        let landStreak = 0;
+        const BIN_IDS = ['ecosystem-services', 'real-estate', 'natural-resource', 'existence-value'];
+
+        function landBurst(originEl) {
+            const rect = originEl.getBoundingClientRect();
+            for (let i = 0; i < 12; i++) {
+                const p = document.createElement('span');
+                p.className = 'landgame__particle';
+                const angle = Math.random() * Math.PI * 2;
+                const dist = 30 + Math.random() * 30;
+                p.style.setProperty('--dx', Math.cos(angle) * dist + 'px');
+                p.style.setProperty('--dy', Math.sin(angle) * dist + 'px');
+                p.style.background = ['#ffd166', '#4cc08c', '#9fc6ff', '#ff9fc0'][i % 4];
+                originEl.appendChild(p);
+                setTimeout(() => p.remove(), 650);
+            }
+        }
+
+        function updateLandStats() {
+            document.getElementById('land-score').textContent = landScore;
+            document.getElementById('land-streak').textContent = landStreak;
+            const shown = Math.min(currentLandIndex + 1, landScenarios.length);
+            document.getElementById('land-progress-label').textContent = `Scenario ${shown} / ${landScenarios.length}`;
+            document.getElementById('land-progress-bar').style.width = (currentLandIndex / landScenarios.length * 100) + '%';
+        }
+
+        function loadNextLandScenario() {
+            updateLandStats();
+            const feedbackEl = document.getElementById('sim1-feedback');
+            if (currentLandIndex < landScenarios.length) {
+                const item = landScenarios[currentLandIndex];
+                const card = document.getElementById('active-scenario');
+                card.classList.remove('flyout');
+                document.getElementById('scenario-icon').innerHTML = item.icon;
+                document.getElementById('scenario-text').textContent = `"${item.text}"`;
+                feedbackEl.textContent = "Tap a category to sort the scenario above.";
+                feedbackEl.style.color = "";
+            } else {
+                document.getElementById('land-progress-bar').style.width = '100%';
+                document.getElementById('landgame-body').innerHTML = `
+                    <div class="landgame__done">
+                        <div class="score">${landScore} / ${landScenarios.length}</div>
+                        <p>All land scenarios sorted! Best streak reflects how consistently you told ecosystem services apart from real estate, resources and existence value.</p>
+                        <button class="landgame__replay" onclick="resetLandGame()">Play Again</button>
+                    </div>`;
+            }
+        }
+
+        function resetLandGame() {
+            currentLandIndex = 0; landScore = 0; landStreak = 0;
+            document.getElementById('landgame-body').innerHTML = `
+                <div class="landgame__scenario" id="active-scenario">
+                    <div class="landgame__icon" id="scenario-icon"></div>
+                    <p id="scenario-text">Loading scenario...</p>
+                </div>
+                <div class="landgame__bins">
+                    <button class="landgame__bin" id="bin-ecosystem-services" onclick="checkLandSorting('ecosystem-services')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8 6 4 9 4 14a8 8 0 0016 0c0-5-4-8-8-12z"/></svg>Ecosystem Services</button>
+                    <button class="landgame__bin" id="bin-real-estate" onclick="checkLandSorting('real-estate')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M9 20v-6h6v6"/></svg>Real Estate</button>
+                    <button class="landgame__bin" id="bin-natural-resource" onclick="checkLandSorting('natural-resource')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3 6 6 1-4.5 4.5 1 6L12 16l-5.5 3.5 1-6L3 9l6-1z"/></svg>Natural Resource</button>
+                    <button class="landgame__bin" id="bin-existence-value" onclick="checkLandSorting('existence-value')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-4.5-9.5-9C.7 8.2 2 5 5 5c2 0 3.5 1.3 4 2.5C9.5 6.3 11 5 13 5c3 0 4.3 3.2 2.5 7-2.5 4.5-9.5 9-9.5 9z"/></svg>Existence Value</button>
+                </div>
+                <div class="sim-feedback landgame__feedback" id="sim1-feedback">Tap a category to sort the scenario above.</div>`;
+            loadNextLandScenario();
+        }
+
+        function checkLandSorting(selectedCategory) {
+            if (currentLandIndex >= landScenarios.length) return;
+
+            const currentItem = landScenarios[currentLandIndex];
+            const feedbackEl = document.getElementById('sim1-feedback');
+            const binEl = document.getElementById('bin-' + selectedCategory);
+            const card = document.getElementById('active-scenario');
+
+            if (selectedCategory === currentItem.answer) {
+                feedbackEl.textContent = currentItem.explanation;
+                feedbackEl.style.color = "#7fe6a0";
+                binEl.classList.add('correct');
+                landBurst(binEl);
+                landScore++; landStreak++;
+                updateLandStats();
+                card.classList.add('flyout');
+                currentLandIndex++;
+                setTimeout(() => binEl.classList.remove('correct'), 500);
+                setTimeout(loadNextLandScenario, 1400);
+            } else {
+                feedbackEl.textContent = `Not quite — review the definition and try again. Remember the distinction between free ecological functions, built value, harvested resources and intrinsic worth.`;
+                feedbackEl.style.color = "#ff9b9b";
+                binEl.classList.add('incorrect');
+                card.classList.add('shake');
+                landStreak = 0;
+                updateLandStats();
+                setTimeout(() => { binEl.classList.remove('incorrect'); card.classList.remove('shake'); }, 450);
+            }
+        }
+
+        /* ==========================================================================
+           SIMULATION 2: Transect Zone Explorer
+           ========================================================================== */
+        const transectData = [
+            { zone: 1, name: "Zone 1: Natural Zones", desc: "Unmodified natural wilderness and open landscape areas requiring complete ecological preservation.", detail: "Key Exam Feature: Open natural landscape preserving primary biodiversity." },
+            { zone: 2, name: "Zone 2: The Rural Zone", desc: "Agricultural lands, country open spaces, and low-density rural working landscapes.", detail: "Key Exam Feature: Natural agricultural areas and open countryside." },
+            { zone: 3, name: "Zone 3: The Edge", desc: "Low-density suburban transition areas bridging rural countryside and residential neighborhoods.", detail: "Key Exam Feature: Suburban transition ring surrounding towns." },
+            { zone: 4, name: "Zone 4: The General Zone", desc: "The largest zone in the transect model, consisting mostly of urban residential housing and neighborhood streets.", detail: "Key Exam Feature: The largest zone, mostly urban residential.",
+              sky: ["#e6ddc9", "#f2e9d8"], icon: '<svg viewBox="0 0 24 24" fill="none" stroke="#7a6a8c" stroke-width="2"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/></svg>' },
+            { zone: 5, name: "Zone 5: The Center", desc: "Town and neighborhood commercial districts with mixed-use buildings and retail shops.", detail: "Key Exam Feature: Neighborhood commercial center and mixed-use retail.",
+              sky: ["#cfe0ef", "#e8eef5"], icon: '<svg viewBox="0 0 24 24" fill="none" stroke="#3b5b78" stroke-width="2"><rect x="4" y="7" width="16" height="14"/><path d="M9 21v-5h6v5"/><path d="M9 3h6v4H9z"/></svg>' },
+            { zone: 6, name: "Zone 6: The Core", desc: "The high-density downtown business district located at the center of the transect model.", detail: "Key Exam Feature: Downtown business district (The Core).",
+              sky: ["#12385c", "#2a5578"], icon: '<svg viewBox="0 0 24 24" fill="none" stroke="#1e4d2b" stroke-width="2"><rect x="3" y="8" width="6" height="13"/><rect x="10" y="3" width="6" height="18"/><rect x="17" y="10" width="4" height="11"/></svg>' }
+        ];
+        transectData[0].sky = ["#bfe6d4", "#dfefff"];
+        transectData[0].icon = '<svg viewBox="0 0 24 24" fill="none" stroke="#2d7a52" stroke-width="2"><path d="M12 2l6 10H6z"/><path d="M12 22V12"/></svg>';
+        transectData[1].sky = ["#d7ecc4", "#eaf6e4"];
+        transectData[1].icon = '<svg viewBox="0 0 24 24" fill="none" stroke="#5a8a4a" stroke-width="2"><path d="M3 21h18"/><path d="M5 21V10l7-6 7 6v11"/></svg>';
+        transectData[2].sky = ["#ecdfc4", "#f5eede"];
+        transectData[2].icon = '<svg viewBox="0 0 24 24" fill="none" stroke="#8c7351" stroke-width="2"><path d="M3 21V11l9-7 9 7v10"/><path d="M9 21v-6h6v6"/></svg>';
+
+        function updateTransectSim(val) {
+            const index = parseInt(val) - 1;
+            const data = transectData[index];
+
+            document.getElementById('zone-title').innerText = data.name;
+            document.getElementById('zone-desc').innerText = data.desc;
+            document.getElementById('zone-detail').innerText = data.detail;
+            document.getElementById('zone-icon').innerHTML = data.icon;
+            document.getElementById('transect-val').innerText = `${data.name} (${index === 5 ? 'Business District' : index === 1 ? 'Rural Area' : index === 3 ? 'Largest Residential' : 'Transition Zone'})`;
+            document.getElementById('transect-slider').value = data.zone;
+
+            document.getElementById('sky-stop-1').setAttribute('stop-color', data.sky[0]);
+            document.getElementById('sky-stop-2').setAttribute('stop-color', data.sky[1]);
+
+            const marker = document.getElementById('transect-marker');
+            marker.setAttribute('transform', `translate(${index * 100 + 50},0)`);
+
+            for (let z = 1; z <= 6; z++) {
+                const g = document.getElementById('skyline-' + z);
+                if (g) g.style.opacity = (z === data.zone) ? '1' : '.45';
+            }
+        }
+
+        /* ==========================================================================
+           QUIZ ENGINE & 102-QUESTION BANK (Strictly Unique & Diverse Conceptual Angles)
+           ========================================================================== */
+        const fullQuestionBank = [
+            // Q1: Wildlife corridors
+            { q: "Which of the following is a solution for decreasing animal isolation on reserves?", options: ["wildlife corridors", "environmental estates", "spacious conservations", "national parks"] },
+            { q: "Strips of natural habitat connecting isolated protected areas to prevent inbreeding are called:", options: ["wildlife corridors", "conservation belts", "greenway buffers", "ecological boundaries"] },
+            { q: "To mitigate habitat fragmentation and reconnect isolated animal populations, conservationists build:", options: ["wildlife corridors", "urban growth boundaries", "industrial bypasses", "eco-dikes"] },
+
+            // Q2: India ecotourism budget share
+            { q: "In India, approximately how much of the National Park annual budget does ecotourism provide?", options: ["three-fourths", "one-half", "five-eighths", "two-thirds"] },
+            { q: "What fraction of Indian National Park operating expenses is funded by ecotourism?", options: ["three-fourths", "two-thirds", "one-half", "seven-eighths"] },
+            { q: "Ecotourism in India delivers roughly what proportion of protected reserve operating budgets?", options: ["three-fourths", "one-half", "four-fifths", "two-thirds"] },
+
+            // Q3: Ecosystem services value
+            { q: "Which term describes the value of what the land can give us if it is protected and restored to health?", options: ["ecosystem services value", "natural resource value", "real estate value", "existence value"] },
+            { q: "Valuing clean water filtration, carbon storage, and flood control provided by healthy nature defines:", options: ["ecosystem services value", "real estate value", "commercial valuation", "extractive worth"] },
+            { q: "The economic worth of free life-support functions provided by healthy ecosystems is called:", options: ["ecosystem services value", "market capital value", "existence worth", "development potential"] },
+
+            // Q4: US annual land loss to sprawl
+            { q: "How many acres does the United States lose each year to development and urban expansion?", options: ["2 million", "3 million", "4 million", "1 million"] },
+            { q: "Annual agricultural and natural land lost to suburban expansion in the U.S. is roughly:", options: ["2 million acres", "3 million acres", "5 million acres", "1 million acres"] },
+            { q: "The U.S. development footprint consumes approximately how much land annually?", options: ["2 million acres", "4 million acres", "3 million acres", "500,000 acres"] },
+
+            // Q5: Ethiopia agricultural investment
+            { q: "Which of the following is the leading African country promoting agricultural investment as part of its economic growth and poverty alleviation strategy?", options: ["Ethiopia", "Egypt", "Sudan", "Botswana"] },
+            { q: "Which East African nation leads agricultural investment policies for poverty reduction?", options: ["Ethiopia", "Sudan", "Egypt", "Kenya"] },
+            { q: "National agricultural investment strategies for economic growth are spearheaded in Africa by:", options: ["Ethiopia", "Botswana", "Sudan", "Egypt"] },
+
+            // Q6: Debt-for-nature swaps
+            { q: "What policy cancels a portion of a developing nation’s debt if it establishes a conservation program using local currency funds?", options: ["debt-for-nature swaps", "biodiversity offset programs", "conservation trust funds", "environmental pardons"] },
+            { q: "Converting crushing national debt into domestic conservation reserves is achieved through:", options: ["debt-for-nature swaps", "carbon taxation", "green bonds", "debt forgiveness grants"] },
+            { q: "International creditor nations canceling sovereign debt for domestic ecological protection execute:", options: ["debt-for-nature swaps", "conservation trusts", "environmental subsidies", "ecosystem offsets"] },
+
+            // Q7: Habitat degradation
+            { q: "A significant change to an ecosystem as a result of human activities is called:", options: ["habitat degradation", "habitat loss", "habitat destruction", "habitat fragmentation"] },
+            { q: "Qualitative ecological decline resulting from human disturbance is termed:", options: ["habitat degradation", "habitat fragmentation", "species displacement", "ecosystem removal"] },
+            { q: "When human activity significantly impairs ecosystem quality without total clearing, it is:", options: ["habitat degradation", "habitat destruction", "habitat loss", "ecological isolation"] },
+
+            // Q8: Native species
+            { q: "What is another term for a species that is indigenous to an ecosystem?", options: ["native species", "symbiotic species", "invading species", "antibiosis species"] },
+            { q: "A biological species naturally occurring in a region without artificial introduction is a:", options: ["native species", "endemic indicator", "pioneer species", "transplanted organism"] },
+            { q: "Organisms belonging naturally to a specific regional habitat are known as:", options: ["native species", "invasive species", "exotic flora", "keystone fauna"] },
+
+            // Q9: HIPPO non-element
+            { q: "Which of the following is not an element of the acronym devised by biologist E.O. Wilson to explain the main causes of biodiversity loss?", options: ["native species", "population growth", "pollution", "habitat loss"] },
+            { q: "Looking at E.O. Wilson's HIPPO drivers of extinction, which option does NOT belong in the acronym?", options: ["native species", "overharvesting", "invasive species", "pollution"] },
+            { q: "E.O. Wilson's HIPPO framework for extinction drivers excludes which of the following terms?", options: ["native species", "habitat loss", "population growth", "overharvesting"] },
+
+            // Q10: Biodiversity definition
+            { q: "Biodiversity is defined as", options: ["all life on Earth", "the difference between plants and animals", "mixed populations", "the relationships among human beings"] },
+            { q: "The complete variety of all living species, ecosystems, and genetic variation across the biosphere is:", options: ["biodiversity", "bioprospecting", "biocentric ecology", "population richness"] },
+            { q: "Encompassing all plants, animals, fungi, and microorganisms on Earth, biodiversity represents:", options: ["all life on Earth", "endemic regional flora", "ecosystem productivity", "trophic structure"] },
+
+            // Q11: Coevolved relation
+            { q: "What term describes the affiliation between animals that depend on one another to survive?", options: ["coevolved relation", "coextinction", "natural selection", "narcotization"] },
+            { q: "Mutual interdependence and survival ties between species over evolutionary time form a:", options: ["coevolved relation", "coextinction cascade", "symbiotic parasitism", "trophic collapse"] },
+            { q: "When two species rely mutually upon each other for survival through evolutionary adaptation, it is a:", options: ["coevolved relation", "coextinction event", "competitive exclusion", "hybrid divergence"] },
+
+            // Q12: Real estate value
+            { q: "Which term describes the value of what can be built on the land?", options: ["real estate value", "ecosystem services value", "natural resource value", "existence value"] },
+            { q: "Commercial market valuation of housing developments or strip malls placed on land is:", options: ["real estate value", "natural resource worth", "ecological valuation", "intrinsic asset value"] },
+            { q: "What financial measure evaluates land strictly by its commercial building potential?", options: ["real estate value", "ecosystem services value", "conservation worth", "watershed value"] },
+
+            // Q13: Biopiracy
+            { q: "The unauthorized extraction of biological resources and/or the patenting of processes based on traditional knowledge from indigenous communities is called", options: ["biopiracy", "bioprospecting", "biothievery", "biospectacle"] },
+            { q: "Unfair commercial patenting of indigenous plants and traditional healing knowledge is termed:", options: ["biopiracy", "bioprospecting", "bio-infringement", "genetic theft"] },
+            { q: "Exploiting traditional biological knowledge without compensation to indigenous groups is:", options: ["biopiracy", "bioprospecting", "biodiversity extraction", "ecological patenting"] },
+
+            // Q14: 1992 UN biodiversity agreement
+            { q: "In what year did the United Nations develop an international agreement to conserve biodiversity, ensure biological material is used in a sustainable manner, and share benefits equally and fairly?", options: ["1992", "1979", "1984", "2001"] },
+            { q: "The Rio Earth Summit established the landmark UN biodiversity treaty in the year:", options: ["1992", "1984", "1979", "2005"] },
+            { q: "What year marked the UN Convention on Biological Diversity agreement?", options: ["1992", "2001", "1984", "1995"] },
+
+            // Q15: Bioprospecting
+            { q: "The exploration of biodiversity for commercially valuable genetic and biochemical resources is called", options: ["bioprospecting", "biopiracy", "biothievery", "biospectacle"] },
+            { q: "Lawfully screening rainforest plants for pharmaceutical compounds is known as:", options: ["bioprospecting", "biopiracy", "genetic screening", "biochemical mining"] },
+            { q: "The sustainable search for valuable biochemicals across diverse ecosystems is:", options: ["bioprospecting", "biopiracy", "patent extraction", "bio-theft"] },
+
+            // Q16: Biodiversity hotspots
+            { q: "What term describes areas of high biodiversity that have at least 1,500 species of endemic vascular plants and have lost at least 70 percent of their original habitat?", options: ["biodiversity hotspots", "biodiversity signposts", "biodiversity compasses", "biodiversity patches"] },
+            { q: "Regions requiring 1,500+ endemic plants and 70% habitat loss are designated as:", options: ["biodiversity hotspots", "ecological reserves", "endemic sanctuaries", "conservation cores"] },
+            { q: "Areas representing critical extinction risks with 1,500 endemic plant species and 70% loss are:", options: ["biodiversity hotspots", "wildlife corridors", "biosphere buffers", "fragile biomes"] },
+
+            // Q17: Suburb definition
+            { q: "What is a suburb?", options: ["the residential area surrounding a city made up of mostly single family homes", "the increase in the average consumption of land by residents", "the process in which cities spread out over the rural land surrounding them", "the migration of rural population to the adjacent urban communities"] },
+            { q: "Low-density residential rings surrounding central urban cores are known as:", options: ["suburbs", "brownfields", "metropolitan centers", "edge nodes"] },
+            { q: "Communities dominated by single-family housing outside municipal downtown districts are:", options: ["suburbs", "urban infills", "transect cores", "industrial zones"] },
+
+            // Q18: Sprawl problem EXCEPT
+            { q: "Which of the following is NOT a problem associated with urban sprawl?", options: ["blocking high views", "reducing green space", "overrunning farmland", "destroying animal habitats"] },
+            { q: "Among standard urban sprawl impacts, which one is NOT a genuine ecological consequence?", options: ["blocking high views", "destroying animal habitats", "reducing green space", "overrunning agricultural land"] },
+            { q: "Sprawl degradation studies list habitat destruction and farmland loss, but exclude:", options: ["blocking high views", "reducing green space", "overrunning farmland", "habitat fragmentation"] },
+
+            // Q19: US urban-suburban growth 1950-1990
+            { q: "Between 1950 and 1990 the urban-suburban population in the United States saw an increase of", options: ["300 percent", "200 percent", "500 percent", "400 percent"] },
+            { q: "U.S. suburban demographic expansion between 1950 and 1990 surged by:", options: ["300 percent", "200 percent", "400 percent", "150 percent"] },
+            { q: "The percentage growth of the U.S. urban-suburban population from 1950 to 1990 was:", options: ["300 percent", "500 percent", "200 percent", "250 percent"] },
+
+            // Q20: The core
+            { q: "In the transect model, the business district is located in", options: ["the core", "the general zone", "the edge", "the center"] },
+            { q: "The high-density downtown commercial center in the urban transect model is:", options: ["the core", "the rural zone", "the general zone", "the edge"] },
+            { q: "Where do regional planners place the central business district in the transect framework?", options: ["the core", "the edge", "the center", "the rural zone"] },
+
+            // Q21: Urban growth boundaries
+            { q: "Urban growth boundaries represent", options: ["a line set by city planners to distinguish between urban land and rural land", "a contract to establish transportation between urban and rural communities", "a set restriction on expanding urban development into rural land", "a demographic measurement for tracking travel between urban and rural lands"] },
+            { q: "Legal planning lines separating urban development from open countryside are:", options: ["urban growth boundaries", "transect zoning limits", "metropolitan limits", "greenway buffers"] },
+            { q: "City planners use urban growth boundaries to:", options: ["distinguish between urban land and rural land", "tax suburban developers", "route transit lines", "mandate brownfield cleanup"] },
+
+            // Q22: Car carbon emissions share
+            { q: "How much of the world’s carbon emissions from fossil fuels come from cars?", options: ["10%", "8%", "7%", "9%"] },
+            { q: "Passenger automobiles account for what percentage of global fossil fuel carbon emissions?", options: ["10%", "5%", "15%", "12%"] },
+            { q: "Global carbon output originating specifically from passenger cars is estimated at:", options: ["10%", "8%", "12%", "6%"] },
+
+            // Q23: Curitiba Brazil BRT
+            { q: "Which city is considered to have the best Bus Rapid Transit in the world?", options: ["Curitiba, Brazil", "Tokyo, Japan", "London, England", "Naples, Italy"] },
+            { q: "Pioneering high-speed bus transit systems that rival subways, Curitiba is located in:", options: ["Brazil", "Japan", "Colombia", "Mexico"] },
+            { q: "Global transit planning recognizes which city for its exemplary BRT network?", options: ["Curitiba, Brazil", "London, England", "Tokyo, Japan", "Copenhagen"] },
+
+            // Q24: Suburban retrofit strategies count (Fixed to THREE)
+            { q: "How many main retrofit strategies help solve the ecological problems with suburbs?", options: ["three", "five", "four", "two"] },
+            { q: "Urban designers utilize how many primary strategies to retrofit automobile suburbs?", options: ["three", "four", "five", "six"] },
+            { q: "The count of main suburban retrofit models taught in smart growth planning is:", options: ["three", "two", "four", "five"] },
+
+            // Q25: Redevelopment definition
+            { q: "Which term describes demolishing a building and reusing the site for another purpose?", options: ["redevelopment", "re-inhabitation", "re-greening", "rezoning"] },
+            { q: "Clearing an obsolete structure to construct a new building on the same lot is:", options: ["redevelopment", "urban infill", "brownfield preservation", "re-inhabitation"] },
+            { q: "Demolishing dilapidated buildings and repurposing the land parcel is termed:", options: ["redevelopment", "re-greening", "urban infill", "gentrification"] },
+
+            // Q26: The rural zone
+            { q: "What are natural areas in the transect model called?", options: ["the rural zone", "the core", "the center", "the general zone"] },
+            { q: "Open countryside and wilderness regions within urban transect planning are designated as:", options: ["the rural zone", "the edge", "the core", "the general zone"] },
+            { q: "Undeveloped landscapes and agricultural plots in the transect framework fall under:", options: ["the rural zone", "the core", "the center", "the edge"] },
+
+            // Q27: Multiuse building
+            { q: "Which of these is a structure that is used for both residential and commercial purposes?", options: ["multiuse building", "brownfield", "gentrification", "smart growth"] },
+            { q: "Buildings combining ground-floor retail shops with apartments above are:", options: ["multiuse buildings", "brownfields", "infill developments", "transect cores"] },
+            { q: "Architectural structures serving living and business functions simultaneously are:", options: ["multiuse buildings", "suburban homes", "industrial depots", "transit stations"] },
+
+            // Q28: Built environments
+            { q: "All human-created surroundings, like buildings and parks, are called", options: ["built environments", "urbanized areas", "occupied locations", "developed spaces"] },
+            { q: "The sum of all human-built infrastructure, parks, and architecture constitutes the:", options: ["built environment", "urban ecosystem", "anthropogenic sphere", "sprawl zone"] },
+            { q: "Man-made surroundings providing the setting for human activity are termed:", options: ["built environments", "urbanized spaces", "developed reserves", "land subdivisions"] },
+
+            // Q29: NAUTILUS satellite tech (Fixed to NAUTILUS)
+            { q: "Which of the following technologies did NASA establish to use satellite imagery to show how cities are growing?", options: ["NAUTILUS", "Moderate-resolution Imaging Spectroradiometer (MODIS)", "Transition Region And Coronal Explorer (TRACE)", "Imager for Magnetopause-to-Aurora Global Exploration (IMAGE)"] },
+            { q: "NASA's satellite instrument providing land cover data to track urban sprawl is:", options: ["NAUTILUS", "MODIS", "TRACE", "IMAGE"] },
+            { q: "Satellite tracking of global urban expansion is conducted using NASA's:", options: ["NAUTILUS", "TRACE", "IMAGE", "MODIS"] },
+
+            // Q30: Urban infill
+            { q: "The use of land for new construction within an already built up area refers to", options: ["urban infill", "urban reuse", "urban zoning", "urban replication"] },
+            { q: "Building on vacant or bypassed lots inside established city boundaries is called:", options: ["urban infill", "redevelopment", "suburban expansion", "sprawl conversion"] },
+            { q: "Filling in vacant urban spaces with new structures instead of expanding outward is:", options: ["urban infill", "brownfield reclamation", "gentrification", "rezoning"] },
+
+            // Q31: Copenhagen free bikes
+            { q: "Which city has a program that provides free bikes?", options: ["Copenhagen", "New York City", "Amsterdam", "London"] },
+            { q: "Pioneering municipal bike-share programs with accessible bicycles is famous in:", options: ["Copenhagen", "London", "Amsterdam", "New York City"] },
+            { q: "Which European capital is celebrated for its municipal bicycle-sharing network?", options: ["Copenhagen", "London", "Amsterdam", "Berlin"] },
+
+            // Q32: Transit-oriented design
+            { q: "What term refers to mixed-use communities designed to maximize access to public transportation?", options: ["transit-oriented design", "high-speed convergence design", "hybrid communities design", "commuter rail design"] },
+            { q: "Designing walkable communities centered around transit stations is known as:", options: ["transit-oriented design", "traditional neighborhood development", "sprawl planning", "infill zoning"] },
+            { q: "Communities prioritizing pedestrian access to rail and bus hubs embody:", options: ["transit-oriented design", "transect planning", "mixed-use sprawl", "urban infill"] },
+
+            // Q33: Traditional neighborhood development
+            { q: "An urban planning model that is similar to the layout of neighborhoods before urban sprawl is a", options: ["traditional neighborhood development", "revised neighborhood development", "conventional neighborhood development", "enlightened neighborhood development"] },
+            { q: "Pre-sprawl urban layouts featuring connected grids and front porches describe:", options: ["traditional neighborhood development", "transit-oriented design", "suburban subdivision", "modern zoning"] },
+            { q: "Planning communities modeled after historic pre-automobile street grids is:", options: ["traditional neighborhood development", "urban infill", "brownfield regeneration", "suburban sprawl"] },
+
+            // Q34: The general zone
+            { q: "In the transect model, what is the largest zone, which is mostly urban residential, called?", options: ["the general zone", "the edge", "the rural zone", "the core"] },
+            { q: "The most expansive zone in the urban transect, dedicated to residential housing, is:", options: ["the general zone", "the center", "the core", "the rural zone"] },
+            { q: "Mostly urban residential neighborhoods form which primary transect zone?", options: ["the general zone", "the edge", "the rural zone", "the core"] },
+
+            // Q35: Six zoning categories
+            { q: "How many zoning categories make up the urban transect planning model?", options: ["six", "four", "three", "five"] },
+            { q: "The complete urban transect framework divides land into how many distinct zones?", options: ["six", "five", "four", "seven"] },
+            { q: "How many distinct planning zones compose the urban transect model?", options: ["six", "four", "three", "five"] },
+
+            // Q36: Brownfield
+            { q: "Which of these is an abandoned commercial or industrial site that is reused, often as a multi-use building?", options: ["brownfield", "gentrification", "smart growth", "multiuse building"] },
+            { q: "Contaminated or abandoned industrial parcels redeveloped into urban spaces are:", options: ["brownfields", "greenfields", "suburbs", "infill lots"] },
+            { q: "Reusing abandoned commercial factories for mixed-use apartments involves redeveloping a:", options: ["brownfield", "greenfield", "subdivision", "transect core"] }
+        ];
+
+        let currentQuizPool = [];
+
+        function initQuiz() {
+            const container = document.getElementById('quiz-container');
+            container.innerHTML = '';
+
+            const shuffledBank = [...fullQuestionBank].sort(() => 0.5 - Math.random());
+            currentQuizPool = shuffledBank.slice(0, 20);
+
+            currentQuizPool.forEach((qObj, index) => {
+                const correctAnswerText = qObj.options[0];
+
+                const shuffledOptions = [...qObj.options].sort(() => 0.5 - Math.random());
+                const correctIndexDisplay = shuffledOptions.indexOf(correctAnswerText);
+
+                const card = document.createElement('div');
+                card.className = 'question-card';
+                card.innerHTML = `
+                    <div class="question-text">${index + 1}. ${qObj.q}</div>
+                    <div class="options-grid" id="q${index}-options">
+                        ${shuffledOptions.map((opt, i) => `
+                            <button class="option-btn" onclick="handleAnswer(${index}, ${i}, ${correctIndexDisplay})">${opt}</button>
+                        `).join('')}
+                    </div>
+                    <div class="feedback-text" id="q${index}-feedback"></div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        function handleAnswer(questionIndex, selectedIndex, correctIndex) {
+            const optionsContainer = document.getElementById(`q${questionIndex}-options`);
+            const buttons = optionsContainer.querySelectorAll('.option-btn');
+            const feedbackEl = document.getElementById(`q${questionIndex}-feedback`);
+
+            buttons.forEach(btn => btn.disabled = true);
+
+            const selectedBtn = buttons[selectedIndex];
+            const correctBtn = buttons[correctIndex];
+
+            if (selectedIndex === correctIndex) {
+                selectedBtn.classList.add('correct');
+                feedbackEl.textContent = `Correct! That is accurate according to the module criteria.`;
+                feedbackEl.className = 'feedback-text correct-feedback show';
+            } else {
+                selectedBtn.classList.add('incorrect');
+                correctBtn.classList.add('correct');
+                feedbackEl.textContent = `Incorrect. The correct answer is "${correctBtn.innerText}". Review the relevant section above to reinforce this concept.`;
+                feedbackEl.className = 'feedback-text incorrect-feedback show';
+            }
+        }
+
+        window.onload = () => {
+            loadNextLandScenario();
+            updateTransectSim(1);
+            initQuiz();
+        };
+    </script>
+</body>
+</html>

@@ -1,0 +1,261 @@
+/* ==========================================================================
+   BRAND+ - shared by Discovery Lab and MoreHuman Ed (keep both copies in sync).
+   Neo-minimal white space, asymmetric broken grids, bento layouts,
+   purposeful motion and microinteractions, SEN-safe type.
+   Motion rule: it must direct attention, explain a change, give feedback or
+   help an interaction make sense. Nothing loops, nothing hijacks the scroll.
+   ========================================================================== */
+
+/* --- 1. SEN-safe reading ------------------------------------------------ */
+body { line-height: 1.65; letter-spacing: 0.005em; word-spacing: 0.04em; text-align: left; }
+p, li { max-width: 66ch; }
+em, i, cite { font-style: normal; font-weight: 700; }   /* italics are hard for dyslexic readers */
+.ticker span { font-style: normal !important; }
+a:focus-visible, button:focus-visible, .btn:focus-visible, summary:focus-visible, [tabindex]:focus-visible {
+  outline: 3px solid var(--accent, #2F7F7C); outline-offset: 3px; border-radius: 4px; }
+.btn, .tile, .choice, .nav-toggle { min-height: 44px; }
+.lang-switch__btn { padding: .55em .5em; }   /* dyspraxia: generous targets */
+
+/* --- 2. Scroll progress: tells you where you are on the page ------------ */
+.bp-progress { position: fixed; inset: 0 0 auto 0; height: 4px; z-index: 90; pointer-events: none; }
+.bp-progress i { display: block; height: 100%; width: 100%; background: #E3B230;
+  transform: scaleX(var(--p, 0)); transform-origin: left; }
+
+/* --- 3. Reveal: content eases in once, directing the eye down the page --- */
+html.bp-js:not([data-reduced-motion="on"]) .bp-reveal {
+  opacity: 0; transform: translateY(18px);
+  transition: opacity .7s cubic-bezier(.2,.65,.3,1), transform .7s cubic-bezier(.2,.65,.3,1);
+  transition-delay: calc(var(--bp-i, 0) * 70ms);
+}
+html.bp-js:not([data-reduced-motion="on"]) .bp-reveal.bp-in { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  html.bp-js:not([data-reduced-motion="off"]) .bp-reveal { opacity: 1; transform: none; transition: none; }
+}
+
+/* --- 4. Kinetic typography: words rise into place once, then stay still -- */
+.bp-word { display: inline-block; overflow: hidden; vertical-align: top; padding-bottom: .12em; margin-bottom: -.12em; }
+.bp-word > span { display: inline-block; }
+html.bp-js:not([data-reduced-motion="on"]):not([data-dyslexia="on"]) .bp-kinetic:not(.bp-in) .bp-word > span { transform: translateY(105%); }
+html.bp-js:not([data-reduced-motion="on"]):not([data-dyslexia="on"]) .bp-kinetic .bp-word > span {
+  transition: transform .75s cubic-bezier(.2,.8,.2,1); transition-delay: calc(var(--w, 0) * 55ms); }
+@media (prefers-reduced-motion: reduce) {
+  html.bp-js:not([data-reduced-motion="off"]) .bp-kinetic .bp-word > span { transform: none !important; transition: none !important; }
+}
+
+/* --- 5. Microinteractions: feedback you can feel, never a surprise ------ */
+.btn { transition: transform .18s var(--ease, ease), box-shadow .2s var(--ease, ease), background-color .2s; }
+.btn:active:not(:disabled) { transform: translateY(1px) scale(.985); }
+.btn .arrow, .choice__go, .tile__go { display: inline-block; transition: transform .25s var(--ease, ease); }
+.btn:hover .arrow, .btn:focus-visible .arrow { transform: translateX(5px); }
+.bp-spot { position: relative; }
+.bp-spot::after { content: ""; position: absolute; inset: 0; pointer-events: none; border-radius: inherit; opacity: 0;
+  background: radial-gradient(18rem circle at var(--mx, 50%) var(--my, 50%), #E3B2301F, transparent 70%);
+  transition: opacity .3s; }
+.bp-spot:hover::after { opacity: 1; }
+
+/* --- 6. Smart rendering: off-screen sections cost nothing until needed --- */
+.nav-sec, .site-foot { content-visibility: auto; contain-intrinsic-size: auto 38rem; }
+
+/* --- 7. Bento (MoreHuman Ed cards) and side-by-side tiles (Discovery Lab) --- */
+@media (min-width: 900px) {
+  .grid-3.bento { display: grid; grid-template-columns: repeat(6, 1fr); gap: var(--sp-5); align-items: stretch; }
+  .grid-3.bento > :nth-child(5n+1), .grid-3.bento > :nth-child(5n+2) { grid-column: span 3; }
+  .grid-3.bento > :nth-child(5n+3), .grid-3.bento > :nth-child(5n+4), .grid-3.bento > :nth-child(5n) { grid-column: span 2; }
+  .grid-3.bento > :nth-child(5n+1):last-child, .grid-3.bento > :nth-child(5n+3):last-child { grid-column: span 6; }
+  .grid-3.bento > :nth-child(5n+4):last-child { grid-column: span 4; }
+}
+/* Discovery Lab tiles always sit beside each other, never in one tall stack */
+.grid-tiles { grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr)); gap: clamp(1rem, 2.4vw, 2rem); align-items: stretch; }
+.grid-tiles:has(> :only-child) { grid-template-columns: minmax(0, 30rem); }
+.grid-tiles:has(> :nth-child(2):last-child) { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.grid-tiles:has(> :nth-child(3):last-child) { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+@media (max-width: 720px) { .grid-tiles, .grid-tiles:has(> :nth-child(2):last-child), .grid-tiles:has(> :nth-child(3):last-child) { grid-template-columns: 1fr; } }
+.choice-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+@media (max-width: 720px) { .choice-grid { grid-template-columns: 1fr; } .choice-grid > :nth-child(2) { margin-top: 0; } }
+.tile .badge { align-self: flex-start; }
+/* neo-minimal white space */
+.nav-sec { padding-block: clamp(3rem, 7vw, 6rem); }
+.hero { padding-block: clamp(4rem, 9vw, 8rem) clamp(3rem, 7vw, 6rem); }
+@media (min-width: 900px) { .hero__lede { margin-left: clamp(0px, 6vw, 5rem); max-width: 52ch; } }
+.hero { margin-bottom: var(--sp-7); }
+
+/* --- 8. Reader settings panel (MoreHuman Ed only; Discovery Lab has its own) --- */
+html:not([data-age-band])[data-text-size="l"] { font-size: 115%; }
+html:not([data-age-band])[data-text-size="xl"] { font-size: 132%; }
+html:not([data-age-band])[data-dyslexia="on"] { --font-ui: "Atkinson Hyperlegible", system-ui, sans-serif; --font-display: "Atkinson Hyperlegible", system-ui, sans-serif; letter-spacing: .02em; word-spacing: .1em; line-height: 1.75; }
+html:not([data-age-band])[data-tint="warm"] { --paper: #F6EFDF; --surface: #FFFAF0; }
+html:not([data-age-band])[data-tint="cool"] { --paper: #E7EEF2; --surface: #F5FAFD; }
+html:not([data-age-band])[data-reduced-motion="on"] *, html:not([data-age-band])[data-reduced-motion="on"] *::before, html:not([data-age-band])[data-reduced-motion="on"] *::after {
+  animation-duration: 1ms !important; animation-iteration-count: 1 !important; transition-duration: 1ms !important; scroll-behavior: auto !important; }
+.bp-set { position: fixed; left: 1rem; bottom: 1rem; z-index: 80; font-family: var(--font-ui); }
+.bp-set__btn { display: inline-flex; align-items: center; gap: .5rem; min-height: 44px; padding: .5rem 1rem; border-radius: 999px;
+  background: #2B3036; color: #fff; font-weight: 700; font-size: .9rem; border: 2px solid #E3B230; cursor: pointer; }
+.bp-set__panel { position: absolute; left: 0; bottom: 3.4rem; width: min(20rem, 88vw); padding: 1rem 1.1rem; background: #fff; color: #23282D;
+  border: 1px solid #23282D3D; border-radius: 12px; box-shadow: 0 12px 40px -12px #23282D66; }
+.bp-set__panel[hidden] { display: none; }
+.bp-set__panel h2 { font-size: 1rem; margin: 0 0 .6rem; }
+.bp-set__row { display: flex; align-items: center; gap: .6rem; min-height: 44px; font-size: .95rem; }
+.bp-set__row input { width: 1.4rem; height: 1.4rem; accent-color: #2F7F7C; }
+.bp-set__seg { display: flex; gap: .4rem; flex-wrap: wrap; margin: .2rem 0 .5rem; }
+.bp-set__seg button { min-height: 44px; min-width: 44px; padding: .3rem .8rem; border-radius: 8px; border: 2px solid #23282D3D; background: #fff; font-weight: 700; cursor: pointer; }
+.bp-set__seg button[aria-pressed="true"] { border-color: #2F7F7C; background: #2F7F7C1F; }
+
+/* --- 9. Atmosphere: soft, static shades behind everything (no motion, no strobing) --- */
+body { background-color: var(--paper); background-image: none; position: relative; isolation: isolate; }
+body::before { content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none;
+  background:
+    radial-gradient(60rem 38rem at 92% -8%, #E3B2302E, transparent 62%),
+    radial-gradient(48rem 34rem at -6% 18%, #3A8C8A26, transparent 60%),
+    radial-gradient(52rem 40rem at 70% 108%, #C9453B1A, transparent 62%),
+    radial-gradient(40rem 30rem at 10% 100%, #2B30361A, transparent 60%); }
+html[data-tint="dark"] body::before { opacity: .55; }
+/* --- 9b. Sky of soft colour: no grid. Three kinds of very faint cloud, in the site's own colours (mustard, coral, teal),
+   each one slowly appearing, drifting and dissolving in turn. Opacity/transform only, 100+ seconds a cycle, never flashes. --- */
+html::before, html::after, body::after { content: ""; position: fixed; z-index: -1; pointer-events: none; opacity: 0; will-change: transform, opacity; }
+html::before { inset: -12% -30%;
+  background:
+    radial-gradient(26rem 10rem at 16% 26%, #E3B2303D, transparent 70%),
+    radial-gradient(32rem 12rem at 62% 20%, #E3B23033, transparent 72%),
+    radial-gradient(28rem 10rem at 78% 68%, #E3B23038, transparent 72%);
+  filter: blur(26px); animation: bp-cloud-a 110s ease-in-out infinite; }
+html::after { inset: -10% -28%;
+  background:
+    radial-gradient(28rem 10rem at 30% 70%, #C9453B2E, transparent 72%),
+    radial-gradient(24rem 9rem at 74% 30%, #C9453B28, transparent 70%),
+    radial-gradient(30rem 11rem at 8% 36%, #C9453B26, transparent 72%);
+  filter: blur(28px); animation: bp-cloud-b 130s ease-in-out -45s infinite; }
+body::after { inset: -10% -26%;
+  background:
+    radial-gradient(30rem 11rem at 22% 18%, #3A8C8A33, transparent 72%),
+    radial-gradient(26rem 10rem at 70% 54%, #3A8C8A2E, transparent 70%),
+    radial-gradient(32rem 11rem at 46% 88%, #3A8C8A2B, transparent 72%);
+  filter: blur(26px); animation: bp-cloud-c 120s ease-in-out -85s infinite; }
+@keyframes bp-cloud-a { 0%, 100% { opacity: 0; transform: translate3d(-5%, 0, 0); } 45% { opacity: 1; } 55% { opacity: 1; } }
+@keyframes bp-cloud-b { 0%, 100% { opacity: 0; transform: translate3d(5%, 1%, 0); } 45% { opacity: 1; } 55% { opacity: 1; } 99% { transform: translate3d(-5%, -2%, 0); } }
+@keyframes bp-cloud-c { 0%, 100% { opacity: 0; transform: translate3d(-4%, -1%, 0); } 45% { opacity: 1; } 55% { opacity: 1; } 99% { transform: translate3d(5%, 2%, 0); } }
+html[data-tint="dark"]::before, html[data-tint="dark"]::after, html[data-tint="dark"] body::after { filter: blur(28px) brightness(1.5); }
+@media (max-width: 720px) { body::after { display: none; } }
+/* calm motion: the colour clouds simply rest, very faint and still */
+html[data-reduced-motion="on"]::before, html[data-reduced-motion="on"]::after, html[data-reduced-motion="on"] body::after { animation: none; opacity: .45; }
+@media (prefers-reduced-motion: reduce) {
+  html:not([data-reduced-motion="off"])::before, html:not([data-reduced-motion="off"])::after, html:not([data-reduced-motion="off"]) body::after { animation: none; opacity: .45; }
+}
+
+/* --- 10. Depth: tiles and cards tilt a few degrees toward the pointer, layered like glass --- */
+.tile, .choice { transform-style: preserve-3d; background: linear-gradient(160deg, #ffffff 0%, #FBFCFB 55%, #F1F4F3 100%);
+  box-shadow: 0 1px 0 #ffffff inset, 0 1px 2px #23282D14, 0 14px 30px -14px #23282D40, 0 36px 60px -34px #23282D33;
+  will-change: transform; }
+html.bp-js:not([data-reduced-motion="on"]) .tile.bp-tilt, html.bp-js:not([data-reduced-motion="on"]) .choice.bp-tilt {
+  transform: perspective(900px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)) translateY(var(--lift, 0px));
+  transition: transform .25s cubic-bezier(.2,.65,.3,1), box-shadow .3s; }
+.tile.bp-tilt:hover, .choice.bp-tilt:hover { --lift: -6px;
+  box-shadow: 0 1px 0 #fff inset, 0 2px 4px #23282D1A, 0 26px 44px -16px #23282D55, 0 50px 80px -40px #23282D40; }
+.tile__media, .choice__mark, .tile__thumb { transform: translateZ(28px); }
+.tile__title, .choice__title { transform: translateZ(16px); }
+.hero__mark { filter: drop-shadow(0 18px 24px #00000066); }
+@media (prefers-reduced-motion: reduce) { html:not([data-reduced-motion="off"]) .tile.bp-tilt, html:not([data-reduced-motion="off"]) .choice.bp-tilt { transform: none; } }
+
+/* --- 11. Real-photo tile thumbnails with a visible credit line --- */
+.tile__media--photo { aspect-ratio: 3 / 2; background: #DDE2E1; position: relative; }
+.tile__media--photo .tile__thumb { transform: none; }
+.tile__media--photo::after { content: ""; position: absolute; inset: auto 0 0 0; height: 38%; background: linear-gradient(transparent, #14181cb3); pointer-events: none; }
+.tile__credit { position: absolute; left: .6rem; right: .6rem; bottom: .4rem; z-index: 1; font-size: .68rem; line-height: 1.2; color: #ffffffe6;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis; letter-spacing: .01em; }
+
+/* --- 12. Photo tiles come alive: staggered rise, photo settles in, then a very slow drift --- */
+html.bp-js:not([data-reduced-motion="on"]) .tile.bp-reveal { transform: translateY(32px) scale(.96); }
+html.bp-js:not([data-reduced-motion="on"]) .tile.bp-reveal.bp-in { transform: none; }
+html.bp-js:not([data-reduced-motion="on"]) .tile__media--photo .tile__thumb {
+  transform: scale(1.16); transition: transform 1.6s cubic-bezier(.2,.65,.3,1); transition-delay: calc(var(--bp-i, 0) * 90ms); }
+html.bp-js:not([data-reduced-motion="on"]) .tile.bp-in .tile__media--photo .tile__thumb {
+  transform: scale(1.03); animation: bp-drift 22s ease-in-out 2s infinite alternate; }
+html.bp-js:not([data-reduced-motion="on"]) .tile.bp-in:hover .tile__media--photo .tile__thumb { transform: scale(1.08); animation-play-state: paused; }
+html.bp-js:not([data-reduced-motion="on"]) .tile__credit { opacity: 0; transition: opacity .8s ease 1s; }
+html.bp-js:not([data-reduced-motion="on"]) .tile.bp-in .tile__credit { opacity: 1; }
+@keyframes bp-drift { from { translate: -1.2% 0; } to { translate: 1.2% -1%; } }
+@media (prefers-reduced-motion: reduce) {
+  html:not([data-reduced-motion="off"]) .tile__media--photo .tile__thumb { transform: none; animation: none; transition: none; }
+  html:not([data-reduced-motion="off"]) .tile__credit { opacity: 1; transition: none; }
+}
+
+/* --- 13. (section 13) Premium page entrance, 1-2 s: typed headings, cards from alternating sides, photos that keep moving --- */
+.bp-w { display: inline-block; white-space: nowrap; }
+html.bp-js:not([data-reduced-motion="on"]) .bp-typing .bp-ch { opacity: 0; transition: opacity .06s linear; }
+html.bp-js:not([data-reduced-motion="on"]) .bp-typing.bp-typed .bp-ch { opacity: 1; }
+html.bp-js:not([data-reduced-motion="on"]) .tile.bp-reveal, html.bp-js:not([data-reduced-motion="on"]) .choice.bp-reveal {
+  opacity: 0; transform: translate(var(--bp-x, 0), var(--bp-y, 32px)) rotate(var(--bp-r, 0deg)) scale(.93);
+  transition: opacity .8s cubic-bezier(.2,.8,.2,1), transform 1.15s cubic-bezier(.16,1,.3,1);
+  transition-delay: calc(var(--bp-base, 0ms) + var(--bp-i, 0) * 120ms); }
+html.bp-js:not([data-reduced-motion="on"]) .tile.bp-reveal.bp-in, html.bp-js:not([data-reduced-motion="on"]) .choice.bp-reveal.bp-in { opacity: 1; transform: none; }
+/* photos arrive zoomed and off-centre, settle, then pan very slowly (direction varies per photo) */
+html.bp-js:not([data-reduced-motion="on"]) .tile__media--photo .tile__thumb {
+  transform: scale(1.34); translate: calc(var(--bp-x, 0px) * -.25) 0;
+  transition: transform 1.8s cubic-bezier(.2,.8,.2,1), translate 1.8s cubic-bezier(.2,.8,.2,1);
+  transition-delay: calc(var(--bp-base, 0ms) + var(--bp-i, 0) * 120ms); }
+html.bp-js:not([data-reduced-motion="on"]) .tile.bp-in .tile__media--photo .tile__thumb {
+  transform: scale(1.14); translate: 0 0; animation: bp-pan-right 26s ease-in-out 2.4s infinite alternate; }
+html.bp-js:not([data-reduced-motion="on"]) .tile.bp-in .tile__thumb[data-pan="right"] { animation-name: bp-pan-right; }
+html.bp-js:not([data-reduced-motion="on"]) .tile.bp-in .tile__thumb[data-pan="left"] { animation-name: bp-pan-left; }
+html.bp-js:not([data-reduced-motion="on"]) .tile.bp-in .tile__thumb[data-pan="down"] { animation-name: bp-pan-down; animation-duration: 30s; }
+html.bp-js:not([data-reduced-motion="on"]) .tile.bp-in .tile__thumb[data-pan="up"] { animation-name: bp-pan-up; }
+html.bp-js:not([data-reduced-motion="on"]) .tile.bp-in .tile__thumb[data-pan="in"] { animation-name: bp-pan-in; animation-duration: 30s; }
+@keyframes bp-pan-right { from { translate: -4% 0; } to { translate: 4% 0; } }
+@keyframes bp-pan-left  { from { translate: 4% 0; } to { translate: -4% 0; } }
+@keyframes bp-pan-down  { from { translate: 0 -5.5%; } to { translate: 0 5.5%; } }
+@keyframes bp-pan-up    { from { translate: 0 5%; } to { translate: 0 -5%; } }
+@keyframes bp-pan-in    { from { scale: 1; } to { scale: 1.1; } }
+
+/* --- 14. (section 14) No blink between pages: native cross-fade, a steady header, and no dark flash while photos load --- */
+@view-transition { navigation: none; }
+.site-head { view-transition-name: site-head; }
+::view-transition-old(root), ::view-transition-new(root) { animation-duration: .3s; animation-timing-function: ease; }
+::view-transition-group(site-head) { animation-duration: 0s; }
+html[data-reduced-motion="on"]::view-transition-group(*), html[data-reduced-motion="on"]::view-transition-old(*), html[data-reduced-motion="on"]::view-transition-new(*) { animation: none !important; }
+@media (prefers-reduced-motion: reduce) { html:not([data-reduced-motion="off"])::view-transition-group(*), html:not([data-reduced-motion="off"])::view-transition-old(*), html:not([data-reduced-motion="off"])::view-transition-new(*) { animation: none !important; } }
+.tile__media.tile__media--photo { background: #E4E8E7; }
+
+/* --- 15. (section 15) Steady chrome: only the page content changes between pages --- */
+main#main { view-transition-name: page; }
+.bp-wx { view-transition-name: weather; }
+::view-transition-group(page), ::view-transition-group(weather) { animation-duration: 0s; }
+::view-transition-old(page) { animation: bp-vt-out .16s ease both; mix-blend-mode: normal; }
+::view-transition-new(page) { animation: none; mix-blend-mode: normal; }
+::view-transition-old(root), ::view-transition-new(root) { animation-duration: .16s; }
+@keyframes bp-vt-out { to { opacity: 0; } }
+
+/* --- 16. (section 16) About page: the portrait settles in and keeps a very slow, subtle drift --- */
+html.bp-js:not([data-reduced-motion="on"]) .portrait img { transform: scale(1.22); transition: transform 1.9s cubic-bezier(.2,.8,.2,1) .35s; }
+html.bp-js:not([data-reduced-motion="on"]) .portrait-wrap .portrait img { transform: scale(1.04); animation: bp-pan-soft 32s ease-in-out 2.6s infinite alternate; }
+@keyframes bp-pan-soft { from { scale: 1; translate: -.8% 0; } to { scale: 1.035; translate: .8% -.8%; } }
+
+/* --- 17. (section 17) One continuous choreography instead of a cut: the page leaves, the next one arrives --- */
+html.bp-leaving main#main { opacity: 0; transform: translateY(-14px); transition: opacity .26s ease, transform .26s ease; }
+html.bp-leaving .tile, html.bp-leaving .choice { pointer-events: none; }
+/* photos fade in when ready instead of popping in */
+.tile__thumb { opacity: 0; transition: opacity .7s ease; }
+.tile__thumb.is-ready { opacity: 1; }
+html[data-reduced-motion="on"] .tile__thumb { opacity: 1; transition: none; }
+@media (prefers-reduced-motion: reduce) { html:not([data-reduced-motion="off"]) .tile__thumb { opacity: 1; transition: none; } }
+
+/* --- 18. (section 18) Heading receives focus after an in-place page change (for screen readers); no ring on it --- */
+.nav-title h1:focus { outline: none; }
+
+/* --- 19. (section 19) Assembly: blocks fly in from four sides with a little turn, overshoot slightly, and lock into place --- */
+html.bp-js:not([data-reduced-motion="on"]) .tile.bp-reveal, html.bp-js:not([data-reduced-motion="on"]) .choice.bp-reveal {
+  opacity: 0;
+  transform: perspective(1100px) translate3d(var(--bp-x, 0), var(--bp-y, 40px), 0) rotateY(var(--bp-ry, 0deg)) rotate(var(--bp-r, 0deg)) scale(.88);
+  transition: opacity .5s ease, transform 1.3s cubic-bezier(.2, 1.12, .3, 1);
+  transition-delay: calc(var(--bp-base, 0ms) + var(--bp-i, 0) * 150ms); }
+html.bp-js:not([data-reduced-motion="on"]) .tile.bp-reveal.bp-in, html.bp-js:not([data-reduced-motion="on"]) .choice.bp-reveal.bp-in {
+  opacity: 1;
+  transform: perspective(900px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)) translateY(var(--lift, 0px)); }
+html.bp-js:not([data-reduced-motion="on"]) .tile.bp-reveal.bp-in.bp-done, html.bp-js:not([data-reduced-motion="on"]) .choice.bp-reveal.bp-in.bp-done {
+  transition: transform .25s cubic-bezier(.2, .65, .3, 1), box-shadow .3s, opacity .3s; transition-delay: 0s; }
+
+/* --- 20. (section 20) The slow photo pan starts from where the settle-in ended (no jump): every pan begins at rest and eases away --- */
+@keyframes bp-pan-right { from { translate: 0 0; } to { translate: 4% 0; } }
+@keyframes bp-pan-left  { from { translate: 0 0; } to { translate: -4% 0; } }
+@keyframes bp-pan-down  { from { translate: 0 0; } to { translate: 0 6%; } }
+@keyframes bp-pan-up    { from { translate: 0 0; } to { translate: 0 -6%; } }
+@keyframes bp-pan-in    { from { scale: 1; translate: 0 0; } to { scale: 1.1; translate: 0 0; } }
+@keyframes bp-pan-soft  { from { scale: 1; translate: 0 0; } to { scale: 1.035; translate: .8% -.8%; } }

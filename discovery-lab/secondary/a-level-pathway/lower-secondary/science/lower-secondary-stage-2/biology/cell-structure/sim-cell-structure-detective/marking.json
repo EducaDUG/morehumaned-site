@@ -1,0 +1,86 @@
+{
+  "_README": "MARKER-ONLY. Never fetched by the student's browser until a teacher/marker PDF is generated (formative: automatically when the student clicks Generate; assessed: only via the ?teacher=1-gated action, after Final Submit). Never render any of this on the student-facing page. See CLAUDE.md §5's assessment-security amendment.",
+  "activityId": "ALEV-LS2-L03-SIM01",
+  "version": "1.3",
+  "explain": {
+    "markingScheme": [
+      {
+        "marks": 1,
+        "criterion": "States that the pondweed cell had a rigid, regular (brick-like) cell wall, while the cheek cell had no wall — only a soft, irregular folded outline.",
+        "accept": "Equivalent wording (e.g. 'straight edges' vs 'wobbly/rounded edges'); exact terms like 'brick-like' are not required if the wall/no-wall contrast is clear.",
+        "insufficient": "Saying the cells 'look different' with no mention of the wall specifically."
+      },
+      {
+        "marks": 1,
+        "criterion": "States that the pondweed cell contained visible green chloroplasts — structures never seen in the cheek cell photo.",
+        "accept": "Any correct reference to chloroplasts (or 'green structures') being present only in the plant cell photo.",
+        "insufficient": "Mentioning 'green colour' without identifying it as chloroplasts, or omitting this feature entirely."
+      },
+      {
+        "marks": 1,
+        "criterion": "Recognises that both cells also showed shared structures (e.g. cytoplasm, and a nucleus-like region in the cheek cell), and explicitly states it was the presence of the wall and chloroplasts — not the shared features — that identified the plant cell.",
+        "accept": "Any correct naming of at least one shared structure, paired with the point that shared structures cannot be used to distinguish the two cell types.",
+        "insufficient": "Naming a shared structure without explaining that it does NOT help tell the cells apart.",
+        "dependsOn": 0
+      }
+    ]
+  },
+  "apply": {
+    "markingScheme": [
+      {
+        "marks": 1,
+        "criterion": "Correctly identifies it as a plant cell, stating that animal cells never have a cell wall or chloroplasts under any circumstances, so finding even one of these features is enough to rule out an animal cell.",
+        "accept": "Any correct identification with a reason naming the wall and/or chloroplasts as the diagnostic feature.",
+        "insufficient": "Saying 'plant cell' with no reason given."
+      },
+      {
+        "marks": 1,
+        "criterion": "Explains that she can be highly confident from the wall and chloroplasts alone, and that not seeing the vacuole clearly does not weaken the conclusion, since a blurry image simply failed to show a feature that may still be there.",
+        "accept": "Any equivalent reasoning that a missing/unclear feature is not the same as a feature being genuinely absent.",
+        "insufficient": "Treating the unclear vacuole as evidence against the conclusion, or ignoring the vacuole issue entirely.",
+        "dependsOn": 0
+      },
+      {
+        "marks": 1,
+        "criterion": "Makes a genuine real-life link: this is exactly the reasoning a food scientist or doctor uses when identifying tissue/food samples under a microscope — you don't need to see every feature to reach a confident conclusion, as long as the feature you do see is diagnostic.",
+        "accept": "Any real-world example of identifying something from partial evidence, provided it is genuinely comparable to using one diagnostic feature.",
+        "insufficient": "A generic 'this is useful in real life' with no actual example or comparison given."
+      }
+    ]
+  },
+  "rubric": {
+    "criteria": [
+      { "key": "knowledge_accuracy", "source": "Auto-marked from the Knowledge Check (auto_marked_score) — the teacher does not mark this row." },
+      {
+        "key": "use_of_evidence",
+        "source": "= the Explain question's 3-point marking scheme above, one-to-one (cell wall contrast, chloroplasts, shared structures). Do not award these 3 marks a second time here.",
+        "levels": [
+          { "marks": 0, "descriptor": "None of the three analytic points achieved: no mention of the cell wall contrast, no mention of chloroplasts, and no discussion of shared structures." },
+          { "marks": 1, "descriptor": "Achieves only ONE of the three: states the cell wall contrast (rigid/regular in the pondweed cell vs none/irregular in the cheek cell) OR states that chloroplasts were seen only in the pondweed cell OR names a shared structure and explains it could not be used to tell the cells apart — the other two are missing." },
+          { "marks": 2, "descriptor": "Achieves TWO of the three: e.g. states the wall contrast and the chloroplast difference, but does not go on to name a shared structure and explain why it doesn't help distinguish the cells (or names the shared structure alongside only one of the other two)." },
+          { "marks": 3, "descriptor": "States the cell wall contrast, states that chloroplasts were seen only in the pondweed cell, and names a shared structure while explaining it could not be used to tell the two cells apart — all three analytic points present." }
+        ]
+      },
+      {
+        "key": "reasoning",
+        "source": "= the Apply question's 3-point marking scheme above, one-to-one (identification + reason, confidence despite missing feature, real-life link). Do not award these 3 marks a second time here.",
+        "levels": [
+          { "marks": 0, "descriptor": "None of the three analytic points achieved: no correct identification with a reason, no discussion of confidence despite the missing vacuole, and no real-life example given." },
+          { "marks": 1, "descriptor": "Achieves only ONE of the three: correctly identifies the cell as a plant cell using the wall and/or chloroplasts as the diagnostic reason OR explains that not seeing the vacuole clearly does not weaken the conclusion OR gives a genuine real-life example of identifying something from partial evidence — the other two are missing." },
+          { "marks": 2, "descriptor": "Achieves TWO of the three: e.g. correctly identifies the cell with a reason and explains that the unclear vacuole doesn't weaken the conclusion, but does not go on to give a real-life example (or gives an example alongside only one of the other two)." },
+          { "marks": 3, "descriptor": "Correctly identifies the cell as a plant cell because the wall and chloroplasts alone are diagnostic, explains that not seeing the vacuole clearly does not weaken this conclusion, and gives a genuine real-life example of identifying something from limited or partial evidence — all three analytic points present." }
+        ]
+      },
+      {
+        "key": "communication",
+        "source": "Assessed holistically across BOTH the Explain and Apply answers together — independent of, and never overlapping with, the content marks in use_of_evidence and reasoning above.",
+        "levels": [
+          { "marks": 0, "descriptor": "Unclear or missing sentences; no scientific terms." },
+          { "marks": 1, "descriptor": "Understandable but with unclear phrasing or missing key terms." },
+          { "marks": 2, "descriptor": "Clear, well-formed sentences using correct scientific vocabulary (organelle names used accurately)." }
+        ]
+      }
+    ]
+  },
+  "markingInstructions": "Mark ONLY the two constructed responses (Explain, Apply). Award marks point-by-point using each question's markingScheme: each point is worth the marks stated, is independent unless it names a dependsOn point (in which case only award it if that earlier point was also awarded), and each point's 'accept'/'insufficient' tell you exactly what does and doesn't count. use_of_evidence's 3 marks ARE the Explain markingScheme's 3 points, and reasoning's 3 marks ARE the Apply markingScheme's 3 points — the rubric levels restate the same points as bands; award each set of 3 marks ONCE, not twice. communication is a separate, holistic 2 marks across both answers' clarity and vocabulary, never overlapping with the content marks. Copy auto_marked_score into knowledge_accuracy (6 marks = full). Use the student's actual logged identifications and sorting decisions (the stage/organelle/result columns in simulation_results.trials) to verify any organelle the student claims to have found on a given photo — do not take their prose summary on trust if it does not match their own logged data. Accept valid alternative wording (e.g. 'permanent vacuole' for 'large vacuole', 'cell surface membrane' for 'cell membrane') per each point's 'accept' field, and do not penalise spelling unless meaning is unclear. Total is out of 14 (6 auto + 3 + 3 + 2); report total, percentage, one strength, one correction, one next step, under 80 words."
+}

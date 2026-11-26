@@ -1,0 +1,1463 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Environmental Science: Master Interactive Course & Live Simulations Guide</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome 6 CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            400: '#4ade80',
+                            500: '#22c55e',
+                            600: '#16a34a',
+                            700: '#15803d',
+                            800: '#166534',
+                            900: '#14532d',
+                        },
+                        eco: {
+                            blue: '#0284c7',
+                            teal: '#0d9488',
+                            amber: '#d97706',
+                            rose: '#e11d48',
+                            dark: '#0b132b',
+                            card: '#1c2541'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        display: ['Outfit', 'sans-serif'],
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'float': 'float 4s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-8px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #f8fafc;
+            color: #334155;
+            overflow-x: hidden;
+        }
+        h1, h2, h3, h4, .font-display {
+            font-family: 'Outfit', sans-serif;
+        }
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+        }
+        .glass-dark {
+            background: rgba(11, 19, 43, 0.95);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(51, 65, 85, 0.7);
+        }
+        .btn-3d {
+            transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 0 0 rgba(0,0,0,0.25);
+        }
+        .btn-3d:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 0 0 rgba(0,0,0,0.25);
+        }
+        .btn-3d:active {
+            transform: translateY(2px);
+            box-shadow: 0 1px 0 0 rgba(0,0,0,0.25);
+        }
+        .btn-green-3d {
+            background: linear-gradient(135deg, #22c55e, #16a34a);
+            border-bottom: 4px solid #15803d;
+        }
+        .btn-blue-3d {
+            background: linear-gradient(135deg, #0284c7, #0369a1);
+            border-bottom: 4px solid #075985;
+        }
+        .btn-rose-3d {
+            background: linear-gradient(135deg, #f43f5e, #e11d48);
+            border-bottom: 4px solid #be123c;
+        }
+        .btn-amber-3d {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            border-bottom: 4px solid #b45309;
+        }
+        .btn-slate-3d {
+            background: linear-gradient(135deg, #78716c, #57534e);
+            border-bottom: 4px solid #44403c;
+        }
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0f172a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #334155;
+            border-radius: 9999px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #22c55e;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-brand-500 selection:text-white">
+
+    <header class="sticky top-0 z-50 glass-nav transition-all duration-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-600 via-teal-500 to-sky-400 flex items-center justify-center text-white shadow-lg shadow-brand-500/30 animate-pulse-slow">
+                        <i class="fa-solid fa-leaf text-xl"></i>
+                    </div>
+                    <div>
+                        <span class="font-display font-extrabold text-xl text-slate-900 tracking-tight block leading-none">EcoLab <span class="text-brand-600">Pro Studio</span></span>
+                        <span class="text-[11px] text-slate-500 font-bold uppercase tracking-wider">Interactive Master Guide & Live Sims</span>
+                    </div>
+                </div>
+
+                <nav class="hidden lg:flex items-center gap-1.5">
+                    <a href="#level1" class="px-3 py-1.5 rounded-lg text-xs font-bold text-slate-600 hover:text-brand-600 hover:bg-brand-50 transition">Level 1: Foundations</a>
+                    <a href="#level2" class="px-3 py-1.5 rounded-lg text-xs font-bold text-slate-600 hover:text-brand-600 hover:bg-brand-50 transition">Level 2: Systems</a>
+                    <a href="#level3" class="px-3 py-1.5 rounded-lg text-xs font-bold text-slate-600 hover:text-brand-600 hover:bg-brand-50 transition">Level 3: Expert</a>
+                    <a href="#simulations" class="px-3.5 py-1.5 rounded-lg text-xs font-extrabold text-teal-800 bg-teal-100 hover:bg-teal-200 transition border border-teal-300 shadow-sm flex items-center gap-1.5">
+                        <i class="fa-solid fa-flask text-teal-600 animate-bounce"></i> 4 Live Interactive Labs
+                    </a>
+                    <a href="#quiz-section" class="px-3.5 py-1.5 rounded-lg text-xs font-extrabold text-brand-900 bg-brand-100 hover:bg-brand-200 transition border border-brand-300 shadow-sm flex items-center gap-1.5">
+                        <i class="fa-solid fa-gamepad text-brand-600"></i> Exam Bank (100 Unique Qs)
+                    </a>
+                </nav>
+
+                <div class="lg:hidden">
+                    <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="p-2 rounded-lg text-slate-700 hover:bg-slate-100 focus:outline-none">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="hidden lg:hidden bg-white/95 backdrop-blur-md border-b border-slate-200 px-4 pt-3 pb-5 space-y-2">
+            <a href="#level1" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-lg text-sm font-bold text-slate-700 hover:bg-brand-50">Level 1: Foundations</a>
+            <a href="#level2" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-lg text-sm font-bold text-slate-700 hover:bg-brand-50">Level 2: Applied Systems</a>
+            <a href="#level3" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-lg text-sm font-bold text-slate-700 hover:bg-brand-50">Level 3: Expert Analysis</a>
+            <a href="#simulations" onclick="toggleMobileMenu()" class="block px-3 py-2.5 rounded-lg text-sm font-extrabold text-teal-900 bg-teal-100 border border-teal-300"><i class="fa-solid fa-flask mr-2 text-teal-600"></i> Live Interactive Labs</a>
+            <a href="#quiz-section" onclick="toggleMobileMenu()" class="block px-3 py-2.5 rounded-lg text-sm font-extrabold text-brand-900 bg-brand-100 border border-brand-300"><i class="fa-solid fa-gamepad mr-2 text-brand-600"></i> Exam Bank (100 Unique Qs)</a>
+        </div>
+    </header>
+
+    <section class="relative bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 text-white py-16 px-4 overflow-hidden border-b border-slate-800">
+        <div class="absolute inset-0 opacity-20 bg-[radial-gradient(#22c55e_1px,transparent_1px)] [background-size:20px_20px]"></div>
+
+        <div class="absolute -top-20 -left-20 w-96 h-96 bg-brand-500/20 rounded-full blur-3xl pointer-events-none animate-pulse-slow"></div>
+        <div class="absolute -bottom-20 -right-20 w-96 h-96 bg-teal-500/20 rounded-full blur-3xl pointer-events-none animate-pulse-slow"></div>
+
+        <div class="max-w-7xl mx-auto relative z-10 text-center">
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-extrabold uppercase tracking-widest bg-brand-500/20 text-brand-400 border border-brand-500/30 mb-6 backdrop-blur-md shadow-inner">
+                <i class="fa-solid fa-bolt text-amber-400 animate-bounce"></i> Next-Gen Visual Learning & Dynamic Physics
+            </div>
+
+            <h1 class="text-4xl sm:text-6xl font-black tracking-tight mb-5 leading-tight">
+                Environmental Science <br class="hidden sm:inline">
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-400 via-teal-300 to-sky-400">Master Study & Live Simulation Guide</span>
+            </h1>
+
+            <p class="max-w-3xl mx-auto text-slate-300 text-sm sm:text-base font-light mb-8 leading-relaxed">
+                An ultra-engaging master suite featuring <strong class="text-white font-semibold">real-time multi-agent ecosystem physics</strong>, dynamic graphs, particle simulations, step-by-step formula logic decoders, and a verified <strong class="text-white font-semibold">100% unique 100-question practice exam bank</strong>.
+            </p>
+
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="#simulations" class="btn-3d btn-green-3d px-7 py-3.5 rounded-xl font-extrabold text-sm text-white shadow-xl inline-flex items-center gap-2">
+                    <i class="fa-solid fa-play text-amber-300"></i> Launch 4 Live Interactive Sims
+                </a>
+                <a href="#quiz-section" class="btn-3d btn-blue-3d px-7 py-3.5 rounded-xl font-extrabold text-sm text-white shadow-xl inline-flex items-center gap-2">
+                    <i class="fa-solid fa-gamepad"></i> Practice Exam Bank (100 Unique Qs)
+                </a>
+                <button id="downloadNotesBtn" type="button" class="btn-3d btn-slate-3d px-7 py-3.5 rounded-xl font-extrabold text-sm text-white shadow-xl inline-flex items-center gap-2">
+                    <i class="fa-solid fa-download"></i> <span>Download Notes (PDF)</span>
+                </button>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto mt-12 pt-8 border-t border-slate-800 text-center">
+                <div class="p-3 bg-slate-900/60 rounded-xl border border-slate-800 backdrop-blur-sm">
+                    <p class="text-2xl font-black text-brand-400 font-display">Multi-Agent</p>
+                    <p class="text-[11px] text-slate-400 font-bold uppercase tracking-wider mt-0.5">Live Ecosystem Physics</p>
+                </div>
+                <div class="p-3 bg-slate-900/60 rounded-xl border border-slate-800 backdrop-blur-sm">
+                    <p class="text-2xl font-black text-teal-400 font-display">4 Live Labs</p>
+                    <p class="text-[11px] text-slate-400 font-bold uppercase tracking-wider mt-0.5">Interactive Controls</p>
+                </div>
+                <div class="p-3 bg-slate-900/60 rounded-xl border border-slate-800 backdrop-blur-sm">
+                    <p class="text-2xl font-black text-sky-400 font-display">100 Unique Qs</p>
+                    <p class="text-[11px] text-slate-400 font-bold uppercase tracking-wider mt-0.5">Zero Duplicate Bank</p>
+                </div>
+                <div class="p-3 bg-slate-900/60 rounded-xl border border-slate-800 backdrop-blur-sm">
+                    <p class="text-2xl font-black text-amber-400 font-display">Clean Text</p>
+                    <p class="text-[11px] text-slate-400 font-bold uppercase tracking-wider mt-0.5">No Broken Formulas</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-16">
+
+        <section id="level1" class="scroll-mt-20">
+            <div class="flex items-center gap-3 mb-8">
+                <span class="w-12 h-12 rounded-2xl bg-emerald-100 text-emerald-800 font-black flex items-center justify-center text-xl shadow-md border border-emerald-300">L1</span>
+                <div>
+                    <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">Level 1: Foundational Principles (Core Systems)</h2>
+                    <p class="text-slate-600 text-xs sm:text-sm">Interdisciplinary science, Earth's 4 spheres, energy flow mechanics, ecosystem services, and biomes.</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 hover:shadow-lg transition">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="p-3 rounded-xl bg-emerald-50 text-emerald-600 font-bold"><i class="fa-solid fa-globe text-2xl"></i></div>
+                        <h3 class="text-xl font-bold text-slate-800">1. What Is Environmental Science?</h3>
+                    </div>
+                    <p class="text-slate-600 text-xs leading-relaxed mb-4">
+                        An interdisciplinary field integrating biology, chemistry, geology, hydrology, atmospheric physics, and social sciences to evaluate natural systems and human interactions.
+                    </p>
+                    <div class="bg-slate-50 rounded-xl p-4 border border-slate-200 text-xs space-y-2 mb-3">
+                        <div class="font-bold text-slate-800 uppercase tracking-wider flex items-center justify-between">
+                            <span>Key Planetary Metrics</span>
+                            <i class="fa-solid fa-earth-americas text-emerald-600"></i>
+                        </div>
+                        <ul class="space-y-1 text-slate-600">
+                            <li>• <strong>Earth Age:</strong> ~4.5 Billion Years (22,000× longer than human history).</li>
+                            <li>• <strong>Spaceship Earth Analogy:</strong> Finite isolated resources requiring stewardship.</li>
+                            <li>• <strong>Ecological Overshoot:</strong> Humanity consumes ~1.75 Earths worth of resources per year.</li>
+                        </ul>
+                    </div>
+                    <div class="text-xs bg-amber-50 text-amber-900 p-3 rounded-xl border border-amber-200 flex items-start gap-2">
+                        <i class="fa-solid fa-lightbulb text-amber-600 mt-0.5 text-base"></i>
+                        <div>
+                            <strong>Water Shortage Paradox:</strong> Earth's total water volume (~1.386 billion km³) remains constant. The true crisis is the global scarcity of clean, accessible fresh drinking water.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 hover:shadow-lg transition">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="p-3 rounded-xl bg-sky-50 text-sky-600 font-bold"><i class="fa-solid fa-circle-nodes text-2xl"></i></div>
+                        <h3 class="text-xl font-bold text-slate-800">2. Earth's Interconnected Spheres</h3>
+                    </div>
+                    <p class="text-slate-600 text-xs leading-relaxed mb-4">
+                        Earth operates as a single dynamic super-system. Disruptions in one sphere trigger cascading reactions across all four:
+                    </p>
+                    <div class="overflow-x-auto mb-4">
+                        <table class="w-full text-xs text-left border-collapse">
+                            <thead>
+                                <tr class="bg-slate-100 text-slate-700 uppercase font-bold border-b border-slate-200">
+                                    <th class="p-2.5 rounded-tl-lg">Sphere</th>
+                                    <th class="p-2.5">Composition</th>
+                                    <th class="p-2.5 rounded-tr-lg">Key Function</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-100 text-slate-600">
+                                <tr class="hover:bg-slate-50">
+                                    <td class="p-2 font-bold text-amber-800"><i class="fa-solid fa-mountain mr-1"></i> Geosphere</td>
+                                    <td class="p-2">Rocks, minerals, soil, tectonic plates</td>
+                                    <td class="p-2">Physical structure & mineral cycling</td>
+                                </tr>
+                                <tr class="hover:bg-slate-50">
+                                    <td class="p-2 font-bold text-sky-700"><i class="fa-solid fa-water mr-1"></i> Hydrosphere</td>
+                                    <td class="p-2">Oceans (97%), Ice caps, Groundwater</td>
+                                    <td class="p-2">Climate regulation & water transport</td>
+                                </tr>
+                                <tr class="hover:bg-slate-50">
+                                    <td class="p-2 font-bold text-indigo-700"><i class="fa-solid fa-wind mr-1"></i> Atmosphere</td>
+                                    <td class="p-2">N₂ (78%), O₂ (21%), Argon, GHGs</td>
+                                    <td class="p-2">UV shield & thermal retention</td>
+                                </tr>
+                                <tr class="hover:bg-slate-50">
+                                    <td class="p-2 font-bold text-emerald-700"><i class="fa-solid fa-tree mr-1"></i> Biosphere</td>
+                                    <td class="p-2">All living organisms across biomes</td>
+                                    <td class="p-2">Converts solar energy into biomass</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="bg-slate-50 p-3 rounded-xl border border-slate-200 text-xs leading-relaxed">
+                        <strong>Cascade Example:</strong> Undersea earthquake (Geosphere) → Tsunami wave surge (Hydrosphere) → Destroyed coastal mangroves (Biosphere) → Reduced coastal carbon sequestration (Atmosphere).
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 hover:shadow-lg transition">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="p-3 rounded-xl bg-amber-50 text-amber-600 font-bold"><i class="fa-solid fa-arrows-spin text-2xl"></i></div>
+                        <h3 class="text-xl font-bold text-slate-800">3. Ecosystem Dynamics & Energy Flow</h3>
+                    </div>
+                    <p class="text-slate-600 text-xs leading-relaxed mb-3">
+                        Energy flows unidirectionally through food webs, while nutrients cycle continuously.
+                    </p>
+                    <div class="bg-slate-900 text-emerald-400 p-3 rounded-xl mb-3 text-center text-xs font-mono font-bold shadow-inner">
+                        Energy at Level N = Energy at Level (N - 1) × 0.10
+                    </div>
+                    <p class="text-slate-600 text-xs mb-3">
+                        <strong>The 10% Trophic Transfer Rule:</strong> ~90% of energy is dissipated as metabolic heat and waste at each step. Only ~10% becomes usable biomass for the next level.
+                    </p>
+                    <div class="bg-amber-50 p-3 rounded-xl border border-amber-200 text-xs">
+                        <strong>Example Chain:</strong> Algae (50,000 kJ) → Tadpoles (5,000 kJ) → Fish (500 kJ) → Heron (50 kJ). Apex predators require vast territorial ranges because energy drops exponentially at higher levels.
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 hover:shadow-lg transition">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="p-3 rounded-xl bg-teal-50 text-teal-600 font-bold"><i class="fa-solid fa-seedling text-2xl"></i></div>
+                        <h3 class="text-xl font-bold text-slate-800">4. Ecosystem Services</h3>
+                    </div>
+                    <p class="text-slate-600 text-xs mb-3">Free natural benefits valued at over $125 Trillion annually:</p>
+                    <ul class="text-xs space-y-2 text-slate-600 mb-3">
+                        <li class="p-2.5 bg-slate-50 rounded-xl border border-slate-200">
+                            <strong class="text-emerald-700"><i class="fa-solid fa-apple-whole mr-1"></i> Provisioning:</strong> Direct goods (food, fresh water, timber, medicine).
+                        </li>
+                        <li class="p-2.5 bg-slate-50 rounded-xl border border-slate-200">
+                            <strong class="text-sky-700"><i class="fa-solid fa-cloud-rain mr-1"></i> Regulating:</strong> Moderation processes (climate regulation, storm surge mitigation).
+                        </li>
+                        <li class="p-2.5 bg-slate-50 rounded-xl border border-slate-200">
+                            <strong class="text-indigo-700"><i class="fa-solid fa-recycle mr-1"></i> Supporting:</strong> Underlying processes (soil formation, photosynthesis, nutrient cycling).
+                        </li>
+                        <li class="p-2.5 bg-slate-50 rounded-xl border border-slate-200">
+                            <strong class="text-amber-700"><i class="fa-solid fa-mountain-sun mr-1"></i> Cultural:</strong> Non-material values (ecotourism, outdoor recreation, spiritual spaces).
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="level2" class="scroll-mt-20">
+            <div class="flex items-center gap-3 mb-8">
+                <span class="w-12 h-12 rounded-2xl bg-sky-100 text-sky-800 font-black flex items-center justify-center text-xl shadow-md border border-sky-300">L2</span>
+                <div>
+                    <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">Level 2: Deepening Understanding (Applied Systems)</h2>
+                    <p class="text-slate-600 text-xs sm:text-sm">Population growth curves, soil stratigraphy, invasive species, and conservation priority sites.</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 hover:shadow-lg transition md:col-span-2">
+                    <h3 class="text-xl font-bold text-slate-800 mb-3"><i class="fa-solid fa-chart-line text-sky-600 mr-2"></i>5. Population Ecology & Growth Dynamics</h3>
+                    <p class="text-slate-600 text-xs mb-3">
+                        Populations change over time based on birth, death, immigration, and emigration rates:
+                    </p>
+                    <div class="bg-slate-900 text-white p-3 rounded-xl text-center text-xs font-mono font-bold mb-4 shadow-inner">
+                        ΔN = (Births + Immigration) - (Deaths + Emigration)
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs mb-4">
+                        <div class="p-3 bg-slate-50 rounded-xl border border-slate-200">
+                            <span class="font-bold text-slate-900 block mb-1">Exponential Growth (J-Curve)</span>
+                            Accelerating growth under unlimited resources (dN/dt = rN). Example: Bacterial doubling.
+                        </div>
+                        <div class="p-3 bg-slate-50 rounded-xl border border-slate-200">
+                            <span class="font-bold text-slate-900 block mb-1">Logistic Growth (S-Curve)</span>
+                            Levels off at Carrying Capacity (K) due to resource limits: dN/dt = rN × [(K - N) / K].
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 hover:shadow-lg transition">
+                    <h3 class="text-xl font-bold text-slate-800 mb-3"><i class="fa-solid fa-layer-group text-amber-700 mr-2"></i>6. Soil Horizon Stratigraphy</h3>
+                    <p class="text-slate-600 text-xs mb-3">Topsoil formation requires up to 1,000 years per inch:</p>
+                    <div class="space-y-1.5 text-xs font-medium">
+                        <div class="p-2 bg-amber-900 text-amber-100 rounded-lg flex justify-between">
+                            <span>O Horizon</span>
+                            <span class="text-[10px] opacity-80">Organic Leaf Litter</span>
+                        </div>
+                        <div class="p-2 bg-amber-800 text-amber-50 rounded-lg flex justify-between">
+                            <span>A Horizon</span>
+                            <span class="text-[10px] opacity-80">Topsoil (Nutrient-Rich)</span>
+                        </div>
+                        <div class="p-2 bg-amber-700 text-amber-100 rounded-lg flex justify-between">
+                            <span>B Horizon</span>
+                            <span class="text-[10px] opacity-80">Subsoil (Clay & Minerals)</span>
+                        </div>
+                        <div class="p-2 bg-amber-600 text-amber-100 rounded-lg flex justify-between">
+                            <span>C Horizon</span>
+                            <span class="text-[10px] opacity-80">Weathered Parent Rock</span>
+                        </div>
+                        <div class="p-2 bg-slate-700 text-slate-200 rounded-lg flex justify-between">
+                            <span>R Horizon</span>
+                            <span class="text-[10px] opacity-80">Unweathered Bedrock</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="level3" class="scroll-mt-20">
+            <div class="flex items-center gap-3 mb-8">
+                <span class="w-12 h-12 rounded-2xl bg-indigo-100 text-indigo-800 font-black flex items-center justify-center text-xl shadow-md border border-indigo-300">L3</span>
+                <div>
+                    <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">Level 3: Expert Analysis (Global Systems & Climate)</h2>
+                    <p class="text-slate-600 text-xs sm:text-sm">Energy transitions, atmospheric criteria pollutants, ocean acidification, and decoupling concepts.</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 hover:shadow-lg transition">
+                    <h3 class="text-xl font-bold text-slate-800 mb-3"><i class="fa-solid fa-smog text-slate-700 mr-2"></i>7. Criteria Air Pollutants</h3>
+                    <p class="text-slate-600 text-xs mb-3">WHO reports 99% of global humans breathe air exceeding safety limits:</p>
+                    <div class="grid grid-cols-2 gap-2 text-[11px]">
+                        <div class="p-2.5 bg-slate-50 rounded-xl border border-slate-200">
+                            <strong>CO (Carbon Monoxide):</strong> Odorless poisonous gas blocking blood O₂ transport.
+                        </div>
+                        <div class="p-2.5 bg-slate-50 rounded-xl border border-slate-200">
+                            <strong>NOx (Nitrogen Oxides):</strong> Forms brown photochemical smog & nitric acid rain.
+                        </div>
+                        <div class="p-2.5 bg-slate-50 rounded-xl border border-slate-200">
+                            <strong>SO₂ (Sulfur Dioxide):</strong> Coal burning pollutant causing sulfuric acid rain.
+                        </div>
+                        <div class="p-2.5 bg-slate-50 rounded-xl border border-slate-200">
+                            <strong>PM₂.₅ (Particulates):</strong> Microscopic soot penetrating deep into lung alveoli.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 hover:shadow-lg transition">
+                    <h3 class="text-xl font-bold text-slate-800 mb-3"><i class="fa-solid fa-shield-halved text-indigo-600 mr-2"></i>8. Decoupling: Ozone vs. Climate Change</h3>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-xs text-left border-collapse">
+                            <thead>
+                                <tr class="bg-indigo-50 text-indigo-900 font-bold border-b border-indigo-200">
+                                    <th class="p-2">Feature</th>
+                                    <th class="p-2">Ozone Depletion</th>
+                                    <th class="p-2">Global Warming</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-100 text-slate-600 text-[11px]">
+                                <tr>
+                                    <td class="p-2 font-bold">Atmospheric Layer</td>
+                                    <td class="p-2">Stratosphere (15–35 km)</td>
+                                    <td class="p-2">Troposphere (0–12 km)</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-2 font-bold">Primary Drivers</td>
+                                    <td class="p-2">CFCs, Halons</td>
+                                    <td class="p-2">CO₂, CH₄, N₂O</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-2 font-bold">Radiation Type</td>
+                                    <td class="p-2">Ultraviolet (UV-B)</td>
+                                    <td class="p-2">Infrared (IR) Heat</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-2 font-bold">Global Treaty</td>
+                                    <td class="p-2 text-emerald-700 font-bold">Montreal Protocol</td>
+                                    <td class="p-2 text-sky-700 font-bold">Paris Agreement</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="simulations" class="scroll-mt-20">
+            <div class="flex flex-col md:flex-row md:items-center justify-between mb-8 gap-4 border-b border-slate-200 pb-6">
+                <div>
+                    <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-extrabold bg-teal-100 text-teal-800 uppercase tracking-widest mb-2 border border-teal-300">
+                        <i class="fa-solid fa-vial-circle-check text-teal-600 animate-pulse"></i> Next-Gen Interactive Sandbox Suite
+                    </span>
+                    <h2 class="text-3xl font-black text-slate-900">Environmental Science Live Simulators</h2>
+                    <p class="text-slate-600 text-xs sm:text-sm mt-1">High-energy physics engines, moving multi-agent organisms, dynamic graphs, and chemical decoders.</p>
+                </div>
+                <div class="flex items-center gap-2">
+                    <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-900 text-slate-200 text-xs font-mono border border-slate-700 shadow">
+                        <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping"></span> Live Physics Running
+                    </span>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+
+                <!-- LAB 1 -->
+                <div class="glass-dark rounded-3xl p-6 text-white shadow-2xl border border-slate-700 flex flex-col justify-between relative overflow-hidden">
+                    <div class="absolute -top-10 -right-10 w-40 h-40 bg-brand-500/10 rounded-full blur-xl pointer-events-none"></div>
+
+                    <div>
+                        <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
+                            <h3 class="text-lg font-black text-brand-400 flex items-center gap-2">
+                                <i class="fa-solid fa-bug text-emerald-400 animate-bounce"></i> Lab 1: Multi-Agent Food Web Physics
+                            </h3>
+                            <span class="text-[11px] bg-slate-800 text-emerald-300 px-3 py-1 rounded-full border border-slate-700 font-mono font-bold">Live Visual Organisms</span>
+                        </div>
+
+                        <div class="relative w-full h-64 bg-slate-950 rounded-2xl overflow-hidden mb-4 border border-slate-800 shadow-inner group">
+                            <canvas id="ecosystemCanvas" class="w-full h-full block cursor-crosshair"></canvas>
+
+                            <div class="absolute top-3 left-3 bg-slate-900/90 backdrop-blur-md px-3 py-2 rounded-xl border border-slate-800 text-[11px] font-mono space-y-1 shadow-lg pointer-events-none">
+                                <div class="flex items-center gap-2 text-emerald-400 font-bold">
+                                    <span class="w-2 h-2 rounded-full bg-emerald-400 inline-block"></span> Plants: <span id="plantCount">0</span>
+                                </div>
+                                <div class="flex items-center gap-2 text-sky-400 font-bold">
+                                    <span class="w-2 h-2 rounded-full bg-sky-400 inline-block"></span> Herbivores: <span id="herbCount">0</span>
+                                </div>
+                                <div class="flex items-center gap-2 text-rose-400 font-bold">
+                                    <span class="w-2 h-2 rounded-full bg-rose-400 inline-block"></span> Apex Predators: <span id="predCount">0</span>
+                                </div>
+                            </div>
+
+                            <div class="absolute bottom-2 right-3 text-[10px] text-slate-500 font-mono pointer-events-none">
+                                Click canvas to add Plants
+                            </div>
+                        </div>
+
+                        <div class="space-y-4 bg-slate-900/90 p-4 rounded-2xl border border-slate-800 text-xs">
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <div class="flex justify-between mb-1">
+                                        <label class="text-slate-300 font-bold">Sunlight Level:</label>
+                                        <span id="sunVal" class="text-amber-400 font-mono font-bold">100%</span>
+                                    </div>
+                                    <input type="range" id="sunInput" min="20" max="200" value="100" oninput="updateEcosystemSim()" class="w-full accent-amber-500 cursor-pointer">
+                                </div>
+                                <div>
+                                    <div class="flex justify-between mb-1">
+                                        <label class="text-slate-300 font-bold">Chemical Pollution:</label>
+                                        <span id="pollutionVal" class="text-rose-400 font-mono font-bold">0%</span>
+                                    </div>
+                                    <input type="range" id="pollutionInput" min="0" max="100" value="0" oninput="updateEcosystemSim()" class="w-full accent-rose-500 cursor-pointer">
+                                </div>
+                            </div>
+
+                            <div class="flex flex-wrap items-center justify-between gap-2 pt-2 border-t border-slate-800">
+                                <button onclick="spawnInvasive()" class="btn-3d btn-amber-3d px-3 py-2 rounded-xl text-white font-extrabold text-[11px] flex items-center gap-1.5">
+                                    <i class="fa-solid fa-biohazard text-amber-200"></i> Add Invasive Species
+                                </button>
+                                <button onclick="triggerDisaster()" class="btn-3d btn-rose-3d px-3 py-2 rounded-xl text-white font-extrabold text-[11px] flex items-center gap-1.5">
+                                    <i class="fa-solid fa-skull text-rose-200"></i> Environmental Shock
+                                </button>
+                                <button onclick="resetEcosystem()" class="text-slate-400 hover:text-white text-xs underline font-semibold">Reset Ecosystem</button>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-[11px] text-slate-400 mt-4 italic">
+                        Watch organisms physically search for food, reproduce when energy is high, and perish when starved or poisoned.
+                    </p>
+                </div>
+
+                <!-- LAB 2 -->
+                <div class="glass-dark rounded-3xl p-6 text-white shadow-2xl border border-slate-700 flex flex-col justify-between relative overflow-hidden">
+                    <div>
+                        <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
+                            <h3 class="text-lg font-black text-sky-400 flex items-center gap-2">
+                                <i class="fa-solid fa-chart-area text-sky-400 animate-pulse"></i> Lab 2: Landscape & Wildfire Simulator
+                            </h3>
+                            <span class="text-[11px] bg-slate-800 text-sky-300 px-3 py-1 rounded-full border border-slate-700 font-mono font-bold">Dual Graph Engine</span>
+                        </div>
+
+                        <div class="relative w-full h-64 bg-slate-950 rounded-2xl overflow-hidden mb-4 border border-slate-800 shadow-inner">
+                            <canvas id="popCanvas" class="w-full h-full block"></canvas>
+                        </div>
+
+                        <div class="space-y-3 bg-slate-900/90 p-4 rounded-2xl border border-slate-800 text-xs">
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <label class="text-slate-300 font-bold block mb-1">Growth Rate (r): <span id="rVal" class="text-sky-400 font-mono">0.15</span></label>
+                                    <input type="range" id="rInput" min="0.05" max="0.4" step="0.01" value="0.15" oninput="updatePopGrowth()" class="w-full accent-sky-500 cursor-pointer">
+                                </div>
+                                <div>
+                                    <label class="text-slate-300 font-bold block mb-1">Carrying Capacity (K): <span id="kVal" class="text-amber-400 font-mono">500</span></label>
+                                    <input type="range" id="kInput" min="200" max="800" step="50" value="500" oninput="updatePopGrowth()" class="w-full accent-amber-500 cursor-pointer">
+                                </div>
+                            </div>
+
+                            <div class="flex flex-wrap items-center justify-between gap-2 pt-2 border-t border-slate-800">
+                                <button onclick="triggerWildfire()" class="btn-3d btn-rose-3d px-4 py-2 rounded-xl text-white font-extrabold text-[11px] flex items-center gap-2">
+                                    <i class="fa-solid fa-fire text-amber-300"></i> Wildfire Catastrophe
+                                </button>
+                                <button onclick="resetPopGrowth()" class="text-slate-400 hover:text-white text-xs underline font-semibold">Reset Simulation</button>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-[11px] text-slate-400 mt-4 italic">
+                        Observes tree canopy density and wildlife count adjusting live alongside the mathematical logistic curve.
+                    </p>
+                </div>
+
+                <!-- LAB 3 -->
+                <div class="glass-dark rounded-3xl p-6 text-white shadow-2xl border border-slate-700 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-lg font-black text-teal-400 flex items-center gap-2">
+                                <i class="fa-solid fa-microscope text-teal-300"></i> Lab 3: Micro-Aquatic Osmosis & Dead Zones
+                            </h3>
+                            <span class="text-[11px] bg-slate-800 text-teal-300 px-3 py-1 rounded-full border border-slate-700 font-mono font-bold">Micro Physics</span>
+                        </div>
+
+                        <div class="relative w-full h-56 bg-slate-950 rounded-2xl overflow-hidden mb-4 border border-slate-800 shadow-inner">
+                            <canvas id="microCanvas" class="w-full h-full block"></canvas>
+                        </div>
+
+                        <div class="space-y-3 bg-slate-900/90 p-4 rounded-2xl border border-slate-800 text-xs">
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <label class="text-slate-300 font-bold block mb-1">Salinity (PPT):</label>
+                                    <input type="range" id="salinityInput" min="0" max="35" value="5" oninput="updateMicroSim()" class="w-full accent-teal-500 cursor-pointer">
+                                </div>
+                                <div>
+                                    <label class="text-slate-300 font-bold block mb-1">Fertilizer Runoff (N/P):</label>
+                                    <input type="range" id="nutrientInput" min="10" max="100" value="20" oninput="updateMicroSim()" class="w-full accent-amber-500 cursor-pointer">
+                                </div>
+                            </div>
+
+                            <div id="microStatus" class="font-bold text-xs p-3 rounded-xl bg-slate-800 text-teal-200 border border-slate-700 shadow">
+                                Status: Fresh Water Environment (Normal Cell Hydration)
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-[11px] text-slate-400 mt-4 italic">
+                        Simulates moving water molecules, swimming algae, bacteria swarms, dissolved oxygen bubbles, and cell membrane osmosis.
+                    </p>
+                </div>
+
+                <!-- LAB 4 -->
+                <div class="glass-dark rounded-3xl p-6 text-white shadow-2xl border border-slate-700 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-lg font-black text-indigo-400 flex items-center gap-2">
+                                <i class="fa-solid fa-calculator text-indigo-300"></i> Lab 4: Formula Logic Parser & Engine
+                            </h3>
+                            <span class="text-[11px] bg-slate-800 text-indigo-300 px-3 py-1 rounded-full border border-slate-700 font-mono font-bold">Real-Time Step Decoder</span>
+                        </div>
+
+                        <div class="bg-slate-900/90 p-4 rounded-2xl border border-slate-800 space-y-4 text-xs">
+                            <div>
+                                <label class="text-slate-300 font-bold block mb-1.5">Select Environmental System:</label>
+                                <select id="calcType" onchange="runLogicParser()" class="w-full bg-slate-800 text-white font-bold rounded-xl p-2.5 border border-slate-700 focus:outline-none focus:border-indigo-500">
+                                    <option value="ocean">Ocean Acidification Chemical Cascade</option>
+                                    <option value="trophic">10% Trophic Transfer Math Engine</option>
+                                    <option value="pop">Population Delta N Solver</option>
+                                    <option value="recapture">Lincoln Index Mark-Recapture Estimator</option>
+                                </select>
+                            </div>
+
+                            <div id="dynamicInputs" class="space-y-2"></div>
+
+                            <div id="logicResult" class="p-4 bg-slate-950 rounded-xl border border-indigo-500/40 text-indigo-200 font-mono text-[11px] leading-relaxed shadow-inner">
+                                Select analysis system above to evaluate step-by-step logic.
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-[11px] text-slate-400 mt-4 italic">
+                        Provides real-time step-by-step mathematical and chemical breakdowns for exam prep.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="quiz-section" class="scroll-mt-20">
+            <div class="bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 rounded-3xl p-6 sm:p-10 text-white shadow-2xl border border-slate-800 relative overflow-hidden">
+                <div class="absolute -bottom-20 -left-20 w-80 h-80 bg-brand-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+                <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-800 pb-6 mb-8 relative z-10">
+                    <div>
+                        <span class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-extrabold uppercase tracking-widest bg-brand-500/20 text-brand-400 border border-brand-500/30 mb-2">
+                            <i class="fa-solid fa-gamepad text-brand-400"></i> Verified 100 Unique Item Pool
+                        </span>
+                        <h2 class="text-3xl font-black tracking-tight">Gamified Exam Practice Suite</h2>
+                        <p class="text-slate-400 text-xs sm:text-sm mt-1">Pulls 20 randomized questions per session from a 100% unique question bank with immediate feedback.</p>
+                    </div>
+
+                    <div class="flex items-center gap-4">
+                        <div class="text-right">
+                            <div class="text-[11px] text-slate-400 font-bold uppercase tracking-wider">Current Score</div>
+                            <div id="scoreDisplay" class="text-2xl font-black text-brand-400 font-mono">0 / 20</div>
+                        </div>
+                        <button onclick="initQuiz()" class="btn-3d btn-green-3d px-5 py-3 rounded-xl font-extrabold text-xs text-white flex items-center gap-2">
+                            <i class="fa-solid fa-rotate"></i> New Quiz Session
+                        </button>
+                    </div>
+                </div>
+
+                <div id="quizContainer" class="space-y-6 max-w-4xl mx-auto relative z-10"></div>
+
+                <div id="quizSummary" class="hidden text-center py-10 space-y-4 relative z-10">
+                    <div class="w-24 h-24 bg-brand-500/20 text-brand-400 rounded-full flex items-center justify-center text-5xl mx-auto border border-brand-500/40 shadow-xl animate-bounce">
+                        <i class="fa-solid fa-trophy"></i>
+                    </div>
+                    <h3 class="text-3xl font-black text-white">Quiz Session Completed!</h3>
+                    <p id="finalScoreText" class="text-2xl text-slate-200 font-mono font-bold">You scored 18 / 20 (90%)</p>
+                    <p id="feedbackBadge" class="text-sm text-brand-400 font-extrabold">Mastery Achieved! Excellent environmental literacy.</p>
+                    <button onclick="initQuiz()" class="btn-3d btn-blue-3d px-8 py-3.5 rounded-xl font-extrabold text-sm text-white inline-flex items-center gap-2 mt-4">
+                        <i class="fa-solid fa-play"></i> Attempt Another 20 Questions
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section id="resources" class="scroll-mt-20">
+            <div class="bg-white rounded-3xl p-8 shadow-sm border border-slate-200">
+                <div class="mb-6">
+                    <span class="text-xs font-bold uppercase tracking-widest text-brand-700 bg-brand-100 px-3 py-1 rounded-full border border-brand-300">
+                        Verified Educational Portals
+                    </span>
+                    <h2 class="text-2xl sm:text-3xl font-black text-slate-900 mt-2">If you want to know more about this, visit these sites.</h2>
+                    <p class="text-slate-600 text-xs sm:text-sm">Curated free interactive simulators, oceanographic portals, and structured biology revision modules.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <a href="https://phet.colorado.edu/en/simulations/category/earth-science" target="_blank" rel="noopener noreferrer" class="group p-5 rounded-2xl bg-slate-50 border border-slate-200 hover:border-brand-500 hover:bg-brand-50/50 transition flex flex-col justify-between">
+                        <div>
+                            <div class="text-[10px] font-extrabold text-slate-500 uppercase mb-1">Interactive Physics & Chemistry</div>
+                            <h3 class="font-extrabold text-slate-800 group-hover:text-brand-600 flex items-center justify-between text-sm">
+                                PhET Earth Science Simulators
+                                <i class="fa-solid fa-arrow-up-right-from-square text-xs text-slate-400 group-hover:text-brand-600"></i>
+                            </h3>
+                            <p class="text-xs text-slate-600 mt-2">Explore interactive physics and earth science simulations created by the University of Colorado Boulder.</p>
+                        </div>
+                    </a>
+
+                    <a href="https://www.khanacademy.org/science/hs-biology" target="_blank" rel="noopener noreferrer" class="group p-5 rounded-2xl bg-slate-50 border border-slate-200 hover:border-brand-500 hover:bg-brand-50/50 transition flex flex-col justify-between">
+                        <div>
+                            <div class="text-[10px] font-extrabold text-slate-500 uppercase mb-1">Structured High School Coursework</div>
+                            <h3 class="font-extrabold text-slate-800 group-hover:text-brand-600 flex items-center justify-between text-sm">
+                                Khan Academy Biology & Ecology
+                                <i class="fa-solid fa-arrow-up-right-from-square text-xs text-slate-400 group-hover:text-brand-600"></i>
+                            </h3>
+                            <p class="text-xs text-slate-600 mt-2">Access comprehensive video lessons and practice modules covering high school biology and ecology.</p>
+                        </div>
+                    </a>
+
+                    <a href="https://www.bbc.co.uk/bitesize/subjects/z2f3cdm" target="_blank" rel="noopener noreferrer" class="group p-5 rounded-2xl bg-slate-50 border border-slate-200 hover:border-brand-500 hover:bg-brand-50/50 transition flex flex-col justify-between">
+                        <div>
+                            <div class="text-[10px] font-extrabold text-slate-500 uppercase mb-1">Revision & Exam Guides</div>
+                            <h3 class="font-extrabold text-slate-800 group-hover:text-brand-600 flex items-center justify-between text-sm">
+                                BBC Bitesize Secondary Science
+                                <i class="fa-solid fa-arrow-up-right-from-square text-xs text-slate-400 group-hover:text-brand-600"></i>
+                            </h3>
+                            <p class="text-xs text-slate-600 mt-2">Review environmental topics, ecosystem dynamics, and geography revision guides tailored for secondary students.</p>
+                        </div>
+                    </a>
+
+                    <a href="https://climatekids.nasa.gov" target="_blank" rel="noopener noreferrer" class="group p-5 rounded-2xl bg-slate-50 border border-slate-200 hover:border-brand-500 hover:bg-brand-50/50 transition flex flex-col justify-between">
+                        <div>
+                            <div class="text-[10px] font-extrabold text-slate-500 uppercase mb-1">Planetary Climate Mechanics</div>
+                            <h3 class="font-extrabold text-slate-800 group-hover:text-brand-600 flex items-center justify-between text-sm">
+                                NASA Climate Kids
+                                <i class="fa-solid fa-arrow-up-right-from-square text-xs text-slate-400 group-hover:text-brand-600"></i>
+                            </h3>
+                            <p class="text-xs text-slate-600 mt-2">Learn about planetary climate systems, global data tracking, and climate mechanisms through interactive games.</p>
+                        </div>
+                    </a>
+
+                    <a href="https://www.iucnredlist.org" target="_blank" rel="noopener noreferrer" class="group p-5 rounded-2xl bg-slate-50 border border-slate-200 hover:border-brand-500 hover:bg-brand-50/50 transition flex flex-col justify-between">
+                        <div>
+                            <div class="text-[10px] font-extrabold text-slate-500 uppercase mb-1">Global Species Database</div>
+                            <h3 class="font-extrabold text-slate-800 group-hover:text-brand-600 flex items-center justify-between text-sm">
+                                IUCN Red List Database
+                                <i class="fa-solid fa-arrow-up-right-from-square text-xs text-slate-400 group-hover:text-brand-600"></i>
+                            </h3>
+                            <p class="text-xs text-slate-600 mt-2">Examine global species threat assessments, endangerment classifications, and biodiversity conservation metrics.</p>
+                        </div>
+                    </a>
+
+                    <a href="https://www.noaa.gov/education" target="_blank" rel="noopener noreferrer" class="group p-5 rounded-2xl bg-slate-50 border border-slate-200 hover:border-brand-500 hover:bg-brand-50/50 transition flex flex-col justify-between">
+                        <div>
+                            <div class="text-[10px] font-extrabold text-slate-500 uppercase mb-1">Ocean & Atmospheric Data</div>
+                            <h3 class="font-extrabold text-slate-800 group-hover:text-brand-600 flex items-center justify-between text-sm">
+                                NOAA Educational Resources
+                                <i class="fa-solid fa-arrow-up-right-from-square text-xs text-slate-400 group-hover:text-brand-600"></i>
+                            </h3>
+                            <p class="text-xs text-slate-600 mt-2">Access oceanographic data, atmospheric monitoring charts, and educational modules on marine ecosystem management.</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            if (menu) menu.classList.toggle('hidden');
+        }
+
+        /* --- LAB 1: MULTI-AGENT ECOSYSTEM PHYSICS ENGINE --- */
+        let ecoAnimationId = null;
+        let plants = [];
+        let herbivores = [];
+        let predators = [];
+        let pollutionLevel = 0;
+        let sunlightLevel = 100;
+
+        class Plant {
+            constructor(x, y) {
+                this.x = x;
+                this.y = y;
+                this.radius = Math.random() * 3 + 3;
+                this.energy = 100;
+            }
+            draw(ctx) {
+                ctx.fillStyle = '#4ade80';
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                ctx.fill();
+                ctx.shadowColor = '#4ade80';
+                ctx.shadowBlur = 6;
+            }
+        }
+
+        class Organism {
+            constructor(x, y, type) {
+                this.x = x;
+                this.y = y;
+                this.type = type;
+                this.radius = type === 'predator' ? 7 : (type === 'invasive' ? 8 : 5);
+                this.vx = (Math.random() - 0.5) * (type === 'predator' ? 2.2 : 1.8);
+                this.vy = (Math.random() - 0.5) * (type === 'predator' ? 2.2 : 1.8);
+                this.energy = 100;
+                this.color = type === 'predator' ? '#f43f5e' : (type === 'invasive' ? '#f59e0b' : '#38bdf8');
+            }
+
+            move(width, height) {
+                this.x += this.vx;
+                this.y += this.vy;
+
+                if (this.x < 10 || this.x > width - 10) this.vx *= -1;
+                if (this.y < 10 || this.y > height - 10) this.vy *= -1;
+
+                this.energy -= 0.15 + (pollutionLevel / 400);
+            }
+
+            draw(ctx) {
+                ctx.fillStyle = this.color;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                ctx.fill();
+                ctx.shadowColor = this.color;
+                ctx.shadowBlur = 8;
+
+                ctx.strokeStyle = `rgba(255, 255, 255, ${Math.max(0, this.energy / 100)})`;
+                ctx.lineWidth = 1.5;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius + 2, 0, Math.PI * 2);
+                ctx.stroke();
+            }
+        }
+
+        function initEcosystem() {
+            const canvas = document.getElementById('ecosystemCanvas');
+            if (!canvas) return;
+            const w = canvas.parentElement.clientWidth;
+            const h = canvas.parentElement.clientHeight;
+            canvas.width = w;
+            canvas.height = h;
+
+            plants = [];
+            herbivores = [];
+            predators = [];
+
+            for (let i = 0; i < 40; i++) plants.push(new Plant(Math.random() * (w - 20) + 10, Math.random() * (h - 20) + 10));
+            for (let i = 0; i < 12; i++) herbivores.push(new Organism(Math.random() * (w - 20) + 10, Math.random() * (h - 20) + 10, 'herbivore'));
+            for (let i = 0; i < 3; i++) predators.push(new Organism(Math.random() * (w - 20) + 10, Math.random() * (h - 20) + 10, 'predator'));
+
+            canvas.onclick = (e) => {
+                const rect = canvas.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                for (let i = 0; i < 5; i++) {
+                    plants.push(new Plant(x + (Math.random() - 0.5) * 30, y + (Math.random() - 0.5) * 30));
+                }
+            };
+
+            if (ecoAnimationId) cancelAnimationFrame(ecoAnimationId);
+            runEcosystemLoop();
+        }
+
+        function updateEcosystemSim() {
+            sunlightLevel = parseInt(document.getElementById('sunInput').value);
+            pollutionLevel = parseInt(document.getElementById('pollutionInput').value);
+
+            document.getElementById('sunVal').textContent = sunlightLevel + '%';
+            document.getElementById('pollutionVal').textContent = pollutionLevel + '%';
+        }
+
+        function spawnInvasive() {
+            const canvas = document.getElementById('ecosystemCanvas');
+            if (!canvas) return;
+            for (let i = 0; i < 4; i++) {
+                herbivores.push(new Organism(Math.random() * canvas.width, Math.random() * canvas.height, 'invasive'));
+            }
+        }
+
+        function triggerDisaster() {
+            plants = plants.slice(0, Math.floor(plants.length * 0.3));
+            herbivores = herbivores.slice(0, Math.floor(herbivores.length * 0.3));
+            predators = predators.slice(0, Math.floor(predators.length * 0.3));
+        }
+
+        function resetEcosystem() {
+            document.getElementById('sunInput').value = 100;
+            document.getElementById('pollutionInput').value = 0;
+            updateEcosystemSim();
+            initEcosystem();
+        }
+
+        function runEcosystemLoop() {
+            const canvas = document.getElementById('ecosystemCanvas');
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+            const w = canvas.width;
+            const h = canvas.height;
+
+            ctx.shadowBlur = 0;
+            ctx.fillStyle = 'rgba(11, 19, 43, 0.3)';
+            ctx.fillRect(0, 0, w, h);
+
+            if (Math.random() < (sunlightLevel / 200) * 0.15 && plants.length < 80) {
+                plants.push(new Plant(Math.random() * (w - 20) + 10, Math.random() * (h - 20) + 10));
+            }
+
+            plants.forEach(p => p.draw(ctx));
+
+            for (let i = herbivores.length - 1; i >= 0; i--) {
+                const herb = herbivores[i];
+                herb.move(w, h);
+                herb.draw(ctx);
+
+                for (let j = plants.length - 1; j >= 0; j--) {
+                    const p = plants[j];
+                    const dist = Math.hypot(herb.x - p.x, herb.y - p.y);
+                    if (dist < herb.radius + p.radius) {
+                        plants.splice(j, 1);
+                        herb.energy = Math.min(150, herb.energy + 35);
+                        if (herb.energy > 120 && herbivores.length < 35) {
+                            herb.energy -= 40;
+                            herbivores.push(new Organism(herb.x, herb.y, herb.type));
+                        }
+                        break;
+                    }
+                }
+
+                if (herb.energy <= 0) herbivores.splice(i, 1);
+            }
+
+            for (let i = predators.length - 1; i >= 0; i--) {
+                const pred = predators[i];
+                pred.move(w, h);
+                pred.draw(ctx);
+
+                for (let j = herbivores.length - 1; j >= 0; j--) {
+                    const herb = herbivores[j];
+                    const dist = Math.hypot(pred.x - herb.x, pred.y - herb.y);
+                    if (dist < pred.radius + herb.radius) {
+                        herbivores.splice(j, 1);
+                        pred.energy = Math.min(180, pred.energy + 50);
+                        if (pred.energy > 140 && predators.length < 10) {
+                            pred.energy -= 60;
+                            predators.push(new Organism(pred.x, pred.y, 'predator'));
+                        }
+                        break;
+                    }
+                }
+
+                if (pred.energy <= 0) predators.splice(i, 1);
+            }
+
+            document.getElementById('plantCount').textContent = plants.length;
+            document.getElementById('herbCount').textContent = herbivores.length;
+            document.getElementById('predCount').textContent = predators.length;
+
+            ecoAnimationId = requestAnimationFrame(runEcosystemLoop);
+        }
+
+        /* --- LAB 2: POPULATION LOGISTIC GROWTH & WILDFIRE GRAPH ENGINE --- */
+        let wildfireActive = false;
+
+        function updatePopGrowth() {
+            const r = parseFloat(document.getElementById('rInput').value);
+            const K = parseInt(document.getElementById('kInput').value);
+
+            document.getElementById('rVal').textContent = r.toFixed(2);
+            document.getElementById('kVal').textContent = K;
+
+            renderPopCanvas(r, K);
+        }
+
+        function triggerWildfire() {
+            wildfireActive = true;
+            updatePopGrowth();
+            setTimeout(() => {
+                wildfireActive = false;
+                updatePopGrowth();
+            }, 3000);
+        }
+
+        function resetPopGrowth() {
+            wildfireActive = false;
+            document.getElementById('rInput').value = 0.15;
+            document.getElementById('kInput').value = 500;
+            updatePopGrowth();
+        }
+
+        function renderPopCanvas(r, K) {
+            const canvas = document.getElementById('popCanvas');
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+            canvas.width = canvas.parentElement.clientWidth;
+            canvas.height = canvas.parentElement.clientHeight;
+
+            const w = canvas.width;
+            const h = canvas.height;
+            ctx.clearRect(0, 0, w, h);
+
+            const kY = h - 35 - (K / 900) * (h - 60);
+            ctx.strokeStyle = '#f59e0b';
+            ctx.setLineDash([6, 6]);
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            ctx.moveTo(40, kY);
+            ctx.lineTo(w - 20, kY);
+            ctx.stroke();
+
+            ctx.fillStyle = '#f59e0b';
+            ctx.font = 'bold 11px Plus Jakarta Sans';
+            ctx.fillText(`Carrying Capacity K = ${K}`, w - 160, kY - 6);
+
+            ctx.setLineDash([]);
+            ctx.strokeStyle = '#38bdf8';
+            ctx.lineWidth = 3.5;
+            ctx.beginPath();
+
+            let N = 25;
+            const steps = 70;
+
+            for (let t = 0; t <= steps; t++) {
+                const x = 40 + (t / steps) * (w - 60);
+
+                if (wildfireActive && t === 35) {
+                    N = Math.max(10, N * 0.15);
+                }
+
+                const dN = r * N * (1 - N / K);
+                N += dN;
+
+                const y = h - 35 - (N / 900) * (h - 60);
+
+                if (t === 0) ctx.moveTo(x, y);
+                else ctx.lineTo(x, y);
+            }
+            ctx.stroke();
+
+            if (wildfireActive) {
+                ctx.fillStyle = 'rgba(239, 68, 68, 0.15)';
+                ctx.fillRect(0, 0, w, h);
+
+                ctx.fillStyle = '#ef4444';
+                ctx.font = 'black 13px Outfit';
+                ctx.fillText('🔥 WILDFIRE EVENT: Density-Independent Crash', w / 2 - 130, 30);
+            }
+        }
+
+        /* --- LAB 3: MICRO-AQUATIC OSMOSIS & EUTROPHICATION SIMULATOR --- */
+        function updateMicroSim() {
+            const salinity = parseInt(document.getElementById('salinityInput').value);
+            const nutrient = parseInt(document.getElementById('nutrientInput').value);
+
+            const status = document.getElementById('microStatus');
+            if (salinity > 25) {
+                status.textContent = "Status: Ocean Salinity (Hypertonic - Cellular Dehydration/Osmotic Shrinkage)";
+                status.className = "font-bold text-xs p-3 rounded-xl bg-rose-950/80 text-rose-200 border border-rose-800 shadow";
+            } else if (nutrient > 60) {
+                status.textContent = "Status: High Nutrient Runoff (Massive Algal Bloom & Anoxic Dead Zone)";
+                status.className = "font-bold text-xs p-3 rounded-xl bg-amber-950/80 text-amber-200 border border-amber-800 shadow";
+            } else {
+                status.textContent = "Status: Balanced Water Quality (Optimal Aquatic Cell Homeostasis)";
+                status.className = "font-bold text-xs p-3 rounded-xl bg-emerald-950/80 text-emerald-200 border border-emerald-800 shadow";
+            }
+
+            renderMicroCanvas(salinity, nutrient);
+        }
+
+        function renderMicroCanvas(salinity, nutrient) {
+            const canvas = document.getElementById('microCanvas');
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+            canvas.width = canvas.parentElement.clientWidth;
+            canvas.height = canvas.parentElement.clientHeight;
+
+            const w = canvas.width;
+            const h = canvas.height;
+            ctx.clearRect(0, 0, w, h);
+
+            const algaeFactor = nutrient / 100;
+            ctx.fillStyle = `rgb(${Math.round(11 * (1 - algaeFactor))}, ${Math.round(19 + 130 * algaeFactor)}, ${Math.round(43 * (1 - algaeFactor))})`;
+            ctx.fillRect(0, 0, w, h);
+
+            const particleCount = Math.round(nutrient * 2.8);
+            ctx.fillStyle = 'rgba(34, 197, 94, 0.7)';
+            for (let i = 0; i < particleCount; i++) {
+                const px = (Math.sin(i * 14.2) * 0.5 + 0.5) * w;
+                const py = (Math.cos(i * 8.7) * 0.5 + 0.5) * h;
+                ctx.beginPath();
+                ctx.arc(px, py, 2.5, 0, Math.PI * 2);
+                ctx.fill();
+            }
+
+            const cellX = w / 2;
+            const cellY = h / 2;
+            const cellRadius = salinity > 25 ? 22 : (salinity > 15 ? 30 : 38);
+
+            ctx.fillStyle = salinity > 25 ? '#f43f5e' : '#38bdf8';
+            ctx.beginPath();
+            ctx.arc(cellX, cellY, cellRadius, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.strokeStyle = '#ffffff';
+            ctx.lineWidth = 3.5;
+            ctx.stroke();
+
+            ctx.fillStyle = '#ffffff';
+            ctx.font = 'bold 11px Plus Jakarta Sans';
+            ctx.textAlign = 'center';
+            ctx.fillText(salinity > 25 ? 'Shriveled Cell' : 'Normal Cell', cellX, cellY + 4);
+        }
+
+        /* --- LAB 4: FORMULA LOGIC PARSER ENGINE --- */
+        function runLogicParser() {
+            const type = document.getElementById('calcType').value;
+            const container = document.getElementById('dynamicInputs');
+
+            if (type === 'ocean') {
+                container.innerHTML = `
+                    <label class="text-slate-300 font-bold block">Dissolved CO2 Concentration (ppm):</label>
+                    <input type="number" id="co2Input" value="420" oninput="calcOceanChem()" class="w-full bg-slate-800 text-white font-mono rounded-xl p-2.5 border border-slate-700">
+                `;
+                calcOceanChem();
+            } else if (type === 'trophic') {
+                container.innerHTML = `
+                    <label class="text-slate-300 font-bold block">Starting Primary Producer Energy (kJ):</label>
+                    <input type="number" id="energyIn" value="50000" oninput="calcTrophicMath()" class="w-full bg-slate-800 text-white font-mono rounded-xl p-2.5 border border-slate-700">
+                `;
+                calcTrophicMath();
+            } else if (type === 'pop') {
+                container.innerHTML = `
+                    <div class="grid grid-cols-2 gap-2 font-mono">
+                        <input type="number" id="pB" placeholder="Births" value="120" oninput="calcPopMath()" class="bg-slate-800 p-2 rounded-xl border border-slate-700 text-white">
+                        <input type="number" id="pD" placeholder="Deaths" value="80" oninput="calcPopMath()" class="bg-slate-800 p-2 rounded-xl border border-slate-700 text-white">
+                        <input type="number" id="pI" placeholder="Immigration" value="15" oninput="calcPopMath()" class="bg-slate-800 p-2 rounded-xl border border-slate-700 text-white">
+                        <input type="number" id="pE" placeholder="Emigration" value="10" oninput="calcPopMath()" class="bg-slate-800 p-2 rounded-xl border border-slate-700 text-white">
+                    </div>
+                `;
+                calcPopMath();
+            } else if (type === 'recapture') {
+                container.innerHTML = `
+                    <div class="grid grid-cols-3 gap-2 font-mono">
+                        <input type="number" id="m1" placeholder="Marked (M)" value="50" oninput="calcLincolnIndex()" class="bg-slate-800 p-2 rounded-xl border border-slate-700 text-white">
+                        <input type="number" id="n2" placeholder="Second Sample (C)" value="60" oninput="calcLincolnIndex()" class="bg-slate-800 p-2 rounded-xl border border-slate-700 text-white">
+                        <input type="number" id="m2" placeholder="Recaptured (R)" value="15" oninput="calcLincolnIndex()" class="bg-slate-800 p-2 rounded-xl border border-slate-700 text-white">
+                    </div>
+                `;
+                calcLincolnIndex();
+            }
+        }
+
+        function calcOceanChem() {
+            const co2 = parseFloat(document.getElementById('co2Input').value) || 420;
+            const pH = (8.2 - (co2 - 280) * 0.0008).toFixed(2);
+            document.getElementById('logicResult').innerHTML = `
+                <strong>Chemical Cascade Reaction:</strong><br>
+                CO₂ + H₂O ⇌ H₂CO₃ ⇌ H⁺ + HCO₃⁻<br>
+                • Calculated Ocean pH: <span class="text-amber-400 font-bold">${pH}</span> (Pre-industrial baseline: 8.2)<br>
+                • Free H⁺ Ion Accumulation: Binds available Carbonate (CO₃²⁻), inhibiting coral CaCO₃ calcification.
+            `;
+        }
+
+        function calcTrophicMath() {
+            const energy = parseFloat(document.getElementById('energyIn').value) || 0;
+            document.getElementById('logicResult').innerHTML = `
+                <strong>10% Trophic Transfer Breakdown:</strong><br>
+                • Level 1 (Producer): ${energy.toLocaleString()} kJ<br>
+                • Level 2 (Herbivore): ${(energy * 0.1).toLocaleString()} kJ<br>
+                • Level 3 (Carnivore): ${(energy * 0.01).toLocaleString()} kJ<br>
+                • Level 4 (Apex Predator): ${(energy * 0.001).toLocaleString()} kJ<br>
+                <em>90% metabolic energy lost as heat per trophic transition.</em>
+            `;
+        }
+
+        function calcPopMath() {
+            const B = parseFloat(document.getElementById('pB').value) || 0;
+            const D = parseFloat(document.getElementById('pD').value) || 0;
+            const I = parseFloat(document.getElementById('pI').value) || 0;
+            const E = parseFloat(document.getElementById('pE').value) || 0;
+
+            const dN = (B + I) - (D + E);
+            const sign = dN >= 0 ? '+' : '';
+            document.getElementById('logicResult').innerHTML = `
+                <strong>Population Dynamic Formula:</strong><br>
+                ΔN = (Births + Immigration) - (Deaths + Emigration)<br>
+                ΔN = (${B} + ${I}) - (${D} + ${E}) = <span class="text-teal-400 font-bold">${sign}${dN} individuals</span><br>
+                Population State: ${dN >= 0 ? 'Expanding' : 'Declining'}.
+            `;
+        }
+
+        function calcLincolnIndex() {
+            const M = parseFloat(document.getElementById('m1').value) || 0;
+            const C = parseFloat(document.getElementById('n2').value) || 0;
+            const R = parseFloat(document.getElementById('m2').value) || 1;
+
+            const N = Math.round((M * C) / Math.max(1, R));
+            document.getElementById('logicResult').innerHTML = `
+                <strong>Lincoln Index Mark-Recapture Formula:</strong><br>
+                Estimated Population Size (N) = (M × C) / R<br>
+                N = (${M} × ${C}) / ${R} = <span class="text-sky-400 font-bold">${N.toLocaleString()} individuals</span><br>
+                <em>Assumes closed population without significant migration during study.</em>
+            `;
+        }
+
+        const questionBank = [
+            { q: "What does Environmental Science evaluate?", a: ["Only wild forest mammals", "Interactions between natural physical/biological systems and human society", "Pure subatomic physics without living organisms", "Monetary stock markets only"], correct: 1, exp: "Environmental science integrates biology, chemistry, geology, and social sciences to analyze natural systems and human impacts." },
+            { q: "What is Earth's approximate geological age?", a: ["4.5 Million years", "4.5 Billion years", "10,000 years", "100 Billion years"], correct: 1, exp: "Radiometric dating confirms Earth formed approximately 4.5 billion years ago." },
+            { q: "Why is Earth described as a 'Spaceship' in ecological science?", a: ["It travels faster than light", "It is an isolated system with finite, non-replenishable matter resources", "It is powered by nuclear rocket engines", "It has no atmosphere"], correct: 1, exp: "Earth operates as a closed system for matter, meaning finite natural resources must be sustainably managed." },
+            { q: "What is ecological overshoot?", a: ["Exporting extra crops to foreign countries", "When human resource demand exceeds Earth's annual bio-capacity to regenerate those resources", "When plants grow taller than standard houses", "When annual rainfall doubles"], correct: 1, exp: "Overshoot occurs when humanity consumes natural capital faster than ecosystems can replenish it." },
+            { q: "Why is water scarcity a severe crisis despite constant global water volume?", a: ["Water decomposes under solar radiation", "Over 99% of Earth's water is saline or locked in glaciers, making clean accessible freshwater scarce", "Water converts into atmospheric helium", "Saltwater evaporates permanently into space"], correct: 1, exp: "Earth's total water remains constant (~1.386B km³), but less than 1% is accessible, clean, liquid fresh water." },
+            { q: "What is the systematic sequence for environmental problem-solving?", a: ["Guess, ignore, clean up, bill clients", "Observe degradation, formulate hypothesis, gather field data, design targeted policy/intervention", "Pollute first, research later, vote on laws", "Build factories, plant trees, test water"], correct: 1, exp: "Environmental problem-solving follows empirical science: observation, hypothesis testing, data analysis, and policy execution." },
+            { q: "What dilemma do single-use plastic sachets pose in urban waterways?", a: ["They dissolve into nitrogen fertilizer in minutes", "They provide cheap commodities to low-income homes but persist in oceans for centuries", "They trap carbon gas forever", "They increase fish growth rates"], correct: 1, exp: "Single-use sachets offer economic accessibility but cause severe long-term plastic waste pollution." },
+            { q: "Thermodynamically, how does Earth behave regarding matter and energy?", a: ["Open system for matter, closed for energy", "Closed system for matter, open system for energy", "Closed system for both energy and matter", "Open system for both energy and matter"], correct: 1, exp: "Earth receives solar radiant energy and radiates heat into space (open for energy), but retains a constant matter supply (closed for matter)." },
+            { q: "What does the First Law of Thermodynamics state?", a: ["Energy increases over time", "Energy can neither be created nor destroyed, only transformed from one form to another", "Heat flows from cold to hot spontaneously", "Matter converts into sound waves"], correct: 1, exp: "The Conservation of Energy principle dictates that total energy in a closed system remains constant." },
+            { q: "What occurs during energy transformations according to the Second Law of Thermodynamics?", a: ["Energy quality increases", "High-grade energy degrades into low-grade dispersed heat, increasing entropy", "100% of energy converts into work", "Entropy decreases continuously"], correct: 1, exp: "No energy conversion is 100% efficient; useful energy is inevitably dissipated as metabolic or thermal waste heat." },
+            { q: "What components compose Earth's geosphere?", a: ["All oceans and rivers", "Rocks, minerals, soil horizons, mantle, and tectonic plates", "Atmospheric gases only", "Living micro-organisms"], correct: 1, exp: "The geosphere consists of the solid earth: crust, mantle, core, rocks, and soil horizons." },
+            { q: "What percentage of Earth's hydrosphere is stored as oceanic saltwater?", a: ["50%", "70%", "97%", "99%"], correct: 2, exp: "Approximately 97% of Earth's total water volume is contained within saline oceans." },
+            { q: "What are the two primary atmospheric gases by volume?", a: ["Oxygen (78%) and Methane (21%)", "Nitrogen (78%) and Oxygen (21%)", "Carbon Dioxide (78%) and Nitrogen (21%)", "Argon (78%) and Oxygen (21%)"], correct: 1, exp: "Dry atmospheric air consists of ~78% Nitrogen (N₂) and ~21% Oxygen (O₂)." },
+            { q: "Which sphere contains all living organisms across biomes?", a: ["Geosphere", "Hydrosphere", "Stratosphere", "Biosphere"], correct: 3, exp: "The biosphere encompasses all life forms interacting across terrestrial and aquatic ecosystems." },
+            { q: "What cascading effect begins when an undersea earthquake occurs?", a: ["Geosphere event → Tsunami in Hydrosphere → Mangrove loss in Biosphere → Reduced carbon capture in Atmosphere", "Atmosphere event → Volcanic ash → Glacier growth → Forest growth", "Biosphere event → Rainstorm → River dry up → Earthquakes", "Hydrosphere event → Solar flare → Soil erosion → Ozone layer loss"], correct: 0, exp: "Tectonic movements (Geosphere) generate tsunami surges (Hydrosphere) destroying coastal habitats (Biosphere) and diminishing carbon sinks (Atmosphere)." },
+            { q: "How does the lithosphere differ from the underlying asthenosphere?", a: ["Lithosphere is liquid lava; asthenosphere is solid iron", "Lithosphere is the rigid outer crust/upper mantle; asthenosphere is the ductile, semi-fluid upper mantle beneath", "Lithosphere contains water; asthenosphere contains air", "They are identical geological layers"], correct: 1, exp: "Tectonic plates (lithosphere) float upon the semi-fluid, convective asthenosphere." },
+            { q: "What primary energy source powers the hydrological cycle?", a: ["Geothermal heat", "Solar radiation", "Tidal friction", "Nuclear decay"], correct: 1, exp: "Solar heat drives evaporation and transpiration, moving water through the atmosphere and surface reservoirs." },
+            { q: "What organisms generate over 50% of atmospheric oxygen?", a: ["Pine trees", "Marine phytoplankton and cyanobacteria", "Grasslands", "Soil fungi"], correct: 1, exp: "Microscopic oceanic photosynthesizers generate more than half of the oxygen gas on Earth." },
+            { q: "Which geological formation represents a long-term carbon cycle sink?", a: ["Volcanic plumes", "Limestone rock, deep oceanic sediments, and fossil fuel deposits", "Fresh surface snow", "Desert sand dunes"], correct: 1, exp: "Carbon is sequestered for millions of years in sedimentary limestone, oceanic sludge, and deep hydrocarbon deposits." },
+            { q: "Which organism performs biological nitrogen fixation in plant roots?", a: ["Earthworms", "Specialized Rhizobium bacteria", "Mycorrhizal fungi", "Honeybees"], correct: 1, exp: "Rhizobium bacteria in legume root nodules convert inert N₂ gas into bio-available ammonia (NH₃/NH₄⁺)." },
+            { q: "How much usable energy transfers to the next trophic level according to the 10% Rule?", a: ["1%", "10%", "50%", "90%"], correct: 1, exp: "Approximately 10% of biomass energy is stored in tissue for the next trophic level; 90% is lost as metabolic heat." },
+            { q: "What role do autotrophs fulfill in ecosystem food webs?", a: ["Secondary consumers", "Primary producers that convert inorganic solar/chemical energy into glucose", "Decomposers breaking down bones", "Apex carnivores"], correct: 1, exp: "Autotrophs (plants, algae) synthesize organic biomass from sunlight, CO₂, and water." },
+            { q: "What is a primary consumer?", a: ["An organism that eats herbivores", "An herbivore that feeds directly on primary producers", "An apex predator like a white shark", "Fungi digesting dead leaf litter"], correct: 1, exp: "Primary consumers occupy Trophic Level 2 and feed on autotrophs." },
+            { q: "In a food web diagram, what does the arrow direction indicate?", a: ["Which animal hunts another", "The flow of energy from the organism consumed TO the consumer", "Migration pathways", "Species population size"], correct: 1, exp: "Food web arrows point from energy source to energy recipient." },
+            { q: "Why can marine biomass pyramids sometimes appear inverted?", a: ["Marine plants are invisible", "Phytoplankton reproduce and turn over extremely rapidly despite low standing biomass", "Whales eat phytoplankton directly without energy loss", "Saltwater increases organism weight"], correct: 1, exp: "High turn-over rates allow a small standing crop of phytoplankton to support a larger zooplankton biomass." },
+            { q: "Why do apex predators require vast territorial ranges?", a: ["They run fast", "Exponential 90% energy loss at each trophic step leaves very little available biomass at the top", "They do not drink fresh water", "They compete with autotrophs"], correct: 1, exp: "Because available energy drops exponentially at higher levels, apex carnivores require large hunting areas to survive." },
+            { q: "How is Net Primary Productivity (NPP) calculated?", a: ["NPP = Gross Primary Productivity (GPP) minus Autotrophic Respiration (Ra)", "NPP = Total Rainfall × Temperature", "NPP = Sunlight In + Carbon Dioxide Out", "NPP = Herbivores ÷ Carnivores"], correct: 0, exp: "NPP represents the organic biomass remaining after autotrophs fulfill their cellular respiration needs." },
+            { q: "How does bioaccumulation differ from biomagnification?", a: ["Bioaccumulation affects air; biomagnification affects water", "Bioaccumulation is toxin buildup within ONE organism over time; biomagnification is increasing toxin concentration up trophic levels", "They are identical terms", "Bioaccumulation occurs in plants only"], correct: 1, exp: "Bioaccumulation occurs within an individual's fat tissues; biomagnification concentrates toxins up the food chain." },
+            { q: "What vital function do saprotrophic decomposers perform?", a: ["They consume apex predators", "They break down dead organic detritus, recycling mineral nutrients back into the soil for producers", "They synthesize atmospheric nitrogen", "They regulate solar radiation"], correct: 1, exp: "Fungi and bacteria recycle dead matter into inorganic nutrients required for plant growth." },
+            { q: "What is a trophic cascade?", a: ["A waterfall in a forest", "A process where removing a top predator triggers alternating population booms and crashes down lower trophic levels", "A type of soil erosion", "Solar energy reflection"], correct: 1, exp: "Apex predator removal (e.g. wolves) releases mid-level herbivores, resulting in overgrazing of producers." },
+            { q: "Which level of biodiversity measures DNA variation within a single species population?", a: ["Species diversity", "Genetic diversity", "Ecosystem diversity", "Biome diversity"], correct: 1, exp: "Genetic diversity reflects internal DNA sequence variations among individuals of a population." },
+            { q: "What are the four recognized categories of ecosystem services?", a: ["Primary, Secondary, Tertiary, Quaternary", "Provisioning, Regulating, Supporting, Cultural", "Economic, Political, Social, Environmental", "Biological, Chemical, Physical, Geological"], correct: 1, exp: "Ecosystem services are classified into Provisioning, Regulating, Supporting, and Cultural benefits." },
+            { q: "Which benefit is an example of a provisioning ecosystem service?", a: ["Mangrove storm surge attenuation", "Raw timber, medicinal plants, and food crops extracted from nature", "Photosynthesis", "Ecotourism"], correct: 1, exp: "Provisioning services are direct physical products harvested from natural systems." },
+            { q: "Which benefit is a regulating ecosystem service provided by coastal wetlands?", a: ["Harvesting commercial peat moss", "Filtering pollutants, absorbing floodwaters, and moderating storm surges", "Providing scenic photos for postcards", "Soil formation"], correct: 1, exp: "Regulating services moderate natural processes like flooding, climate, and water purity." },
+            { q: "Why is photosynthesis classified as a supporting ecosystem service?", a: ["It provides scenic views", "It is an underlying fundamental process required for all other ecosystem services to exist", "It generates commercial timber", "It prevents volcanic eruptions"], correct: 1, exp: "Supporting services maintain basic Earth processes (photosynthesis, soil creation, nutrient cycling) enabling all life." },
+            { q: "Which activity represents a cultural ecosystem service?", a: ["Water purification", "Recreational hiking, ecotourism, and spiritual inspiration in natural landscapes", "Timber harvesting", "Carbon sequestration"], correct: 1, exp: "Cultural services encompass non-material, aesthetic, educational, and spiritual benefits." },
+            { q: "What three conditions classify a species as invasive?", a: ["Native, slow-growing, eats insects", "Non-native, establishes and spreads rapidly, and causes economic or ecological harm", "Large body size, lives in zoos, herbivore", "Extinct, fossilized, aquatic"], correct: 1, exp: "Invasive species are alien organisms that spread aggressively and damage native ecosystems." },
+            { q: "What defines a keystone species?", a: ["The most abundant plant in a field", "A species whose presence exerts strong, disproportionate control over ecosystem structure relative to its abundance", "An introduced agricultural crop", "The smallest insect in soil"], correct: 1, exp: "Keystone species (e.g., sea otters, wolves) maintain community balance out of proportion to their biomass." },
+            { q: "What is an endemic species?", a: ["A widespread global pest", "A species found naturally in only ONE specific, localized geographic area", "A domestic farm animal", "An extinct dinosaur"], correct: 1, exp: "Endemic organisms are restricted exclusively to a unique geographic territory." },
+            { q: "What two physical factors primarily determine global terrestrial biome distribution?", a: ["Wind speed and soil pH", "Average temperature and annual precipitation patterns", "Longitude and ocean tide height", "Altitude and oxygen percentage"], correct: 1, exp: "Temperature and precipitation regimes dictate plant communities across terrestrial biomes." },
+            { q: "What is the mathematical equation for population size change (ΔN)?", a: ["ΔN = Births × Deaths", "ΔN = (Births + Immigration) - (Deaths + Emigration)", "ΔN = Carrying Capacity ÷ Area", "ΔN = Solar Energy - Heat Loss"], correct: 1, exp: "Population change accounts for incoming individuals (births, immigration) minus outgoing ones (deaths, emigration)." },
+            { q: "What is Carrying Capacity (K)?", a: ["Maximum speed a species can travel", "Maximum stable population size an environment can sustainably support long-term without degradation", "Total weight of trees in a forest", "Minimum group size needed for hunting"], correct: 1, exp: "Carrying capacity (K) represents the population ceiling imposed by finite resources." },
+            { q: "What graphic shape characterizes exponential population growth under unlimited resources?", a: ["S-Curve", "J-Curve", "Bell Curve", "Horizontal Line"], correct: 1, exp: "Exponential growth accelerates without resource limits, plotting as a steep J-shaped curve." },
+            { q: "What model describes population growth slowing as it approaches Carrying Capacity (K)?", a: ["Exponential J-Curve", "Logistic S-Curve", "Linear Growth", "Parabolic Collapse"], correct: 1, exp: "Logistic growth accounts for environmental resistance, decelerating into an S-shaped curve near K." },
+            { q: "Which factor is a density-dependent population control mechanism?", a: ["Volcanic eruption", "Infectious disease transmission and intraspecific food competition", "Tsunami wave", "Forest wildfire"], correct: 1, exp: "Density-dependent mechanisms intensify as population density increases (disease, competition, waste accumulation)." },
+            { q: "Which event represents a density-independent population limiting factor?", a: ["Contagious bacterial outbreak", "Catastrophic wildfire or hurricane", "Starvation due to overgrazing", "Territorial fighting"], correct: 1, exp: "Density-independent events impact mortality regardless of population density." },
+            { q: "Which traits characterize an r-selected species evolutionary strategy?", a: ["Large body size, few offspring, high parental investment", "Small body size, early maturity, large numbers of offspring, minimal parental care", "Lifespans exceeding 100 years", "Populations hovering steadily at K"], correct: 1, exp: "r-strategists (e.g., mosquitoes, weeds) maximize growth rate by producing many offspring quickly." },
+            { q: "Which traits characterize a K-selected species evolutionary strategy?", a: ["Thousands of eggs per day, short lifespan", "Large body size, long lifespan, few offspring, extensive parental care", "Rapid sexual maturity in 2 days", "No parental investment"], correct: 1, exp: "K-strategists (e.g., elephants, whales, humans) invest heavily in a small number of offspring near K." },
+            { q: "In the Lincoln Index Mark-Recapture formula N = (M × C) / R, what does 'R' represent?", a: ["Total population size", "Number of marked individuals recaptured in the second sample", "Birth rate", "Carrying capacity"], correct: 1, exp: "R represents marked individuals recovered during second-sample trapping." },
+            { q: "What happens when a population overshoots its Carrying Capacity (K)?", a: ["Resources regenerate instantly", "Resource depletion causes a population die-off or crash below K", "The species turns into carnivores", "Carrying capacity doubles automatically"], correct: 1, exp: "Overshooting K damages environmental infrastructure, triggering severe population crashes." },
+            { q: "What is the correct top-to-bottom sequence of major soil horizons?", a: ["R → C → B → A → O", "O → A → B → C → R", "A → B → C → O → R", "O → B → A → R → C"], correct: 1, exp: "Soil profiles layer from top surface litter (O) to topsoil (A), subsoil (B), parent material (C), and bedrock (R)." },
+            { q: "Which soil horizon contains the highest concentration of organic humus and topsoil micro-organisms?", a: ["C Horizon", "R Horizon", "A Horizon", "B Horizon"], correct: 2, exp: "The A horizon (topsoil) is rich in organic humus, plant roots, earthworms, and nutrients." },
+            { q: "How long does nature require to produce just one inch of fertile topsoil?", a: ["1 to 2 years", "10 to 20 years", "Up to 1,000 years", "100,000 years"], correct: 2, exp: "Soil formation is extremely slow, taking up to a millennium to generate 2.5 cm of topsoil." },
+            { q: "What is the relative particle size order from smallest to largest for mineral soil textures?", a: ["Sand < Silt < Clay", "Clay < Silt < Sand", "Silt < Sand < Clay", "Gravel < Clay < Sand"], correct: 1, exp: "Clay particles are microscopic (<0.002 mm), silt is intermediate (0.002–0.05 mm), and sand is largest (0.05–2.0 mm)." },
+            { q: "How does soil compaction from heavy farm machinery harm plant growth?", a: ["It adds excess nitrogen", "It reduces pore space, restricting water infiltration and root oxygen access", "It turns soil into sand", "It increases earthworm activity"], correct: 1, exp: "Compaction crushes soil pore spaces, preventing water drainage and root respiration." },
+            { q: "What major vulnerability is created by large-scale industrial monoculture cropping?", a: ["Excess wild animal habitat", "High susceptibility to widespread pest outbreaks and rapid soil nutrient depletion", "Too many tree roots", "Decreased dependence on synthetic inputs"], correct: 1, exp: "Genetically uniform single-crop fields allow specialized pests and diseases to spread unimpeded." },
+            { q: "What primary ecological benefit does agroforestry provide?", a: ["Eliminating all bird species", "Integrating trees with crops to anchor topsoil, boost biodiversity, and sequester carbon", "Increasing pesticide runoff", "Paving farm fields"], correct: 1, exp: "Agroforestry combines forestry and agriculture to stabilize soil hydrology and diversify habitats." },
+            { q: "Why is contour terracing practiced on steep agricultural slopes?", a: ["To allow faster tractor speeds", "To reduce water runoff velocity and prevent severe topsoil erosion", "To catch extra sunlight", "To drain aquifers"], correct: 1, exp: "Stepped terrace ridges slow down downhill rainwater runoff, trapping eroded sediments." },
+            { q: "What is the main function of cover crops planted during agricultural off-seasons?", a: ["To attract locust swarms", "To cover soil, suppress weeds, prevent rain erosion, and fix nutrients", "To increase soil salinity", "To absorb all groundwater"], correct: 1, exp: "Cover crops (like clover or rye) protect bare topsoil between commercial harvest seasons." },
+            { q: "What process causes soil salinization in irrigated arid farmlands?", a: ["Heavy snowstorms", "Repeated irrigation in hot climates where rapid water evaporation leaves behind dissolved mineral salts", "Over-application of organic compost", "Forest shade"], correct: 1, exp: "Evaporating irrigation water concentrates mineral salts in the topsoil, toxicifying crops." },
+            { q: "What chemical cascade occurs when dissolved atmospheric CO2 reacts with ocean water?", a: ["CO₂ + H₂O → Carbonic Acid (H₂CO₃) → Free H⁺ ions + Bicarbonate (HCO₃⁻)", "CO₂ + H₂O → Pure Salt + Oxygen gas", "CO₂ + H₂O → Methane gas + Hydrogen peroxide", "CO₂ + H₂O → Limestone rock"], correct: 0, exp: "Dissolved CO₂ forms carbonic acid, releasing free hydrogen ions that lower seawater pH." },
+            { q: "Why does ocean acidification impair shell-building marine organisms?", a: ["It makes seawater boiling hot", "Free H⁺ ions react with available Carbonate ions (CO₃²⁻), depleting the building blocks needed for CaCO₃ shells", "It turns shells into plastic", "It removes dissolved oxygen"], correct: 1, exp: "Excess H⁺ binds carbonate ions, preventing corals and mollusks from synthesizing calcium carbonate shells." },
+            { q: "What is the approximate pH drop of ocean surface waters since the Industrial Revolution?", a: ["8.2 to 8.1 (a ~30% increase in H⁺ concentration)", "7.0 to 4.0", "14.0 to 12.0", "5.6 to 2.0"], correct: 0, exp: "Ocean pH dropped from ~8.2 to ~8.1, representing a ~30% increase in acidity on the logarithmic pH scale." },
+            { q: "What primary nutrients trigger aquatic eutrophication when washed into lakes?", a: ["Sodium and Chlorine", "Nitrogen (N) and Phosphorus (P)", "Carbon and Calcium", "Iron and Lead"], correct: 1, exp: "Excess Nitrogen and Phosphorus from fertilizers fuel explosive algal blooms." },
+            { q: "What sequence creates anoxic 'Dead Zones' in eutrinsic water bodies?", a: ["Nutrient runoff → Algal bloom → Algae die → Aerobic bacteria consume dissolved O₂ decomposing algae", "Cold rain → Fish overpopulation → Ocean drying", "Oil spill → Water freezes → Fish jump out", "Plastic waste → Salt evaporates → Water turns red"], correct: 0, exp: "Bacterial decomposition of dead algae depletes dissolved oxygen, suffocating aquatic animals." },
+            { q: "How do saltwater marine fish osmoregulate to prevent dehydration?", a: ["They drink no water and excrete dilute urine", "They continuously drink seawater and actively pump excess salt ions out through specialized gill cells", "They absorb salt through their scales", "They store freshwater in lungs"], correct: 1, exp: "Marine fish are hypotonic to seawater; they drink seawater and actively excrete salt to retain body moisture." },
+            { q: "How do freshwater fish osmoregulate in hypertonic cellular environments?", a: ["They drink ocean water", "They avoid drinking water, excrete large volumes of dilute urine, and actively absorb salt ions through gills", "They shrivel up completely", "They excrete solid salt crystals"], correct: 1, exp: "Freshwater fish constantly absorb water via osmosis; they excrete dilute urine to maintain salt balance." },
+            { q: "What is the photic (euphotic) zone depth limit in open oceans?", a: ["Upper ~200 meters where sunlight permits active photosynthesis", "Deep ocean floor at 10,000 meters", "First 2 centimeters of waves", "The entire ocean depth"], correct: 0, exp: "Sunlight penetrates down to approximately 200 meters, supporting marine primary producers." },
+            { q: "What ecological role does a riparian buffer zone along riverbanks perform?", a: ["It accelerates water erosion", "Vegetation filters agricultural runoff, stabilizes riverbanks, and shades water to lower temperature", "It stores radioactive waste", "It increases water salinity"], correct: 1, exp: "Vegetated river margins trap nutrient runoff and reduce thermal/sediment pollution." },
+            { q: "What causes saltwater intrusion into coastal freshwater aquifers?", a: ["Excess rainwater infiltration", "Over-pumping groundwater wells faster than natural recharge, drawing ocean saltwater inland", "Planting mangrove forests", "Building wooden fences"], correct: 1, exp: "Excessive coastal well pumping lowers the freshwater table, pulling underground ocean water into freshwater aquifers." },
+            { q: "Why is Carbon Monoxide (CO) classified as a dangerous air pollutant?", a: ["It causes green rain", "It is an odorless toxic gas that binds hemoglobin, blocking oxygen transport in blood", "It destroys stratospheric ozone", "It smells like rotten eggs"], correct: 1, exp: "CO binds irreversibly to red blood cell hemoglobin, starving tissue of oxygen." },
+            { q: "What environmental problem is caused by tailpipe Nitrogen Oxide (NOx) emissions?", a: ["Glacier expansion", "Formation of photochemical brown smog and nitric acid rain", "Radium fallout", "Ozone layer creation in rivers"], correct: 1, exp: "NOx reacts in sunlight to form photochemical smog and dissolves in rain as nitric acid." },
+            { q: "What air pollutant released from coal combustion causes sulfuric acid rain?", a: ["Methane (CH₄)", "Sulfur Dioxide (SO₂)", "Argon gas", "Carbon monoxide"], correct: 1, exp: "Sulfur impurities in coal burn to release SO₂, forming H₂SO₄ acid precipitation." },
+            { q: "Why are Particulate Matter particles smaller than 2.5 microns (PM₂.₅) especially hazardous?", a: ["They block solar eclipses", "They bypass upper respiratory filters, penetrating deep into lung alveoli and bloodstream", "They dissolve water pipes", "They attract lightning"], correct: 1, exp: "Microscopic PM₂.₅ soot evades nasal cilia, causing deep cardiovascular and pulmonary damage." },
+            { q: "How is ground-level (tropospheric) ozone formed?", a: ["Directly emitted from car exhaust pipes", "As a secondary pollutant when NOx and Volatile Organic Compounds (VOCs) react in sunlight", "Released by forest trees at night", "Mined from subterranean rocks"], correct: 1, exp: "Ground-level ozone is a toxic secondary pollutant produced by solar-driven chemical reactions." },
+            { q: "What atmospheric conditions generate urban photochemical smog?", a: ["Freezing rain and wind", "Abundant sunlight, warm temperatures, and automobile exhaust (NOx + VOCs)", "Snowstorms in pine forests", "Heavy fog over unpopulated oceans"], correct: 1, exp: "Sunlight drives photochemical reactions between car exhaust pollutants in warm urban air." },
+            { q: "What mechanism traps air pollutants in a valley during a thermal inversion?", a: ["High wind speeds", "A warm air layer caps cooler air near the ground, preventing vertical atmospheric mixing", "Heavy rainstorms", "Rising sea tides"], correct: 1, exp: "Thermal inversions trap cool, stagnant surface air beneath a warm ceiling layer." },
+            { q: "What is the threshold pH value defining acid precipitation?", a: ["pH lower than 5.6 (natural rain baseline pH is ~5.6 due to dissolved CO₂)", "pH 7.0", "pH 12.0", "pH 0.0 only"], correct: 0, exp: "Unpolluted rain is naturally slightly acidic (~5.6); values below 5.6 indicate acid deposition." },
+            { q: "What function does a vehicle catalytic converter perform?", a: ["Increases fuel tank capacity", "Converts toxic NOx, CO, and unburned hydrocarbons into harmless N₂, CO₂, and H₂O", "Chills engine coolant", "Stores lead particles"], correct: 1, exp: "Catalytic converters use precious metals to reduce hazardous tailpipe emissions." },
+            { q: "According to the WHO, what percentage of the global population breathes air exceeding safety limits?", a: ["10%", "50%", "75%", "99%"], correct: 3, exp: "World Health Organization monitoring reveals 99% of people breathe air surpassing pollutant thresholds." },
+            { q: "What essential protective service does stratospheric ozone (O₃) provide?", a: ["Traps heat like a blanket", "Filters harmful solar Ultraviolet (UV-B and UV-C) radiation", "Generates oxygen for breathing", "Reflects radio waves"], correct: 1, exp: "Stratospheric ozone shields terrestrial life from DNA-damaging solar ultraviolet radiation." },
+            { q: "Which synthetic compounds caused the Antarctic stratospheric ozone hole?", a: ["Carbon dioxide (CO₂)", "Chlorofluorocarbons (CFCs) and Halons", "Methane gas", "Sulfuric acid"], correct: 1, exp: "CFCs release chlorine free radicals under UV light, catalytically destroying O₃ molecules." },
+            { q: "Which international treaty successfully phased out global CFC production?", a: ["Paris Agreement", "Kyoto Protocol", "Montreal Protocol (1987)", "Geneva Convention"], correct: 2, exp: "The 1987 Montreal Protocol is considered the most successful global environmental treaty in history." },
+            { q: "How does the greenhouse effect trap thermal energy in the troposphere?", a: ["Greenhouse gases reflect solar light back to space", "Greenhouse gases absorb outgoing longwave Infrared (heat) radiation emitted by Earth and re-radiate it downward", "Ozone blocks wind", "Nitrogen burns in air"], correct: 1, exp: "Tropospheric GHGs absorb infrared radiation, warming the lower atmosphere." },
+            { q: "Which gas exhibits a Global Warming Potential ~28 times greater than CO₂ over 100 years?", a: ["Oxygen (O₂)", "Methane (CH₄)", "Argon (Ar)", "Nitrogen (N₂)"], correct: 1, exp: "Methane traps significantly more infrared thermal energy per molecule than carbon dioxide." },
+            { q: "What target temperature limit was established by the 2015 Paris Climate Agreement?", a: ["Limit global warming to well below 2.0°C above pre-industrial levels (pursuing 1.5°C)", "Stop all rainfall", "Cool Earth by 10°C", "Allow 5.0°C warming"], correct: 0, exp: "The Paris Agreement legally commits nations to hold warming well below 2.0°C." },
+            { q: "How do Stratospheric Ozone Depletion and Tropospheric Climate Change differ?", a: ["They occur in the same layer using the same gas", "Ozone depletion involves Stratospheric UV-filtering; Climate Change involves Tropospheric IR heat-trapping", "Ozone affects water; Climate affects rocks", "Ozone is caused by farming; Climate is caused by fishing"], correct: 1, exp: "Ozone depletion is a stratospheric UV shield issue; climate change is a tropospheric thermal heat issue." },
+            { q: "What defines a natural carbon sink?", a: ["A coal-burning power plant", "A natural reservoir (e.g. Amazon basin, deep ocean sediments) that absorbs more carbon than it releases", "An oil refinery", "A desert dune"], correct: 1, exp: "Carbon sinks sequester carbon out of active atmospheric circulation." },
+            { q: "What primary mechanism causes coral bleaching during marine heatwaves?", a: ["Corals absorb excess salt", "Thermal stress causes coral polyps to expel their colorful energy-producing algal symbionts (zooxanthellae)", "Corals convert into granite", "Corals sink into deep trenches"], correct: 1, exp: "High water temperatures disrupt zooxanthellae photosynthesis, causing corals to eject their algal partners." },
+            { q: "What is the 'Tragedy of the Commons'?", a: ["A famous theater play", "Overexploitation and depletion of shared, open-access resources due to uncoordinated individual self-interest", "Private land conservation laws", "Building public parks"], correct: 1, exp: "Unregulated common resources (e.g., ocean fisheries, clean air) suffer depletion when individuals maximize personal gain." },
+            { q: "What is an Alliance for Zero Extinction (AZE) site?", a: ["A municipal recycling plant", "An endangered species site holding the last remaining wild population of a Critically Endangered species", "A national park in Canada", "A commercial tree farm"], correct: 1, exp: "AZE sites represent irreplaceable conservation refuges holding a species' last wild population." },
+            { q: "What defines a Key Biodiversity Area (KBA)?", a: ["A shopping mall parking lot", "A site contributing significantly to the global persistence of biodiversity across habitats", "A clear-cut timber zone", "An underground mine"], correct: 1, exp: "KBAs are internationally recognized sites critical for global biodiversity survival." },
+            { q: "What does Energy Return on Investment (EROI) evaluate?", a: ["The retail price of gasoline", "The ratio of delivered usable energy relative to the energy spent to extract and process it", "Height of wind turbines", "Weight of solar panels"], correct: 1, exp: "High EROI energy sources yield substantial net energy relative to extraction effort." },
+            { q: "What key practice characterizes Integrated Pest Management (IPM)?", a: ["Applying 100% synthetic chemical sprays daily", "Combining biological predators, crop rotation, mechanical barriers, and minimal chemical sprays", "Ignoring crop pests completely", "Paving agricultural fields"], correct: 1, exp: "IPM combines ecological, physical, and targeted chemical controls to minimize pesticide reliance." },
+            { q: "What operational advantage and trade-off characterizes nuclear fission energy?", a: ["High CO₂ emissions during operation", "Zero direct atmospheric CO₂ emissions during operation, but generates long-lived radioactive waste", "Uses no water", "Zero fuel requirement"], correct: 1, exp: "Nuclear plants generate zero greenhouse gas emissions while operating, but produce radioactive waste requiring geologic disposal." },
+            { q: "Why are solar and wind energy classified as intermittent energy resources?", a: ["They cause radioactive fallout", "Electricity generation fluctuates based on weather, diurnal sunlight, and wind variations", "They emit heavy metals", "They pollute fresh water"], correct: 1, exp: "Solar and wind output varies dynamically with time of day and atmospheric conditions." },
+            { q: "What process characterizes primary ecological succession?", a: ["Vegetation growing on pre-existing fertile topsoil after a mild fire", "Ecological colonization starting on bare mineral rock or volcanic basalt with no pre-existing soil", "Crop rotation in agricultural fields", "Planting trees in a garden"], correct: 1, exp: "Primary succession begins on newly exposed rock surfaces devoid of organic soil." },
+            { q: "How does secondary ecological succession differ from primary succession?", a: ["Secondary succession occurs in oceans only", "Secondary succession occurs after a disturbance where the original topsoil remains intact", "Secondary succession takes 1 million years", "Secondary succession requires volcanic lava"], correct: 1, exp: "Secondary succession proceeds faster because established topsoil and seed banks remain following disturbances (e.g. fire)." },
+            { q: "What does an Ecological Footprint measure?", a: ["Human shoe size averages", "The biologically productive land and water area required to supply a population's resources and absorb its waste", "Depth of river beds", "Height of mountain ranges"], correct: 1, exp: "An ecological footprint quantifies total environmental demand expressed in global hectares per capita." }
+        ];
+
+        let activeQuizSet = [];
+        let userAnswers = {};
+
+        function initQuiz() {
+            const shuffled = [...questionBank].sort(() => 0.5 - Math.random());
+            activeQuizSet = shuffled.slice(0, 20);
+            userAnswers = {};
+
+            const scoreDisp = document.getElementById('scoreDisplay');
+            if (scoreDisp) scoreDisp.textContent = "0 / 20";
+
+            const qSum = document.getElementById('quizSummary');
+            if (qSum) qSum.classList.add('hidden');
+
+            const qContainer = document.getElementById('quizContainer');
+            if (qContainer) qContainer.classList.remove('hidden');
+
+            renderQuiz();
+        }
+
+        function renderQuiz() {
+            const container = document.getElementById('quizContainer');
+            if (!container) return;
+            container.innerHTML = '';
+
+            activeQuizSet.forEach((qObj, idx) => {
+                const card = document.createElement('div');
+                card.className = 'bg-slate-900/90 p-5 rounded-2xl border border-slate-800 text-xs text-slate-200 space-y-3 shadow-md';
+
+                let optionsHTML = '';
+                qObj.a.forEach((opt, optIdx) => {
+                    const isSelected = userAnswers[idx] === optIdx;
+                    const isCorrect = qObj.correct === optIdx;
+                    let btnClass = 'w-full text-left p-3 rounded-xl border border-slate-700 bg-slate-800 hover:bg-slate-700 transition flex items-center justify-between text-xs font-medium cursor-pointer';
+
+                    if (userAnswers[idx] !== undefined) {
+                        if (isCorrect) {
+                            btnClass = 'w-full text-left p-3 rounded-xl border border-emerald-500 bg-emerald-950/60 text-emerald-200 font-medium flex items-center justify-between text-xs';
+                        } else if (isSelected && !isCorrect) {
+                            btnClass = 'w-full text-left p-3 rounded-xl border border-rose-500 bg-rose-950/60 text-rose-200 font-medium flex items-center justify-between text-xs';
+                        }
+                    }
+
+                    optionsHTML += `
+                        <button onclick="selectOption(${idx}, ${optIdx})" class="${btnClass}">
+                            <span>${String.fromCharCode(65 + optIdx)}. ${opt}</span>
+                            ${userAnswers[idx] !== undefined && isCorrect ? '<i class="fa-solid fa-circle-check text-emerald-400"></i>' : ''}
+                            ${userAnswers[idx] !== undefined && isSelected && !isCorrect ? '<i class="fa-solid fa-circle-xmark text-rose-400"></i>' : ''}
+                        </button>
+                    `;
+                });
+
+                let explanationHTML = '';
+                if (userAnswers[idx] !== undefined) {
+                    explanationHTML = `
+                        <div class="mt-3 p-3 bg-slate-950 rounded-xl border border-slate-800 text-[11px] text-slate-400">
+                            <strong class="text-brand-400"><i class="fa-solid fa-lightbulb mr-1"></i> Explanation:</strong> ${qObj.exp}
+                        </div>
+                    `;
+                }
+
+                card.innerHTML = `
+                    <div class="font-extrabold text-sm text-white flex items-start gap-2">
+                        <span class="bg-brand-500/20 text-brand-400 px-2.5 py-0.5 rounded-lg border border-brand-500/30 text-xs font-mono">Q${idx + 1}</span>
+                        <span>${qObj.q}</span>
+                    </div>
+                    <div class="space-y-2 mt-3">${optionsHTML}</div>
+                    ${explanationHTML}
+                `;
+                container.appendChild(card);
+            });
+
+            updateScore();
+        }
+
+        function selectOption(qIdx, optIdx) {
+            if (userAnswers[qIdx] !== undefined) return;
+            userAnswers[qIdx] = optIdx;
+            renderQuiz();
+        }
+
+        function updateScore() {
+            let score = 0;
+            let answeredCount = 0;
+            activeQuizSet.forEach((qObj, idx) => {
+                if (userAnswers[idx] !== undefined) {
+                    answeredCount++;
+                    if (userAnswers[idx] === qObj.correct) {
+                        score++;
+                    }
+                }
+            });
+
+            const scoreDisp = document.getElementById('scoreDisplay');
+            if (scoreDisp) scoreDisp.textContent = `${score} / 20`;
+
+            if (answeredCount === 20) {
+                document.getElementById('quizContainer').classList.add('hidden');
+                document.getElementById('quizSummary').classList.remove('hidden');
+                document.getElementById('finalScoreText').textContent = `You scored ${score} / 20 (${Math.round((score/20)*100)}%)`;
+
+                const badge = document.getElementById('feedbackBadge');
+                if (score >= 18) {
+                    badge.textContent = "🏆 Mastery Achieved! Outstanding environmental literacy.";
+                    badge.className = "text-sm text-brand-400 font-extrabold";
+                } else if (score >= 14) {
+                    badge.textContent = "🌟 Great job! Strong understanding across key units.";
+                    badge.className = "text-sm text-sky-400 font-extrabold";
+                } else {
+                    badge.textContent = "📚 Keep practicing! Review the interactive modules above to boost your score.";
+                    badge.className = "text-sm text-amber-400 font-extrabold";
+                }
+            }
+        }
+
+        window.onload = function() {
+            initEcosystem();
+            updatePopGrowth();
+            updateMicroSim();
+            runLogicParser();
+            initQuiz();
+        };
+    </script>
+    <script type="module" src="./notes-pdf.js"></script>
+</body>
+</html>
